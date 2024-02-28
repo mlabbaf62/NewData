@@ -1,0 +1,20 @@
+{ Functions = SendConfirmSMS }
+{ Functions = RecoveryAccountPassword }
+{ Functions = SendConfirmSMS }
+{ Functions = RecoveryAccountPassword }
+{ tmpIp = ::1 }
+{ path = ~/js/busy.js }
+{ key = ~/token/js/logine.js::1 }
+{ tmpPathinfo =  }
+{ Functions = SendConfirmSMS }
+{ Functions = RecoveryAccountPassword }
+{ tmpIp = ::1 }
+{ tmpIp = ::1 }
+{ key = ~/token/js/logine.js::1 }
+{ tmpIp = ::1 }
+{ key = ~/token/obj.js::1 }
+{ EnableCaptcha = True }
+{ tmpIp = ::1 }
+{ key = ~/js/busy.js::1 }
+
+1/22/2024 4:35:55 PM

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SafaJsConfig>
+
+
+  <Setting Key="AuthenticationUrl" Value="http://localhost/Security8.web/service/safaauth.svc/json/"/>
+  <Setting Key="SecurityUrl" Value="http://localhost/Security8.web/service/securitywcf.svc/json/"/>
+
+
+</SafaJsConfig>
+
+

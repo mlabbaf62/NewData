@@ -1,0 +1,99 @@
+﻿<fieldset style="width: 100%; box-shadow: none" class="GamBox">
+    <div style="padding-left: 0px; float: right; padding-right:0;" class="col-md-12 col-xs-12 PanelVs GamBoxFrame">
+        <div class="info" style="margin-bottom: 0px!important;" ng-include="'Config/Parvaneh/infoText/PEngineer.html'"></div>
+
+        <div id="DivMohandes" class="col-md-12 disabled" style="clear:both">
+            <hr />
+
+            <table id="gridView1" class="GridView col-md-12" style="margin-top:2px;">
+                <thead>
+                    <tr>
+                        <td class="" style="border-left: 1px solid white;width:20%">کد دفتر یا مهندس</td>
+                        <td class="" style="border-left: 1px solid white;width:20%">نام مهندس یا دفتر</td>
+                        <td class="" style="border-left: 1px solid white;width:20%">نام خانوادگی</td>
+                        <td class="" style="border-left: 1px solid white;width:20%">صلاحیت پایه</td>
+                        <td class="" style="border-left: 1px solid white;width:20%">شماره تماس (همراه یا ثابت)</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="x in EngList">
+                        <td class="" ng-bind="x.IdentityCode"></td>
+                        <td class="" ng-bind="x.EngName"></td>
+                        <td class="" ng-bind="x.EngFamily"></td>
+                        <td class="" ng-bind="x.Ability"></td>
+                        <td class="" ng-bind="x.MobileNo"></td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr clas ng-show="EngList==null || (EngList!=null && EngList.length==0)">
+                        <td colspan="8" style="text-align: center">
+                            <span style="color: red">اطلاعاتی یافت نشد</span>
+                        </td>
+                    </tr>
+                    <tr style="height:10px; background-color:silver!important"></tr>
+                </tfoot>
+            </table>
+
+            <table class="GridView" style="overflow-x: auto">
+                <thead>
+                    <tr>
+                        <td class="" style="border-left: 1px solid white;width:auto;width:150px">نام نقشه</td>
+                        <td class="" style="border-left: 1px solid white;width:270px">بارگذاری نقشه</td>
+                        <td class="" style="border-left: 1px solid white;width:150px">شماره درخواست موازی</td>
+
+                        <td class="" style="border-left: 1px solid white;width:120px">نظر شهرساز</td>
+                        <td class="" style="border-left: 1px solid white;width:auto">توضیحات (شهرساز)</td>
+
+                        <td class="" style="border-left: 1px solid white;width:120px">نظر سازمان</td>
+                        <td class="" style="border-left: 1px solid white;width:auto">توضیحات سازمان</td>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="x in LetterList_Com" style="height:45px">
+                        <td>
+                            <span ng-bind="x.LetterName" />
+                        </td>
+                        <td style="width:270px">
+                            <div style="float:right;width:40px;height:30px">
+                                <img ng-show="x.Sh_OfficeLetter.ArchiveNidFile!=null && x.Sh_OfficeLetter.ArchiveNidFile!=''" src="{{ArchiveProvide}}Fname={{x.Sh_OfficeLetter.ArchiveNidFile}}&ZoomLevel=0&BizCode={{GamInputData.ArchiveBizCode}}&&DomainName={{GamInputData.District}}" class="zoom" style="width:40px;padding-top:5px" onclick="" />
+                            </div>
+                            <div ng-hide="x.Sh_OfficeLetter.EumConfirm==1" style="float:right" id="DivLetterCom{{$index}}"></div>
+                        </td>
+                        <td>
+                            <span ng-bind="x.Sh_OfficeLetter.NidWorkItem"></span>
+                        </td>
+                        <td style="min-width:80px">
+                            <img src="Images/Tick2.png" ng-show="x.Sh_OfficeLetter.EumConfirm==1" style="width:20px; height:21px" />
+                            <img src="Images/Error.png" ng-show="x.Sh_OfficeLetter.EumConfirm!=1" style="width:20px; height:21px" />
+                        </td>
+                        <td>
+                            <span ng-bind="x.Sh_OfficeLetter.Comments"></span>
+                        </td>
+
+
+                        <td style="min-width:80px">
+                            <img src="Images/Tick2.png" ng-show="x.Sh_OfficeLetter.EumConfirmOrganization==1" style="width:20px; height:21px" />
+                            <img src="Images/Error.png" ng-show="x.Sh_OfficeLetter.EumConfirmOrganization!=1" style="width:20px; height:21px" />
+                        </td>
+                        <td>
+                            <span ng-bind="x.Sh_OfficeLetter.CommentsOrganization"></span>
+                        </td>
+
+                    </tr>
+                    <tr ng-show="LetterList_Com.length==0">
+                        <td colspan="8" style="text-align: center">
+                            <span style="color: red">موردی یافت نشد</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div style="float:right;margin-right:10px">
+                <input type="button" value="وضعیت درخواست در کمیسیونها" ng-click="ShowReport('RptParvaneh_Map')" />
+            </div>
+
+
+        </div>
+    </div>
+</fieldset>

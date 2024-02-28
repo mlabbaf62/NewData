@@ -1,0 +1,31 @@
+System.String[]
+System.String[]-------------------------------
+Index:1  ~/form/safachangepassword.aspx
+-------------------------------
+{ path = ~/config/appconfig.xml }
+{ tmpPathinfo =  }
+{ Functions = SendConfirmSMS }
+{ Functions = RecoveryAccountPassword }
+{ tmpIp = ::1 }
+{ key = ~/config/appconfig.xml::1 }
+{ tmpIp = ::1 }
+{ key = ~/config/appconfig.xml::1 }
+{ tmpClientIp = ::1 }
+{ EnableCaptcha = True }
+
+8/28/2023 12:16:29 PMSystem.String[]
+System.String[]-------------------------------
+Index:1  ~/form/safachangepassword.aspx
+-------------------------------
+{ path = ~/images/ajax-loading.gif }
+{ tmpPathinfo =  }
+{ Functions = SendConfirmSMS }
+{ Functions = RecoveryAccountPassword }
+{ tmpIp = ::1 }
+{ key = ~/images/ajax-loading.gif::1 }
+{ tmpIp = ::1 }
+{ key = ~/images/ajax-loading.gif::1 }
+{ tmpClientIp = ::1 }
+{ EnableCaptcha = True }
+
+8/28/2023 12:16:30 PM

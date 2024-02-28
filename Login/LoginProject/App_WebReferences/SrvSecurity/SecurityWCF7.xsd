@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Security8.Web" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Security8.Web" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost/Security8.Web/Service/SecurityWCF.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/" />
+  <xs:import schemaLocation="http://localhost/Security8.Web/Service/SecurityWCF.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/SecurityModel.Esup" />
+  <xs:import schemaLocation="http://localhost/Security8.Web/Service/SecurityWCF.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost/Security8.Web/Service/SecurityWCF.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/SecurityModel.Archive" />
+  <xs:import schemaLocation="http://localhost/Security8.Web/Service/SecurityWCF.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/SecurityModel" />
+  <xs:import schemaLocation="http://localhost/Security8.Web/Service/SecurityWCF.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ClsMap">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="ErrorResult" nillable="true" type="q1:ClsErrorResult" />
+      <xs:element minOccurs="0" name="LayerCount" type="xs:int" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SecurityModel.Esup" minOccurs="0" name="LayerList" nillable="true" type="q2:ArrayOfLayer" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SecurityModel.Esup" minOccurs="0" name="LayerPermission" nillable="true" type="q3:ArrayOfLayer" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SecurityModel.Esup" minOccurs="0" name="LayersChartList" nillable="true" type="q4:ArrayOfLayersChart" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SecurityModel.Esup" minOccurs="0" name="MapShare" nillable="true" type="q5:MapShare" />
+      <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SecurityModel.Esup" minOccurs="0" name="MapShareLayerList" nillable="true" type="q6:ArrayOfMapShare_Layer" />
+      <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="MapShareLayersGroupList" nillable="true" type="q7:ArrayOfstring" />
+      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/SecurityModel.Esup" minOccurs="0" name="MapShareList" nillable="true" type="q8:ArrayOfMapShare" />
+      <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="NidPerimission" nillable="true" type="q9:ArrayOfKeyValueOfguidlong" />
+      <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/SecurityModel.Esup" minOccurs="0" name="SearchApplicationData_CategoryList" nillable="true" type="q10:ArrayOfSearchApplicationData_Category" />
+      <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/SecurityModel.Esup" minOccurs="0" name="SearchApplicationPermissionsList" nillable="true" type="q11:ArrayOfSearchApplication_Permissions" />
+      <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/SecurityModel.Esup" minOccurs="0" name="UserLayerPermission" nillable="true" type="q12:ArrayOfUserLayerPermission" />
+      <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/SecurityModel.Esup" minOccurs="0" name="UserLayerPermissions_WKTList" nillable="true" type="q13:ArrayOfUserLayerPermissions_WKT" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClsMap" nillable="true" type="tns:ClsMap" />
+  <xs:complexType name="ClsArchive">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CategoryCount" type="xs:int" />
+      <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/SecurityModel.Archive" minOccurs="0" name="CategoryList" nillable="true" type="q14:ArrayOfCategory" />
+      <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/SecurityModel.Archive" minOccurs="0" name="CategoryPermissionList" nillable="true" type="q15:ArrayOfCategory_Permission" />
+      <xs:element minOccurs="0" name="ChildsCatStr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EntityCount" type="xs:int" />
+      <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/SecurityModel.Archive" minOccurs="0" name="EntityList" nillable="true" type="q16:ArrayOfEntity" />
+      <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="ErrorResult" nillable="true" type="q17:ClsErrorResult" />
+      <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/SecurityModel.Archive" minOccurs="0" name="UserPermissionList" nillable="true" type="q18:ArrayOfArchiveUserPermission" />
+      <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/SecurityModel" minOccurs="0" name="UsersList" nillable="true" type="q19:ArrayOfUser" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClsArchive" nillable="true" type="tns:ClsArchive" />
+  <xs:complexType name="ClsApplication">
+    <xs:sequence>
+      <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/SecurityModel" minOccurs="0" name="Application" nillable="true" type="q20:Application" />
+      <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/SecurityModel" minOccurs="0" name="ApplicationList" nillable="true" type="q21:ArrayOfApplication" />
+      <xs:element minOccurs="0" name="CIList" nillable="true" type="tns:ArrayOfCI" />
+      <xs:element minOccurs="0" name="DTOExpression" nillable="true" type="tns:DTOExpression" />
+      <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="ErrorResult" nillable="true" type="q22:ClsErrorResult" />
+      <xs:element minOccurs="0" name="ExpressionList" nillable="true" type="tns:ArrayOfDTOExpression" />
+      <xs:element minOccurs="0" name="TableName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tables" nillable="true" type="tns:ArrayOfVFieldDescription" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClsApplication" nillable="true" type="tns:ClsApplication" />
+  <xs:complexType name="ArrayOfCI">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CI" nillable="true" type="tns:CI" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCI" nillable="true" type="tns:ArrayOfCI" />
+  <xs:complexType name="CI">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CI" nillable="true" type="tns:CI" />
+  <xs:complexType name="DTOExpression">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Expression" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Expression_Title" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NIdExpression" type="ser:guid" />
+      <xs:element minOccurs="0" name="NIdUserOrGroup" type="ser:guid" />
+      <xs:element minOccurs="0" name="TableDesc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TableName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserType" type="tns:DTOExpression.EumUserType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DTOExpression" nillable="true" type="tns:DTOExpression" />
+  <xs:simpleType name="DTOExpression.EumUserType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="User" />
+      <xs:enumeration value="Role" />
+      <xs:enumeration value="Group" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="DTOExpression.EumUserType" nillable="true" type="tns:DTOExpression.EumUserType" />
+  <xs:complexType name="ArrayOfDTOExpression">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DTOExpression" nillable="true" type="tns:DTOExpression" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDTOExpression" nillable="true" type="tns:ArrayOfDTOExpression" />
+  <xs:complexType name="ArrayOfVFieldDescription">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="VFieldDescription" nillable="true" type="tns:VFieldDescription" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfVFieldDescription" nillable="true" type="tns:ArrayOfVFieldDescription" />
+  <xs:complexType name="VFieldDescription">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="columnCaption" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="columnName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="columnType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tableDesc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="tableName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VFieldDescription" nillable="true" type="tns:VFieldDescription" />
+  <xs:complexType name="ClsUser">
+    <xs:sequence>
+      <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/SecurityModel" minOccurs="0" name="BlackList" nillable="true" type="q23:ArrayOfBlackList" />
+      <xs:element minOccurs="0" name="CountAllOnline" type="xs:int" />
+      <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="DateInfo" nillable="true" type="q24:DateClass" />
+      <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/SecurityModel" minOccurs="0" name="DelegatedUser" nillable="true" type="q25:Delegation" />
+      <xs:element minOccurs="0" name="DelegatedUserMessage" nillable="true" type="xs:string" />
+      <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/SecurityModel" minOccurs="0" name="DelegationUsers" nillable="true" type="q26:ArrayOfDelegation" />
+      <xs:element minOccurs="0" name="EncUserName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="ErrorResult" nillable="true" type="q27:ClsErrorResult" />
+      <xs:element minOccurs="0" name="From" type="xs:int" />
+      <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/SecurityModel" minOccurs="0" name="GroupList" nillable="true" type="q28:ArrayOfUserGroup" />
+      <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/SecurityModel" minOccurs="0" name="LogList" nillable="true" type="q29:ArrayOfLogout" />
+      <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/SecurityModel" minOccurs="0" name="OnlineUsers" nillable="true" type="q30:ArrayOfOnlineUser" />
+      <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/SecurityModel" minOccurs="0" name="OtherUserLogin" nillable="true" type="q31:ArrayOfOnlineUser" />
+      <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/SecurityModel" minOccurs="0" name="PolicySettingResult" nillable="true" type="q32:GroupPolicySetting" />
+      <xs:element xmlns:q33="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Posts" nillable="true" type="q33:ArrayOfstring" />
+      <xs:element minOccurs="0" name="RequestID" nillable="true" type="xs:string" />
+      <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/SecurityModel" minOccurs="0" name="SSOClient" nillable="true" type="q34:SSOClient" />
+      <xs:element minOccurs="0" name="SecondPasswordIsTrue" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SessionID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="To" type="xs:int" />
+      <xs:element minOccurs="0" name="ToTalCount" type="xs:int" />
+      <xs:element minOccurs="0" name="TokenSerial" nillable="true" type="xs:string" />
+      <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/SecurityModel" minOccurs="0" name="User" nillable="true" type="q35:User" />
+      <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/SecurityModel" minOccurs="0" name="UserList" nillable="true" type="q36:ArrayOfUser" />
+      <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/SecurityModel" minOccurs="0" name="Users" nillable="true" type="q37:ArrayOfUser" />
+      <xs:element minOccurs="0" name="UsersCount" type="xs:int" />
+      <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/SecurityModel" minOccurs="0" name="Users_JobLocations" nillable="true" type="q38:ArrayOfUsers_JobLocations" />
+      <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/SecurityModel" minOccurs="0" name="V_LogList" nillable="true" type="q39:ArrayOfV_Logout" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClsUser" nillable="true" type="tns:ClsUser" />
+  <xs:complexType name="ClsAccount">
+    <xs:sequence>
+      <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/SecurityModel" minOccurs="0" name="AccountList" nillable="true" type="q40:ArrayOfAccount_Info" />
+      <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/SecurityModel" minOccurs="0" name="AccountLog" nillable="true" type="q41:AccountLog" />
+      <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/SecurityModel" minOccurs="0" name="AccountLogList" nillable="true" type="q42:ArrayOfAccountLog" />
+      <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/SecurityModel" minOccurs="0" name="Account_Info" nillable="true" type="q43:Account_Info" />
+      <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/SecurityModel" minOccurs="0" name="Account_MessageList" nillable="true" type="q44:ArrayOfAccount_Message" />
+      <xs:element minOccurs="0" name="Count" type="xs:int" />
+      <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="ErrorResult" nillable="true" type="q45:ClsErrorResult" />
+      <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/SecurityModel" minOccurs="0" name="Province_Info" nillable="true" type="q46:Province_Info" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClsAccount" nillable="true" type="tns:ClsAccount" />
+  <xs:complexType name="PagingData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CountAll" type="xs:int" />
+      <xs:element minOccurs="0" name="CountAllOnline" type="xs:int" />
+      <xs:element minOccurs="0" name="ExcelFileName" nillable="true" type="xs:string" />
+      <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/SecurityModel" minOccurs="0" name="JobLocationList" nillable="true" type="q47:ArrayOfJobLocation" />
+      <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/SecurityModel" minOccurs="0" name="OnlineUsers" nillable="true" type="q48:ArrayOfOnlineUser" />
+      <xs:element minOccurs="0" name="PageNum" type="xs:int" />
+      <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/SecurityModel" minOccurs="0" name="RoleChildren" nillable="true" type="q49:RoleChildren" />
+      <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/SecurityModel" minOccurs="0" name="UserList" nillable="true" type="q50:ArrayOfUser" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PagingData" nillable="true" type="tns:PagingData" />
+  <xs:complexType name="ArrayOfGroupsUsers">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GroupsUsers" nillable="true" type="tns:GroupsUsers" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGroupsUsers" nillable="true" type="tns:ArrayOfGroupsUsers" />
+  <xs:complexType name="GroupsUsers">
+    <xs:sequence>
+      <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/SecurityModel" minOccurs="0" name="UserGroup" nillable="true" type="q51:UserGroup" />
+      <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/SecurityModel" minOccurs="0" name="Users" nillable="true" type="q52:ArrayOfUser" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GroupsUsers" nillable="true" type="tns:GroupsUsers" />
+</xs:schema>

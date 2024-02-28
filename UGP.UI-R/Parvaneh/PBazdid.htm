@@ -1,0 +1,167 @@
+﻿<style>
+    .pdate {
+        font-family: W_yekan;
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+    table.Time {
+        /*width: 100%;*/
+    }
+
+        table.Time td {
+            background-color: #e45d5d;
+            padding: 6px;
+            font-weight: bold;
+            font-size: 17px;
+            line-height: 170%;
+            border-bottom: 4px solid white;
+        }
+
+            /*table.Time td:hover {
+                background-color: #c2c2c2;
+            }*/
+
+            table.Time td.active2 {
+                background-color: #9fcb9f !important;
+                cursor: pointer;
+            }
+
+                table.Time td.active2:hover {
+                    background-color: #7ab47a !important;
+                }
+
+            table.Time td.isPreTime {
+                background-color: #808080 !important;
+            }
+
+                table.Time td.isPreTime:hover {
+                    background-color: #808080 !important;
+                    cursor: default;
+                }
+
+            table.Time td.tick {
+                background-image: url('Images/tik.png');
+                background-position: left;
+                background-repeat: no-repeat;
+                background-size: 31px 33px;
+                border-bottom: 3px solid white;
+                border-top: 3px solid white;
+                color: gold;
+            }
+
+    .flat .pickerFoot {
+        display: none;
+    }
+</style>
+
+<style>
+    .pdate {
+        font-family: W_yekan;
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+    table.Time {
+        width: 100%;
+    }
+
+        table.Time td {
+            background-color: #e45d5d;
+            padding: 5px;
+            font-weight: bold;
+            font-size: 17px;
+            line-height: 170%;
+        }
+
+            /*table.Time td:hover {
+                background-color: #c2c2c2;
+            }*/
+
+
+
+            table.Time td.active2 {
+                background-color: #9fcb9f !important;
+                cursor: pointer;
+            }
+
+                table.Time td.active2:hover {
+                    background-color: #7ab47a !important;
+                }
+
+            table.Time td.isPreTime {
+                background-color: #808080 !important;
+            }
+
+                table.Time td.isPreTime:hover {
+                    background-color: #808080 !important;
+                    cursor: default;
+                }
+
+            table.Time td.tick {
+                background-image: url('Images/tik.png');
+                background-position: left;
+                background-repeat: no-repeat;
+                background-size: 31px 33px;
+                background-color: #7dba7d !important;
+            }
+</style>
+
+
+<fieldset class="GamBox" id="MainBazdid">
+    <div class="GamBoxFrame col-sm-12 col-xs-12  col-md-12 col-lg-12">
+
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <span ng-bind="'[' +(Prop.CurrentPageName) + ']'" class="GamHeader"></span>
+            </div>
+            <div class="panel-body nopadding" style="min-height:300px; direction:rtl">
+                <div class="info" style="margin-bottom: 0px!important;" ng-include="'Config/Parvaneh/infoText/PBazdid.html'"></div>
+                <div class="GamBoxFrame2 col-lg-12 col-md-12 col-sm-12  col-xs-12" style="padding: 0 35px  0 35px" ng-show="GamInputData.Sh_RevisitAgentRandom.LastName!=null && GamInputData.ShowRevisitAgentName==true">
+                    <div style="color: black; font-weight: bold; float: right;">
+                        <span style="float: right">نام مامور بازدید : </span>
+                        <span ng-bind="GamInputData.Sh_RevisitAgentRandom.Name" style="direction: ltr; float: right; padding-right:5px" class="ng-binding"></span>
+                        <span ng-bind="GamInputData.Sh_RevisitAgentRandom.LastName" style="direction: ltr; float: right;padding-right:5px" class="ng-binding"></span>
+
+                        <div style="color: black; font-weight: bold; float: right; padding-right: 30px; margin-right: 20px;" ng-show="GamInputData.ShowRevisitAgentTell==true">
+                            <span>تلفن همراه مامور بازدید : </span>
+                            <span ng-bind="GamInputData.Sh_RevisitAgentRandom.Phone" style="direction: ltr; float: left; " class="ng-binding"></span>
+                        </div>
+
+                    </div>
+                </div>
+                <div>
+                    <input ng-show="GamInputData.NidProc!=undefined && GamInputData.BazdidDate!=''" type="button" class="btn btn-success" style="width:100px" value="تایید" onclick="AddBazdidToSara2()" />
+
+
+                </div>
+
+
+                <div class="col-md-12">
+                    <hr />
+
+                    <div id="DivBazdid" class="panel panel-success col-md-6 col-xs-12 nopadding" style="float:right;direction:rtl">
+
+                        <div class="panel-body col-lg-3 col-md-4 col-xs-12 nopadding" style="padding: 7px!important;float:right">
+
+                            <div class="col-md-12 col-xs-12 fltr">
+                                <input id="tDate" type="text" readonly="readonly" class="pdate numbers "
+                                       style="width: 190px; float: right;"
+                                       title="بر روی تقویم تاریخ مورد نظر را که با رنگ سبز مشخص شده است ,انتخاب نمایید" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</fieldset>
+
+
+
+<script>
+    $(document).ready(function () {
+        DateBazdidPlugin.LoadCalender();
+    });
+</script>

@@ -1,0 +1,16 @@
+System.String[]
+System.String[]-------------------------------
+Index:1  ~/form/safachangepassword.aspx
+-------------------------------
+{ path = ~/form/safalogin.aspx }
+{ tmpPathinfo =  }
+{ Functions = SendConfirmSMS }
+{ Functions = RecoveryAccountPassword }
+{ tmpIp = ::1 }
+{ key = ~/form/safalogin.aspx::1 }
+{ tmpIp = ::1 }
+{ key = ~/form/safalogin.aspx::1 }
+{ tmpClientIp = ::1 }
+{ EnableCaptcha = True }
+
+1/22/2024 4:35:55 PM

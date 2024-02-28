@@ -1,0 +1,15 @@
+﻿http://localhost/SafaManMail/SSO/Login.aspx  
+http://localhost/SafaManMail/SSO/LoginTest.aspx
+
+ابتدا صفحه لاگین را فراخوانی کرده و ReturnUrl را ست نمایید
+
+بعد از لاگین صحیح به صفحه مبدا ارجاع داده میشوید و 
+Ticket هم ارسال میشود 
+http://localhost/SafaManMail/SSO/LoginTest.aspx?Ticket=704c2639-d9d1-4d47-9e19-42aaa84507f2
+
+برای بررسی اینکه مقدار تیکت صحیح باشد و مقدار آن معتبر باشد باید 
+بعد از دریافت تیکت توسط تابع 
+CheckSSOTicket  
+مقدار تیکت را به آن ارسال کرده و در صورت صحت اطلاعات کاربر را دریافت خواهید کرد . 
+در غیر این صورت خطای مربوطه در کلاس زیر ارسال میشود 
+response.ErrorResult.BizErrors[0].ErrorTitel

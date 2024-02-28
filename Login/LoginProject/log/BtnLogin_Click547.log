@@ -1,0 +1,5 @@
+
+                //if (tmpRes.Request_Info.MenuID != null && tmpRes.Request_Info.MenuID != getParameterByName('ID')) {
+                //    alert('دسترسی به این صفحه مجاز نمی باشد');
+                //    return;
+                //}

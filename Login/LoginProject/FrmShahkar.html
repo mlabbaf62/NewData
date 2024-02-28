@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script type="text/javascript" src="Form/js/jquery.min.js"></script>
+</head>
+<body>
+
+    <script>
+        var d = { grant_type:'password', username: 'username', password:'pass' };
+        var c1 = JSON.stringify(d);
+
+        $request = $.ajax({
+            type: "POST",
+            url: "https://pgsb.iran.gov.ir/",
+            data: c1,
+            crossDomin: true,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            processdata: true,
+            headers: { "Authorization": "05jQRKq2Q8waL/OUTPMxDA==" },
+
+            success: function (msg) {
+               
+                
+                if (msg.error != null) {
+                    alert(msg.error);
+                }
+                else {
+                      
+                }
+            },
+
+            error: function (c) {
+                // StopBusy('txtConfirmCode');
+            }
+        });
+    </script>
+</body>
+</html>

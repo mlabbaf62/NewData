@@ -1,0 +1,26 @@
+System.String[]
+System.String[]-------------------------------
+Index:1  ~/form/safachangepassword.aspx
+-------------------------------
+{ path = ~/token/appconfig.js }
+System.String[]
+System.String[]-------------------------------
+Index:1  ~/form/safachangepassword.aspx
+-------------------------------
+{ path = ~/form/js/main.js }
+{ Functions = SendConfirmSMS }
+{ Functions = RecoveryAccountPassword }
+{ tmpPathinfo =  }
+{ Functions = SendConfirmSMS }
+{ Functions = RecoveryAccountPassword }
+{ tmpIp = ::1 }
+{ tmpIp = ::1 }
+{ key = ~/token/appconfig.js::1 }
+{ key = ~/form/js/main.js::1 }
+{ tmpIp = ::1 }
+{ tmpClientIp = ::1 }
+{ EnableCaptcha = True }
+{ tmpClientIp = ::1 }
+{ EnableCaptcha = True }
+
+8/28/2023 12:17:17 PM

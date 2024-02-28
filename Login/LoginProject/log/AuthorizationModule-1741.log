@@ -1,0 +1,24 @@
+System.String[]
+System.String[]-------------------------------
+Index:1  ~/form/safachangepassword.aspx
+-------------------------------
+{ path = ~/config/config.js }
+System.String[]
+System.String[]-------------------------------
+Index:1  ~/form/safachangepassword.aspx
+-------------------------------
+{ path = ~/js/busy.js }
+{ tmpPathinfo =  }
+{ Functions = SendConfirmSMS }
+{ Functions = RecoveryAccountPassword }
+{ tmpIp = ::1 }
+{ key = ~/js/busy.js::1 }
+{ key = ~/config/config.js::1 }
+{ tmpIp = ::1 }
+{ tmpIp = ::1 }
+{ key = ~/config/config.js::1 }
+{ key = ~/js/busy.js::1 }
+{ tmpClientIp = ::1 }
+{ EnableCaptcha = True }
+
+1/24/2024 10:46:36 AM

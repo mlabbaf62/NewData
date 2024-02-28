@@ -1,0 +1,135 @@
+﻿<div class="GamBox ">
+
+    <div class="col-md-12 col-xs-12 nopadding">
+        <div id="GridViewTarakom" class="panel panel-success">
+            <div class="panel-heading">
+                <span style="font-weight:bold">کاربری ها</span>
+            </div>
+            <div class="panel-body " style="padding:0!important">
+
+                <div class="GridView">
+                    <table class="GridView ">
+                        <thead>
+                            <tr>
+                                <td class="" >شماره ساختمان</td>
+                                <td class="" >طبقه</td>
+                                <td class="" >کاربری اصلی</td>
+                                <td class="" >مورد استفاده</td>
+                                <td class="" >مساحت کاربری</td>
+                                <td class="" >تعداد واحد</td>
+
+                                <td class="" >نوع ساختمان</td>
+                                <td class="" >نوع سقف</td>
+                                <td class="" >نوع سازه</td>
+                                <td class="" >جنس دیوار</td>
+                                <td class="" >نوع نما</td>
+                                <td class="" >مرحله ساختمانی</td>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr ng-repeat="x in Base_UsingList">
+                                <td class="" ng-bind="x.BuildingNo"></td>
+                                <td class="" ng-bind="x.FloorNo"></td>
+                                <td class="">{{GetCI('CI_UsingGroup' , x.CI_UsingGroup)}}</td>
+                                <td class="">{{GetCI('CI_UsingType' , x.CI_UsingType)}}</td>
+                                <td class="" ng-bind="x.UsingArea"></td>
+                                <td class="" ng-bind="x.UnitCount"></td>
+                                <td class="">{{GetCI('CI_BuildingKind' , x.CI_BuildingKind)}}</td>
+                                <td class="">{{GetCI('CI_RoofType' , x.CI_RoofType)}}</td>
+                                <td class="">{{GetCI('CI_SazehType' , x.CI_SazehType)}}</td>
+                                <td class="">{{GetCI('CI_WallType' , x.CI_WallType)}}</td>
+                                <td class="">{{GetCI('CI_ViewCode' , x.CI_ViewCode)}}</td>
+                                <td class="">{{GetCI('CI_BuildingStep' , x.CI_BuildingStep)}}</td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+
+
+
+
+
+
+        </div>
+    </div>
+
+
+    <div class="col-md-12 col-xs-12 nopadding">
+        <div id="GridViewTarakom" class="panel panel-success">
+            <div class="panel-heading">
+                <span  style="font-weight:bold">پیش آمدگی ها</span>
+            </div>
+            <div class="panel-body " style="padding:0 !important">
+                <div class="GridView">
+                    <table class="GridView ">
+                        <thead>
+                            <tr>
+                                <td>شماره ساختمان</td>
+                                <td>طبقه</td>
+                                <td>مساحت</td>
+                                <td>کاربری</td>
+                                <td>مورد استفاده</td>
+
+                                <td>جهت</td>
+                                <td>طول</td>
+                                <td>عرض</td>
+                                <td>ارتفاع</td>
+                                <td>عمق</td>
+                                <td>چگونگي پيش آمدگي</td>
+                                <td>محل وقوع</td>
+                                <td>وضعيت سقف</td>
+                                <td>نوع</td>
+                                <td>مرحله ساختماني</td>
+
+
+                            </tr>
+                        </thead>
+                        <tbody>
+
+
+                            <tr ng-repeat="x in Base_FrontList">
+                                <td class="" ng-bind="x.BuildingNo"></td>
+                                <td class="" ng-bind="x.FloorNo"></td>
+                                <td class="" ng-bind="x.FrontArea"></td>
+                                <td class="">{{GetCI('CI_UsingGroup' , x.CI_UsingGroup)}}</td>
+                                <td class="">{{GetCI('CI_UsingType' , x.CI_UsingType)}}</td>
+
+                                <td class="">{{GetCI('CI_SideCode' , x.CI_SideCode)}}</td>
+                                <td class="" ng-bind="x.FrontLength"></td>
+                                <td class="" ng-bind="x.FrontWidth"></td>
+
+                                <td class="" ng-bind="x.FrontHeight"></td>
+                                <td class="" ng-bind="x.FrontDepth"></td>
+
+                                <td class="">{{GetCI('CI_FrontIs' , x.CI_FrontIs)}}</td>
+                                <td class="">{{GetCI('CI_FrontPlace' , x.CI_FrontPlace)}}</td>
+                                <td class="">{{GetCI('CI_FrontRoofStatus' , x.CI_FrontRoofStatus)}}</td>
+                                <td class="">{{GetCI('CI_FrontType' , x.CI_FrontType)}}</td>
+                                <td class="">{{GetCI('CI_BuildingStep' , x.CI_BuildingStep)}}</td>
+
+                            </tr>
+                            <tr>
+                                <td colspan="15" style="color: red" ng-bind="Base_FrontListMessage"></td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+
+            </div>
+
+
+
+
+
+
+        </div>
+    </div>
+
+</div>

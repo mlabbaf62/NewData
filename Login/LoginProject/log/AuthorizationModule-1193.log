@@ -1,0 +1,24 @@
+System.String[]
+System.String[]-------------------------------
+Index:1  ~/form/safachangepassword.aspx
+-------------------------------
+{ path = ~/form/css/style1.css }
+{ tmpPathinfo =  }
+System.String[]
+System.String[]-------------------------------
+Index:1  ~/form/safachangepassword.aspx
+-------------------------------
+{ path = ~/token/js/parskitwebapi.js }
+{ key = ~/form/css/style1.css::1 }
+{ tmpPathinfo =  }
+{ Functions = SendConfirmSMS }
+{ Functions = RecoveryAccountPassword }
+{ tmpIp = ::1 }
+{ key = ~/token/js/parskitwebapi.js::1 }
+{ tmpIp = ::1 }
+{ key = ~/form/css/style1.css::1 }
+{ tmpClientIp = ::1 }
+{ EnableCaptcha = True }
+{ tmpIp = ::1 }
+
+1/16/2024 5:49:58 PM

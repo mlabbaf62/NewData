@@ -1,0 +1,46 @@
+System.String[]
+System.String[]-------------------------------
+Index:1  ~/form/safachangepassword.aspx
+-------------------------------
+{ path = ~/form/createaccount.aspx }
+{ tmpPathinfo = GetAccountInfo }
+{ Functions = SendConfirmSMS }
+{ Functions = RecoveryAccountPassword }
+{ tmpIp = ::1 }
+{ key = ~/form/createaccount.aspx::1 }
+{ tmpIp = ::1 }
+{ key = ~/form/createaccount.aspx::1GetAccountInfo }
+{ tmpClientIp = ::1 }
+ASP.NET_SessionId: ghrorbzjw15m5skm51mfuyru
+System.Web.HttpCookie
+System.Web.HttpCookie-------------------------------
+Domain :  : String
+Ex:Parameter count mismatch.
+Name : ASP.NET_SId : String
+Path : / : String
+Value : wBeZtZSBDvLTVht+VQIFtKpIlisJlkPYq6iW10RDpWpCT7ecwvg8OZcb4sANGBoS : String
+-------------------------------
+ASP.NET_SId:wBeZtZSBDvLTVht+VQIFtKpIlisJlkPYq6iW10RDpWpCT7ecwvg8OZcb4sANGBoS
+{ tmpC = ghrorbzjw15m5skm51mfuyru#Chrome#::1# }
+{ tmpCo = ghrorbzjw15m5skm51mfuyru }
+{ tmpB = Chrome }
+{ tmpR = ::1 }
+{ tmpS =  }
+{ EnableCaptcha = True }
+
+8/28/2023 1:51:30 PMSystem.String[]
+System.String[]-------------------------------
+Index:1  ~/form/safachangepassword.aspx
+-------------------------------
+{ path = ~/js/busy.js }
+{ tmpPathinfo =  }
+{ Functions = SendConfirmSMS }
+{ Functions = RecoveryAccountPassword }
+{ tmpIp = ::1 }
+{ key = ~/js/busy.js::1 }
+{ tmpIp = ::1 }
+{ key = ~/js/busy.js::1 }
+{ tmpClientIp = ::1 }
+{ EnableCaptcha = True }
+
+10/4/2023 11:52:37 AM

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="a0d978bc-06f1-436d-b6eb-74ada836f768" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://sarasafa.mashhad.ir:8011/SrvScheduleSMS.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SrvScheduleSMS.xsd" MetadataType="Schema" ID="5fc0dabf-b78c-408e-a230-6ec18499aa4b" SourceId="1" SourceUrl="http://sarasafa.mashhad.ir:8011/SrvScheduleSMS.svc?xsd=xsd1" />
+    <MetadataFile FileName="SrvScheduleSMS1.xsd" MetadataType="Schema" ID="5fb2f786-7e39-4235-b343-d2f864cb1a8b" SourceId="1" SourceUrl="http://sarasafa.mashhad.ir:8011/SrvScheduleSMS.svc?xsd=xsd0" />
+    <MetadataFile FileName="SrvScheduleSMS.disco" MetadataType="Disco" ID="b9937a35-94e2-4710-bbe1-97fd6a33edf2" SourceId="1" SourceUrl="http://sarasafa.mashhad.ir:8011/SrvScheduleSMS.svc?disco" />
+    <MetadataFile FileName="SrvScheduleSMS.wsdl" MetadataType="Wsdl" ID="e40bc8c0-f1fd-4917-8cf7-4a4e034f6d4a" SourceId="1" SourceUrl="http://sarasafa.mashhad.ir:8011/SrvScheduleSMS.svc?wsdl" />
+    <MetadataFile FileName="SrvScheduleSMS2.xsd" MetadataType="Schema" ID="0c7140d5-1ed4-40f2-bdce-867e5514d7fb" SourceId="1" SourceUrl="http://sarasafa.mashhad.ir:8011/SrvScheduleSMS.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

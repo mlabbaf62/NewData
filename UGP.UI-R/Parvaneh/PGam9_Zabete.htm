@@ -1,0 +1,247 @@
+﻿<style>
+    /* Style the tab */
+    .tab {
+        overflow: hidden;
+        border: 1px solid #ccc;
+        background-color: #f1f1f1;
+        height: 42px;
+    }
+
+        /* Style the buttons that are used to open the tab content */
+        .tab input[type=button] {
+            background-color: inherit;
+            float: right !important;
+            border: none !important;
+            outline: none !important;
+            cursor: pointer !important;
+            padding: 9px 14px 14px 14px !important;
+            transition: 0.3s !important;
+            border-radius: 0 !important;
+            margin: 0 !important;
+            height: 42px !important;
+        }
+
+            /* Change background color of buttons on hover */
+            .tab input[type=button]:hover {
+                background-color: #ddd;
+            }
+
+            /* Create an active/current tablink class */
+            .tab input[type=button].active {
+                background-color: #ccc;
+            }
+
+    /* Style the tab content */
+    .tabcontent {
+        display: none;
+        padding: 6px 12px;
+        border: 1px solid #ccc;
+        border-top: none;
+        /*height: 100%;*/
+    }
+</style>
+
+<fieldset id="divZabete" class="GamBox">
+
+    <div style="padding-left: 0px; float: right" class="col-md-12 col-xs-12 PanelVs GamBoxFrame">
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <span ng-bind="Prop.CurrentPageName"></span>
+            </div>
+            <div class="info" ng-include="'Config/ParvanehSh/infoText/PGam9_Zabete.html'">
+            </div>
+            <hr />
+
+            <div class="tab">
+                <input type="button" class="tablinks active" onclick="openCity(event, 'Zabete')" value="ضابطه" />
+                <input type="button" class="tablinks" onclick="openCity(event, 'Letter')" value="نمایش نامه ها" />
+            </div>
+
+
+            <div id="Zabete" class="tabcontent active" style="display:block">
+                <h5>متقاضی محترم ، لطفا جهت نمایش گزارش ضابطه فنی ملک ، بر روی دکمه زیر کلیک نمایید</h5>
+                <h5>برای دانلود فایل لفاف حجمی ، بر روی دکمه [دانلود فایل لفاف حجمی] کلیک نمایید</h5>
+                <div style="float:none;direction:rtl">
+
+                    <input class="btn btn-success form-control" style="width:auto; padding-right:15px;padding-left:15px; margin-right: 5px"
+                           type="button" id="btnExport" value="نمایش و چاپ ضابطه" ng-click="Functions.ShowZabeteReport()" />
+
+                    <input class="btn btn-success form-control" style="width:auto; padding-right:15px;padding-left:15px; margin-right: 5px"
+                           type="button" value="دانلود فایل لفاف حجمی DWG" ng-click="Functions.DownloadDWG(1)" />
+
+                </div>
+                <div>
+                    <hr style="clear:both" />
+                    <div>
+                        <input id="r5" style="float:right;" type="radio" value="true" ng-model="GamInputData.ParvanehOk" ng-change="ChangeZabeteOk(GamInputData.ParvanehOk)" checked
+                               name="parvaneh" />
+                        <span style="position: absolute; margin-right:5px; color:green; padding-top: 4px; font-weight: bold">
+                            ضابطه مورد تایید می باشد
+                        </span>
+                    </div>
+
+                    <br />
+                    <div style="clear:both">
+                        <input id="r5" style="float:right;" type="radio" value="false" ng-model="GamInputData.ParvanehOk" ng-change="ChangeZabeteOk(GamInputData.ParvanehOk)"
+                               name="parvaneh" />
+                        <span style="vertical-align: top; font-weight: bold; color:red; margin-right:5px">
+                            ضابطه مورد تایید نمی باشد
+                        </span>
+                    </div>
+
+                    <div style="clear:both">
+                        <input type="button" data-toggle="modal" data-target="#RevokeModal1" class="btn" style="vertical-align: top; font-weight: bold; color:red; margin-right:5px" value="انصراف از درخواست" />
+                    </div>
+                    <div class="modal fade col-lg-6 col-md-8 col-sm-10 col-xs-12 " id="RevokeModal1" style="top:30%;" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" style="" role="document">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                    <span>
+                                        دلیل ابطال
+                                    </span>
+                                    <input type="text" id="reasonComment" style="padding:10px;width:100% ;text-align:right" />
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">انصراف</button>
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="Functions.RevokeRequest($('#reasonComment').text())">تایید</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <hr style="clear:both" />
+                <div id="divSendDatap">
+                    <!--<div id="divUploaderSendParvaneh">
+
+                    </div>-->
+                    <!--<div class="col-md-12 nopadding">
+                        <span>توضیحات عدم تایید پروانه ساختمان</span>
+                        <textarea rows="3" type="text" ng-bind="GamInputData.ReasonCommentParvaneh" style="height:90px!important ;resize:none ;width:100%; text-align:right;" />
+
+                    </div>-->
+                    <div style="clear:both">
+                        <span>توضیحات عدم تایید ضابطه ساختمانی</span>
+                        <table class="GridView" style="overflow-x: auto">
+                            <thead>
+                                <tr>
+                                    <td></td>
+                                    <td class="" style="border-left: 1px solid white">نوع درخواست</td>
+                                    <td class="" style="border-left: 1px solid white">طبقه</td>
+                                    <td class="" style="border-left: 1px solid white">توضیحات شهروند</td>
+                                    <td class="" style="border-left: 1px solid white">بررسی شهرداری (تایید / عدم تایید)</td>
+                                    <td class="" style="border-left: 1px solid white">توضیحات شهرداری</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="x in UGP_FormsConfirmationListZabete">
+                                    <td>
+                                        <input ng-show="$index==0" type="button" title="اضافه کردن درخواست" style="background-image:url('Images/addButton.png');width: 30px;background-size: cover;height: 30px!important;" ng-click="AddRequestType()">
+                                        <input ng-hide="$index==0" type="button" title="حذف درخواست" style="background-image:url('Images/close.png');width: 30px;background-size: cover;height: 30px!important;" ng-click="RemoveRequestType(x)">
+
+                                    </td>
+                                    <td style="width:200px">
+                                        <select id="cmbWorkFlowDeff" style="min-width:220px" ng-model="x.RequirmentForZabetehTitle"
+                                                ng-options="x for x in RequestType2"></select>
+                                    </td>
+
+                                    <td style="width:200px">
+                                        <input ng-model="x.UGP_FormsConfirmation.FloorNoForZabeteh" />
+                                        <!--<select style="min-width:220px" ng-model="x.EumFloor"
+                                        ng-options="x for x in EumFloor"></select>-->
+                                    </td>
+                                    <td>
+                                        <input type="text" ng-model="x.UGP_FormsConfirmation.CitizenComments" title="{{x.UGP_FormsConfirmation.CitizenComments}}" style="width:100%" />
+                                    </td>
+                                    <td>
+                                        <span ng-bind="x.EumUrbanPlannerOpinion" />
+                                    </td>
+                                    <td>
+                                        <span ng-bind="x.UrbanPlannerComments" />
+                                    </td>
+
+                                </tr>
+                                <tr ng-show="UGP_FormsConfirmationListZabete.length==0">
+                                    <td colspan="8" style="text-align: center">
+                                        <span style="color: red">موردی یافت نشد</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+
+                        <input id="btnZabeteComment" disabled type="button" class="btn btn-success" style="padding-right:30px; padding-left:30px" ng-click="SaveZabeteComment()" value="ذخیره" />
+                    </div>
+
+
+
+
+                </div>
+
+            </div>
+
+            <div id="Letter" class="tabcontent">
+                <h5>نمایش نامه های مرتبط با پرونده </h5>
+
+
+                <span style="color:#2f9023">
+                    متقاضی محترم لطفا جهت نمایش و چاپ نامه های مورد نظر بر روی دکمه نمایش کلیک نمایید .خواهشمند است پس از دریافت کلیه نامه ها ، پاسخ های
+                    دریافتی را بر روی قسمت بارگذاری پاسخ نامه وارد نمایید
+                </span>
+                <table class="GridView" style="overflow-x: auto">
+                    <thead>
+                        <tr>
+                            <td class="" style="border-left: 1px solid white">نام ارگان</td>
+                            <td class="" style="border-left: 1px solid white">نمایش / چاپ</td>
+                            <td class="" style="border-left: 1px solid white">بارگذاری نامه</td>
+                            <!--<td class="" style="border-left: 1px solid white">نظر متقاضی</td>-->
+                            <td class="" style="border-left: 1px solid white">نظر شهرساز</td>
+                            <td class="" style="border-left: 1px solid white">توضیحات (شهرساز)</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="x in LetterList">
+                            <td>
+                                <span ng-bind="x.LetterName" />
+                            </td>
+                            <td>
+                                <input type="button" value="نمایش" ng-click="ShowLetterReport(x.ReportName)" />
+                            </td>
+                            <td>
+                                <div id="DivLetter{{$index}}"></div>
+                                <!--<input type="button" value="بارگذاری پاسخ نامه" />-->
+                            </td>
+                            <!--<td>
+                                <div>
+                                    <input type="button" value="تایید" style="background-color:#38bf38;color:white" />
+                                    <input type="button" value="عدم تایید" style="background-color:#de3131;color:white" />
+                                </div>
+                            </td>-->
+
+                            <td>
+                                <img src="Images/Tick2.png" ng-show="x.Sh_OfficeLetter.EumConfirm==1" style="width:20px; height:21px" />
+                                <span ng-bind="x.IsConfirmStr" ng-style="x.Sh_OfficeLetter.EumConfirm==1 && {'color':'green'}"></span>
+                            </td>
+                            <td>
+                                <span ng-bind="x.Sh_OfficeLetter.Comments"></span>
+                            </td>
+
+                        </tr>
+                        <tr ng-show="LetterList.length==0">
+                            <td colspan="8" style="text-align: center">
+                                <span style="color: red">موردی یافت نشد</span>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+
+                <div style="width:100% ; padding-top:5px; margin-top:5px" class="nopadding" id="DivArchiveLetter"></div>
+
+            </div>
+
+        </div>
+    </div>
+
+</fieldset>
+

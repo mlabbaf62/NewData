@@ -1,0 +1,13 @@
+System.String[]
+System.String[]-------------------------------
+Index:1  ~/form/safachangepassword.aspx
+-------------------------------
+{ path = ~/js/busy.js }
+{ tmpPathinfo =  }
+{ key = ~/token/js/logine.js::1 }
+{ Functions = SendConfirmSMS }
+{ Functions = RecoveryAccountPassword }
+{ tmpClientIp = ::1 }
+{ EnableCaptcha = True }
+
+12/30/2023 11:08:01 AM

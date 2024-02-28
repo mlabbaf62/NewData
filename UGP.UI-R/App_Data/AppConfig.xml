@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SafaJsConfig>
+    <Setting Key="ArcService_1" Value="
+          #1#http://192.168.100.170:7000/Archive/ArchiveService/ArchiveM1/ArchiveService.svc#1#
+                                         #2#http://SArch2468.mashhad.ir:8014/ArchiveService.svc#2#
+                                         #3#http://SArch375012.mashhad.ir:8001/ArchiveService.svc#3#
+                                         #4#http://SArch2468.mashhad.ir:8024/ArchiveService.svc#4#
+                                         #5#http://SArch375012.mashhad.ir:8007/ArchiveService.svc#5#
+                                         #6#http://SArch2468.mashhad.ir:8034/ArchiveService.svc#6#
+                                         #7#http://SArch375012.mashhad.ir:8004/ArchiveService.svc#7#
+                                         #8#http://SArch2468.mashhad.ir:8004/ArchiveService.svc#8#
+                                         #9#http://SArchCom9.mashhad.ir:8001/ArchiveService.svc#9#
+                                         #10#http://SArch110.mashhad.ir:8045/ArchiveService.svc#10#
+                                         #11#http://SArchAmlak11.mashhad.ir:9009/ArchiveService.svc#11#
+                                         #12#http://SArch375012.mashhad.ir:8010/ArchiveService.svc#12#
+                                         #80#http://Arch80.mashhad.ir:9001/ArchiveService.svc#80#
+          #ApprovalCertificate#http://dev.safarayaneh.com:7000/Archive/ArchiveService/ArchSaraCertificat/ArchiveService.svc#ApprovalCertificate#  
+          #DaneshNameh#http://dev.safarayaneh.com:7000/Archive/ArchiveService/ArchiveDanesh/ArchiveService.svc#DaneshNameh#
+          #UGP#http://192.168.100.170:7000/Archive/ArchiveService/ArchiveM1/ArchiveService.svc#UGP#
+          #Facility#http://safatest.mashhad.ir:8079/ArchiveService/ArchiveService.svc#Facility#" 
+             />
+  
+  
+    <Setting Key="ArcProvider_1" Value="
+       #DaneshNameh#http://192.168.100.170:7000/Archive/ArchiveSite/Handlers/ImagePivotProvider.ashx#DaneshNameh#
+#1#http://dev.safarayaneh.com:7000/DeveloperTest/LabbafM/ArchiveSite/Handlers/ImagePivotProvider.ashx#1#
+                                                           #2#http://SArch2468.mashhad.ir:9003/Handlers/ImagePivotProvider.ashx#2#
+                                                           #3#http://SArch375012.mashhad.ir:9003/Handlers/ImagePivotProvider.ashx#3#
+                                                           #4#http://SArch2468.mashhad.ir:9004/Handlers/ImagePivotProvider.ashx#4#
+                                                           #5#http://SArch375012.mashhad.ir:9005/Handlers/ImagePivotProvider.ashx#5#
+                                                           #6#http://SArch2468.mashhad.ir:9005/Handlers/ImagePivotProvider.ashx#6#
+                                                           #7#http://SArch375012.mashhad.ir:9006/Handlers/ImagePivotProvider.ashx#7#
+                                                           #8#http://SArch2468.mashhad.ir:9006/Handlers/ImagePivotProvider.ashx#8#
+                                                           #9#http://SArchCom9.mashhad.ir:9003/Handlers/ImagePivotProvider.ashx#9#
+                                                           #10#http://SArch110.mashhad.ir:9003/Handlers/ImagePivotProvider.ashx#10#
+                                                           #11#http://SArchAmlak11.mashhad.ir:9016/Handlers/ImagePivotProvider.ashx#11#
+                                                           #12#http://SArch375012.mashhad.ir:9004/Handlers/ImagePivotProvider.ashx#12#
+    #ApprovalCertificate#http://dev.safarayaneh.com:7000/DeveloperTest/LabbafM/ArchiveSite/Handlers/ImagePivotProvider.ashx#ApprovalCertificate#
+        #UGP#http://192.168.100.170:7000/Archive/ArchiveSite/Handlers/ImagePivotProvider.ashx#UGP#
+         #Facility#safatest.mashhad.ir:8079/ArchiveSite/Handlers/ImagePivotProvider.ashx#Facility#
+         
+       "/>
+  
+  <!--<Setting Key="ArcUploadUrl" Value="http://192.168.100.170:7000/ArchiveJs/api/fileupload/uploadfile"/>-->
+  <Setting Key="ArcUploadUrl" Value="http://dev.safarayaneh.com:7000/ArchiveJs/api/fileupload/uploadfile"/>
+  <Setting Key="ArcUploadUrl-" Value="http://192.168.100.203/ArchiveHtmlViewer/api/fileupload/uploadfile"/>
+
+
+</SafaJsConfig>
+
+
+
+
+
+
+
+<!--<SafaJsConfig>
+  <Setting Key="ArcService_1" Value="
+          #1#http://archivesrv.isfahan.ir/ArchiveM13/ArchiveService.svc#1#
+                                         #2#http://archivesrv.isfahan.ir/ArchiveM13/ArchiveService.svc#2#
+                                         #3#http://archivesrv.isfahan.ir/ArchiveM13/ArchiveService.svc#3#
+                                         #4#http://archivesrv.isfahan.ir/ArchiveM13/ArchiveService.svc#4#
+                                         #5#http://archivesrv.isfahan.ir/ArchiveM13/ArchiveService.svc#5#
+                                         #6#http://archivesrv.isfahan.ir/ArchiveM13/ArchiveService.svc#6#
+                                         #7#http://archivesrv.isfahan.ir/ArchiveM13/ArchiveService.svc#7#
+                                         #8#http://archivesrv.isfahan.ir/ArchiveM13/ArchiveService.svc#8#
+                                         #9#http://archivesrv.isfahan.ir/ArchiveM13/ArchiveService.svc#9#
+                                         #10#http://archivesrv.isfahan.ir/ArchiveM13/ArchiveService.svc#10#
+                                         #11#http://archivesrv.isfahan.ir/ArchiveM13/ArchiveService.svc#11#
+                                         #12#http://archivesrv.isfahan.ir/ArchiveM13/ArchiveService.svc#12#
+                                           #13#http://archivesrv.isfahan.ir/ArchiveM13/ArchiveService.svc#13#
+                                           
+          #ApprovalCertificate#http://archivesrv.isfahan.ir/ArchiveM13/ArchiveService.svc#ApprovalCertificate#  
+          #DaneshNameh#http://dev.safarayaneh.com:7000/Archive/ArchiveService/ArchiveDanesh/ArchiveService.svc#DaneshNameh#
+          #UGP#http://192.168.100.170:7000/Archive/ArchiveService/ArchiveM1/ArchiveService.svc#UGP#
+          #Facility#http://safatest.mashhad.ir:8079/ArchiveService/ArchiveService.svc#Facility#"
+             />
+
+
+  <Setting Key="ArcProvider_1" Value="
+       #DaneshNameh#http://192.168.100.170:7000/Archive/ArchiveSite/Handlers/ImagePivotProvider.ashx#DaneshNameh#
+#1#http://mapsrv.isfahan.ir/ArchiveSite/Handlers/ImagePivotProvider.ashx#1#
+                                                           #2#http://SArch2468.mashhad.ir:9003/Handlers/ImagePivotProvider.ashx#2#
+                                                           #3#http://SArch375012.mashhad.ir:9003/Handlers/ImagePivotProvider.ashx#3#
+                                                           #4#http://SArch2468.mashhad.ir:9004/Handlers/ImagePivotProvider.ashx#4#
+                                                           #5#http://SArch375012.mashhad.ir:9005/Handlers/ImagePivotProvider.ashx#5#
+                                                           #6#http://SArch2468.mashhad.ir:9005/Handlers/ImagePivotProvider.ashx#6#
+                                                           #7#http://SArch375012.mashhad.ir:9006/Handlers/ImagePivotProvider.ashx#7#
+                                                           #8#http://SArch2468.mashhad.ir:9006/Handlers/ImagePivotProvider.ashx#8#
+                                                           #9#http://SArchCom9.mashhad.ir:9003/Handlers/ImagePivotProvider.ashx#9#
+                                                           #10#http://SArch110.mashhad.ir:9003/Handlers/ImagePivotProvider.ashx#10#
+                                                           #11#http://SArchAmlak11.mashhad.ir:9016/Handlers/ImagePivotProvider.ashx#11#
+                                                           #13#http://mapsrv.isfahan.ir/ArchiveSite/Handlers/ImagePivotProvider.ashx#13#
+    #ApprovalCertificate#http://mapsrv.isfahan.ir/ArchiveSite/Handlers/ImagePivotProvider.ashx#ApprovalCertificate#
+       
+         
+       "/>
+
+  <Setting Key="ArcUploadUrl" Value="http://esup.isfahan.ir/JamSepari/ArchiveJsJamSepari/api/fileupload/"/>
+
+</SafaJsConfig>-->
+

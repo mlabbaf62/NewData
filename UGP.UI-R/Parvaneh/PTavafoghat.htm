@@ -1,0 +1,50 @@
+﻿<fieldset class="GamBox">
+    <div class="GamBoxFrame col-sm-12 col-xs-12  col-md-12 col-lg-12" id="grdTavafoghat">
+
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <span ng-bind="Prop.CurrentPageName"></span>
+            </div>
+            <div class="info" style="margin-bottom: 0px!important;" ng-include="'Config/Parvaneh/infoText/PTavafoghat.html'">
+            </div>
+            <table class="GridView" style="overflow-x: auto">
+                <thead>
+                    <tr>
+                        <td class="" style="border-left: 1px solid white">کاربر</td>
+                        <td class="" style="border-left: 1px solid white">تاریخ</td>
+                        <td class="" style="border-left: 1px solid white">ساعت</td>
+                        <td class="" style="border-left: 1px solid white">توضیحات</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="x in Sh_Agreement_List">
+                        <td>
+                            <span ng-bind="x.UserName" />
+                        </td>
+                        <td>
+                            <span ng-bind="x.AgreementDate" />
+                        </td>
+                        <td>
+                            <span ng-bind="x.AgreementTime" />
+                        </td>
+                        <td>
+                            <span ng-bind="x.Comments" />
+                        </td>
+
+                    </tr>
+                    <tr ng-show="Sh_Agreement_List.length==0">
+                        <td colspan="8" style="text-align: center">
+                            <span style="color: red">موردی یافت نشد</span>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+            
+            <br />
+
+
+        </div>
+
+    </div>
+</fieldset>

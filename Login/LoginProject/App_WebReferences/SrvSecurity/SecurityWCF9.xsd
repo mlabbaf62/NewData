@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SecurityControler.Result" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SecurityControler.Result" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost/Security8.Web/Service/SecurityWCF.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/SecurityModel" />
+  <xs:complexType name="PagingData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CountAll" type="xs:int" />
+      <xs:element minOccurs="0" name="CountAllOnline" type="xs:int" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SecurityModel" minOccurs="0" name="MessageList" nillable="true" type="q1:ArrayOfMessage" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SecurityModel" minOccurs="0" name="OnlineUsers" nillable="true" type="q2:ArrayOfOnlineUser" />
+      <xs:element minOccurs="0" name="PageNum" type="xs:int" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SecurityModel" minOccurs="0" name="UserList" nillable="true" type="q3:ArrayOfUser" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PagingData" nillable="true" type="tns:PagingData" />
+</xs:schema>

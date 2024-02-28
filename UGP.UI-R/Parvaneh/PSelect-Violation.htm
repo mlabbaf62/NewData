@@ -1,0 +1,57 @@
+﻿<fieldset style="width: 100%; box-shadow: none" class="GamBox">
+    <div style="padding-left: 0px; float: right; padding-right:0;" class="col-md-12 col-xs-12 PanelVs GamBoxFrame">
+
+
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <span ng-bind="Prop.CurrentPageName"></span>
+            </div>
+
+            <div class="panel-body nopadding" style="" id="DivTop">
+                <div class="info" style="margin-bottom: 0px!important;" ng-include="'Config/Parvaneh/infoText/PSelect.html'">
+                </div>
+                <div class="col-md-12">
+
+                    <div>
+                        <p style="height:30px">
+                            <input type="radio" name="SelectType" value="1" style="height:15px" ng-model="GamInputData.SelectType"/>
+                            <span>پلاک فاقد پروانه ساختمانی و فاقد پایان کار است و صرفا قصد انجام تعمیرات (غیراساسی) را دارم.</span>
+                        </p>
+                        <p style="height:30px">
+                            <input type="radio" name="SelectType" value="2" style="height:15px" ng-model="GamInputData.SelectType"/>
+                            <span>پلاک دارای پایان کار است و صرفا قصد انجام تعمیرات (غیراساسی) را دارم..</span>
+                        </p>
+
+                        <p style="height:30px">
+                            <input type="radio" name="SelectType" value="3" style="height:15px" ng-model="GamInputData.SelectType"/>
+                            <span> پلاک داری پروانه ساختمانی (فاقد اعتبار زمانی) است و هیچ اقدامی بر اساس پروانه انجام نداده ام. صرفا قصد انجام تعمیرات (غیراساسی) را دارم.</span>
+                        </p>
+                        <hr />
+                    </div>
+                    
+                </div>
+                <div class="col-md-6">
+
+                </div>
+                <div class="col-md-6">
+                    <div ng-include="'Common/UNosaziCodeJNew.html'"></div>
+                </div>
+            </div>
+            <div id="mapContainer" class="col-md-12" style="padding:0; clear:both;   box-shadow: 0 -1px 1px 0px rgba(115,115,115,0.75);">
+                <div id="m" style="width: 100%;  direction: ltr; position: relative;"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            onLoadDivMap();
+        });
+
+        function LoadDefault() {
+            // $('#txtDistrict1').val('12');
+            // $('#txtDistrict1').prop('disabled', true);
+        }
+    </script>
+</fieldset>

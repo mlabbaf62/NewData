@@ -1,0 +1,7 @@
+{ tmpUserName = m.labbaf }
+{ tmpPassword = 1234 }
+{ LoginMode =  }
+getServiceSecurity
+{ AbsoluteUri = http://localhost/Security8.web/Service/SecurityWCF.svc }
+Pre LoginAccount
+btnLogin_Click ex:Error in deserializing body of reply message for operation 'LoginAccount'. CData elements not valid at top level of an XML document. Line 1, position 3.

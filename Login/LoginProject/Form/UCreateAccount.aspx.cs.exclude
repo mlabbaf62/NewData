@@ -1,0 +1,615 @@
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Net;
+using System.ServiceModel;
+using System.ServiceModel.Channels;
+using System.Web;
+using System.Web.Services;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace LoginProject
+{
+    public partial class UCreateAccount : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!Page.IsPostBack)
+            {
+                try
+                {
+                    ValidationSettings.UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
+                    SetTargetFolder();
+                    LoadCI();
+
+                    if (Request["EditAccount"] != null)
+                    {
+                        var tmpNidAccount = ClsCommon.DecryptUrl(Request["EditAccount"], ClsCommon.RequestId);
+                        if (tmpNidAccount != null)
+                        {
+                            TextBoxRequiredFieldValidator0.Visible = false;
+                            TextBoxRequiredFieldValidator1.Visible = false;
+
+                            NidAccount = Guid.Parse(tmpNidAccount);
+                            txt_Username.Enabled = false;
+                            LoadAccount();
+                        }
+                        if (Session["UrlReferer"] != null)
+                            btnBazgasht.HRef = Session["UrlReferer"].ToString();
+                        else
+                            btnBazgasht.HRef = "SafaLoginMain.aspx";
+                    }
+                    else
+                        btnBazgasht.HRef = "SafaLoginMain.aspx";
+
+                    LoadConfig();
+                }
+                catch (Exception ex)
+                {
+                    ErrorLog.WriteLog(ex);
+                }
+            }
+        }
+
+        private void LoadConfig()
+        {
+            var tmpEnableCaptcha = ClsCommon.GetAppConfig<bool>("EnableCaptcha");
+            var tmpEnableSmSConfirm = ClsCommon.GetAppConfig<bool>("EnableSMSConfirm");
+
+            if (tmpEnableSmSConfirm)
+                DivSmsConfirm.Visible = true;
+            if (tmpEnableCaptcha)
+                DivCaptcha.Visible = true;
+
+        }
+        //[WebMethod]
+        //public static bool RegitsterUser(UserData UData)
+        //{
+        //    //try { }
+        //    //catch (Exception e) { }
+
+        //    UCreateAccount a = new UCreateAccount();
+        //    // a.Save(UData);
+        //    if (!a.Save(UData).sucsess)
+        //        return false;
+        //    else
+        //        return true;
+        //}
+
+        #region Property
+        //public Guid? NidAccount
+        //{
+        //    get
+        //    {
+        //        return (Guid?)ViewState["NidAccount"];
+        //    }
+        //    set
+        //    {
+        //        ViewState["NidAccount"] = value;
+        //    }
+        //}
+        public Guid? NidAccount
+        {
+            get
+            {
+                return (Guid?)Session["NidAccount"];
+            }
+            set
+            {
+                Session["NidAccount"] = value;
+            }
+        }
+
+        public bool EditMode
+        {
+            get
+            {
+                return (Request["NidAccount"] != null);
+
+            }
+        }
+
+
+        public static string meli;
+
+        List<Tuple<string, string, byte[]>> TmpStreamFiles = new List<Tuple<string, string, byte[]>>();
+        SrvSecurity.Account_Info TmpAccountInfo = new SrvSecurity.Account_Info();
+        #endregion
+
+        #region Method
+        private void SetTargetFolder()
+        {
+            NidAccount = Guid.NewGuid();
+
+            var BaseFolder = Server.MapPath("~/Uploads/");
+            var TmpFolder = string.Format("{0}/{1}", BaseFolder, NidAccount.ToString());
+            if (!System.IO.Directory.Exists(TmpFolder))
+                System.IO.Directory.CreateDirectory(TmpFolder);
+            var TargetFolder = TmpFolder;
+
+            Upload_Shenasnameh.TemporaryFolder = TargetFolder;
+
+        }
+        public static System.ServiceModel.Channels.Binding CreateBinding()
+        {
+            System.ServiceModel.BasicHttpBinding binding = new System.ServiceModel.BasicHttpBinding();
+
+
+            binding.TransferMode = System.ServiceModel.TransferMode.StreamedResponse;
+
+            binding.MaxReceivedMessageSize = 2147483647;
+            binding.MaxBufferSize = 2147483647;
+            binding.MaxBufferPoolSize = 2147483647;
+            binding.ReaderQuotas.MaxArrayLength = 2147483647;
+            binding.ReaderQuotas.MaxBytesPerRead = 2147483647;
+            binding.ReaderQuotas.MaxStringContentLength = 2147483647;
+
+            binding.CloseTimeout = TimeSpan.FromMinutes(5);
+            binding.ReceiveTimeout = TimeSpan.FromMinutes(5);
+            binding.OpenTimeout = TimeSpan.FromMinutes(5);
+            binding.SendTimeout = TimeSpan.FromMinutes(5);
+            return binding;
+        }
+
+
+        private void Save()
+        {
+
+            string Log = "";
+            var srvSec = ClsCommon.getServiceSecurity();
+            SrvSecurity.ClsAccount ClsAccountResult;
+            Log += "srvSec : " + srvSec.Endpoint.Address.Uri.AbsoluteUri.ToString() + "\r\n";
+
+            //srvSec = new SrvSecurity.SecurityWCFClient(CreateBinding(), new System.ServiceModel.EndpointAddress(srvSec.Endpoint.Address.ToString()));
+            try
+            {
+                byte[] tmpImage = null;
+                try
+                {
+                    var tmpFiles = Directory.GetFiles(Server.MapPath(string.Format("~/{0}/{1}", "Uploads", NidAccount)));
+
+                    if (tmpFiles.Length > 0)
+                        tmpImage = File.ReadAllBytes(tmpFiles[0]);
+                }
+                catch { }
+
+                try
+                {
+                    TmpAccountInfo.IP = HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"];
+                }
+                catch
+                {
+                }
+
+                #region Create Account
+                byte tmpEumAccessType = 0;
+                if (ClsCommon.GetAppConfig<bool>("DefaultEnableAccount"))
+                    tmpEumAccessType = 1;
+                Log += "DefaultEnableAccount : " + tmpEumAccessType + "\r\n";
+
+                byte tmpEumAccountType = byte.Parse(RadTabStrip1.SelectedIndex + 1.ToString());
+
+
+                Log += ("Combo_OwnerDegree.SelectedValue: " + Combo_OwnerDegree.SelectedValue);
+                Log += "NidAccount : " + NidAccount + "\r\n";
+
+                TmpAccountInfo = new SrvSecurity.Account_Info()
+                {
+                    NidAccount = NidAccount.Value,
+                    Address = txt_address.Text,
+                    Fax = txt_Fax.Text,
+                    AccountPassword = txtPassword.Text,
+                    EumAccountType = tmpEumAccountType,
+
+                    CEOCellNo = txt_CEOCellNo.Text,
+                    CEOCI_Degree = !string.IsNullOrWhiteSpace(Combo_Degree.SelectedValue) ? int.Parse(Combo_Degree.SelectedValue) : 0,
+                    CEOEmail = txt_CEOEmail.Text,
+                    CEOFamily = txt_CEOFamily.Text,
+                    CEOFatherName = txt_CEOFatherName.Text,
+                    CEOIDNo = txt_CEOIDNo.Text,
+                    CEOName = txt_CEOName.Text,
+                    //CEONationality = btnCEONationality_Iranian.Checked,
+                    CEOPhoneNo = txt_CEOPhoneNo.Text,
+                    CEOSex = btnSex_Men.Checked,
+                    CEOBirthDate = txt_CEOBirhDate.TextWithLiterals,
+                    CEONationalCode = txt_CEONationalCode.Text,
+
+                    Codes = txt_Codes.Text,
+                    CompanyName = txt_companyname.Text,
+                    EumAccessType = tmpEumAccessType,
+                    MailBox = (tmpEumAccountType == 1) ? txtEmail.Text : txt_mailbox.Text,
+                    PostCode = txt_postcode.Text,
+                    RegNo = txt_RegNo.Text,
+                    RequestNationalCode = txt_RequestNationalCode.Text,
+                    Telephone = txt_Tell.Text,
+                    AccountName = txt_Username.Text,
+                    Vilage = txt_vilage.Text,
+
+                    OwnerBirthDate = txt_OwenrBirthDate.TextWithLiterals,
+
+                    OwnerDegree = !string.IsNullOrWhiteSpace(Combo_OwnerDegree.SelectedValue) ? int.Parse(Combo_OwnerDegree.SelectedValue) : 0,
+                    OwnerLastName = txt_OwnerFamilyName.Text,
+                    OwnerFirstName = txt_owername.Text,
+                    OwnerTell = txt_OwnerTell.TextWithLiterals,
+                    CellPhone = txt_OwnerPhone.Text,
+
+                    OwnerSex = BtnSexHaghighiMen.Checked,
+                    //OwnerNationalCode = txt_Username.Text, // txt_RequestNationalCode.Text,
+                    OwnerNationalCode = txt_NCode.Value,
+
+                    //OwnerNationality = !btnCEONationality_IranianHaghighi.Checked,
+                    OwnerFatherName = txt_OwnerFatherName.Text,
+                    OwnerIDNO = txt_RegIDNoHaghighi.Text,
+                    // RecongnizeState = !string.IsNullOrWhiteSpace(ComboTashkhisState.SelectedValue) ? int.Parse(ComboTashkhisState.SelectedValue) : 0,
+                    Image = tmpImage,
+                    StrDate = ClsCommon.CurrentShamsiDateString,
+                    StrTime = ClsCommon.CurrentTimeString,
+                };
+
+                var TmpStreamFiles = new List<Tuple<string, string, Stream>>();
+
+                Log += "TmpAccountInfo : " + ErrorLog.GetStrLogFromClass(TmpAccountInfo) + "\r\n";
+
+                ClsAccountResult = srvSec.CreateAccount(TmpAccountInfo);
+                Log += "========================" + "\r\n";
+
+                Log += "ClsAccountResult : " + ErrorLog.GetStrLogFromClass(ClsAccountResult) + "\r\n";
+
+
+                #endregion
+
+                #region res
+                if (ClsAccountResult.ErrorResult.BizErrors.Count > 0)
+                {
+                    BtnSave.Enabled = false;
+                    //   BusyDiv.Visible = false;
+
+                    ErrorList_fieldset1.Visible = true;
+                    Error_List1.DataSource = ClsAccountResult.ErrorResult.BizErrors;
+                    Error_List1.DataBind();
+
+                    ErrorList_fieldset2.Visible = true;
+                    Error_List2.DataSource = ClsAccountResult.ErrorResult.BizErrors;
+                    Error_List2.DataBind();
+
+                    ErrorLog.WriteLog(ClsAccountResult.ErrorResult.BizErrors[0].ErrorTitel);
+                }
+                else
+                {
+                    TmpAccountInfo = ClsAccountResult.Account_Info;
+                    //  BusyDiv.Visible = false;
+
+                    ErrorList_fieldset1.Visible = false;
+                    ErrorList_fieldset2.Visible = false;
+                    //BtnSave.Enabled = false;
+
+                    // SaveToArchive();
+
+                    if (EditMode)
+                        LMessage.Text = ("ثبت اطلاعات با موفقیت انجام شد");
+                    else
+                        LMessage.Text = ("ثبت عضویت با موفقیت انجام شد");
+
+                    LMessage.ForeColor = System.Drawing.Color.Green;
+
+                    lblUser.Text = TmpAccountInfo.AccountName;
+                    lblName.Text = TmpAccountInfo.OwnerFirstName;
+                    lblFamily.Text = TmpAccountInfo.OwnerLastName;
+                    lblMobile.Text = TmpAccountInfo.OwnerTell;
+
+                    if (LegalPerson.Selected)
+                    {
+                        lblName.Text = TmpAccountInfo.CEOName;
+                        lblFamily.Text = TmpAccountInfo.CEOFamily;
+                        lblMobile.Text = TmpAccountInfo.CEOCellNo;
+                    }
+
+                    try
+                    {
+                        ClsEmail.SendConfirmEmail(new EmailInfo()
+                        {
+                            To = TmpAccountInfo.MailBox,
+                            Subject = "عضویت در سامانه جمع سپاری",
+                            FullName = lblName.Text + " " + lblFamily.Text,
+                            UserName = TmpAccountInfo.AccountName,
+                            Pass = txtPassword.Text
+                        });
+                    }
+                    catch { }
+                    DivRegister.Visible = true;
+                    MainDIv.Visible = false;
+
+                    Log += "End : " + "\r\n";
+
+                }
+                #endregion
+
+
+            }
+            catch (Exception ex)
+            {
+                ErrorLog.WriteLog("ex:" + ex.Message);
+                if (ex.Message.Contains("the process cannot access the file"))
+                    LMessage.Text = ex.Message;
+                else
+                    LMessage.Text = "خطا در انجام عملیات ذخیره سازی";
+
+                LMessage.ForeColor = System.Drawing.Color.Red;
+            }
+
+            ErrorLog.WriteLogIfDebug(Log, "CreateAccount");
+        }
+
+        private void LoadCI()
+        {
+            List<CI> DegreeList = new List<CI>();
+            DegreeList.Add(new CI() { Title = "دیپلم", ID = "0" });
+            DegreeList.Add(new CI() { Title = "فوق دیپلم", ID = "1" });
+            DegreeList.Add(new CI() { Title = "لیسانس", ID = "2" });
+            DegreeList.Add(new CI() { Title = "فوق لیسانس", ID = "3" });
+            DegreeList.Add(new CI() { Title = "دکترا", ID = "4" });
+            Combo_Degree.DataSource = DegreeList;
+            Combo_OwnerDegree.DataSource = DegreeList;
+
+            Combo_Degree.DataBind();
+            Combo_OwnerDegree.DataBind();
+        }
+
+        private void SaveToArchive()
+        {
+            if (TmpAccountInfo.EumAccountType == 1)
+            {
+                if (Upload_Shenasnameh.UploadedFiles.Count > 0)
+                {
+                    #region File
+
+                    var imageFolder = Server.MapPath("~/Uploads/" + NidAccount + "/");
+                    var tmpFile = Directory.GetFiles(imageFolder)[0];
+                    if (tmpFile != null)
+                    {
+                        FileStream fs = new FileStream(tmpFile, FileMode.Open);
+                        byte[] tmpBytes = new byte[fs.Length];
+                        fs.Read(tmpBytes, 0, int.Parse(fs.Length.ToString()));
+
+                        var tmpFileName = tmpFile.Split('\\').Last();
+                        TmpStreamFiles.Add(new Tuple<string, string, byte[]>("مدارک مورد نیاز", tmpFileName, tmpBytes));
+                        fs.Close();
+                    }
+
+                    #endregion
+                }
+
+                //foreach (Telerik.Web.UI.UploadedFile TmpUpload in Upload_Shenasnameh.UploadedFiles)
+                //{
+                //    byte[] tmpBytes =new byte[TmpUpload.InputStream.Length];
+                //    TmpStreamFiles.Add(new Tuple<string, string, byte[]>("مدارک مورد نیاز", TmpUpload.FileName, tmpBytes));
+                //}
+                // }
+
+                //if (Upload_Rooznameh.UploadedFiles.Count > 0)
+                //{
+                //    foreach (UploadedFile TmpUpload in Upload_Rooznameh.UploadedFiles)
+                //        TmpStreamFiles.Add(new Tuple<string, string, Stream>("مدارک مورد نیاز", TmpUpload.FileName, TmpUpload.InputStream));
+                //}
+            }
+
+            try
+            {
+                //AddToArchive(TmpAccountInfo.NidAccount, TmpStreamFiles);
+            }
+            catch { }
+
+        }
+
+        private void LoadAccount()
+        {
+            var srvSec = ClsCommon.getServiceSecurity();
+            HttpRequestMessageProperty httpRequestProperty = new HttpRequestMessageProperty();
+            httpRequestProperty.Headers.Add(HttpRequestHeader.Cookie, "TrustToken=SecurityTrust1400");
+            using (OperationContextScope scope = new OperationContextScope(srvSec.InnerChannel))
+            {
+                OperationContext.Current.OutgoingMessageProperties[HttpRequestMessageProperty.Name] = httpRequestProperty;
+
+                var tmpRes = srvSec.GetAccountInfo2(NidAccount.Value).Account_Info;
+
+            
+
+            txt_Username.Text = tmpRes.AccountName;
+            txtPassword.Enabled = false;
+            txtConfirmPassword.Enabled = false;
+            txt_owername.Text = tmpRes.OwnerFirstName;
+            txt_OwnerFamilyName.Text = tmpRes.OwnerLastName;
+            txt_OwnerFatherName.Text = tmpRes.OwnerFatherName;
+            if (tmpRes.OwnerSex == true)
+                BtnSexHaghighiMen.Checked = true;
+            else
+                BtnSexHaghighiFemale.Checked = true;
+
+            //if (tmpRes.OwnerNationality == false)
+            //    btnCEONationality_IranianHaghighi.Checked = true;
+            //else
+            //    btnCEONationality_NotIranianHaghighi.Checked = true;
+
+            txt_RegIDNoHaghighi.Text = tmpRes.OwnerIDNO;
+            txt_OwenrBirthDate.Text = tmpRes.OwnerBirthDate;
+            txt_OwnerTell.Text = tmpRes.OwnerTell;//Mobile
+            txt_OwnerPhone.Text = tmpRes.CellPhone;
+            Combo_OwnerDegree.SelectedIndex = (tmpRes.OwnerDegree.HasValue) ? tmpRes.OwnerDegree.Value : 0;
+
+
+            txt_vilage.Text = tmpRes.Vilage;
+
+            txt_vilage.Text = tmpRes.Vilage;
+            txt_address.Text = tmpRes.Address;
+            txt_postcode.Text = tmpRes.PostCode;
+            txtEmail.Text = tmpRes.MailBox;
+            txt_mailbox.Text = tmpRes.MailBox;
+            txt_Tell.Text = tmpRes.Telephone;
+            txt_Fax.Text = tmpRes.Fax;
+
+            txt_NCode.Value = tmpRes.OwnerNationalCode;
+
+            if (tmpRes.EumAccountType == 2)
+            {
+                RadTabStrip1.SelectedIndex = 1;
+                RadMultiPage1.SelectedIndex = 1;
+                //    RadTabStrip1.SelectedIndex = 1;
+                //              LegalPerson.Selected = true;
+                txt_CEOBirhDate.Text = tmpRes.CEOBirthDate;
+                txt_CEOCellNo.Text = tmpRes.CEOCellNo;
+                txt_CEOEmail.Text = tmpRes.CEOEmail;
+                txt_CEOFamily.Text = tmpRes.CEOFamily;
+                txt_CEOFatherName.Text = tmpRes.CEOFatherName;
+                txt_CEOIDNo.Text = tmpRes.CEOIDNo;
+                txt_CEOName.Text = tmpRes.CEOName;
+                txt_CEONationalCode.Text = tmpRes.CEONationalCode;
+                txt_CEOPhoneNo.Text = tmpRes.CEOPhoneNo;
+
+                txt_RequestNationalCode.Text = tmpRes.RequestNationalCode;
+                txt_companyname.Text = tmpRes.CompanyName;
+                txt_RegNo.Text = tmpRes.RegNo;
+                txt_Codes.Text = tmpRes.Codes;
+
+            }
+            }
+        }
+        #endregion
+
+        #region Event
+
+
+        protected void BtnSave_Click(object sender, EventArgs e)
+        {
+            //BusyDiv.Visible = true;
+            Save();
+        }
+        #endregion
+
+
+        [WebMethod]
+        public static string SendConfirmSMS(string pBizCode, string pNumber)
+        {
+            var srvSMS = ClsCommon.getSMSService();
+            #region
+            try
+            {
+                Random r = new Random(DateTime.Now.Millisecond);
+                var tmpCode = r.Next(11111, 99999).ToString();
+
+                var Tmp = new SrvSMS.ClsParameters()
+                {
+                    AppName = "UGP",
+                    SMSType = "عضویت",
+                    Number = pNumber,
+
+                    Text = string.Format(@"کد تاییدیه شما : {0} شهرداری {1}", tmpCode, ClsCommon.CityName),
+
+                    BizCode = pBizCode,
+                    ScheduleSendDate = ClsCommon.CurrentShamsiDateString,
+                    UserID = "1",
+                    UserName = "Admin"
+                };
+                srvSMS.SendSMS(Tmp);
+
+                ClsSession.AddSession(pBizCode, tmpCode);
+
+                //System.Web.HttpContext.Current.Session.Add(pBizCode, tmpCode);
+                ErrorLog.WriteLogIfDebug(tmpCode,"ConfirmSms");
+                return "99999";
+            }
+
+            catch (Exception ex)
+            {
+                ErrorLog.WriteLog(ex.Message);
+                return "";
+            }
+
+            #endregion
+
+        }
+
+        [WebMethod]
+        public static bool CheckConfirmCode(string pBizCode, string pConfirmCode)
+        {
+            try
+            {
+                //var tmpCode = System.Web.HttpContext.Current.Session[pBizCode];
+                //System.Web.HttpContext.Current.Session.Remove(pBizCode);
+
+                var tmpCode = ClsSession.GetSession(pBizCode);
+
+                if (tmpCode.Equals(pConfirmCode))
+                {
+                    return true;
+                }
+                else return false;
+            }
+            catch (Exception ex)
+            {
+                ErrorLog.WriteLog(ex);
+                return false;
+            }
+        }
+
+        [WebMethod]
+        public static SrvInquery.clsPersonInfoJson CheckInqueryMelliCode(string pNationalCode, string Year, string Month, string Day)
+        {
+            try
+            {
+                SrvInquery.SrvNationalCodeInquiryClient srvN = ClsCommon.getServiceInquery();
+                var tmpRes = srvN.GetPersonInfoJson(pNationalCode, Year, Month, Day);
+
+                return tmpRes.PersonInfoJson; ;
+            }
+            catch (Exception ex)
+            {
+                ErrorLog.WriteLog(ex);
+                return null;
+            }
+        }
+
+
+        protected void btnBack2_Click(object sender, EventArgs e)
+        {
+            if (Session["UrlReferer"] != null)
+                Response.Redirect(Session["UrlReferer"].ToString());
+            else
+                Response.Redirect("SafaLoginMain.aspx?Domain=" + ClsCommon.Domain);
+        }
+
+        [WebMethod]
+        public static SrvSecurity.ClsErrorResult MobileCheck(string pAccountName, string pNationalCode, string pMobileNo ,Guid? NidAccount)
+        {
+
+            string Log = "start";
+            var srvSec = ClsCommon.getServiceSecurity();
+            #region
+            try
+            {
+                Log +=srvSec.Endpoint.Address.Uri.AbsoluteUri+"\r\n";
+                SrvSecurity.ClsAccount tmpClsccount = new SrvSecurity.ClsAccount();
+                SrvSecurity.Account_Info tmp = new SrvSecurity.Account_Info();
+                tmp.AccountName = pAccountName;
+                tmp.OwnerNationalCode = pNationalCode;
+                tmp.OwnerTell = pMobileNo;
+                tmp.NidAccount = NidAccount.HasValue? NidAccount.Value:Guid.Empty;
+
+                var tmpRes = srvSec.ValidateAccount(tmp).ErrorResult;
+                Log += "ValidateAccount" + "\r\n";
+                return tmpRes;
+            }
+
+            catch (Exception ex)
+            {
+                ErrorLog.WriteLog(ex.Message);  
+                ErrorLog.WriteLogIfDebug(Log, "MobileCheck");
+                return null;
+            }
+          
+            #endregion
+        }
+
+    }
+}

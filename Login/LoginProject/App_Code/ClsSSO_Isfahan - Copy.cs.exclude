@@ -1,0 +1,245 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+using System.Net;
+using System.Runtime.Caching;
+using System.Text;
+
+
+
+public partial class ClsSSO_Isfahan
+{
+
+    public string Username { get; set; }
+    public string Password { get; set; }
+    public string Token { get; set; }
+    public void LoadObj()
+    {
+        Login();
+    }
+    public static string Log = "";
+
+    public bool Login()
+    {
+        try
+        {
+            try
+            {
+                ProfileApiMethod.MainAddress = ClsCNManagment.GetAppSetting("ssoIsfahan");
+            }
+            catch { }
+
+            Task<string> tmpToken = ProfileApiMethod.AutenticationApi();
+
+            ClsLog.AddLog(new { ProfileApiMethod.MainAddress });
+            ClsLog.AddLog(new { tmpToken });
+
+
+            Token = tmpToken.Result;
+            //StringContent httpContent = new StringContent("{'username':'0010000070' ,'password' :'3734550'}", System.Text.Encoding.UTF8, "application/json");
+            StringContent httpContent = new StringContent(string.Format("{{'username':'{0}' ,'password' :'{1}'}}", Username, Password), System.Text.Encoding.UTF8, "application/json");
+            ClsLog.GetStrLogFromClass(httpContent);
+            var tmpRes = ProfileApiMethod.LoginUserApi<LoginResult>(httpContent);
+            ClsLog.AddLog(new { tmpRes.Result.LoginState });
+
+            return tmpRes.Result.LoginState;
+        }
+        catch (Exception ex)
+        {
+            Log += "Ex: " + ex.Message;
+        }
+        return false;
+    }
+
+}
+
+public class ProfileApiMethod
+{
+    public static string MainAddress = "http://profileapi.isfahan.ir/api/";
+    public static string serviceID = "50";
+    private static MemoryCache _cache = MemoryCache.Default;
+    public ProfileApiMethod()
+    {
+
+    }
+    public static async Task<string> AutenticationApi()
+    {
+        try
+        {
+            ClsLog.AddLog(new { AutenticationApi = "AutenticationApi" });
+
+            string apiUrl = MainAddress + "Authenticate/Authenticate";
+            ClsLog.AddLog(new { apiUrl });
+            //string username = "ESUP"; string password = "$##ESUP@";
+            string username = "ESUP"; string password = "@ESUP##$";
+            ClsLog.AddLog(new { username });
+            ClsLog.AddLog(new { password });
+
+            string Token = _cache.Get("Token") as string;
+            if (!string.IsNullOrEmpty(Token))
+            {
+                ClsLog.AddLog(new { Cache = "Cache" + Token });
+                return Token;
+            }
+            CacheItemPolicy cacheItemPolicy = new CacheItemPolicy();
+            cacheItemPolicy.AbsoluteExpiration = DateTime.Now.AddMinutes(15);
+
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls;
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(apiUrl);
+                client.DefaultRequestHeaders.Accept.Clear();
+                var byteArray = Encoding.ASCII.GetBytes(username + ":" + password);
+                client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
+
+                ClsLog.AddLog(new { Header = "Scheme:Basic" ,  Parameter = Convert.ToBase64String(byteArray) });
+                var w = client.PostAsync(apiUrl, null);
+                w.Wait();
+                HttpResponseMessage response = w.Result;
+                if (response.IsSuccessStatusCode)
+                {
+                    ClsLog.AddLog(new { response.IsSuccessStatusCode });
+
+                    Token = ((string[])response.Headers.GetValues("Token"))[0];
+                    _cache.Add("Token", Token, cacheItemPolicy);
+                    ClsLog.AddLog(new { Token });
+
+                    return Token;
+                    //var result = response.Content.ReadAsAsync<string>();
+                    //result.Wait();
+                    //return result.Result.ToString();
+                }
+                return null;
+            }
+        }
+        catch (Exception ex)
+        {
+            ClsLog.AddLog(new { ex.Message });
+            return null;
+        }
+    }
+    public static async Task<T> LoginUserApi<T>(HttpContent value)
+    {
+        string apiUrl = MainAddress + "citizens/LoginUser";
+        string Token = await AutenticationApi();
+        if (string.IsNullOrEmpty(Token)) return default(T);
+        ClsLog.AddLog(new { apiUrl });
+        ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls;
+        using (var client = new HttpClient())
+        {
+            client.BaseAddress = new Uri(apiUrl);
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Add("Token", Token);
+            var w = client.PostAsync(apiUrl, value);
+            w.Wait();
+            HttpResponseMessage response = w.Result;
+            if (response.IsSuccessStatusCode)
+            {
+
+                var result = response.Content.ReadAsAsync<T>();
+                ClsLog.AddLog(new { result });
+
+                result.Wait();
+                return result.Result;
+            }
+            return default(T);
+        }
+    }
+    public static async Task<string> RegisterUserApi(HttpContent value)
+    {
+        string apiUrl = MainAddress + "citizens/RegisterUser";
+
+        string Token = await AutenticationApi();
+        if (string.IsNullOrEmpty(Token)) return default(string);
+
+        ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls;
+        using (var client = new HttpClient())
+        {
+            client.BaseAddress = new Uri(apiUrl);
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Add("Token", Token);
+            var w = client.PostAsync(apiUrl, value);
+            w.Wait();
+            HttpResponseMessage response = w.Result;
+            //if (response.IsSuccessStatusCode)
+            //{
+            var result = response.Content.ReadAsStringAsync();
+            result.Wait();
+            return result.Result;
+        }
+    }
+
+    public static async Task<bool> UserExsistInProfile(string MeliCode)
+    {
+        string apiUrl = MainAddress + "/citizens/CheckRegisterd";
+        string Token = await AutenticationApi();
+        using (var client = new HttpClient())
+        {
+            client.BaseAddress = new Uri(apiUrl);
+            client.DefaultRequestHeaders.Accept.Clear();
+            client.DefaultRequestHeaders.Add("Token", Token);
+            var urlWithParam = apiUrl + "?nationCode=" + MeliCode + "&gid=22";
+            var w = client.GetAsync(urlWithParam);
+            w.Wait();
+            HttpResponseMessage response = w.Result;
+            if (response.IsSuccessStatusCode)
+            {
+                var result = response.Content.ReadAsStringAsync();
+                result.Wait();
+                var retContent = result.Result;
+                var retClass = JsonConvert.DeserializeObject<ProfileCheckRegisterd>(retContent);
+                return retClass.HasRegisterd;
+            }
+            return false;
+        }
+
+    }
+}
+public partial class LoginResult
+{
+    public string Result { get; set; }
+    public bool LoginState { get; set; }
+    public string Errors { get; set; }
+    public ProfileUserApiResult CitizenInfo { get; set; }
+}
+public partial class RegisterResult
+{
+    public List<ProfileRegisterError> Errors { get; set; }
+    public ProfileUserApiResult CitizenInfo { get; set; }
+}
+public partial class ProfileUserApiResult
+{
+    public string Result { get; set; }
+    public int Citizen_ID { get; set; }
+    public int Queue_ID { get; set; }
+    public string StrGender { get; set; }
+    public string MariageStatus { get; set; }
+    public string StrMariageStatus { get; set; }
+    public string NationCode { get; set; }
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+    public string FatherName { get; set; }
+    public string Mobile { get; set; }
+    public string BirthDate { get; set; }
+    public string FullAddress { get; set; }
+    public int UserId { get; set; }
+
+}
+public partial class ProfileRegisterError
+{
+    public string ErrorTitle { get; set; }
+    public string ErrorMessage { get; set; }
+    public string ErrorKey { get; set; }
+
+}
+public partial class ProfileCheckRegisterd
+{
+    public bool HasRegisterd { get; set; }
+    public bool JoinGroup { get; set; }
+}

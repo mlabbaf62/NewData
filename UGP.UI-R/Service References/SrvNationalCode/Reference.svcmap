@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="574bb4c0-982d-4ba8-b773-96195fdb2443" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://192.168.100.170:7000/SrvNationalCodeInquiry/SrvNationalCodeInquiry.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SrvNationalCodeInquiry.wsdl" MetadataType="Wsdl" ID="b6cb63c9-f1ce-405e-a76d-eac0063d504f" SourceId="1" SourceUrl="http://192.168.100.170:7000/SrvNationalCodeInquiry/SrvNationalCodeInquiry.svc?wsdl" />
+    <MetadataFile FileName="SrvNationalCodeInquiry.disco" MetadataType="Disco" ID="d0412aba-7881-47e5-8191-70ac873d2d56" SourceId="1" SourceUrl="http://192.168.100.170:7000/SrvNationalCodeInquiry/SrvNationalCodeInquiry.svc?disco" />
+    <MetadataFile FileName="SrvNationalCodeInquiry.xsd" MetadataType="Schema" ID="9d92a2f5-0496-4d5b-a333-f0d67132ede0" SourceId="1" SourceUrl="http://192.168.100.170:7000/SrvNationalCodeInquiry/SrvNationalCodeInquiry.svc?xsd=xsd2" />
+    <MetadataFile FileName="SrvNationalCodeInquiry1.xsd" MetadataType="Schema" ID="36b92ac9-4911-4d19-af13-116974832726" SourceId="1" SourceUrl="http://192.168.100.170:7000/SrvNationalCodeInquiry/SrvNationalCodeInquiry.svc?xsd=xsd1" />
+    <MetadataFile FileName="SrvNationalCodeInquiry2.xsd" MetadataType="Schema" ID="712fdc9d-08bd-41b1-b0c6-32609c6ba0ff" SourceId="1" SourceUrl="http://192.168.100.170:7000/SrvNationalCodeInquiry/SrvNationalCodeInquiry.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

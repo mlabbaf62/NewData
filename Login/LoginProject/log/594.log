@@ -1,0 +1,2 @@
+Error in deserializing body of reply message for operation 'GetAccountInfo'. CData elements not valid at top level of an XML document. Line 1, position 3.
+Inner Exception: CData elements not valid at top level of an XML document. Line 1, position 3.

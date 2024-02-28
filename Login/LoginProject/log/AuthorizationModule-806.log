@@ -1,0 +1,46 @@
+System.String[]
+System.String[]-------------------------------
+Index:1  ~/form/safachangepassword.aspx
+-------------------------------
+{ path = ~/form/fonts/byekan.woff }
+{ tmpPathinfo =  }
+{ Functions = SendConfirmSMS }
+{ Functions = RecoveryAccountPassword }
+{ tmpIp = ::1 }
+{ key = ~/form/fonts/byekan.woff::1 }
+{ tmpIp = ::1 }
+{ key = ~/form/fonts/byekan.woff::1 }
+{ tmpClientIp = ::1 }
+{ EnableCaptcha = True }
+
+10/4/2023 12:33:16 PMSystem.String[]
+System.String[]-------------------------------
+Index:1  ~/form/safachangepassword.aspx
+-------------------------------
+{ path = ~/form/safalogin.aspx }
+{ tmpPathinfo =  }
+{ Functions = SendConfirmSMS }
+{ Functions = RecoveryAccountPassword }
+{ tmpIp = ::1 }
+{ key = ~/form/safalogin.aspx::1 }
+{ tmpIp = ::1 }
+{ key = ~/form/safalogin.aspx::1 }
+{ tmpClientIp = ::1 }
+{ EnableCaptcha = True }
+
+10/7/2023 3:36:57 PMSystem.String[]
+System.String[]-------------------------------
+Index:1  ~/form/safachangepassword.aspx
+-------------------------------
+{ path = ~/token/obj.js }
+{ tmpPathinfo =  }
+{ Functions = SendConfirmSMS }
+{ Functions = RecoveryAccountPassword }
+{ tmpIp = ::1 }
+{ key = ~/token/obj.js::1 }
+{ tmpIp = ::1 }
+{ key = ~/token/obj.js::1 }
+{ tmpClientIp = ::1 }
+{ EnableCaptcha = True }
+
+10/28/2023 10:14:38 AM

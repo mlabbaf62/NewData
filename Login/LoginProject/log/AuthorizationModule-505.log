@@ -1,0 +1,41 @@
+System.String[]
+System.String[]-------------------------------
+Index:1  ~/form/safachangepassword.aspx
+-------------------------------
+{ path = ~/form/safalogin.aspx }
+{ tmpPathinfo =  }
+{ Functions = SendConfirmSMS }
+{ Functions = RecoveryAccountPassword }
+{ tmpIp = ::1 }
+{ key = ~/form/safalogin.aspx::1 }
+{ tmpIp = ::1 }
+{ key = ~/form/safalogin.aspx::1 }
+{ tmpClientIp = ::1 }
+{ EnableCaptcha = True }
+
+8/28/2023 12:17:16 PMSystem.String[]
+System.String[]-------------------------------
+Index:1  ~/form/safachangepassword.aspx
+-------------------------------
+{ path = ~/form/createaccount.aspx }
+{ tmpPathinfo = RequestToken }
+{ Functions = SendConfirmSMS }
+{ Functions = RecoveryAccountPassword }
+{ tmpIp = ::1 }
+{ key = ~/form/createaccount.aspx::1 }
+System.String[]
+System.String[]-------------------------------
+Index:1  ~/form/safachangepassword.aspx
+-------------------------------
+{ path = ~/images/backgrong-ugp.png }
+{ tmpPathinfo =  }
+{ Functions = SendConfirmSMS }
+{ tmpIp = ::1 }
+{ key = ~/form/createaccount.aspx::1RequestToken }
+{ tmpIp = ::1 }
+{ key = ~/images/backgrong-ugp.png::1 }
+{ EnableCaptcha = True }
+{ tmpIp = ::1 }
+{ key = ~/images/backgrong-ugp.png::1 }
+
+8/28/2023 12:17:17 PM

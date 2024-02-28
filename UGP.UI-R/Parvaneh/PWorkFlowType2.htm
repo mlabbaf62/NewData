@@ -1,0 +1,46 @@
+﻿<fieldset class="GamBox ">
+
+
+    <div class="panel-body nopadding" style="min-height:300px">
+        <div class="info" style="margin-bottom: 0px!important;" ng-include="'Config/ParvanehSh/infoText/PWorkFlowType2.html'">
+        </div>
+        <br />
+        <div class="col-lg-12">
+            <img src="Images/SelectTick.png" style="height:40px" />
+            <button type="button" style="height:40px" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                انتخاب نوع درخواست
+            </button>
+        </div>
+        <div class="col-lg-12" style="margin-top:5px;text-align:center" ng-show="GamInputData.SelectedWorkFlow.WorkflowTitel">
+            <img src="images/selectTick2.png" style="height:40px" />
+            [ <span style="font-size:20px!important;font-weight:bold; color:green" ng-bind="GamInputData.SelectedWorkFlow.WorkflowTitel"></span> ]
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" style="" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 sclass="modal-title" id="exampleModalLabel">فرم پرسشنامه جهت انتخاب نوع درخواست</h5>
+                        <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        </button>-->
+
+                        <img src="Images/SelectTick.png" style="height:40px ;float:left" />
+
+                    </div>
+                    <div class="modal-body">
+                        <ng-include src="'Parvaneh/PGam2_Select_Quiz.htm'"></ng-include>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="Quize.Cancel()">انصراف</button>
+                        <button id="btnSelectWorkFlowOk" style="display:none" type="button" class="btn btn-primary" data-dismiss="modal" ng-click="Quize.SelectWorkFlow()">تایید</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+</fieldset>

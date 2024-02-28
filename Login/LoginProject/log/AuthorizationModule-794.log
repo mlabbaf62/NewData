@@ -1,0 +1,33 @@
+System.String[]
+System.String[]-------------------------------
+Index:1  ~/form/safachangepassword.aspx
+-------------------------------
+{ path = ~/form/fonts/byekan.woff }
+{ tmpPathinfo =  }
+{ Functions = SendConfirmSMS }
+{ Functions = RecoveryAccountPassword }
+{ tmpIp = ::1 }
+{ key = ~/form/images/showpassoff.png::1 }
+{ tmpIp = ::1 }
+{ key = ~/form/images/showpassoff.png::1 }
+{ key = ~/form/fonts/byekan.woff::1 }
+{ tmpClientIp = ::1 }
+{ EnableCaptcha = True }
+{ EnableCaptcha = True }
+
+10/4/2023 11:52:37 AMSystem.String[]
+System.String[]-------------------------------
+Index:1  ~/form/safachangepassword.aspx
+-------------------------------
+{ path = ~/form/css/bootstrap.min.css }
+{ tmpPathinfo =  }
+{ Functions = SendConfirmSMS }
+{ Functions = RecoveryAccountPassword }
+{ tmpIp = ::1 }
+{ key = ~/form/css/bootstrap.min.css::1 }
+{ tmpIp = ::1 }
+{ key = ~/form/css/bootstrap.min.css::1 }
+{ tmpClientIp = ::1 }
+{ EnableCaptcha = True }
+
+10/4/2023 12:33:15 PM

@@ -1,0 +1,14 @@
+[
+  {
+    "outputFileName": "Token/Account.min.js",
+    "inputFiles": [
+      "Token/Account.js"
+    ]
+  },
+  {
+    "outputFileName": "Form/js/CAccount.min.js",
+    "inputFiles": [
+      "Form/js/CAccount.js"
+    ]
+  }
+]

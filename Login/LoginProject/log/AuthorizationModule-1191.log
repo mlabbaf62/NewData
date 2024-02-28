@@ -1,0 +1,16 @@
+{ tmpIp = ::1 }
+{ key = ~/token/js/logine.js::1 }
+System.String[]
+System.String[]-------------------------------
+Index:1  ~/form/safachangepassword.aspx
+-------------------------------
+{ path = ~/token/account.js }
+{ tmpPathinfo =  }
+{ tmpIp = ::1 }
+{ Functions = SendConfirmSMS }
+{ Functions = RecoveryAccountPassword }
+{ tmpClientIp = ::1 }
+{ EnableCaptcha = True }
+{ key = ~/token/account.js::1 }
+
+1/16/2024 5:49:58 PM

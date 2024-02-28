@@ -1,0 +1,52 @@
+﻿<style>
+    .radioQuiz * {
+        color: black;
+    }
+
+    .radioQuiz > div {
+        clear: both;
+    }
+
+
+
+        .radioQuiz > div > input[type=radio] {
+            width: 20px;
+            float: right;
+            margin-left: 10px;
+        }
+
+        .radioQuiz > div > label {
+            font-size: 16px;
+            float: right;
+            margin-top: 5px;
+        }
+</style>
+<div id="DivQ1" class="radioQuiz">
+
+    <p>لطفا با دقت به سوالات زیر پاسخ دهید</p>
+    <hr />
+
+
+    <div ng-repeat="n in QuestionnaireHierarchy">
+        <input type="radio" id="rdbQ" name="rdbQ" value="rdbQ-{{$index}}">
+        <label for="s2">{{n.Question}}</label><br>
+    </div>
+
+    <hr />
+
+    <div id="DivFinal" style="display:none ; text-align:center; font-weight:bold">
+        <p>گزینه انتخابی نهایی</p>
+        [ <span style="font-size:larger; color:green" ng-bind="GamInputData.QuestionnaireDetailFinal.Answer"></span> ]
+    </div>
+
+    <div>
+        <!--<input type="button" class="btn" value="مرحله قبل" style="width:80px;color:black" ng-click="Quize.PreQuiz()" />-->
+        <input id="btnNext1" type="button" class="btn btn-success" value="مرحله بعد" ng-click="Quize.NextQuiz()" style="width:80px" />
+
+    </div>
+</div>
+
+
+
+<span id="LMessageQ" style="color:red;"></span>
+

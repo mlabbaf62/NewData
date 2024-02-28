@@ -1,0 +1,7 @@
+{ tmpUserName = MyShopMain }
+{ tmpPassword = 123456 }
+{ LoginMode =  }
+getServiceSecurity
+{ AbsoluteUri = http://localhost/Security8.web/Service/SecurityWCF.svc }
+Pre LoginAccount
+{ ErrorTitel = نام کاربری یا کلمه عبور اشتباه است }

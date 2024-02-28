@@ -1,0 +1,207 @@
+﻿<style>
+    /* Style the tab */
+    .tab {
+        overflow: hidden;
+        border: 1px solid #ccc;
+        background-color: #f1f1f1;
+        height: 42px;
+    }
+
+        /* Style the buttons that are used to open the tab content */
+        .tab input[type=button] {
+            background-color: inherit;
+            float: right !important;
+            border: none !important;
+            outline: none !important;
+            cursor: pointer !important;
+            padding: 9px 14px 14px 14px !important;
+            transition: 0.3s !important;
+            border-radius: 0 !important;
+            margin: 0 !important;
+            height: 42px !important;
+        }
+
+            /* Change background color of buttons on hover */
+            .tab input[type=button]:hover {
+                background-color: #ddd;
+            }
+
+            /* Create an active/current tablink class */
+            .tab input[type=button].active {
+                background-color: #ccc;
+            }
+
+    /* Style the tab content */
+    .tabcontent {
+        display: none;
+        padding: 6px 12px;
+        border: 1px solid #ccc;
+        border-top: none;
+        /*height: 100%;*/
+    }
+</style>
+
+<fieldset id="divShFani" class="GamBox">
+
+    <div style="padding-left: 0px; float: right" class="col-md-12 col-xs-12 PanelVs GamBoxFrame">
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <span ng-bind="Prop.CurrentPageName"></span>
+            </div>
+            <div class="info" ng-include="'Config/ParvanehSh/infoText/PGam8_ShFani.html'">
+            </div>
+            <hr />
+
+            <input type="button" value="دانلود فایل نقشه تک خطی" ng-click="Functions.DownloadDWG(3)" />
+
+            <div id="DivShFaniMain" class="active" style="display:block">
+                <div class="GamBoxFrame col-sm-12 col-xs-12  col-md-12 col-lg-12" style="float:none">
+                    <!--<div ng-show="GamInputData.EumRequestStatus!=5">
+                        <span class="warning2" style="color:red">پرونده سمت شهرساز است . بعد از تایید برای شما پیامک ارسال میشود</span>
+                        <hr />
+                    </div>-->
+                    <div ng-show="GamInputData.IsCouncil">
+                        <span class="warning2" style="color:red">پرونده سمت شهرساز است . بعد از تایید برای شما پیامک ارسال میشود</span>
+                        <hr />
+                    </div>
+
+                    <div id="DivExport" ng-class="{'disabled':GamInputData.IsCouncil}">
+                        <input class="btn btn-success form-control" style="float: right;width:auto; padding-right:15px;padding-left:15px; margin-right: 5px"
+                               type="button" id="btnExport" value="نمایش و چاپ شناسنامه وضع موجود ملک" ng-click="Functions.ShowShReport()" />
+                        <div style="margin-top:5px; height:300px" id="DivArchiveShfaniReport"></div>
+
+
+                        <!--<input class="btn btn-success form-control" style="float: right;width:auto; padding-right:15px;padding-left:15px; margin-right: 5px"
+    type="button" value="دانلود فایل لفاف حجمی" ng-click="Functions.DownloadDWG()" />-->
+                        <div>
+                            <hr style="clear:both" />
+                            <div class="FloatRightDiv">
+                                <input id="r5" style="float:right;" type="radio" value="true" ng-model="GamInputData.ShFaniOk" ng-change="ChangeShFani(GamInputData.ShFaniOk)" checked
+                                       name="ShFaniOk" />
+                                <span style=" margin-right:5px; color:green; padding-top: 4px; font-weight: bold">
+                                    شناسنامه فنی مورد تایید می باشد
+                                </span>
+
+                                <div style="border-right:solid 2px silver; margin-right:30px">
+                                    <input ng-show="GamInputData.IsCouncil!=true && GamInputData.SendToShahrsazOk!=true && GamInputData.ShFaniOk=='true'" id="btnSendToShahrsaz1" type="button" class="btn btn-success" style="padding-right:30px; padding-left:30px" ng-click="SendToShahrsaz(1)" value="ارسال پرونده به شهرداری" />
+                                </div>
+
+                            </div>
+
+                            <br />
+                            <div style="clear:both">
+                                <input id="r5" style="float:right;" type="radio" value="false" ng-model="GamInputData.ShFaniOk" ng-change="ChangeShFani(GamInputData.ShFaniOk)"
+                                       name="ShFaniOk" />
+                                <span style="vertical-align: top; font-weight: bold; color:red; margin-right:5px">
+                                    شناسنامه فنی مورد تایید نمی باشد
+                                </span>
+                            </div>
+
+                            <div style="clear:both">
+                                <input type="button" data-toggle="modal" data-target="#RevokeModal" class="btn" style="vertical-align: top; font-weight: bold; color:red; margin-right:5px" value="انصراف از درخواست" />
+                            </div>
+                            <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            انتخاب نوع درخواست
+        </button>-->
+                            <!-- Modal -->
+                            <div class="modal fade col-lg-6 col-md-8 col-sm-10 col-xs-12 " id="RevokeModal" style="top:30%;" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" style="" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-body">
+                                            <span>
+                                                دلیل ابطال
+                                            </span>
+                                            <input type="text" id="reasonComment" style="padding:10px;width:100% ;text-align:right" />
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-danger" data-dismiss="modal">انصراف</button>
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="Functions.RevokeRequest($('#reasonComment').text())">تایید</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <hr style="clear:both" />
+                        <div id="divSendDataFani" ng-show="GamInputData.ShFaniOk=='false'">
+                            <span style="color:red">متقاضی محترم لطفا در صورت عدم تایید شناسنامه فنی نظرات خود را در جدول ذیل وارد و مدارک مرتبط را بارگذاری نمایید:</span>
+                            <div id="divUploaderSend"></div>
+                            <div class="col-md-12">
+                                <span>توضیحات عدم تایید شناسنامه فنی ساختمان</span>
+
+                                <textarea rows="3" type="text" ng-model="GamInputData.ReasonComment" style="height:90px!important ;resize:none ;width:100%; text-align:right;" />
+                                <div style="direction:rtl; float:right" class="FloatRightDiv">
+                                    <input type="button" class="btn btn-success" style="padding-right:30px; padding-left:30px" ng-click="SaveOwnerComment()" value="ذخیره" />
+                                    <input id="btnSendToKartable" type="button" class="btn btn-success" style="padding-right:30px;display:none; padding-left:30px" ng-click="SendToShahrsaz(1,false)" value="ارسال پرونده به شهرداری" />
+
+                                    <span id="lblError" ng-bind="Prop.ErrorMessageComment" ng-style="{ 'color': ErrorColor }" style="color: red"></span>
+
+                                </div>
+
+                            </div>
+
+
+                            <table class="GridView" style="overflow-x: auto">
+                                <thead>
+                                    <tr style="background-color:red">
+                                        <td class="" style="border-left: 1px solid white">توضیحات شهروند</td>
+                                        <td class="" style="border-left: 1px solid white">تاریخ ثبت</td>
+                                        <!--<td class="" style="border-left: 1px solid white">ارسال مدرک</td>-->
+
+                                        <td class="" style="border-left: 1px solid white">توضیحات شهرساز</td>
+                                        <td class="" style="border-left: 1px solid white">نظر شهرساز</td>
+                                        <td class="" style="border-left: 1px solid white">تاریخ بروزرسانی</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="x in UGP_FormsConfirmationList">
+
+                                        <td style="max-width:250px" ng-bind="x.CitizenComments"></td>
+                                        <td class="" ng-bind="x.CreateDate"></td>
+
+                                        <td style="max-width:250px" ng-bind="x.UrbanPlannerComments"></td>
+
+                                        <td>
+                                            <span ng-show="x.EumUrbanPlannerOpinion=='0' " style="color:red">در حال بررسی</span>
+                                            <span ng-show="x.EumUrbanPlannerOpinion=='1' " style="color:green"> تایید</span>
+                                            <span ng-show="x.EumUrbanPlannerOpinion=='2' " style="color:red">عدم تایید</span>
+                                        </td>
+
+                                        <td class="" ng-bind="x.UpdateDate"></td>
+                                    </tr>
+                                    <tr ng-show="UGP_FormsConfirmationList==null">
+                                        <td colspan="8" style="text-align: center">
+                                            <span style="color: red">موردی یافت نشد</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+
+                            </table>
+
+
+
+
+                        </div>
+
+
+                        <div style="margin-top:5px;" id="DivArchiveSend"></div>
+
+
+                    </div>
+
+
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+
+</fieldset>
+<script>
+
+
+
+
+</script>

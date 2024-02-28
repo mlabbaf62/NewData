@@ -1,0 +1,139 @@
+﻿<fieldset style="width: 100%; box-shadow: none" class="GamBox">
+    <div style="padding-left: 0px; float: right; padding-right:0;" class="col-md-12 col-xs-12 PanelVs GamBoxFrame">
+
+
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <span ng-bind="Prop.CurrentPageName"></span>
+            </div>
+
+            <div class="panel-body nopadding" style="" id="DivTop">
+                <div class="info" style="margin-bottom: 0px!important;" ng-include="'Config/Parvaneh/infoText/PSelectNo.html'">
+                </div>
+                <div class="info" style="margin-bottom: 0px!important;">
+                    شهروند گرامی ، ملک خود را روی نقشه جانمایی کنید
+                </div>
+                <div style="direction:rtl; float:right" class="FloatRightDiv col-md-12">
+
+
+                    <div class="col-md-2">
+                        <span>منطقه</span>
+                        <select ng-model="GamInputData.District" style="width:100px">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-3">
+
+                        <input type="checkbox" style="width:20px;height:20px" ng-model="GamInputData.HaveNosaziCode" />
+                        <span style="vertical-align:middle;padding-right:5px">ملک دارای کد نوسازی می باشد</span>
+                    </div>
+
+
+                </div>
+                <hr />
+                <div class="col-md-12" ng-show="GamInputData.HaveNosaziCode">
+                    <div class="col-md-4" style="float:right" >
+
+                        <div ng-include="'Common/UNosaziCodeJNew.html'"></div>
+                    </div>
+                    <hr class="col-md-12"/>
+                    <div class="col-md-12" style="float:right" ng-show="GamInputData.HaveNosaziCode">
+
+                        <div ng-repeat="nr in NosaziReaseon" style="float:right">
+                            <label for="chkCustomer_{{nr.Id}}" style="vertical-align:middle;padding:0 3px 0 10px;color:black">
+                                <input   style="width:15px;height:15px" id="chkCustomer_{{nr.Id}}" type="checkbox" ng-model="nr.Selected" />
+                                {{nr.Name}}
+                            </label>
+                        </div>
+                        <!--<input type="button" value="getvalue" ng-click="GetNosaziReaseon()" />
+                     <span ng-bind="GamInputData.NosaziReasionsString"></span>-->
+                    </div>
+                </div>
+
+            </div>
+            <div id="mapContainer" class="col-md-12" style="padding-top:10px; clear:both;   box-shadow: 0 -1px 1px 0px rgba(115,115,115,0.75);">
+                <div id="m" style="width: 100%;height:500px;  direction: ltr; position: relative;"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+       
+        GetScope().GetNosaziReaseon = function () {
+             
+            GetScope().GamInputData.tmpNosaziReasions = Enumerable.From(GetScope().NosaziReaseon)
+                .Where(function (x) { return x.Selected == true })
+                .Select(function (x) { return x.Name}).ToArray();
+
+            GetScope().GamInputData.NosaziReasionsString = Enumerable.From(GetScope().NosaziReaseon)
+                .Where(function (x) { return x.Selected == true })
+                .Select(function (x) { return x.Name + "\t | \t" }).ToArray();
+
+          
+        };
+        GetScope().ReadNosaziReaseon = function () {
+             
+            for (var i = 0; i < GetScope().NosaziReaseon.length; i++) {
+                if (GetScope().GamInputData.tmpNosaziReasions.indexOf(GetScope().NosaziReaseon[i].Name)>-1) {
+                    GetScope().NosaziReaseon[i].Selected=true;
+                }
+            }
+        };
+
+
+        $(document).ready(function () {
+            GetScope().NosaziReaseon = [{
+                Id: 1,
+                Name: 'تجمیع',
+                Selected: false
+            }, {
+                d: 2,
+                Name: 'انصراف از تجمیع',
+                Selected: false
+            }, {
+                Id: 3,
+                Name: 'اصلاح جانمایی پارسل',
+                Selected: false
+            }
+                , {
+                Id: 3,
+                Name: 'اصلاح شکل هندسی پارسل',
+                Selected: false
+            }, {
+                Id: 3,
+                Name: 'ارائه کد صنفی به ساختمان',
+                Selected: false
+            }, {
+                Id: 3,
+                Name: 'کد فعال فاقد جانمایی',
+                Selected: false
+            }, {
+                Id: 3,
+                Name: 'تغییر لایه',
+                Selected: false
+            }
+            ];
+
+            GetScope().ReadNosaziReaseon();
+        });
+
+
+        function LoadDefault() {
+            // $('#txtDistrict1').val('12');
+            // $('#txtDistrict1').prop('disabled', true);
+        }
+    </script>
+</fieldset>

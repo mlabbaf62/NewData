@@ -1,0 +1,16 @@
+System.String[]
+System.String[]-------------------------------
+Index:1  ~/form/safachangepassword.aspx
+-------------------------------
+{ path = ~/form/css/bootstrap.min.css }
+{ tmpPathinfo =  }
+{ Functions = SendConfirmSMS }
+{ Functions = RecoveryAccountPassword }
+{ tmpIp = ::1 }
+{ key = ~/form/css/bootstrap.min.css::1 }
+{ tmpIp = ::1 }
+{ key = ~/form/css/bootstrap.min.css::1 }
+{ tmpClientIp = ::1 }
+{ EnableCaptcha = True }
+
+8/23/2023 6:06:07 PM

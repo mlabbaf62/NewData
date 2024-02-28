@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/SecurityModel.Archive" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SecurityModel.Archive" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost/Security8.Web/Service/SecurityWCF.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfCategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Category" nillable="true" type="tns:Category" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCategory" nillable="true" type="tns:ArrayOfCategory" />
+  <xs:complexType name="Category">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsJoin" type="xs:boolean" />
+      <xs:element minOccurs="0" name="NidCategory" type="xs:int" />
+      <xs:element minOccurs="0" name="NidParent" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ProcessEndTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProcessTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReserveTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SyncServiceURL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UIPath" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UIVersion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WSPath" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WSVersion" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Category" nillable="true" type="tns:Category" />
+  <xs:complexType name="ArrayOfCategory_Permission">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Category_Permission" nillable="true" type="tns:Category_Permission" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCategory_Permission" nillable="true" type="tns:ArrayOfCategory_Permission" />
+  <xs:complexType name="Category_Permission">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CategoryName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NidCategory" type="xs:int" />
+      <xs:element minOccurs="0" name="NidUser" type="ser:guid" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Category_Permission" nillable="true" type="tns:Category_Permission" />
+  <xs:complexType name="ArrayOfEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Entity" nillable="true" type="tns:Entity" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEntity" nillable="true" type="tns:ArrayOfEntity" />
+  <xs:complexType name="Entity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EntityGuid" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="ExtendedProperty" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsChecked" type="xs:boolean" />
+      <xs:element minOccurs="0" name="NidEntity" type="xs:int" />
+      <xs:element minOccurs="0" name="NidTtemplatFile" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Entity" nillable="true" type="tns:Entity" />
+  <xs:complexType name="ArrayOfArchiveUserPermission">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ArchiveUserPermission" nillable="true" type="tns:ArchiveUserPermission" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfArchiveUserPermission" nillable="true" type="tns:ArrayOfArchiveUserPermission" />
+  <xs:complexType name="ArchiveUserPermission">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CategoryName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EntityName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EumAccessType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GroupName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NidCategory" type="xs:int" />
+      <xs:element minOccurs="0" name="NidEntities" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NidGroupPermission" type="ser:guid" />
+      <xs:element minOccurs="0" name="NidUserPermission" type="ser:guid" />
+      <xs:element minOccurs="0" name="PrivateMessage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Region" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArchiveUserPermission" nillable="true" type="tns:ArchiveUserPermission" />
+</xs:schema>

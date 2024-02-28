@@ -1,0 +1,50 @@
+﻿<fieldset style="width: 100%; box-shadow: none" class="GamBox">
+    <div style="padding-left: 0px; float: right; padding-right:0;" class="col-md-12 col-xs-12 PanelVs GamBoxFrame">
+
+
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <span ng-bind="Prop.CurrentPageName"></span>
+
+            </div>
+
+            <!--باید داخل کانفیگ برود-->
+            <!--<div class="col-lg-12 col-md-12" style="padding:20px 0 0 20px; clear:both">
+                <input id="chIsMapOk" type="checkbox" ng-model="GamInputData.IsMapOk"
+                       style="       width: 18px; height:18px  ;   vertical-align: top" />
+
+                <span style="vertical-align:top">جانمایی ملک خود را تایید می نمایم</span>
+                <hr />
+            </div>-->
+
+
+            <div class="panel-body nopadding" style="" id="DivTop">
+                <div class="info" style="margin-bottom: 0px!important;" ng-include="'Config/Parvaneh/infoText/PSelect.html'">
+                </div>
+                <div class="col-md-6">
+
+                </div>
+                <div class="col-md-6">
+                    <div ng-include="'Common/UNosaziCodeJNew.html'"></div>
+                </div>
+            </div>
+
+
+            <div id="mapContainer" class="col-md-12" style="padding:0; clear:both;   box-shadow: 0 -1px 1px 0px rgba(115,115,115,0.75);">
+                <div id="m" style="width: 100%;  direction: ltr; position: relative;"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            onLoadDivMap();
+        });
+
+        function LoadDefault() {
+           // $('#txtDistrict1').val('12');
+           // $('#txtDistrict1').prop('disabled', true);
+        }
+    </script>
+</fieldset>

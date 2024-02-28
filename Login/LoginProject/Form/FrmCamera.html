@@ -1,0 +1,80 @@
+﻿
+<head>
+    <title></title>
+
+    <script language="javascript" type="text/javascript" src="../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/Face/safaFaceDetection.js"></script>
+    <link href="../js/Face/safaFaceStyle.css" rel="stylesheet" />
+
+
+
+    <script>
+        $(document).ready(function () {
+            initCamera();
+        });
+
+        //var tmpface;
+        function faceDetection(pImage) {
+          
+            tmpface.faceDetection(pImage, function (pFace) {
+
+                this.parent.ServiceCall(pFace);
+
+                $('#btnFace').prop('title', pFace);
+                $('#btnFace').trigger('click');
+            });
+        }
+        function reset() {
+            tmpface.reset();
+        }
+        function StopCapture()
+        {
+            var s= new Date().getSeconds();
+            $('#btnFaceStop').trigger('click',s);
+        }
+
+        function StartCapture() {
+            $('#btnFaceStart').trigger('click');
+        }
+
+        function initCamera() {
+            tmpface = new SafaFace();
+            tmpface.load({
+                OnFaceDetected: function (a) {
+                   
+                }
+            });
+        }
+        var slCtl = null;
+        function pluginLoaded(sender, args) {
+            slCtl = sender.getHost();
+        }
+    </script>
+
+</head>
+<body id="id">
+
+    <div id="silverlightControl" class="panel-body" style="display:none;background-color: transparent!important">
+        <object data="data:application/x-silverlight-2," type="application/x-silverlight-2"
+                width="100%" height="100%" style="text-align: center">
+            <param name="source" value="Silverlight/SafaCamera.xap?ver=1" />
+            <param name="onError" value="onSilverlightError" />
+            <param name="background" value="white" />
+            <param name="minRuntimeVersion" value="4.0.50826.0" />
+            <param name="autoUpgrade" value="true" />
+            <param name="Windowless" value="true" />
+            <param name="onLoad" value="pluginLoaded" />
+            <param name="initParams" value="aa" />
+            <a href="http://go.microsoft.com/fwlink/?LinkID=149156&v=4.0.50401.0" style="text-decoration: none">
+                <img src="http://go.microsoft.com/fwlink/?LinkId=161376" alt="Get Microsoft Silverlight"
+                     style="border-style: none" />
+            </a>
+        </object>
+    </div>
+
+    
+    <input type="button" style="display:none" title="" id="btnFace" />
+    <input type="button" style="display:none" title="" id="btnFaceStart" />
+    <input type="button" style="display:none" title="" id="btnFaceStop" />
+
+</body>

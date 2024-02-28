@@ -1,0 +1,25 @@
+{ tmpIp = ::1 }
+{ key = ~/images/showpassoff.png::1 }
+{ tmpClientIp = ::1 }
+{ EnableCaptcha = True }
+{ tmpPathinfo =  }
+{ Functions = SendConfirmSMS }
+{ Functions = RecoveryAccountPassword }
+{ EnableCaptcha = True }
+
+8/1/2023 3:20:05 PMSystem.String[]
+System.String[]-------------------------------
+Index:1  ~/form/safachangepassword.aspx
+-------------------------------
+{ path = ~/js/busy.js }
+{ tmpPathinfo =  }
+{ Functions = SendConfirmSMS }
+{ Functions = RecoveryAccountPassword }
+{ tmpIp = ::1 }
+{ key = ~/js/busy.js::1 }
+{ tmpIp = ::1 }
+{ key = ~/js/busy.js::1 }
+{ tmpClientIp = ::1 }
+{ EnableCaptcha = True }
+
+8/1/2023 3:39:37 PM

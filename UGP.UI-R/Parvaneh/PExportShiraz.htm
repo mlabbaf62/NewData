@@ -1,0 +1,85 @@
+﻿<fieldset id="divExport" class="GamBox" style="display:none">
+    <div class="info" ng-include="'Config/Parvaneh/infoText/PExport.html'">
+    </div>
+    <hr />
+    <div class="GamBoxFrame col-sm-12 col-xs-12  col-md-12 col-lg-12">
+       
+        <div id="divShowArchive" class="" style="float: right; margin-right: 5px; margin-bottom: 5px">
+
+            <input class="btn btn-success" style="background-color: #0086de; width: 150px" type="button"
+                   onclick="LoadInqueryArchive(GetScope().GamInputData.NidProc);" value="نمایش تصویر گواهی" />
+            <p class="h4" style="/*font-size: 100%!important; */color: green">صدور پاسخ استعلام با موفقیت انجام شد </p>
+
+            <p class="h4" style="color: green">
+                جهت رویت تصویر استعلام . برروی دکمه [ نمایش تصویر گواهی ] کلیک نمایید
+            </p>
+        </div>
+
+        <span id="lblError" ng-bind="ErrorMessage" ng-style="{ 'color': ErrorColor }" style="color: red"></span>
+
+        <p></p>
+
+        <div id="divArchiveCert" style="min-height: 390px; height: 100%" />
+        <br />
+    </div>
+</fieldset>
+
+<script>
+
+    var LoadInqueryArchive = function (NidProc) {
+
+        var ObjSafaArchive = $('#divArchiveCert').AsSafaArchive();
+        ObjSafaArchive.LoadObj(NidProc, 'ApprovalCertificate', 1, {
+            backgroundColor: 'rgb(170, 219, 170)',
+            FullpageBgColor: 'rgb(170, 219, 170)',
+            thumbnailGutterHeight: 10,
+            thumbnailGutterWidth: 5,
+            colorScheme: {
+                navigationbar: {
+                    background: 'yellow',
+                    border: '1px dotted #00cc00',
+                    color: 'black',
+                    colorHover: '#fff'
+                },
+                thumbnail: {
+                    background: 'rgb(180, 230, 190)',
+                    border: '1px solid yellow',
+                    labelBackground: 'rgba(242, 242, 219, 0.33);',
+                    titleColor: 'darkgreen',
+                    descriptionColor: '#ccc',
+                    descriptionShadow: '',
+                    paginationDotBorder: '2px solid #0c0',
+                    paginationDotBack: '#008500',
+                    paginationDotSelBack: '#0c0'
+                }
+            }
+        });
+        StartBusyTimer('GamBody');
+
+        ChangeArchiveAfterExport();
+        //   });
+    }
+    var ChangeArchiveAfterExport = function () {
+
+        var d = {
+            pNosaziCode: GetScope().GamInputData.CurrentNosaziCode,
+            pNidNosaziCode: GetScope().GamInputData.NidNosaziCode,
+            NidProc: GetScope().GamInputData.NidProc,
+            pBizCodeArchive: GetScope().GamInputData.ArchiveBizCode,
+            pArchive_NidEntity: GetScope().GamInputData.SelectedWorkFlow.Archive_NidEntity
+        }
+
+        var c = JSON.stringify(d);
+        $.ajax({
+            type: "POST",
+            url: "UStepGam.aspx/ChangeArchiveAfterExport",
+            data: c,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+              
+            },
+        });
+    }
+
+</script>

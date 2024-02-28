@@ -1,0 +1,20 @@
+{ key = ~/token/account.js::1 }
+System.String[]
+System.String[]-------------------------------
+Index:1  ~/form/safachangepassword.aspx
+-------------------------------
+{ path = ~/token/js/parskitwebapi.js }
+{ tmpPathinfo =  }
+{ Functions = SendConfirmSMS }
+{ tmpIp = ::1 }
+{ key = ~/token/account.js::1 }
+{ Functions = RecoveryAccountPassword }
+{ tmpClientIp = ::1 }
+{ EnableCaptcha = True }
+{ key = ~/token/js/parskitwebapi.js::1 }
+{ tmpIp = ::1 }
+{ key = ~/token/js/parskitwebapi.js::1 }
+{ tmpClientIp = ::1 }
+{ EnableCaptcha = True }
+
+1/20/2024 5:05:12 PM

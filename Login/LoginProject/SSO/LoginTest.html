@@ -1,0 +1,70 @@
+﻿
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <input type="button" value="ورود به SSO" onclick="LoginSSO()" />
+        </div>
+        <p id="pLoginStatus">Not Login</p>
+    </form>
+    <script>
+
+        var SecuritySSOUrl = 'http://localhost/SafaManMail/SSO/Login.aspx?ReturnUrl=http://192.168.100.50/SafaManMail/SSO/LoginTest.html';
+        var SecurityService = 'http://localhost/Security8.Web/Service/SecurityWcf.svc/json/';
+
+        var tmpTicket = getParameterByName('Ticket');
+        if (tmpTicket != null && tmpTicket != '') {
+
+            CheckLogin(tmpTicket);
+
+        }
+
+     
+        function LoginSSO() {
+            window.open(SecuritySSOUrl, '_self');
+        }
+
+        function getParameterByName(name) {
+            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                results = regex.exec(location.search);
+            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+        function CheckLogin(pTicket) {
+            var d = { pTicket: pTicket };
+            var c = JSON.stringify(d);
+            $.ajax({
+                type: "POST",
+                url: SecurityService + "CheckSSOTicket",
+                data: c,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    if (response.User != null) {
+                        $('#pLoginStatus').text("Success Login " + response.User.UserName);
+                    }
+                    else {
+                        $('#pLoginStatus').text(response.ErrorResult.BizErrors[0].ErrorTitel);
+                    }
+                },
+                failure: function (response) {
+                    alert(response.d);
+                    $('#pLoginStatus').text(response.error);
+                },
+                error: function (response) {
+                    console.log('CheckSSOTicket : ' + response.statusText);
+                    $('#pLoginStatus').text('خطا در فراخوانی تابع سکیوریتی');
+                }
+             
+            });
+        }
+
+    </script>
+</body>
+</html>

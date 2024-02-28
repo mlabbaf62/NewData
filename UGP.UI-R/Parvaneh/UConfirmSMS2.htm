@@ -1,0 +1,149 @@
+﻿<div id="UConfirmSMS" class="" style="margin:10px;">
+
+    <input id="btnSend" type="button" style="background-color:#575757; margin:0px 1px 3px 0px!important;"
+           onclick="SendConfirmSMS()" class="btn btn-success"
+           value="ارسال کد تایید به شماره همراه" />
+
+    <input id="txtConfirmCode" type="text" onkeyup="ConfirmCode_keypress(event)" placeholder="کد تاییدیه" title="کد تاییدیه را وارد نمایید" style="width: 100px;margin: 0 5px ;display:none;" />
+    <img id="imgTick" src="Images/tik.png" style="width: 20px; display: none ;margin: 0 5px" />
+    <img id="imgError" src="Images/Error.png" style="width: 20px; display: none;margin: 0 5px" />
+    <span id="lblSMS"></span>
+</div>
+
+<script>
+    var ClsSMS = {
+        NumOfWord: 5,
+        ConfirmCodeOk: false,
+    }
+    function ResetConfirm() {
+        $('#txtConfirmCode').prop("disabled", false);
+        $('#txtConfirmCode').val('');
+        $('#imgTick').hide();
+        $('#imgError').hide();
+         $('#txtConfirmCode').hide();
+         $('#lblSMS').text('');
+    }
+    function SendConfirmSMS() {
+
+        var tmpNumber = GetScope().Data.Mobile;
+
+        if (!tmpNumber.startsWith("09")) {
+            $('#lblSMS').text('شماره همراه را به صورت صحیح وارد نمایید');
+            return;
+        }
+        else if (tmpNumber.length < 11) {
+            $('#lblSMS').text("شماره تماس همراه باید ۱۱ رقمی باشد");
+            return;
+        }
+
+        var d = {
+            pNumber: tmpNumber,
+            pNosaziCode: NosaziCode,
+            FormuleMode: false
+        };
+        var c = JSON.stringify(d);
+        StartBusy('btnSend');
+        $request = $.ajax({
+            type: "POST",
+            url: "UTransferGam.aspx/SendConfirmSMS",
+            data: c,
+            crossDomin: true,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            processdata: true,
+            success: function (msg) {
+                StopBusy('btnSend');
+
+                if (msg.d.ErrorResult.BizErrors.length > 0) {
+                    $('#lblSMS').text(msg.d.ErrorResult.BizErrors[0].ErrorTitle);
+                    $('#lblSMS').css('color', 'red');
+                } else {
+                    $('#txtConfirmCode').show();
+                    $('#txtOwnerPhone').prop('disabled', 'true');
+
+                    $('#lblSMS').text('کد تاییدیه با موفقیت ارسال شد');
+                    $('#lblSMS').css('color', 'green');
+                }
+            },
+
+            error: function (ex) {
+                $('#lblSMS').text(msg.d.ErrorResult.BizErrors[0].ErrorTitle);
+                StopBusy();
+            }
+        });
+    }
+
+    function ConfirmCode_keypress(e) {
+
+        if ($('#txtConfirmCode').val().length == ClsSMS.NumOfWord)
+            CheckConfirmCode();
+    };
+
+    function CheckConfirmCode() {
+
+        var tmpConfirmCode = $('#txtConfirmCode').val();
+        var d = {
+            pNumber: tmpConfirmCode
+        };
+        var c = JSON.stringify(d);
+
+        $('#lblSMS').text('');
+        $('#imgError').hide();
+
+        StartBusy('txtConfirmCode');
+        $request = $.ajax({
+            type: "POST",
+            url: "UTransferGam.aspx/CheckConfirmCode",
+            data: c,
+            crossDomin: true,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            processdata: true,
+            success: function (msg) {
+                StopBusy('txtConfirmCode');
+
+                if (msg.d == true) {
+                    ClsSMS.ConfirmCodeOk = true;
+
+                    $('#txtConfirmCode').attr("disabled", "disabled");
+                    $('#txtConfirm').css('color', 'green');
+                    $('#lblSMS').css('color', 'green');
+                    $('#lblSMS').text('کد تاییدیه صحیح می باشد');
+                    $('#imgTick').show();
+                    if (GetScope().GamInputData != undefined)
+                        GetScope().GamInputData.ConfirmCodeOk = true;
+                    try {
+                        GetScope().ConfirmCodeOk();
+                    }
+                    catch (ex) { }
+                } else {
+                    $('#txtConfirm').css('color', 'red');
+                    $('#lblSMS').css('color', 'red');
+                    $('#lblSMS').text('کد تاییدیه معتبر نمی باشد');
+                    $('#imgError').show();
+                }
+            },
+
+            error: function (c) {
+                StopBusy('txtConfirmCode');
+            }
+        });
+    }
+
+    if (DontCheckSMS)
+        $('#UConfirmSMS').hide();
+
+    if (ConfirmSMSReadOnly) {
+        $('#txtOwnerPhone').prop('disabled', true);
+
+        document.getElementById("txtOwnerPhone").addEventListener('keydown', function (e) {
+            e.preventDefault();
+        });
+
+        document.getElementById("txtOwnerPhone").addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+        });
+    }
+
+
+</script>

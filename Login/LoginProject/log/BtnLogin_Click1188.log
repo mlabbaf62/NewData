@@ -1,0 +1,16 @@
+{ tmpUserName = m.labbaf }
+{ tmpPassword = 1234 }
+{ LoginMode =  }
+getServiceSecurity
+{ AbsoluteUri = http://localhost/Security8.web/Service/SecurityWCF.svc }
+Pre LoginAccount
+True
+{ tmpTimeOut = 60 }
+{ tmpUrlDeffered =    #UGP#http://localhost/UGPNew/Default.aspx#UGP#  #UGPNew#http://localhost/UGPNew/Default.aspx#UGPNew# #UGPNewIsfahan#http://localhost/UGPNewIsfahan#UGPNewIsfahan# #UGPNewMashhad#http://localhost/UGPNewMashhad/Default.aspx#UGPNewMashhad#  #UGPNew205#http://labbafm/UGPNew/Default.aspx#UGPNew205# }
+{ Param = NoEncryptSessionID }Value cannot be null.
+Parameter name: s
+{ SessionId = 34ced064-daed-4336-991d-d108c229fb81 }
+{ RequestId = mda11aczi3evse2xr5or1k5f }
+{ SessionId = 0JtpWjZqgns9WvxYXrdKoPLUSPLVg14WWfiQIpylCgvSLASH0vs4h5mny5aV2c9JSvvjx5E }
+{ tmpAddress = http://localhost/UGPNew/Default.aspx?S=0JtpWjZqgns9WvxYXrdKoPLUSPLVg14WWfiQIpylCgvSLASH0vs4h5mny5aV2c9JSvvjx5E&LoginMode=ManMail }
+btnLogin_Click ex:Thread was being aborted.

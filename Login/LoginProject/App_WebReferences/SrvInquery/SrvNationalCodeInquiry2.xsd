@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SrvNationalCodeInquiry" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SrvNationalCodeInquiry" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ClsPersonAuthenticationJson">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorResult" nillable="true" type="tns:ClsErrorResult" />
+      <xs:element minOccurs="0" name="PersonInfoJson" nillable="true" type="tns:clsPersonInfoJson" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClsPersonAuthenticationJson" nillable="true" type="tns:ClsPersonAuthenticationJson" />
+  <xs:complexType name="ClsErrorResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BizErrors" nillable="true" type="tns:ArrayOfclsBizError" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClsErrorResult" nillable="true" type="tns:ClsErrorResult" />
+  <xs:complexType name="ArrayOfclsBizError">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="clsBizError" nillable="true" type="tns:clsBizError" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfclsBizError" nillable="true" type="tns:ArrayOfclsBizError" />
+  <xs:complexType name="clsBizError">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorKey" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ErrorTitel" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="clsBizError" nillable="true" type="tns:clsBizError" />
+  <xs:complexType name="clsPersonInfoJson">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="birthDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="bookNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="bookRow" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="deathStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="family" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="fatherName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="gender" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="message" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="nin" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="officeCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="officeName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="shenasnameNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="shenasnameSeri" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="shenasnameSerial" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="clsPersonInfoJson" nillable="true" type="tns:clsPersonInfoJson" />
+</xs:schema>

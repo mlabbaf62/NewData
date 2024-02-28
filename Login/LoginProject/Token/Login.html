@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html >
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <link href="Built/SafaSecurity.min.css" rel="stylesheet" />
+    <script src="Built/jquery.min.js" type="text/javascript"></script>
+    <script src="Built/safaSecurity.min.js" type="text/javascript"></script>
+    <script src="Built/AppConfig.min.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            var working = false;
+            $('.login').on('submit', function (e) {
+
+                e.preventDefault();
+                if (working) return;
+                var $this = $(this),
+                  $state = $this.find('button > .state');
+                $this.addClass('loading');
+                $state.html('لطفا منتظر بمانید');
+
+                var TmpUsername = $('#txt_username')[0].value;
+                var TmpPass = $('#txtPassword')[0].value;
+
+                $this.addClass('loading');
+
+                SafaSecurity.Login(TmpUsername, TmpPass, 'Sample.html?a=37', function (a) {
+                    if (a.Result) {
+
+                        $this.addClass('ok');
+                        $state.html('خوش آمدید');
+
+                    } else {
+                        $state.html('رمز عبور صحیح نمی باشد');
+                        $this.removeClass('loading');
+                        $this.addClass('error');
+                        setTimeout(function () {
+                            $state.html('ورود');
+                            $this.removeClass('error');
+                            working = false;
+                        }, 2500);
+                    }
+                }, function (a) {
+                });
+            });
+        });
+    </script>
+</head>
+<body id="login_body">
+    
+
+    <div id="Container"></div>
+    <div class="wrapper">
+        <form class="login">
+            <p class="title">ورود به سامانه</p>
+            <input id="txt_username" type="text" placeholder="نام کاربری" autofocus />
+            <i class="fa fa-user"></i>
+            <input id="txtPassword" type="password" placeholder="پسورد" />
+            <i class="fa fa-key"></i>
+            <button>
+                <i class="spinner"></i>
+                <span class="state">ورود</span>
+            </button>
+        </form>
+    </div>
+    
+</body>
+</html>

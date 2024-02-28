@@ -1,0 +1,10 @@
+{ key = ~/images/footer.png::1 }
+System.String[]
+System.String[]-------------------------------
+Index:1  ~/form/safachangepassword.aspx
+-------------------------------
+{ path = ~/config/appconfig.xml }
+{ EnableCaptcha = True }
+{ tmpPathinfo =  }
+
+8/1/2023 3:24:24 PM

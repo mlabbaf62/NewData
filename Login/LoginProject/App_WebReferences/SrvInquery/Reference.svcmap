@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="6a029888-dc03-4565-8fdb-8d0add30eea6" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://esup.qom.ir/SrvNationalCodeInquiry/SrvNationalCodeInquiry.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SrvNationalCodeInquiry.disco" MetadataType="Disco" ID="648966d9-88d1-49f8-8d2d-e488fcb88a09" SourceId="1" SourceUrl="http://esup.qom.ir/SrvNationalCodeInquiry/SrvNationalCodeInquiry.svc?disco" />
+    <MetadataFile FileName="SrvNationalCodeInquiry.xsd" MetadataType="Schema" ID="015bbbe0-aa2a-402b-9739-cd315f22fc7b" SourceId="1" SourceUrl="http://esup.qom.ir/SrvNationalCodeInquiry/SrvNationalCodeInquiry.svc?xsd=xsd1" />
+    <MetadataFile FileName="SrvNationalCodeInquiry.wsdl" MetadataType="Wsdl" ID="c7c69fc0-d6fb-4d25-8b14-45989e475744" SourceId="1" SourceUrl="http://esup.qom.ir/SrvNationalCodeInquiry/SrvNationalCodeInquiry.svc?wsdl" />
+    <MetadataFile FileName="SrvNationalCodeInquiry1.xsd" MetadataType="Schema" ID="6fde7e1d-7638-4679-b533-652161e9554f" SourceId="1" SourceUrl="http://esup.qom.ir/SrvNationalCodeInquiry/SrvNationalCodeInquiry.svc?xsd=xsd0" />
+    <MetadataFile FileName="SrvNationalCodeInquiry2.xsd" MetadataType="Schema" ID="06ef4805-0448-4493-9272-903c19aa89d7" SourceId="1" SourceUrl="http://esup.qom.ir/SrvNationalCodeInquiry/SrvNationalCodeInquiry.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

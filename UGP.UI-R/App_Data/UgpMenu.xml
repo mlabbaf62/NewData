@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<UgpMenu>
+
+	<!-- <MenuItem Caption="صفحه اصلی" Url="Default.aspx" IsShow="true"> -->
+	<MenuItem Caption="صفحه اصلی" Url="." IsShow="true"  ImagePath="Images/home_icon.png">
+	</MenuItem>
+
+	<MenuItem  Caption="خدمات اختصاصی" ShowAfterLogin="false" IsShow="True" ShowInMainPage="true"   ImagePath="Images/s-s.png" >
+
+		<Item ID="1" Caption="پاسخ استعلام بانک" Url="UstepGam.aspx" IsShow="true"   ImagePath="Images/new-req.png" ShowAfterLogin="true"/>
+		<Item ID="1-1" Caption="پاسخ استعلام بانک" Url="UstepGam.aspx" IsShow="true"   ImagePath="Images/new-req.png" ShowAfterLogin="true" NidWorkflowDeff="5CA8477D-2A3A-0000-9C63-A8690FF8975C"/>
+
+		<Item ID="2" Caption="پاسخ استعلام بانک دارای بازدید" Url="UStepGamBazdid.aspx" IsShow="true"   ImagePath="Images/new-req.png" ShowAfterLogin="true"/>
+
+		<Item ID="3" Caption="گواهی نقل و انتقال" Url="UTransferGam.aspx" IsShow="true"   ImagePath="Images/new-req.png" ShowAfterLogin="true"/>
+		<Item ID="4" Caption="گواهی پایانکار" Url="FrmPayankar.aspx" IsShow="true"   ImagePath="Images/new-req.png" ShowAfterLogin="true"/>
+		<Item ID="5" Caption="گواهی سفتکاری" Url="FrmHardening.aspx" IsShow="true" Enable="true"  ImagePath="Images/new-req.png" ShowAfterLogin="true"/>
+		<Item ID="6" Caption="ثبت درخواست پروانه ساختمانی" Url="FrmParvaneh2.aspx" IsShow="true" Enable="true"  ShowInMainPage="true" ShowAfterLogin="true"/>
+		<Item ID="6-1" Caption="پروانه ساخت" Url="FrmParvaneh.aspx" IsShow="true" Enable="true"  ShowInMainPage="true" ShowAfterLogin="true" GamState="GamsArray_BuildingLicense" NidWorkflowDeff="5CA8477D-2A3A-4962-9C63-A8690FF8975C"/>
+		<Item ID="6-2" Caption="پروانه احداث بنا" Url="FrmParvaneh.aspx" IsShow="true" Enable="true"  ShowInMainPage="true" ShowAfterLogin="true" GamState="GamsArray_ConstructionBuilding" NidWorkflowDeff="5CA8477D-2A3A-4962-9C63-A8690FF8975C"/>
+		<Item ID="6-3" Caption="پروانه جدید شیراز" Url="FrmParvaneh.aspx" IsShow="true" Enable="true"  ShowInMainPage="true" ShowAfterLogin="true" GamState="GamsArray_Shiraz" NidWorkflowDeff="646a2101-a0c5-431b-8723-05ed7fd1eac1" Archive_NidEntity="15"/>
+		<Item ID="6-3-1" Caption="دستور نقشه شیراز" Url="FrmParvaneh.aspx" IsShow="true" Enable="true"  ShowInMainPage="true" ShowAfterLogin="true" GamState="GamsArray_DastourNaqshe" NidWorkflowDeff="646a2101-a0c5-431b-8723-05ed7fd1eac1" Archive_NidEntity="15"/>
+
+		<Item ID="6-4" Caption="پروانه جدید یزد" Url="FrmParvaneh.aspx" IsShow="true" Enable="true"  ShowInMainPage="true" ShowAfterLogin="true" GamState="GamsArray_Yazd" NidWorkflowDeff="646a2101-a0c5-431b-8723-05ed7fd1eac2" Archive_NidEntity="15"/>
+		<Item ID="6-5" Caption="پروانه ساخت یزد" Url="FrmParvaneh.aspx" IsShow="true" Enable="true"  ShowInMainPage="true" ShowAfterLogin="true" GamState="GamsArray_YazdBuilding" NidWorkflowDeff="5CA8477D-2A3A-4962-9C63-A8690FF8975C"/>
+
+		<Item ID="6-6" Caption="پروانه جدید اصفهان" Url="FrmParvaneh.aspx" IsShow="true" Enable="true"  ShowInMainPage="true" ShowAfterLogin="true" GamState="GamsArray_Isfahan" NidWorkflowDeff="200c3598-e036-4fd4-9fc1-f8494802d0ad" Archive_NidEntity="15"/>
+		<!--<Item ID="6-7" Caption="استعلام دفترخانه شیراز" Url="FrmParvaneh.aspx" IsShow="true" Enable="true"  ShowInMainPage="true" ShowAfterLogin="true" GamState="GamsArray_EstelamDaftar" NidWorkflowDeff="A0B245CC-4EC3-4FDD-9031-08762D871B94" Archive_NidEntity="15"/>-->
+		<Item ID="6-8" Caption="پروانه جدید زنجان" Url="FrmParvaneh2.aspx" IsShow="true" Enable="true"  ShowInMainPage="true" ShowAfterLogin="true" GamState="GamsArray_Zanjan" NidWorkflowDeff="a0b245cc-4ec3-4fdd-9031-08762d871b94" Archive_NidEntity="15"/>
+		<Item ID="6-8-1" Caption="کمیسیون زنجان گام" Url="FrmParvaneh2.aspx" IsShow="true" Enable="true"  ShowInMainPage="true" ShowAfterLogin="true" GamState="GamsArray_Commission" NidWorkflowDeff="a0b245cc-4ec3-4fdd-9031-08762d871b94" Archive_NidEntity="15"/>
+		<Item ID="6-8-2" Caption="کمیسیون زنجان" Url="FrmCommision.aspx" IsShow="true" Enable="true"  ShowInMainPage="true" ShowAfterLogin="true"  />
+
+
+		<Item ID="6-9" Caption="پایانکار جدید شیراز" Url="FrmParvaneh.aspx" IsShow="true" Enable="true"  ShowInMainPage="true" ShowAfterLogin="true" GamState="GamsArray_Payankar" NidWorkflowDeff="646a2101-a0c5-431b-8723-05ed7fd1eac1" Archive_NidEntity="15"/>
+		<Item ID="6-10" Caption="عدم خلاف اصفهان" Url="FrmParvaneh.aspx" IsShow="true" Enable="true"  ShowInMainPage="true" ShowAfterLogin="true" GamState="GamsArray_Violation" NidWorkflowDeff="854D7DC0-C969-4ED0-BF47-F3E7EB59E7B3" Archive_NidEntity="15"/>
+
+
+		<Item ID="7" Caption="پروانه (موافقت اصولی)" Url="FrmParvanehSh.aspx" IsShow="true" Enable="true"  ShowInMainPage="false" ShowAfterLogin="true" />
+		<Item ID="8" Caption="ثبت درخواست اینترنتی" Url="FrmParvanehShNew.aspx" IsShow="true" Enable="true"  ShowInMainPage="false" ShowAfterLogin="true"/>
+		<Item ID="13" Caption="عدم خلاف" Url="FrmNoViolation.aspx" IsShow="true" Enable="true"  ShowInMainPage="true" ShowAfterLogin="true"/>
+		<Item ID="13-1" Caption="درخواست کد نوسازی شیراز" Url="FrmParvaneh.aspx" GamState="GamsArray_ShirazNosaziCode" Archive_NidEntity="130" NidWorkflowDeff="646a2101-a0c5-431b-8723-05ed7fd1eac1" IsShow="true" Enable="true"  ShowInMainPage="true" ShowAfterLogin="true"/>
+
+		<Item ID="9" Caption="مشخصات مالکین" Url="FrmOwnerInfo.aspx" IsShow="true" Enable="true"  ShowInMainPage="false" ShowAfterLogin="true"/>
+		<Item ID="10" Caption="پرونده من" Url="FrmMyFile.aspx" IsShow="true" Enable="true"  ShowInMainPage="false" ShowAfterLogin="true"/>
+
+		<Item ID="11" Caption="جستجوی ملک" Url="USHowPelak.aspx" IsShow="true"  ShowInMainPage="false" ShowAfterLogin="true"/>
+		<Item ID="12" Caption="درخواست های پیشین" Url="UShowRequest.aspx"  IsShow="true"  ImagePath="images/my-req.png" ShowAfterLogin="true"/>
+		<Item ID="13" Caption="نمایش پیامک ها" Url="UShowSMS.aspx"  IsShow="true"  ImagePath="images/my-req.png" ShowAfterLogin="true"/>
+		<Item ID="14" Caption="استعلام حفاری" Url="UDig.aspx"  IsShow="true"  ImagePath="images/my-req.png" ShowAfterLogin="true"/>
+		<Item ID="15" Caption="اصلاح اطلاعات مالک" Url="FrmParvaneh.aspx" GamState="GamsArray_EditAccount" IsShow="true"  ImagePath="images/my-req.png" ShowAfterLogin="true" NidWorkflowDeff="646a2101-a0c5-431b-8723-05ed7fd1eac1"/>
+		<Item ID="16" Caption="آرشیو مدارک" Url="FrmMyArchive.aspx" IsShow="true"  ImagePath="images/my-req.png" ShowAfterLogin="true"/>
+
+	</MenuItem>
+
+	<MenuItem  Caption="خدمات عمومی" ShowInMainPage="true" IsShow="true" Col="2" ImagePath="Images/p-s.png" ShowAfterLogin="false" Target="_self">
+		<Item Caption="نقشه"  Url="http://esupt.isfahan.ir/ugp/newver/desk.html" IsShow="true" ImagePath="Images/maps.png"  />
+		<Item Caption="پیگیری درخواست" Url="http://esupt.isfahan.ir/ugp/newver/desk.html?pgname=Peigiri" IsShow="true" ImagePath="Images/verifi.png" />
+		<Item Caption="تصدیق گواهی" Url="http://esupt.isfahan.ir/ugp/newver/desk.html?pgname=ConfirmedLicence" IsShow="true" ImagePath="Images/confrm.png" />
+		<Item Caption="سوابق آرا کمیسیون" Url="http://esupt.isfahan.ir/ugp/newver/desk.html?pgname=Secretariat" IsShow="true" ImagePath="Images/book.png" />
+		<Item Caption="شهر نما" ID="ImgStreetView1" Url="http://esupt.isfahan.ir/ugp/newver/desk.html?pgname=" IsShow="true" ImagePath="Images/maps.png" />
+		<Item Caption="اعلام هوشمند ضابطه" Url="http://esupt.isfahan.ir/ugp/newver/desk.html?pgname=Intel-Zabete" IsShow="true" ImagePath="Images/DocGraphicKyBlue.png" />
+		<Item Caption="اعلام مقدار در مسیر" Url="http://esupt.isfahan.ir/ugp/newver/desk.html?pgname=Path-Val" IsShow="true" ImagePath="Images/DocGraphicKyBlue.png" />
+		<Item Caption="محاسبه تراکم ساختمانی مصوب و مجاز" Url="http://esupt.isfahan.ir/ugp/newver/desk.html?pgname=Cal-ZirBana" IsShow="true" ImagePath="Images/14265-200.png" />
+		<Item Caption="محاسبه زیر بنای ساخت در طبقات" Url="http://esupt.isfahan.ir/ugp/newver/desk.html?pgname=ZirBana" IsShow="true" ImagePath="Images/14265-200.png" />
+		<Item Caption="محاسبه عوارض و صدور تراکم پروانه ساختمانی" Url="http://esupt.isfahan.ir/ugp/newver/desk.html?pgname=Avarez" IsShow="true" ImagePath="Images/14265-200.png" />
+		<Item Caption="بدهی عوارض نوسازی" Url="http://esupt.isfahan.ir/ugp/newver/desk.html?pgname=Fish" IsShow="true" ImagePath="Images/dollar_3-512.png" />
+		<Item Caption="بدهی عوارض صنفی" Url="http://esupt.isfahan.ir/ugp/newver/desk.html?pgname=Fish-Senfi" IsShow="true" ImagePath="Images/dollar_3-512.png" />
+		<Item Caption="پیگیری قبوض نوسازی" Url="http://esupt.isfahan.ir/ugp/newver/desk.html?pgname=PeigiriAvarez" IsShow="true" ImagePath="Images/pays.png" />
+		<Item Caption="سوابق پرداختی نوسازی" Url="http://esupt.isfahan.ir/ugp/newver/desk.html?pgname=Fish-History" IsShow="true" ImagePath="Images/history.png" />
+		<Item Caption="سوابق پرداختی صنفی" Url="http://esupt.isfahan.ir/ugp/newver/desk.html?pgname=Fish-History-Senfi" IsShow="true" ImagePath="Images/history.png" />
+		<Item Caption="دانش نامه ضوابط شهرسازی" Url="http://esupt.isfahan.ir/ugp/newver/desk.html?pgname=DaneshNameh" IsShow="true" ImagePath="Images/book.png" />
+		<Item Caption="ثبت مشخصات مالکین" Url="FrmOwnerInfo.aspx" IsShow="true" ImagePath="Images/book.png" />
+	</MenuItem>
+
+	<MenuItem Caption="راهنما" IsShow="true" ShowAfterLogin="true">
+		<Item Caption="شهروندان" IsShow="True">
+			<Item Caption="معرفی قابلیتهای سایت اصفهان نما" Url="https://www.aparat.com/v/86zAq" IsShow="true" Target="_blank" ImagePath=""/>
+			<Item Caption="کد نوسازی چیه؟" Url="https://www.aparat.com/v/SCeBh" IsShow="true" Target="_blank" ImagePath=""/>
+			<Item Caption="شماره پیگیری چیه؟" Url="https://www.aparat.com/v/ahmTq" IsShow="true" Target="_blank" ImagePath=""/>
+		</Item>
+		<Item Caption="مهندسین ناظر" IsShow="True">
+			<Item Caption="تایید سفتکاری/پایانکار ویژه مهندسین" Url="https://www.aparat.com/v/jZpCW" IsShow="true" Target="_blank" ImagePath=""/>
+			<Item Caption="نحوه ورود مهندس به سامانه" Url="https://www.aparat.com/v/TsuFN" IsShow="true" Target="_blank" ImagePath=""/>
+			<Item Caption="كارتابل مهندس" Url="https://www.aparat.com/v/u0E3i" IsShow="true" Target="_blank" ImagePath=""/>
+			<Item Caption="تكميل اطلاعات فردي (خوداظهاري مهندسين )" Url="https://www.aparat.com/v/hmOQH" IsShow="true" Target="_blank" ImagePath=""/>
+			<Item Caption="نحوه ثبت کار جدید (درخواست ارجاع کار)" Url="https://www.aparat.com/v/uJl5f" IsShow="true" Target="_blank" ImagePath=""/>
+			<Item Caption="اطلاع از گزارش عملکرد مهندسین" Url="https://www.aparat.com/v/vND16" IsShow="true" Target="_blank" ImagePath=""/>
+			<Item Caption="نحوه ارسال گزارش مرحله ای ناظرین" Url="https://www.aparat.com/v/AQThK" IsShow="true" Target="_blank" ImagePath=""/>
+			<Item Caption="نحوه ارسال گزارش تخلفات ساختمانی" Url="https://www.aparat.com/v/D5mIv" IsShow="true" Target="_blank" ImagePath=""/>
+			<Item Caption="تکمیل فرم اخذ شناسه فنی ساختمانی" Url="https://www.aparat.com/v/JkNtn" IsShow="true" Target="_blank" ImagePath=""/>
+		</Item>
+	</MenuItem>
+
+	<MenuItem Caption="ارتباط با ما" Target="_self" Url="Config/Pages/AboutUs.aspx" IsShow="true">
+	</MenuItem>
+
+	<MenuItem Caption="ثبت درخواست(تيكت) " Target="_self" Url="Config/Pages/FeedBack.aspx" IsShow="true" ShowAfterLogin="true" SendNidAccount="true">
+	</MenuItem>
+
+</UgpMenu>

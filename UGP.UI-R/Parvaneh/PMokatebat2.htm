@@ -1,0 +1,334 @@
+﻿<style>
+    /* Style the tab */
+    .tab {
+        overflow: hidden;
+        border: 1px solid #ccc;
+        background-color: #f1f1f1;
+        height: 42px;
+    }
+
+        /* Style the buttons that are used to open the tab content */
+        .tab input[type=button] {
+            background-color: inherit;
+            float: right !important;
+            border: none !important;
+            outline: none !important;
+            cursor: pointer !important;
+            padding: 9px 14px 14px 14px !important;
+            transition: 0.3s !important;
+            border-radius: 0 !important;
+            margin: 0 !important;
+            height: 42px !important;
+        }
+
+            /* Change background color of buttons on hover */
+            .tab input[type=button]:hover {
+                background-color: #ddd;
+            }
+
+            /* Create an active/current tablink class */
+            .tab input[type=button].active {
+                background-color: #ccc;
+            }
+
+    /* Style the tab content */
+    .tabcontent {
+        display: none;
+        padding: 6px 12px;
+        border: 1px solid #ccc;
+        border-top: none;
+        /*height: 100%;*/
+    }
+</style>
+
+<fieldset id="divLetters" class="GamBox" ng-class="{'disabled':GamInputData.EumRequestStatus!=5}">
+    <div>
+        <!--<span ng-bind="GamInputData.MustUploadLetterCount"></span>
+        <span ng-bind="GamInputData.CurrentStep"></span>
+        <span ng-bind="GamInputData.UploadDwg"></span>-->
+
+        <input id="btnSendToShahrsaz3" ng-disabled="GamInputData.IsCouncil || GamInputData.MustUploadLetterCount == undefined || GamInputData.MustUploadLetterCount < LetterList_OUT.length ||  GamInputData.UploadDwg!=true" type="button" class="btn btn-success" style="padding-right:30px;float:right; padding-left:30px;" ng-click="SendToShahrsaz(3)" value="ارسال پرونده به شهرداری" />
+        <span id="lblError" ng-bind="Prop.ErrorMessageComment" ng-style="{ 'color': ErrorColor }" style="color: red;float:right"></span>
+
+    </div>
+
+    <div style="padding-left: 0px; float:right" class="col-md-12 col-xs-12 PanelVs GamBoxFrame">
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <span ng-bind="Prop.CurrentPageName"></span>
+            </div>
+            <div class="info" ng-include="'Config/ParvanehSh/infoText/PGam9_Zabete.html'">
+            </div>
+
+            <div ng-show="GamInputData.IsCouncil">
+                <span class="warning2" style="color:red">پرونده سمت شهرساز است . بعد از تایید برای شما پیامک ارسال میشود</span>
+                <hr />
+            </div>
+
+            <hr />
+            <div ng-class="{'disabled':GamInputData.IsCouncil}">
+
+                <div class="tab">
+                    <input id="t1" type="button" class="tablinks active" onclick="openCity(event, 'DivLetterIn2')" value="نامه های درون سازمانی" />
+                    <input type="button" class="tablinks" onclick="openCity(event, 'DivLetterOut2')" value="نامه های برون سازمانی" />
+                    <!--<input type="button" class="tablinks" onclick="openCity(event, 'DivPishZabete')" value="پیش نقشه" />
+                    <input type="button" class="tablinks" onclick="openCity(event, 'DivAgreement')" value="توافقنامه املاک" />-->
+                </div>
+                <div id="DivLetterIn2" class="tabcontent">
+
+                    <span>نمایش نامه های مرتبط با پرونده </span>
+
+                    <table class="GridView" style="overflow-x: auto">
+                        <thead>
+                            <tr>
+                                <td class="" style="border-left: 1px solid white">نام ارگان</td>
+                                <!--<td class="" style="border-left: 1px solid white">نمایش / چاپ</td>-->
+
+
+                                <td class="" style="border-left: 1px solid white">توضیحات شهرساز</td>
+                                <td class="" style="border-left: 1px solid white">نظر سازمان</td>
+                                <td class="" style="border-left: 1px solid white">توضیحات سازمان</td>
+                                <td class="" style="border-left: 1px solid white">تاریخ تایید</td>
+
+                                <td class="" style="border-left: 1px solid white">آدرس سازمان</td>
+                                <td class="" style="border-left: 1px solid white">تلفن سازمان</td>
+
+                                <td class="" style="border-left: 1px solid white">شماره درخواست</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="x in LetterList_IN">
+                                <td>
+                                    <span ng-bind="x.LetterName" />
+                                </td>
+                                <!--<td>
+        <input type="button" value="نمایش" ng-click="ShowLetterReport(x.ReportName)" />
+    </td>-->
+                                <td>
+                                    <span ng-bind="x.Sh_OfficeLetter.Comments"></span>
+                                </td>
+                                <td>
+                                    <img src="Images/Tick2.png" ng-show="x.Sh_OfficeLetter.EumConfirmOrganization==1" style="width:20px; height:21px" />
+                                    <img src="Images/Error.png" ng-show="x.Sh_OfficeLetter.EumConfirmOrganization!=1" style="width:20px; height:21px" />
+
+                                    <!-- <span ng-bind="x.IsConfirmStr" ng-style="x.Sh_OfficeLetter.EumConfirm==1 && {'color':'green'} ||  {'color':'red'}"></span>-->
+                                </td>
+                                <td>
+                                    <span ng-bind="x.Sh_OfficeLetter.CommentsOrganization"></span>
+                                </td>
+                                <td>
+                                    <span ng-bind="x.Sh_OfficeLetter.ConfirmOrganizationDate"></span>
+                                </td>
+                                <td>
+                                    <span ng-bind="x.OrgAddress"></span>
+                                </td>
+
+                                <td>
+                                    <span ng-bind="x.OrgTel"></span>
+                                </td>
+
+
+
+
+                                <td>
+                                    <span ng-bind="x.Sh_OfficeLetter.NidWorkItem"></span>
+                                </td>
+
+                            </tr>
+                            <tr ng-show="LetterList_IN.length==0">
+                                <td colspan="8" style="text-align: center">
+                                    <span style="color: red">موردی یافت نشد</span>
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+
+
+
+
+                </div>
+
+                <div id="DivLetterOut2" class="tabcontent">
+                    
+                    <span style="color:#2f9023; float:right;clear:both">
+                        متقاضی محترم لطفا جهت نمایش و چاپ نامه های مورد نظر بر روی دکمه نمایش کلیک نمایید .خواهشمند است پس از دریافت کلیه نامه ها ، پاسخ های
+                        دریافتی را بر روی قسمت بارگذاری پاسخ نامه وارد نمایید
+                    </span>
+                    <table class="GridView" style="overflow-x: auto">
+                        <thead>
+                            <tr>
+                                <td class="" style="border-left: 1px solid white">نام ارگان</td>
+                                <td class="" style="border-left: 1px solid white">نمایش / چاپ</td>
+                                <td class="" style="border-left: 1px solid white">بارگذاری نامه</td>
+                                <td class="" style="border-left: 1px solid white">نظر شهرساز</td>
+                                <td class="" style="border-left: 1px solid white">توضیحات (شهرساز)</td>
+                                <td class="" style="border-left: 1px solid white">آدرس سازمان</td>
+                                <td class="" style="border-left: 1px solid white">تلفن سازمان</td>
+
+
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="x in LetterList_OUT">
+                                <td>
+                                    <span ng-bind="x.LetterName" />
+                                </td>
+                                <td>
+                                    <input type="button" value="نمایش" ng-click="ShowLetterReport(x.ReportName)" />
+                                </td>
+                                <td>
+                                    <div style="float:right;width:40px;height:30px">
+                                        <img ng-show="x.Sh_OfficeLetter.ArchiveNidFile!=null && x.Sh_OfficeLetter.ArchiveNidFile!=''" src="{{ArchiveProvide}}Fname={{x.Sh_OfficeLetter.ArchiveNidFile}}&ZoomLevel=0&BizCode={{GamInputData.ArchiveBizCode}}&&DomainName={{GamInputData.District}}" class="zoom" style="width:40px;padding-top:5px" onclick="" />
+                                    </div>
+                                    <div ng-hide="x.Sh_OfficeLetter.EumConfirm==1" style="float:right" id="DivLetter2{{$index}}"></div>
+                                    <button id="btnLoad" ng-click="initUpload()">بارگذاری</button>
+                                </td>
+
+
+                                <td>
+                                  
+                                    <span ng-show="x.Sh_OfficeLetter.EumConfirm==null && x.Sh_OfficeLetter.ArchiveNidFile!=null">در حال بررسی</span>
+
+                                    <img src="Images/Tick2.png" ng-show="x.Sh_OfficeLetter.EumConfirm==1" style="width:20px; height:21px" />
+                                    <span  ng-show="x.Sh_OfficeLetter.EumConfirm==1" style="color:green">تایید</span>
+
+                                    <img src="Images/Error.png" ng-show="x.Sh_OfficeLetter.EumConfirm==2" style="width:20px; height:21px" />
+                                    <span  ng-show="x.Sh_OfficeLetter.EumConfirm==2" style="color:red">عدم تایید</span>
+
+                                </td>
+                                <td>
+                                    <span ng-bind="x.Sh_OfficeLetter.Comments"></span>
+                                </td>
+                                <td>
+                                    <span ng-bind="x.OrgAddress"></span>
+                                </td>
+
+                                <td>
+                                    <span ng-bind="x.OrgTel"></span>
+                                </td>
+
+
+                            </tr>
+                            <tr ng-show="LetterList_OUT.length==0">
+                                <td colspan="8" style="text-align: center">
+                                    <span style="color: red">موردی یافت نشد</span>
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+
+
+                    <div style="width:100% ; padding-top:5px; margin-top:5px" class="nopadding" id="DivArchiveLetter"></div>
+
+                </div>
+
+                <div id="DivPishZabete" class="tabcontent">
+                    <span style="color:#2f9023; float:right;clear:both">
+                        متقاضی محترم لطفا جهت نمایش و چاپ نامه های مورد نظر بر روی دکمه نمایش کلیک نمایید .خواهشمند است پس از دریافت کلیه نامه ها ، پاسخ های
+                        دریافتی را بر روی قسمت بارگذاری پاسخ نامه وارد نمایید
+                    </span>
+                    <table class="GridView" style="overflow-x: auto">
+                        <thead>
+                            <tr>
+                                <td class="" style="border-left: 1px solid white">نام ارگان</td>
+                                <td class="" style="border-left: 1px solid white">نمایش / چاپ</td>
+
+                                <td class="" style="border-left: 1px solid white">نظر شهرساز</td>
+                                <td class="" style="border-left: 1px solid white">توضیحات (شهرساز)</td>
+                                <td class="" style="border-left: 1px solid white">بارگذاری فایل DWG</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="x in LetterList_PZ">
+                                <td>
+                                    <span ng-bind="x.LetterName" />
+                                </td>
+                                <td>
+                                    <input type="button" value="دانلود فایل پیش نقشه" ng-click="Functions.DownloadDWG(2)"/>
+                                </td>
+
+
+                                <td>
+                                    <img src="Images/Tick2.png" ng-show="x.Sh_OfficeLetter.EumConfirm==1" style="width:20px; height:21px" />
+                                    <span ng-bind="x.IsConfirmStr" ng-style="x.Sh_OfficeLetter.EumConfirm==1 && {'color':'green'} ||  {'color':'red'}"></span>
+                                </td>
+                                <td>
+                                    <span ng-bind="x.Sh_OfficeLetter.Comments"></span>
+                                </td>
+                                <td>
+                                        <img ng-show="x.Sh_OfficeLetter.ArchiveNidFile!=null && x.Sh_OfficeLetter.ArchiveNidFile!=''" src="Images/DWG.png" class="zoom" style="width:40px;padding-top:5px;float:right"/>
+                                   
+                                    <div id="DivLetterDWG{{$index}}"></div>
+                                </td>
+
+                            </tr>
+                            <tr ng-show="LetterList.length==0">
+                                <td colspan="8" style="text-align: center">
+                                    <span style="color: red">موردی یافت نشد</span>
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <div id="DivAgreement" class="tabcontent">
+
+                    <span style="color:#2f9023; float:right;clear:both">
+                        متقاضی محترم لطفا جهت نمایش و چاپ نامه های مورد نظر بر روی دکمه نمایش کلیک نمایید 
+                    </span>
+                    <table class="GridView" style="overflow-x: auto">
+                        <thead>
+                            <tr>
+                                <td class="" style="border-left: 1px solid white">نام ارگان</td>
+                                <td class="" style="border-left: 1px solid white">نمایش / چاپ</td>
+                                <td class="" style="border-left: 1px solid white">نظر شهرساز</td>
+                                <td class="" style="border-left: 1px solid white">توضیحات (شهرساز)</td>
+                         
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="x in LetterList_Ag">
+                                <td>
+                                    <span ng-bind="x.LetterName" />
+                                </td>
+                                <td>
+                                    <input type="button" value="نمایش" ng-click="ShowLetterReport(x.ReportName)" />
+                                </td>
+
+                                <td>
+                                    <img src="Images/Tick2.png" ng-show="x.Sh_OfficeLetter.EumConfirm==1" style="width:20px; height:21px" />
+                                    <span ng-bind="x.IsConfirmStr" ng-style="x.Sh_OfficeLetter.EumConfirm==1 && {'color':'green'} ||  {'color':'red'}"></span>
+                                </td>
+                                <td>
+                                    <span ng-bind="x.Sh_OfficeLetter.Comments"></span>
+                                </td>
+                                <td>
+                                    <span ng-bind="x.Sh_OfficeLetter.Address"></span>
+                                </td>
+                            </tr>
+                            <tr ng-show="LetterList_Ag.length==0">
+                                <td colspan="8" style="text-align: center">
+                                    <span style="color: red">موردی یافت نشد</span>
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</fieldset>
+
+<script>
+    $('#DivLetterIn').show();
+</script>

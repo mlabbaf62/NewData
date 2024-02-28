@@ -1,0 +1,18 @@
+{ tmpPathinfo =  }
+System.String[]
+System.String[]-------------------------------
+Index:1  ~/form/safachangepassword.aspx
+-------------------------------
+{ path = ~/config/appconfig.xml }
+{ tmpPathinfo =  }
+{ Functions = SendConfirmSMS }
+{ Functions = RecoveryAccountPassword }
+{ tmpIp = ::1 }
+{ key = ~/config/appconfig.xml::1 }
+{ tmpIp = ::1 }
+{ key = ~/images/tik.png::1 }
+{ tmpIp = ::1 }
+{ EnableCaptcha = True }
+{ tmpClientIp = ::1 }
+
+8/28/2023 1:51:29 PM

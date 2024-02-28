@@ -1,0 +1,358 @@
+﻿<style>
+    .disable input {
+        pointer-events: none;
+        background-color: silver;
+    }
+</style>
+<fieldset id="GridView1" class="GamBox">
+    <p id="p1" class="info h4 " ng-include="'Config/Parvaneh/infoText/PAvarez.html'">
+    </p>
+
+    <div class=" col-sm-12 col-xs-12  col-md-12 col-lg-12 GamBoxFrame" style="background-color:#f7f7f7">
+        <div style="clear: both; min-height: 200px; margin-bottom: 40px!important" class="GamBoxFrame"
+             id="DivFichDaramad">
+            <div class="panel-heading">
+                <span class="headerAvarez">فیش درآمد</span>
+            </div>
+            <div class="panel-body nopadding">
+                <div class="GridView2">
+                    <span class="warning" ng-style="{ 'color': ErrorColorD }"
+                          ng-bind="GamInputData.FicheRes.ErrorMessageAvarezDaramad"></span>
+
+
+                    <fieldset ng-repeat="x in GamInputData.FishListAvarezDarAmad" ng-hide="x.Income_Fiche!=null || x.EumFicheStatus==4"
+                              style="margin-top: 1px">
+
+                        <div class="col-md-12 col-xs-12 FloatRightDiv" style="padding:0">
+
+                            <div class="keyvalue col-lg-3 col-md-3  col-sm-6  col-xs-12">
+                                <span>شناسه قبض : </span>
+                                <span>
+                                    <span ng-bind="x.BillID"></span>
+                                </span>
+
+                            </div>
+                            <div class="keyvalue col-lg-3 col-md-3  col-sm-6  col-xs-12">
+                                <span>شناسه پرداخت : </span>
+                                <span>
+                                    <spanl ng-bind="x.PaymentID"></spanl>
+                                </span>
+
+                            </div>
+
+                            <div class="keyvalue col-lg-3 col-md-3  col-sm-6  col-xs-12">
+                                <span>شماره فیش : </span>
+                                <span>
+                                    <span ng-bind="x.FicheNo"></span>
+                                </span>
+
+                            </div>
+                            <div class="keyvalue col-lg-3 col-md-3  col-sm-6  col-xs-12">
+                                <span>مبلغ فیش: </span>
+                                <span>
+                                    <span ng-bind="x.Payable.formatMoney(0, '.', ',') + ' ریال ';" style="color:green; font-weight: 700"></span>
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <fieldset class="GamBoxFrame" style="margin-top: 1px ;padding:0;background-color:#fbfbfb">
+                            <legend>جزییات درآمد</legend>
+                            <div class="keyvalueDetail" style="padding:0" ng-repeat="x in GamInputData.FishListAvarezDarAmadDetail">
+                                <div class="col-md-12 col-xs-12 nopadding">
+
+                                    <div class="keyvalue col-md-4 col-xs-12">
+                                        <span>شرح درآمد : </span>
+                                        <span>
+                                            <asp:Label ID="Label18" runat="server" Font-Bold="false"
+                                                       ng-bind="x.ValueDesc"></asp:Label>
+                                        </span>
+                                    </div>
+
+                                    <div class="keyvalue col-md-4 col-xs-12">
+                                        <span>مبلغ : </span>
+                                        <span>
+                                            <asp:Label ID="Label11" runat="server" Font-Bold="false"
+                                                       ng-bind="x.MethodValue"></asp:Label>
+                                        </span>
+
+                                    </div>
+
+                                    <div class="keyvalue col-md-4 col-xs-12">
+                                        <span>عنوان درآمد : </span>
+                                        <span>
+                                            <asp:Label ID="Label10" runat="server" Font-Bold="false"
+                                                       ng-bind="x.MethodTitle"></asp:Label>
+                                        </span>
+
+                                    </div>
+                                    <hr style="clear:both" />
+
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <div ng-show="!x.Result.isTruePayment" style="float:right">
+                            <input ng-hide="BreakePaymentAvarezDaramad" id="tt" class="btn btn-success" type="button" style="font-family: Tahoma;float:right"
+                                   value="پرداخت آنلاین"
+                                   ng-click="PayFish(x.Payable,1,5,x.NidFiche, x.NidNosaziCode,GamInputData.CurrentNosaziCode,x.BillID,x.PaymentID,x.FicheNo)" />
+
+                            <div class="FloatRightDiv" ng-show="BreakePaymentAvarezDaramad">
+                                <span class="w3-red" style="color:red">مهلت پرداخت به پایان رسیده است . </span>
+                                <span style="padding-right:10px">مهلت پرداخت :  </span>
+                                <span ng-bind="x.PaymentBreakDate"></span>
+                            </div>
+
+                        </div>
+                        <div style="float:left">
+                            <input class="btn btn-success" ng-show="ShowPrint"
+                                   style="float: left; text-align: left; margin-right: 5px; margin-left: 5px"
+                                   type="button" id="btnPrintInquery" value="چاپ فیش"
+                                   ng-click="PrintFiche(x.NidFiche)">
+                        </div>
+
+                        <div id="DivResult">
+                            <div ng-show="!x.Result.isTruePayment && x.Result.PaymentMessage!=null">
+                                <img src="images/Error.png" style="width: 20px;" />
+                                <span ng-bind="x.Result.PaymentMessage"
+                                      style="color: red; font-size: 14px; font-weight: bold"></span>
+                            </div>
+                            <div ng-show="x.Result.isTruePayment">
+                                <img src="images/check-s.png" style="width: 30px;" />
+                                <span ng-bind="x.Result.PaymentMessage"
+                                      style="color: green; font-size: 14px; font-weight: bold"></span>
+                            </div>
+                            <div style="float: right; margin-right: 30px" ng-show="x.Result.SaleReferenceId!=null && x.Result.SaleReferenceId!=''">
+                                <span style="color: green; font-weight: bold; font-size: 15px;">شماره پیگیری بانک : </span>
+                                <span ng-bind="x.Result.SaleReferenceId" style="color: green; font-weight: bold; font-size: 15px;"></span>
+                                <span class="space">|</span>
+                                <span style="color: green; font-weight: bold; font-size: 15px;">مبلغ پرداخت شده : </span>
+                                <span ng-bind="x.Result.Price" style="color: green; font-weight: bold; font-size: 15px;"></span>
+                                <span class="space">|</span>
+                                <span style="color: green; font-weight: bold; font-size: 15px;">شناسه قبض : </span>
+                                <span ng-bind="x.Result.BillID" style="color: green; font-weight: bold; font-size: 15px;"></span>
+                                <span class="space">|</span>
+                                <span style="color: green; font-weight: bold; font-size: 15px;">شناسه پرداخت : </span>
+                                <span ng-bind="x.Result.PaymentID" style="color: green; font-weight: bold; font-size: 15px;"></span>
+
+                            </div>
+                        </div>
+
+                        <hr style="clear:both ;border-top:4px solid #dbd7d7" />
+
+                    </fieldset>
+
+
+                   
+                    <fieldset ng-repeat="x in GamInputData.FishListAvarezDarAmad"
+                              ng-show="x.Income_Fiche!=null && x.Income_Fiche.EumFicheStatus!=4" style="margin-top: 1px">
+                        <legend>
+                            <span ng-bind="GetApp(x.ApartmentNo)"></span>&nbsp; <span style="direction: ltr; float: left" ng-bind="x.Income_Fiche.NosaziCode"></span>
+                        </legend>
+                        <div class="col-md-12 col-xs-12 borderForm" style="direction:rtl;float:right">
+                            <div class="col-md-4 col-xs-12">
+                                <div>
+                                    <span class="col-md-6 col-xs-6">
+                                        <span ng-bind="x.Income_Fiche.FicheNo"></span>
+                                    </span>
+                                    <span>شماره فیش</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-xs-12">
+                                <div>
+                                    <span class="col-md-6 col-xs-6">
+                                        <span ng-bind="x.Income_Fiche.IncomeValue.formatMoney(0, '.', ',')"></span>
+                                    </span>
+                                    <span class="col-md-6 col-xs-6">کل عوارض</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-xs-12">
+                                <div>
+                                    <span class="col-md-6 col-xs-6">
+                                        <span ng-bind="x.Income_Fiche.Comments"></span>
+                                    </span>
+                                    <span class="col-md-6 col-xs-6">عنوان درآمد </span>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-xs-12">
+                                <div>
+                                    <span class="col-md-6 col-xs-6">
+                                        <span ng-bind="x.Income_Fiche.BillID"></span>
+                                    </span>
+                                    <span class="col-md-6 col-xs-6">شناسه قبض </span>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-xs-12">
+                                <div>
+                                    <span class="col-md-6 col-xs-6">
+                                        <span ng-bind="x.Income_Fiche.PaymentID"></span>
+                                    </span>
+                                    <span class="col-md-6 col-xs-6">شناسه پرداخت </span>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-xs-12">
+                                <div>
+                                    <span class="col-md-6 col-xs-6">
+                                        <span ng-bind="x.Income_Fiche.InsatllmentValue "></span>
+                                    </span>
+                                    <span class="col-md-6 col-xs-6">مبلغ تقسيط</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-xs-12">
+                                <div>
+                                    <span class="col-md-6 col-xs-6">
+                                        <span ng-bind="x.Income_Fiche.OddmentValue "></span>
+                                    </span>
+                                    <span class="col-md-6 col-xs-6">جمع بدهکاری/بستانکاری</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-xs-12">
+                                <div>
+                                    <span class="col-md-6 col-xs-6">
+                                        <span ng-bind="x.Income_Fiche.DiscountValue "></span>
+                                    </span>
+                                    <span class="col-md-6 col-xs-6">جمع تخفیف</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-xs-12">
+                                <div>
+                                    <span class="col-md-6 col-xs-6">
+                                        <span ng-bind="x.IncomeAccountGroupTitle"></span>
+                                    </span>
+                                    <span class="col-md-6 col-xs-6">مالکیت حساب</span>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-xs-12">
+                                <div>
+                                    <span class="col-md-6 col-xs-6">
+                                        <span ng-bind="x.Income_Fiche.Payable.formatMoney(0, '.', ',')"></span>
+                                    </span>
+                                    <span class="col-md-6 col-xs-6">قابل پرداخت</span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <fieldset class="GamBoxFrame" style="margin-top: 1px ;padding:0;background-color:#fbfbfb" ng-show="x.Income_FicheSubList!=null && GamInputData.HideFishDarAmadDetail==false">
+                            <legend>جزییات درآمد</legend>
+                            <div class="keyvalueDetail" style="padding:0" ng-repeat="x1 in x.Income_FicheSubList">
+                                <div class="col-md-12 col-xs-12 nopadding">
+
+                                    <div class="keyvalue col-md-4 col-xs-12">
+                                        <span>مبلغ : </span>
+                                        <span>
+                                            <asp:Label ID="Label11" runat="server" Font-Bold="false"
+                                                       ng-bind="x1.Price.formatMoney(0, '.', ',')"></asp:Label>
+                                        </span>
+
+                                    </div>
+
+
+                                    <div class="keyvalue col-md-4 col-xs-12">
+                                        <span>شرح درآمد : </span>
+                                        <span>
+                                            <asp:Label ID="Label18" runat="server" Font-Bold="false"
+                                                       ng-bind="x1.IncomeCalculationTitle"></asp:Label>
+                                        </span>
+                                    </div>
+
+
+
+                                    <hr style="clear:both" />
+
+                                </div>
+                            </div>
+                        </fieldset>
+                        <div ng-show="!x.Result.isTruePayment" style="float:right">
+                            <input ng-hide="BreakePaymentAvarezDaramad" id="tt" class="btn btn-success" type="button" style="font-family: Tahoma;float:right"
+                                   value="پرداخت آنلاین"
+                                   ng-click="PayFish(x.Income_Fiche.Payable,1,5,x.Income_Fiche.NidFiche, x.Income_Fiche.NidNosaziCode, x.NosaziCode,x.Income_Fiche.BillID,x.Income_Fiche.PaymentID,x.Income_Fiche.FicheNo)" />
+
+
+            
+
+
+                            <div style="float:left">
+
+                                                <div class="FloatRightDiv"  ng-show="BreakePaymentAvarezDaramad">
+                                <span class="w3-red" style="color:red">مهلت پرداخت به پایان رسیده است</span>
+                                <span style="padding-right:10px">مهلت پرداخت: </span>
+                                <span ng-bind="x.Income_Fiche.PaymentBreakDate"></span>
+                            </div>
+                                <input class="btn btn-success" ng-show="ShowPrintDetail"
+                                       style="float: left; text-align: left; margin-right: 5px; margin-left: 5px"
+                                       type="button" id="btnPrintInquery" value="ریز محاسبه درآمد"
+                                       ng-click="PrintFicheDetail(x.Income_Fiche.NidIncome)">
+                            </div>
+
+                            <input onkeyup="formatMoney2(value)"
+                                   value="{{x.Income_Fiche.Payable.formatMoney(0, '.', ',')}}" type="text"
+                                   title="مبلغ قسط را وارد نمایید"
+                                   style="display: none; height: 21px; border: 1px solid silver; padding: 3px; width: 100px"
+                                   id="txtTaghsitPrice{{x.Income_Fiche.NidFiche}}" />
+                        </div>
+                        <div style="float:left">
+                            <input class="btn btn-success" ng-show="ShowPrint"
+                                   style="float: left; text-align: left; margin-right: 5px; margin-left: 5px"
+                                   type="button" id="btnPrintInquery" value="چاپ فیش"
+                                   ng-click="PrintFiche(x.Income_Fiche.NidFiche)">
+                        </div>
+
+                        <div id="DivResult">
+                            <div ng-show="!x.Result.isTruePayment && x.Result.PaymentMessage!=null">
+                                <img src="images/Error.png" style="width: 20px;" />
+                                <span ng-bind="x.Result.PaymentMessage"
+                                      style="color: red; font-size: 14px; font-weight: bold"></span>
+                            </div>
+                            <div ng-show="x.Result.isTruePayment">
+                                <img src="images/check-s.png" style="width: 30px;" />
+                                <span ng-bind="x.Result.PaymentMessage"
+                                      style="color: green; font-size: 14px; font-weight: bold"></span>
+                            </div>
+                            <div style="float: right; margin-right: 30px" ng-show="x.Result.SaleReferenceId!=null && x.Result.SaleReferenceId!=''">
+                                <span style="color: green; font-weight: bold; font-size: 15px;">شماره پیگیری بانک : </span>
+                                <span ng-bind="x.Result.SaleReferenceId" style="color: green; font-weight: bold; font-size: 15px;"></span>
+                                <span class="space">|</span>
+                                <span style="color: green; font-weight: bold; font-size: 15px;">مبلغ پرداخت شده : </span>
+                                <span ng-bind="x.Result.Price" style="color: green; font-weight: bold; font-size: 15px;"></span>
+                                <span class="space">|</span>
+                                <span style="color: green; font-weight: bold; font-size: 15px;">شناسه قبض : </span>
+                                <span ng-bind="x.Result.BillID" style="color: green; font-weight: bold; font-size: 15px;"></span>
+                                <span class="space">|</span>
+                                <span style="color: green; font-weight: bold; font-size: 15px;">شناسه پرداخت : </span>
+                                <span ng-bind="x.Result.PaymentID" style="color: green; font-weight: bold; font-size: 15px;"></span>
+
+                            </div>
+                        </div>
+
+                        <hr style="clear:both" />
+
+                    </fieldset>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</fieldset>
+
+<script>
+    var formatMoney2 = function (n) {
+
+        n = n.replace(",", "").replace(",", "").replace(",", "").replace(",", "");
+
+        var c = 0;
+        var d = ".";
+        var t = ",";
+        var s = n < 0 ? "-" : "";
+        var i = parseInt(n = Math.abs(+n || 0).toFixed(c)) + "";
+        var j = (j = i.length) > 3 ? j % 3 : 0;
+        var res = s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d +
+            Math.abs(n - i).toFixed(c).slice(2) : "");
+        $('#txtTaghsitPrice').val(res);
+    };
+</script>

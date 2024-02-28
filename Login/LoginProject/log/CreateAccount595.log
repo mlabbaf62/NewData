@@ -1,0 +1,9 @@
+CreateNewAccount
+{ tmpCookie = System.Web.HttpCookie }
+{ tmpTrustToken = 958527983 }
+After CheckToken
+{ AbsoluteUri = http://localhost/Security8.web/Service/SecurityWCF.svc }
+ValidateAccount
+{ tmpCheck = SrvSecurity.ClsErrorResult }
+{ Uri = http://localhost/Security8.web/Service/SecurityWCF.svc }
+CreateAccount

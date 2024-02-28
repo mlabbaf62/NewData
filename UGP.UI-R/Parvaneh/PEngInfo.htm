@@ -1,0 +1,57 @@
+﻿<fieldset style="width: 100%; box-shadow: none" class="GamBox">
+    <div style="padding-left: 0px; float: right; padding-right:0;" class="col-md-12 col-xs-12 PanelVs GamBoxFrame">
+        <div id="DivMohandes" class="col-md-12 disabled" style="clear:both">
+            <hr />
+            <!--<input type="button" class="btn btn-success" value="تایید مهندسین ناظر"
+           ng-click="Functions.Gam2Func.ConfirmMohandes()" />
+
+    <input type="button" class="btn btn-success" style="color:white;background-color:#be1c1c" value="عدم تایید مهندسین ناظر"
+           ng-click="Functions.Gam2Func.DontConfirmMohandes()" />
+    <div ng-show="GamInputData.ConfirmMohandes==true">
+        <img src="Images/tik.png" style="width:25px" />
+        <span style="color:green">اطلاعات مهندسین ناظر ، مورد تایید قرار گرفت</span>
+    </div>
+    <div ng-show="GamInputData.ConfirmMohandes==false">
+        <img src="Images/close.png" style="width:25px" />
+        <span style="color:red"> مالک محترم جهت  اصلاح  ناظرین ساختمانی به شهرداری منطقه  ، اداره شهرسازی مراجعه نمایید</span>
+    </div>-->
+            <div class="FloatRightDiv">
+                <span style="color:black">دفتر انتخاب شده :</span>
+                <span style="color:black" ng-bind="GamInputData.SelectDaftar.daf_name"></span>
+            </div>
+            <table id="gridView1" class="GridView col-md-12" style="margin-top:2px;">
+                <thead>
+                    <tr>
+                        <td class="" style="border-left: 1px solid white;width:15%">کد دفتر یا مهندس</td>
+                        <td class="" style="border-left: 1px solid white;width:20%">نام مهندس</td>
+                        <td class="" style="border-left: 1px solid white;width:20%">نام خانوادگی</td>
+                        <td class="" style="border-left: 1px solid white;width:15%">صلاحیت پایه</td>
+                        <td class="" style="border-left: 1px solid white;width:10%">شماره تماس (همراه یا ثابت)</td>
+                        <td class="" style="border-left: 1px solid white;width:20%">رشته تحصیلی</td>
+                        <!--<td class="" style="border-left: 1px solid white;width:20%">عنوان  CI</td>-->
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="x in EngInfoList">
+                        <td class="" ng-bind="x.EngNo"></td>
+                        <td class="" ng-bind="x.FirstName"></td>
+                        <td class="" ng-bind="x.LastName"></td>
+                        <td class="" ng-bind="x.Competence"></td>
+                        <td class="" ng-bind="x.Tell"></td>
+                        <td class="" ng-bind="x.Description"></td>
+                        <!--<td class="">{{GetCI('CI_UsingGroup' , x.EngNo)}}</td>-->
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr clas ng-show="EngInfoList==null || (EngInfoList!=null && EngInfoList.length==0)">
+                        <td colspan="8" style="text-align: center">
+                            <span style="color: red">اطلاعاتی یافت نشد</span>
+                        </td>
+                    </tr>
+                    <tr style="height:10px; background-color:silver!important"></tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</fieldset>

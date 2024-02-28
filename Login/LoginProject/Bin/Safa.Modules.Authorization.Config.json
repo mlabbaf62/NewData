@@ -1,0 +1,21 @@
+{
+  "PathList": [
+    "~/form/safachangepassword.aspx"
+  ],
+  "Functions": [
+    "SendConfirmSMS",
+    "RecoveryAccountPassword"
+  ],
+  "CompetentList": [
+    "GetAccountInfo"
+  ],
+  "TrustList": [
+    
+  ],
+  "UseThresholds": true,
+  "ThresholdMinute":40,  
+  "EnableCaptcha": true,
+  "EnableSecurityRequest": true,
+  "ValidIPList": "",
+  "DebugMode": true
+}

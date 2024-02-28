@@ -1,0 +1,9 @@
+CreateNewAccount
+{ tmpCookie = System.Web.HttpCookie }
+{ tmpTrustToken = 186269350 }
+After CheckToken
+{ AbsoluteUri = http://localhost/Security8.web/Service/SecurityWCF.svc }
+MobileCheck Ex: Error in deserializing body of reply message for operation 'ValidateAccount'. CData elements not valid at top level of an XML document. Line 1, position 3.
+{ tmpCheck =  }
+{ Uri = http://localhost/Security8.web/Service/SecurityWCF.svc }
+CreateAccount
