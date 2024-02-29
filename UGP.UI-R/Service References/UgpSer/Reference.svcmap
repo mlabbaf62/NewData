@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="e687622c-2cd1-4f5c-b178-1263fbfb1547" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost/UGPNew/Service/UgpService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="UgpService.xsd" MetadataType="Schema" ID="5268b584-8b5e-4bbf-a3e6-0e3ae4630853" SourceId="1" SourceUrl="http://localhost/UGPNew/Service/UgpService.svc?xsd=xsd0" />
+    <MetadataFile FileName="UgpService.wsdl" MetadataType="Wsdl" ID="c6e61c66-8c34-4e5f-9586-6cce86daaeca" SourceId="1" SourceUrl="http://localhost/UGPNew/Service/UgpService.svc?wsdl" />
+    <MetadataFile FileName="UgpService.disco" MetadataType="Disco" ID="e7240201-3895-4af1-9365-aadff36cd91a" SourceId="1" SourceUrl="http://localhost/UGPNew/Service/UgpService.svc?disco" />
+    <MetadataFile FileName="UgpService1.xsd" MetadataType="Schema" ID="52dc6526-3402-4cff-bdda-b84f533ce538" SourceId="1" SourceUrl="http://localhost/UGPNew/Service/UgpService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

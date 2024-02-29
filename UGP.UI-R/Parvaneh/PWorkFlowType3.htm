@@ -1,0 +1,26 @@
+﻿<!--Yazd-->
+<fieldset class="GamBox " id="SelectWorkFlow">
+
+    <div class="panel-body nopadding" style="min-height:300px">
+        <div class="info" style="margin-bottom: 0px!important;" ng-include="'Config/ParvanehSh/infoText/PWorkFlowType2.html'">
+        </div>
+        <br />
+
+        <!--<div class="FloatRightDiv3">
+        <div ng-repeat="n in WorkFlowSelect" id="DivWorkFlow">
+            <input type="radio" name="w1" data-bind="{{n.Answer}}"  value="{{n.NidWorkFlowDeff}}" />
+            <span ng-bind="n.Answer"></span>
+        </div>
+    </div>-->
+
+        <div class="FloatRightDiv3">
+            <div ng-repeat="n in WorkFlowSelect" id="DivWorkFlow">
+                <input type="radio" name="w1" data-bind="{{n.AnswerQuestionMessageContractlist[0].Answer}}" value="{{n.AnswerQuestionMessageContractlist[0].NidWorkFlowDeff}}" />
+                <span ng-bind="n.AnswerQuestionMessageContractlist[0].Answer"></span>
+            </div>
+        </div>
+
+
+    </div>
+
+</fieldset>

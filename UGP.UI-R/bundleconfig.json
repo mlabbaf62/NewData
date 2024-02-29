@@ -1,0 +1,164 @@
+[
+  {
+    "outputFileName": "TransferGam/TransferGam.min.js",
+    "inputFiles": [
+      "TransferGam/TransferGam.js"
+    ]
+  },
+  {
+    "outputFileName": "TransferGamNew/TransferGamNew.min.js",
+    "inputFiles": [
+      "TransferGamNew/TransferGamNew.js"
+    ]
+  },
+  {
+    "outputFileName": "js/js-persian-cal.min.js",
+    "inputFiles": [
+      "js/js-persian-cal.js"
+    ]
+  },
+  {
+    "outputFileName": "HouseGamNew/RegisterGamNew.min.js",
+    "inputFiles": [
+      "HouseGamNew/RegisterGamNew.js"
+    ]
+  },
+  {
+    "outputFileName": "Archive/SafaArchive.min.js",
+    "inputFiles": [
+      "Archive/SafaArchive.js"
+    ]
+  },
+  {
+    "outputFileName": "js/GeoPortal.min.js",
+    "inputFiles": [
+      "js/GeoPortal.js"
+    ]
+  },
+  {
+    "outputFileName": "js/SafaSdi.min.js",
+    "inputFiles": [
+      "js/SafaSdi.js"
+    ]
+  },
+  {
+    "outputFileName": "HouseGam/RegisterGam.min.js",
+    "inputFiles": [
+      "HouseGam/RegisterGam.js"
+    ]
+  },
+  {
+    "outputFileName": "HouseGam/RegisterGam2.min.js",
+    "inputFiles": [
+      "HouseGam/RegisterGam2.js"
+    ]
+  },
+  {
+    "outputFileName": "Parvaneh/ParvanehGam.min.js",
+    "inputFiles": [
+      "Parvaneh/ParvanehGam.js"
+    ]
+  },
+  {
+    "outputFileName": "Payankar/PayankarGam.min.js",
+    "inputFiles": [
+      "Payankar/PayankarGam.js"
+    ]
+  },
+  {
+    "outputFileName": "Hardening/HardeningGam.min.js",
+    "inputFiles": [
+      "Hardening/HardeningGam.js"
+    ]
+  },
+  {
+    "outputFileName": "js/Main/Login.min.js",
+    "inputFiles": [
+      "js/Main/Login.js"
+    ]
+  },
+  {
+    "outputFileName": "TransferGam/Bazdid.min.js",
+    "inputFiles": [
+      "TransferGam/Bazdid.js"
+    ]
+  },
+  {
+    "outputFileName": "ParvanehSh/ParvanehGamSh.min.js",
+    "inputFiles": [
+      "ParvanehSh/ParvanehGamSh.js"
+    ]
+  },
+  {
+    "outputFileName": "HouseGamBazdid/HouseGamBazdid.min.js",
+    "inputFiles": [
+      "HouseGamBazdid/HouseGamBazdid.js"
+    ]
+  },
+  {
+    "outputFileName": "ParvanehShNew/ParvanehShNew.min.js",
+    "inputFiles": [
+      "ParvanehShNew/ParvanehShNew.js"
+    ]
+  },
+  {
+    "outputFileName": "ParvanehShNew/ParvanehGamShNew.min.js",
+    "inputFiles": [
+      "ParvanehShNew/ParvanehGamShNew.js"
+    ]
+  },
+  {
+    "outputFileName": "js/Main/FichFunc.min.js",
+    "inputFiles": [
+      "js/Main/FichFunc.js"
+    ]
+  },
+  {
+    "outputFileName": "Archive/SafaArchivecss.min.css",
+    "inputFiles": [
+      "Archive/SafaArchivecss.css"
+    ]
+  },
+  {
+    "outputFileName": "js/Main/Master.min.js",
+    "inputFiles": [
+      "js/Main/Master.js"
+    ]
+  },
+  {
+    "outputFileName": "Root/Func.min.js",
+    "inputFiles": [
+      "Root/Func.js"
+    ]
+  },
+  {
+    "outputFileName": "js/Main/Payment.min.js",
+    "inputFiles": [
+      "js/Main/Payment.js"
+    ]
+  },
+  {
+    "outputFileName": "js/Main/Crypto.min.js",
+    "inputFiles": [
+      "js/Main/Crypto.js"
+    ]
+  },
+  {
+    "outputFileName": "Config/Config.min.js",
+    "inputFiles": [
+      "Config/Config.js"
+    ]
+  },
+  {
+    "outputFileName": "js/Main/Menu.min.js",
+    "inputFiles": [
+      "js/Main/Menu.js"
+    ]
+  },
+  {
+    "outputFileName": "Archive/AppConfig.min.js",
+    "inputFiles": [
+      "Archive/AppConfig.js"
+    ]
+  }
+]

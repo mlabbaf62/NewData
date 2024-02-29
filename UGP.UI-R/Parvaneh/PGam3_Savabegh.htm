@@ -1,0 +1,124 @@
+﻿
+
+<style>
+    .nanogallery_theme_default {
+        background-color: rgba(192, 230, 188, 0.84);
+    }
+
+        .nanogallery_theme_default .nanoGalleryContainer .nanoGalleryThumbnailContainer .imgContainer {
+            background: #5cb85c;
+        }
+</style>
+<fieldset class="GamBox ">
+
+
+    <!--<fieldset id="Div5"  style="padding-right: 10px" class="info">
+
+        <legend></legend>
+        <span class="h4" style="font-weight: bold">
+            این پرونده دارای گواهی&nbsp;<br>
+            نوع:<span style="color: green"> [ </span><span class="numbers" style="color: green"
+                                                           ng-bind="CertificateInfo.CertificateType"></span><span style="color: green">]&nbsp; </span>
+            <br>
+            به شماره <span style="color: green">&nbsp;[ </span><span class="numbers" style="color: green"
+                                                                     ng-bind="CertificateInfo.CertificateNo"></span><span style="color: green">
+                ]
+                <br>
+            </span>و تاریخ&nbsp; <span style="color: green">[</span> <span class="numbers" style="color: green"
+                                                                           ng-bind="CertificateInfo.CertificateDate"></span><span style="color: green">]</span>&nbsp;
+            <br>
+            قابلیت صدور پروانه را دارا می باشد.
+
+        </span>
+        <br />
+    </fieldset>-->
+
+
+    <div class="panel-body nopadding" style="min-height:300px">
+        <div class="info" style="margin-bottom: 0px!important;" ng-include="'Config/ParvanehSh/infoText/PGam3_Savabegh.html'">
+        </div>
+        <br />
+        <div class="col-lg-12">
+            <img src="Images/SelectTick.png" style="height:40px" />
+            <button type="button" style="height:40px" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                انتخاب نوع درخواست
+            </button>
+        </div>
+        <div class="col-lg-12" style="margin-top:5px;text-align:center" ng-show="GamInputData.SelectedWorkFlow.WorkflowTitel">
+            <img src="images/selectTick2.png" style="height:40px" />
+            [ <span style="font-size:20px!important;font-weight:bold; color:green" ng-bind="GamInputData.SelectedWorkFlow.WorkflowTitel"></span> ]
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" style="" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 sclass="modal-title" id="exampleModalLabel">فرم پرسشنامه جهت انتخاب نوع درخواست</h5>
+                        <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    </button>-->
+
+                        <img src="Images/SelectTick.png" style="height:40px ;float:left" />
+
+                    </div>
+                    <div class="modal-body">
+                        <ng-include src="'ParvanehSh/PGam2_Select_Quiz.htm'"></ng-include>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">انصراف</button>
+                        <button type="button" class="btn btn-primary" ng-click="Quize.SelectWorkFlow()">تایید</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+       
+
+    </div>
+
+
+    <div ng-show="isShowMessage" ng-include="'Config/HouseGam/infoText/SGam3.html'"
+         style="overflow-y: scroll; border-style: solid; border-width: 1px; border-color: red; padding: 5px">
+
+    </div>
+    <div id="divTimer"></div>
+    <div id="divArchive" style="border-style: solid; border-width: 1px"></div>
+
+
+
+</fieldset>
+
+<script>
+    function afterInterval() {
+        var ObjSafaArchive = $('#divArchive').AsSafaArchive();
+
+        ObjSafaArchive.LoadObj(GetScope().GamInputData.CertificateInfo.BizCode, 'ApprovalCertificate', 1, {
+            backgroundColor: 'rgb(170, 219, 170)',
+            FullpageBgColor: 'rgb(170, 219, 170)',
+            thumbnailGutterHeight: 10,
+            thumbnailGutterWidth: 5,
+            colorScheme: {
+                navigationbar: {
+                    background: 'yellow',
+                    border: '1px dotted #00cc00',
+                    color: 'black',
+                    colorHover: '#fff'
+                },
+                thumbnail: {
+                    background: 'rgb(180, 230, 190)',
+                    border: '1px solid yellow',
+                    labelBackground: 'rgba(242, 242, 219, 0.33);',
+                    titleColor: 'darkgreen',
+                    descriptionColor: '#ccc',
+                    descriptionShadow: '',
+                    paginationDotBorder: '2px solid #0c0',
+                    paginationDotBack: '#008500',
+                    paginationDotSelBack: '#0c0'
+                }
+            }
+
+        }, function () {
+
+        });
+    }
+</script>

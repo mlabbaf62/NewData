@@ -1,0 +1,177 @@
+﻿
+<style>
+    hr.shadow {
+        border: none;
+        height: 20px;
+        width: 90%;
+        height: 50px;
+        margin-top: 0;
+        border-bottom: 1px solid #1f1209;
+        box-shadow: 0 20px 20px -20px #333;
+        margin: -50px auto 10px;
+    }
+</style>
+<fieldset style="width: 100%; box-shadow: none; ">
+    <div style="padding-left: 0px; float: right" class="col-md-12 col-xs-12 PanelVs">
+
+
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <span ng-bind="Prop.CurrentPageName"></span>
+            </div>
+
+            <div class="panel-body nopadding" style="direction:rtl">
+                <div class="info" style="margin-bottom: 0px!important;" ng-include="'Config/Parvaneh/infoText/POwner.html'">
+                </div>
+
+                <div class="col-md-12 FloatRightDiv" style="padding-bottom:10px; direction:rtl ;float:right">
+
+
+                    <div class="col-md-4 col-xs-12">
+
+                        <input type="checkbox" style="width:20px; text-align:right;float:right" ng-model="GamInputData.EditName" />
+                        <span style="float:right ;padding-top:7px; padding-right:7px">تغییر نام و شماره همراه مالک </span>
+                    </div>
+                    <!--<div class="col-md-4 col-xs-12">
+
+                        <input type="checkbox" style="width:20px; text-align:right;float:right" ng-model="GamInputData.EditTell" />
+                        <span style="float:right ;padding-top:7px; padding-right:7px">تغییر شماره تماس</span>
+                    </div>-->
+
+                    <div class="col-md-4 col-xs-12">
+
+                        <input type="checkbox" style="width:20px; text-align:right;float:right" ng-model="GamInputData.EditFich" />
+                        <span style="float:right ;padding-top:7px; padding-right:7px">تغییر اطلاعات فیش نوسازی</span>
+                    </div>
+
+                    <hr class="shadow" style="border-top-color:black;width:100%" />
+
+                    <div class="col-md-6 col-xs-12" ng-show="GamInputData.EditFich">
+                        <div id="divUploaderEditOwner" class="col-md-12 col-xs-12" />
+                    </div>
+
+                </div>
+            </div>
+
+
+            <fieldset style="width: 100%; box-shadow: none; " ng-show="GamInputData.EditName">
+                <div style="padding-left: 0px; float: right" class="col-md-12 col-xs-12 PanelVs">
+                    <div style="clear:both ;float:right" class="col-md-12">
+                        <span style="text-align:right;float:right;color:darkred">اطلاعات مالک قدیم</span>
+                        <table class="GridView" style="overflow-x: auto ;float:right ;width:100%">
+                            <thead>
+                                <tr style="background-color:darkred!important">
+                                    <td></td>
+                                    <td class="" style="border-left: 1px solid white;width:200px">نام مالک</td>
+                                    <td class="" style="border-left: 1px solid white;width:200px">نام خانوادگی مالک</td>
+                                    <td class="" style="border-left: 1px solid white;width:200px">کد ملی</td>
+                                    <td class="" style="border-left: 1px solid white;width:200px">شماره همراه</td>
+                                    <td class="" style="border-left: 1px solid white;width:200px">کد پستی</td>
+                                    <td class="" style="border-left: 1px solid white">آدرس</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="x in GamInputData.UGP_OwnerListOld">
+                                    <td style="width:100px">
+                                        <input ng-show="$index==0" type="button" title="اضافه کردن" style="background-image:url('Images/addButton.png');width: 30px;background-size: cover;height: 30px!important;" ng-click="Functions.AddOwnerOld()">
+                                        <input ng-hide="$index==0" type="button" title="حذف" style="background-image:url('Images/close.png');width: 30px;background-size: cover;height: 30px!important;" ng-click="Functions.RemoveOwnerOld(x)">
+                                    </td>
+                                    <td>
+                                        <input ng-model="x.OwnerName" />
+
+                                    </td>
+
+                                    <td>
+                                        <input ng-model="x.OwnerLastName" />
+
+                                    </td>
+
+                                    <td>
+                                        <input ng-model="x.OwnerNationalCode" class="numbers" maxlength="10" />
+
+                                    </td>
+
+                                    <td>
+                                        <input type="text" ng-model="x.OwnerMobile" class="numbers" maxlength="11" />
+                                    </td>
+                                    <td>
+                                        <input type="text" ng-model="x.OwnerPostCode" class="numbers" maxlength="10" />
+                                    </td>
+                                    <td>
+                                        <input type="text" style="width:95%" ng-model="x.OwnerAddress" />
+                                    </td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+                    </div>
+
+
+                    <div style="clear:both ;float:right" class="col-md-12">
+                        <span style="text-align:right;float:right;color:green">اطلاعات مالک جدید</span>
+                        <table class="GridView" style="overflow-x: auto ;width:100%">
+                            <thead>
+                                <tr>
+                                    <td></td>
+                                    <td class="" style="border-left: 1px solid white;width:200px">نام مالک</td>
+                                    <td class="" style="border-left: 1px solid white;width:200px">نام خانوادگی مالک</td>
+                                    <td class="" style="border-left: 1px solid white;width:200px">کد ملی</td>
+                                    <td class="" style="border-left: 1px solid white;width:200px">شماره همراه</td>
+                                    <td class="" style="border-left: 1px solid white;width:200px">کد پستی</td>
+                                    <td class="" style="border-left: 1px solid white">آدرس</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="x in GamInputData.UGP_OwnerListNew">
+                                    <td style="width:100px">
+                                        <input ng-show="$index==0" type="button" title="اضافه کردن" style="background-image:url('Images/addButton.png');width: 30px;background-size: cover;height: 30px!important;" ng-click="Functions.AddOwnerNew()">
+                                        <input ng-hide="$index==0" type="button" title="حذف" style="background-image:url('Images/close.png');width: 30px;background-size: cover;height: 30px!important;" ng-click="Functions.RemoveOwnerNew(x)">
+                                    </td>
+                                    <td>
+                                        <input ng-model="x.OwnerName" />
+
+                                    </td>
+
+                                    <td>
+                                        <input ng-model="x.OwnerLastName" />
+
+                                    </td>
+
+                                    <td>
+                                        <input ng-model="x.OwnerNationalCode" class="numbers" maxlength="10" />
+
+                                    </td>
+
+                                    <td>
+                                        <input type="text" ng-model="x.OwnerMobile" class="numbers" maxlength="11" />
+                                    </td>
+                                    <td>
+                                        <input type="text" ng-model="x.OwnerPostCode" class="numbers" maxlength="10" />
+                                    </td>
+                                    <td>
+                                        <input type="text" style="width:95%" ng-model="x.OwnerAddress" />
+                                    </td>
+
+                                </tr>
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+
+                </div>
+
+                <div class="col-md-12 col-xs-12 " style="float:right">
+                    <span style="color:red;font-weight: bold; float:right">توضیحات</span>
+                    <span style="color:red; float:right">*</span>
+                    <input tabindex="4" type="text" style="text-align:right" class="form-control" required ng-model="GamInputData.UGP_Owner_Comment" />
+                </div>
+            </fieldset>
+
+
+
+        </div>
+
+    </div>
+</fieldset>

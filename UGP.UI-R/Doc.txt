@@ -1,0 +1,75 @@
+﻿http://localhost/ugpnew/UShowFishj-Pay3.aspx?RequestId=f6f82d30-402a-4c9d-8956-4cc3e66bbd08&ReturnValue=Zn1ta+SedsQV8aBZnIVRltjSeIKvDdlnSLSH2iQE+kbLGWI/Kyls/xIjmqhDVSReMGqdpOai6npQc6orkueDM0gj07ReyRTXQc0EEm5AwlE=
+
+http://localhost/UGPNew/UstepGam.aspx?ID=1&RequestId=f6f82d30-402a-4c9d-8956-4cc3e66bbd08&ReturnValue=Zn1ta+SedsQV8aBZnIVRltjSeIKvDdlnSLSH2iQE+kbLGWI/Kyls/xIjmqhDVSReMGqdpOai6npQc6orkueDM0gj07ReyRTXQc0EEm5AwlE=&S=MzE3N2M1NzctMjkzOC00MWZiLTg1NjAtNGE4MjUyZDRmODliTHNwcHA=
+
+
+var myCookie1 = Request.Cookies["ASP.NET_SessionId"];
+                    myCookie1.HttpOnly = true;
+                    myCookie1.SameSite =System.Web.SameSiteMode.Strict;  //Not send Session with Postman
+                    myCookie1.Secure = true; //Not send Session with Postman
+                    Response.Cookies.Set(myCookie1);
+
+                    
+============================================================================
+  <system.webServer>
+    <httpErrors errorMode="Custom">
+      <remove statusCode="404" />
+      <error statusCode="404" path="./SafaError.html" responseMode="Redirect" />
+
+      <remove statusCode="403" />
+      <error statusCode="403" prefixLanguageFilePath="" path="/SafaError.html" responseMode="Redirect" />
+      
+    </httpErrors>
+============================================================================
+  <httpCookies   requireSSL="true" />
+============================================================================
+  HttpCookie("ASP.NET_SId");  // Fake Request From Postman with SessionId
+============================================================================
+Safa.Modules.Authorization Captcha  VerifyCaptcha
+در صورت مقدار اشتباه قبلی حذف میشود
+AuthorizationFailedTimeOut 2min
+
+in Safa.Modules.Authorization.Config.json  add blow pages
+{
+  "PathList": [
+    "~/form/safachangepassword.aspx",
+    "~/form/safalogin.aspx"
+  ]
+}
+
+============================================================================
+RecoveryAccountPassword Throttle 1 time in minute
+======================================================================
+تغییر الگوریتم رمزگذاری نام عبور و رمز عبور
+DoLogin
+tmpUserNameEnc = tmpUserNameEnc + SessionId;
+======================================================================
+
+ <remove statusCode="401" />
+      <error statusCode="401" path="/SafaNotAuth.html" responseMode="Redirect" />
+      
+for captcha SafaLogin
+======================================================================
+Add SafaError.html & SafaNotAuth.html in Root of localhost wwwroot
+======================================================================
+فعال کردن کپچا 
+فقط کافست در وب کانفیک safalogin 
+EnableCaptcha=true باشد
+
+==================================
+SendConfirmSMS
+CheckConfirmCode Remove Session each Time Call.  Timeout 2min
+MobileCheck
+==================================
+ClsSession Expire ConfirmCode after 2 min
+==================================
+UcreateAccount چک کردن کد تاییده 
+==================================55
+ <add name="Access-Control-Allow-Methods" value="GET, POST" />
+ ================================== 
+ jquery Update 3.6
+ angular v1.8.3
+  ================================== in customHeaders
+
+  <add name="X-XSS-Protection" value="1; mode=block" />
+  <add name="Content-Security-Policy" value="default-src'self';" />

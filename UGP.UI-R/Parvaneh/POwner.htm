@@ -1,0 +1,48 @@
+﻿
+<fieldset style="width: 100%; box-shadow: none; ">
+    <div style="padding-left: 0px; float: right" class="col-md-12 col-xs-12 PanelVs">
+
+
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <span ng-bind="Prop.CurrentPageName"></span>
+            </div>
+
+            <div class="panel-body nopadding" style="min-height:300px; direction:rtl">
+                <div class="info" style="margin-bottom: 0px!important;" ng-include="'Config/Parvaneh/infoText/POwner.html'">
+                </div>
+
+                <div class="col-md-12" style="padding-bottom:10px">
+                   
+                    <!--<div>
+                        <input id="r1" style="margin: 5px" type="radio" value="مالک" ng-model="GamInputData.OwnerType" checked name="gender" /><span style="position: absolute; padding-top: 4px; font-weight: bold">مالک : تصویر کارت ملی ارسال شود</span>
+                        <br />
+                        <input id="r2" style="margin: 5px" type="radio" value="وکیل" name="gender" ng-model="GamInputData.OwnerType" /><span style="vertical-align: top; font-weight: bold">وکیل : تصویر کارت ملی و وکالت نامه ارسال شود</span>
+                        <hr style="margin:0" />
+                    </div>-->
+                    <div class="col-md-12">
+                        <div class="col-md-8"></div>
+                        <div class="col-md-2 nopadding col-md-pull-1" style="padding-right:10px">
+                            <span>تلفن ثابت</span>
+                            <input tabindex="5" type="text" class="form-control" style="text-align:right" ng-model="GamInputData.AccountTell" />
+                        </div>
+                        <div class="col-md-2 nopadding">
+                            <span>تلفن همراه شهروند</span>
+                            <input tabindex="5" type="text" class="form-control" style="text-align:left;" disabled ng-model="ClsAccount.AccountInfo.OwnerTell" />
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <span>آدرس</span>
+                        <input tabindex="4" type="text" style="text-align:right" class="form-control" ng-model="GamInputData.Address" />
+                    </div>
+                    <div class="col-md-12">
+                        <span>توضیحات</span>
+                        <input tabindex="4" type="text" style="text-align:right" class="form-control" required ng-model="GamInputData.Comment" />
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</fieldset>

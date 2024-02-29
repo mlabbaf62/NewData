@@ -1,0 +1,1042 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{ECB6E6B8-F223-4140-8F2D-CC15FB418088}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UGP.UI</RootNamespace>
+    <AssemblyName>UGP.UI</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <TargetFrameworkProfile />
+    <Use64BitIISExpress />
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <FilesToIncludeForPublish>OnlyFilesToRunTheApp</FilesToIncludeForPublish>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AdvancedStringBuilder, Version=0.1.0.0, Culture=neutral, PublicKeyToken=e818a2fc08933ddb, processorArchitecture=MSIL">
+      <HintPath>..\packages\AdvancedStringBuilder.0.1.0\lib\net45\AdvancedStringBuilder.dll</HintPath>
+    </Reference>
+    <Reference Include="AjaxMin, Version=5.14.5506.26196, Culture=neutral, PublicKeyToken=21ef50ce11b5d80f, processorArchitecture=MSIL">
+      <HintPath>..\packages\AjaxMin.5.14.5506.26202\lib\net40\AjaxMin.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Authin.Api.Sdk">
+      <HintPath>DLL\Authin.Api.Sdk.dll</HintPath>
+    </Reference>
+    <Reference Include="BundleTransformer.Core, Version=1.10.0.0, Culture=neutral, PublicKeyToken=973c344c93aac60d, processorArchitecture=MSIL">
+      <HintPath>..\packages\BundleTransformer.Core.1.10.0\lib\net40\BundleTransformer.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="BundleTransformer.MicrosoftAjax, Version=1.10.0.0, Culture=neutral, PublicKeyToken=973c344c93aac60d, processorArchitecture=MSIL">
+      <HintPath>..\packages\BundleTransformer.MicrosoftAjax.1.10.0\lib\net40\BundleTransformer.MicrosoftAjax.dll</HintPath>
+    </Reference>
+    <Reference Include="BundleTransformer.UglifyJs, Version=1.12.44.0, Culture=neutral, PublicKeyToken=973c344c93aac60d, processorArchitecture=MSIL">
+      <HintPath>..\packages\BundleTransformer.UglifyJs.1.12.44\lib\net40\BundleTransformer.UglifyJs.dll</HintPath>
+    </Reference>
+    <Reference Include="BundleTransformer.Yui, Version=1.10.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\BundleTransformer.Yui.1.10.0\lib\net40\BundleTransformer.Yui.dll</HintPath>
+    </Reference>
+    <Reference Include="CNManagment">
+      <HintPath>DLL\CNManagment.dll</HintPath>
+    </Reference>
+    <Reference Include="EcmaScript.NET, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EcmaScript.Net.1.0.1.0\lib\net20\EcmaScript.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="JavaScriptEngineSwitcher.ChakraCore, Version=3.23.7.0, Culture=neutral, PublicKeyToken=c608b2a8cc9e4472, processorArchitecture=MSIL">
+      <HintPath>..\packages\JavaScriptEngineSwitcher.ChakraCore.3.23.7\lib\net471\JavaScriptEngineSwitcher.ChakraCore.dll</HintPath>
+    </Reference>
+    <Reference Include="JavaScriptEngineSwitcher.Core, Version=3.21.0.0, Culture=neutral, PublicKeyToken=c608b2a8cc9e4472, processorArchitecture=MSIL">
+      <HintPath>..\packages\JavaScriptEngineSwitcher.Core.3.21.0\lib\net45\JavaScriptEngineSwitcher.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="JavaScriptEngineSwitcher.Msie, Version=3.23.7.0, Culture=neutral, PublicKeyToken=c608b2a8cc9e4472, processorArchitecture=MSIL">
+      <HintPath>..\packages\JavaScriptEngineSwitcher.Msie.3.23.7\lib\net45\JavaScriptEngineSwitcher.Msie.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="MsieJavaScriptEngine, Version=3.2.4.0, Culture=neutral, PublicKeyToken=a3a2846a37ac0d3e, processorArchitecture=MSIL">
+      <HintPath>..\packages\MsieJavaScriptEngine.3.2.4\lib\net45\MsieJavaScriptEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SafaCrypto">
+      <HintPath>DLL\SafaCrypto.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Buffers, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.0.0\lib\netstandard1.1\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.4.3.0\lib\net46\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.Formatting.Extension.5.2.3.0\lib\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Caching">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ExttendedProj\ApiController\Dll\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Yahoo.Yui.Compressor, Version=2.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\YUICompressor.NET.2.7.0.0\lib\NET20\Yahoo.Yui.Compressor.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AboutUs.aspx" />
+    <Content Include="App_Data\AppConfig.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_Data\Config.js" />
+    <Content Include="App_Data\Config.min.js">
+      <DependentUpon>Config.js</DependentUpon>
+    </Content>
+    <Content Include="App_Data\UgpMenu.xml" />
+    <Content Include="FrmMyArchive.aspx" />
+    <Content Include="js\Main\Crypto.js" />
+    <Content Include="js\Main\Crypto.min.js">
+      <DependentUpon>Crypto.js</DependentUpon>
+    </Content>
+    <Content Include="js\Main\FichFunc.min.js">
+      <DependentUpon>FichFunc.js</DependentUpon>
+    </Content>
+    <Content Include="js\Main\Menu.min.js">
+      <DependentUpon>Menu.js</DependentUpon>
+    </Content>
+    <Content Include="js\Main\Payment.js" />
+    <Content Include="js\Main\Payment.min.js">
+      <DependentUpon>Payment.js</DependentUpon>
+    </Content>
+    <Content Include="font\5c53f1a72f61b5b51e2ea79a22ebc38b.svg" />
+    <Content Include="font\Demo.html" />
+    <Content Include="Images\404.png" />
+    <Content Include="Images\Bazdid.png" />
+    <Content Include="Images\DWG.png" />
+    <Content Include="Images\UpLeft.png" />
+    <Content Include="bootstrap\css\bootstrap.min.css" />
+    <Content Include="bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="bootstrap\js\bootstrap.min.js" />
+    <Content Include="Common\UCaptcha.html" />
+    <Content Include="css\check.png" />
+    <Content Include="css\Date\js-persian-cal.css" />
+    <Content Include="css\Date\js-persian-cal.js" />
+    <Content Include="css\Date\js-persian-cal.min.js" />
+    <Content Include="css\Date\main.css" />
+    <Content Include="css\Date\pcal.png" />
+    <Content Include="css\Images\Layers.png" />
+    <Content Include="css\Img\Accept.png" />
+    <Content Include="css\Img\Delete.png" />
+    <Content Include="css\Img\EmptyImage.png" />
+    <Content Include="css\Img\Folder.png" />
+    <Content Include="css\Img\search.png" />
+    <Content Include="css\js-persian-cal.css" />
+    <Content Include="css\loading.gif" />
+    <Content Include="css\newStyle.css" />
+    <Content Include="css\pcal.png" />
+    <Content Include="css\transparent-pixel.png" />
+    <Content Include="Default.aspx" />
+    <Content Include="favicon.ico" />
+    <Content Include="FrmMyFile.aspx" />
+    <Content Include="FrmParvaneh2.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Images\1.jpg" />
+    <Content Include="Images\14265-200.png" />
+    <Content Include="Images\active.png" />
+    <Content Include="Images\activeOrange.png" />
+    <Content Include="Images\activeRed.png" />
+    <Content Include="Images\add.png" />
+    <Content Include="Images\addButton.png" />
+    <Content Include="Images\admin_login-w.png" />
+    <Content Include="Images\ajax-loader.gif" />
+    <Content Include="Images\ajax-loader3.gif" />
+    <Content Include="Images\Alert.png" />
+    <Content Include="Images\Archive.png" />
+    <Content Include="Images\Arm.png" />
+    <Content Include="Images\Armw0.png" />
+    <Content Include="Images\arrowdn-s.png" />
+    <Content Include="Images\arrowleft.png" />
+    <Content Include="Images\Artboard – 12%402x.png" />
+    <Content Include="Images\Artboard – 5%402x.png" />
+    <Content Include="Images\Artboard – 9%402x.png" />
+    <Content Include="Images\background.png" />
+    <Content Include="Images\bankAp.png" />
+    <Content Include="Images\bankFanAva.png" />
+    <Content Include="Images\bar-s.png" />
+    <Content Include="Images\BaseMapLayer\01.png" />
+    <Content Include="Images\BaseMapLayer\02.png" />
+    <Content Include="Images\BaseMapLayer\04.png" />
+    <Content Include="Images\BaseMapLayer\05.png" />
+    <Content Include="Images\BaseMapLayer\06.png" />
+    <Content Include="Images\bg%402x.png" />
+    <Content Include="Images\book.png" />
+    <Content Include="Images\cert.png" />
+    <Content Include="Images\check-s.png" />
+    <Content Include="Images\check.png" />
+    <Content Include="Images\check_black.png" />
+    <Content Include="Images\check_disabled.png" />
+    <Content Include="Images\check_indeterminate_black.png" />
+    <Content Include="Images\check_indeterminate_disabled.png" />
+    <Content Include="Images\Close.png" />
+    <Content Include="Images\close_black.png" />
+    <Content Include="Images\close_white.png" />
+    <Content Include="Images\confrm.png" />
+    <Content Include="Images\crosshair-white.png" />
+    <Content Include="Images\crosshair.png" />
+    <Content Include="Images\darkhast estelam%402x.png" />
+    <Content Include="Images\DocGraphicKyBlue.png" />
+    <Content Include="Images\dollar_3-512.png" />
+    <Content Include="Images\Down.png" />
+    <Content Include="Images\drag.png" />
+    <Content Include="Images\dragcancel.png" />
+    <Content Include="Images\edit.png" />
+    <Content Include="Images\elam zavabet%402x.png" />
+    <Content Include="Images\end-active.png" />
+    <Content Include="Images\end-norm.png" />
+    <Content Include="Images\Error.png" />
+    <Content Include="Images\estelam edarat%402x.png" />
+    <Content Include="Images\estelam edarat.png" />
+    <Content Include="Images\estelam isf%402x.png" />
+    <Content Include="Images\estelam isf.png" />
+    <Content Include="Images\esup-logo.png" />
+    <Content Include="Images\Excel_Icon-s.png" />
+    <Content Include="Images\exit0.png" />
+    <Content Include="Images\export.png" />
+    <Content Include="Images\filter.png" />
+    <Content Include="Images\findRequest.png" />
+    <Content Include="Images\full-screen.png" />
+    <Content Include="Images\GamL-Active.png" />
+    <Content Include="Images\GamL.png" />
+    <Content Include="Images\GamR-Active.png" />
+    <Content Include="Images\GamR.png" />
+    <Content Include="Images\graphics-s.png" />
+    <Content Include="Images\Help\InfoGraphy.jpg" />
+    <Content Include="Images\his.png" />
+    <Content Include="Images\history.png" />
+    <Content Include="Images\homepage – offic – 1%402x.png" />
+    <Content Include="Images\home_icon.png" />
+    <Content Include="Images\html_editor.png" />
+    <Content Include="Images\icon-calendar-white.png" />
+    <Content Include="Images\icon-calendar.png" />
+    <Content Include="Images\icon-cancel.png" />
+    <Content Include="Images\icon-delete.png" />
+    <Content Include="Images\icon-down-white.png" />
+    <Content Include="Images\icon-down.png" />
+    <Content Include="Images\icon-edit.png" />
+    <Content Include="Images\icon-first.png" />
+    <Content Include="Images\icon-last.png" />
+    <Content Include="Images\icon-left-white.png" />
+    <Content Include="Images\icon-left.png" />
+    <Content Include="Images\icon-menu-minimized.png" />
+    <Content Include="Images\icon-plus-white.png" />
+    <Content Include="Images\icon-plus.png" />
+    <Content Include="Images\icon-recurrence-exception-white.png" />
+    <Content Include="Images\icon-recurrence-exception.png" />
+    <Content Include="Images\icon-recurrence-white.png" />
+    <Content Include="Images\icon-recurrence.png" />
+    <Content Include="Images\icon-right-white.png" />
+    <Content Include="Images\icon-right.png" />
+    <Content Include="Images\icon-save.png" />
+    <Content Include="Images\icon-showpassword.png" />
+    <Content Include="Images\icon-time-white.png" />
+    <Content Include="Images\icon-time.png" />
+    <Content Include="Images\icon-up-white.png" />
+    <Content Include="Images\icon-up.png" />
+    <Content Include="Images\icon\add.png" />
+    <Content Include="Images\images\check_black.png" />
+    <Content Include="Images\images\check_disabled.png" />
+    <Content Include="Images\images\check_indeterminate_black.png" />
+    <Content Include="Images\images\check_indeterminate_disabled.png" />
+    <Content Include="Images\images\close.png" />
+    <Content Include="Images\images\close_black.png" />
+    <Content Include="Images\images\close_white.png" />
+    <Content Include="Images\images\colorpicker\bar-hue.png" />
+    <Content Include="Images\images\colorpicker\bar-saturation.png" />
+    <Content Include="Images\images\colorpicker\map-hue.png" />
+    <Content Include="Images\images\colorpicker\map-saturation-overlay.png" />
+    <Content Include="Images\images\colorpicker\map-saturation.png" />
+    <Content Include="Images\images\colorpicker\ReadMe.txt" />
+    <Content Include="Images\images\crosshair-white.png" />
+    <Content Include="Images\images\crosshair.png" />
+    <Content Include="Images\images\darkness\ReadMe.txt" />
+    <Content Include="Images\images\drag.png" />
+    <Content Include="Images\images\dragcancel.png" />
+    <Content Include="Images\images\error.png" />
+    <Content Include="Images\images\filter.png" />
+    <Content Include="Images\images\html_editor.png" />
+    <Content Include="Images\images\icon-calendar-white.png" />
+    <Content Include="Images\images\icon-calendar.png" />
+    <Content Include="Images\images\icon-cancel.png" />
+    <Content Include="Images\images\icon-delete.png" />
+    <Content Include="Images\images\icon-down-white.png" />
+    <Content Include="Images\images\icon-down.png" />
+    <Content Include="Images\images\icon-edit.png" />
+    <Content Include="Images\images\icon-first.png" />
+    <Content Include="Images\images\icon-last.png" />
+    <Content Include="Images\images\icon-left-white.png" />
+    <Content Include="Images\images\icon-left.png" />
+    <Content Include="Images\images\icon-menu-minimized.png" />
+    <Content Include="Images\images\icon-plus-white.png" />
+    <Content Include="Images\images\icon-plus.png" />
+    <Content Include="Images\images\icon-recurrence-exception-white.png" />
+    <Content Include="Images\images\icon-recurrence-exception.png" />
+    <Content Include="Images\images\icon-recurrence-white.png" />
+    <Content Include="Images\images\icon-recurrence.png" />
+    <Content Include="Images\images\icon-right-white.png" />
+    <Content Include="Images\images\icon-right.png" />
+    <Content Include="Images\images\icon-save.png" />
+    <Content Include="Images\images\icon-showpassword.png" />
+    <Content Include="Images\images\icon-time-white.png" />
+    <Content Include="Images\images\icon-time.png" />
+    <Content Include="Images\images\icon-up-white.png" />
+    <Content Include="Images\images\icon-up.png" />
+    <Content Include="Images\images\info.png" />
+    <Content Include="Images\images\le-frog\ReadMe.txt" />
+    <Content Include="Images\images\lightness\icon-first.png" />
+    <Content Include="Images\images\lightness\icon-last.png" />
+    <Content Include="Images\images\lightness\ReadMe.txt" />
+    <Content Include="Images\images\loader-small.gif" />
+    <Content Include="Images\images\loader.gif" />
+    <Content Include="Images\images\mail.png" />
+    <Content Include="Images\images\menubutton.png" />
+    <Content Include="Images\images\multi-arrow.gif" />
+    <Content Include="Images\images\overcast\ReadMe.txt" />
+    <Content Include="Images\images\pin.png" />
+    <Content Include="Images\images\pinned.png" />
+    <Content Include="Images\images\plus.png" />
+    <Content Include="Images\images\pointer.png" />
+    <Content Include="Images\images\redmond\icon-first.png" />
+    <Content Include="Images\images\redmond\icon-last.png" />
+    <Content Include="Images\images\redmond\ReadMe.txt" />
+    <Content Include="Images\images\red_arrow_down.png" />
+    <Content Include="Images\images\red_arrow_up.png" />
+    <Content Include="Images\images\roundbg_check_black.png" />
+    <Content Include="Images\images\roundbg_check_indeterminate.png" />
+    <Content Include="Images\images\roundbg_classic_normal.png" />
+    <Content Include="Images\images\search.png" />
+    <Content Include="Images\images\seft-kari.png" />
+    <Content Include="Images\images\smoothness\ReadMe.txt" />
+    <Content Include="Images\images\sortasc.png" />
+    <Content Include="Images\images\sortascbutton.png" />
+    <Content Include="Images\images\sortdesc.png" />
+    <Content Include="Images\images\sortdescbutton.png" />
+    <Content Include="Images\images\sortremove.png" />
+    <Content Include="Images\images\star.png" />
+    <Content Include="Images\images\start\ReadMe.txt" />
+    <Content Include="Images\images\star_disabled.png" />
+    <Content Include="Images\images\star_hover.png" />
+    <Content Include="Images\images\stripes.png" />
+    <Content Include="Images\images\success.png" />
+    <Content Include="Images\images\sunny\ReadMe.txt" />
+    <Content Include="Images\images\time.png" />
+    <Content Include="Images\images\warning.png" />
+    <Content Include="Images\info-icon.png" />
+    <Content Include="Images\info.png" />
+    <Content Include="Images\iranglag4r.png" />
+    <Content Include="Images\ispin.png" />
+    <Content Include="Images\jostojooye melk%402x.png" />
+    <Content Include="Images\Layers.png" />
+    <Content Include="Images\Left.png" />
+    <Content Include="Images\Legal.png" />
+    <Content Include="Images\licens.png" />
+    <Content Include="Images\loader-small.gif" />
+    <Content Include="Images\loader.gif" />
+    <Content Include="Images\loading-gif-transparent-10.gif" />
+    <Content Include="Images\loading.gif" />
+    <Content Include="Images\login-w.png" />
+    <Content Include="Images\Login.png" />
+    <Content Include="Images\mail.png" />
+    <Content Include="Images\map\area.png" />
+    <Content Include="Images\map\delete.png" />
+    <Content Include="Images\map\distance.png" />
+    <Content Include="Images\map\MapModePan.png" />
+    <Content Include="Images\map\MapModeSelect.png" />
+    <Content Include="Images\map\Marker.png" />
+    <Content Include="Images\map\Marker2.png" />
+    <Content Include="Images\map\selector.png" />
+    <Content Include="Images\Mashhad.png" />
+    <Content Include="Images\menubutton.png" />
+    <Content Include="Images\Menu\Login.png" />
+    <Content Include="Images\Menu\vote.png" />
+    <Content Include="Images\message.png" />
+    <Content Include="Images\Mobile-SharvandSepari-Info.png" />
+    <Content Include="Images\multi-arrow.gif" />
+    <Content Include="Images\nopin.png" />
+    <Content Include="Images\norm.png" />
+    <Content Include="Images\p-s.png" />
+    <Content Include="Images\pardakht avarez%402x.png" />
+    <Content Include="Images\pardakht haye anjam shode%402x.png" />
+    <Content Include="Images\Path 104%402x.png" />
+    <Content Include="Images\Path 46%402x.png" />
+    <Content Include="Images\Path 60%402x.png" />
+    <Content Include="Images\Path 72%402x.png" />
+    <Content Include="Images\Path 76%402x.png" />
+    <Content Include="Images\Path 79%402x.png" />
+    <Content Include="Images\Path 89%402x.png" />
+    <Content Include="Images\Path 92%402x.png" />
+    <Content Include="Images\Path 95%402x.png" />
+    <Content Include="Images\pay1.png" />
+    <Content Include="Images\payane kar%402x.png" />
+    <Content Include="Images\pays.png" />
+    <Content Include="Images\pin.png" />
+    <Content Include="Images\pinned.png" />
+    <Content Include="Images\plus.png" />
+    <Content Include="Images\pointer%403x.png" />
+    <Content Include="Images\pointer.png" />
+    <Content Include="Images\Point\1.png" />
+    <Content Include="Images\Point\2.png" />
+    <Content Include="Images\Point\4.png" />
+    <Content Include="Images\Point\5.png" />
+    <Content Include="Images\Point\6.png" />
+    <Content Include="Images\poll-s.png" />
+    <Content Include="Images\poll.png" />
+    <Content Include="Images\printer-s.png" />
+    <Content Include="Images\procInfo.png" />
+    <Content Include="Images\Quest-s.png" />
+    <Content Include="Images\Realperson.png" />
+    <Content Include="Images\red_arrow_down.png" />
+    <Content Include="Images\red_arrow_up.png" />
+    <Content Include="Images\refresh.png" />
+    <Content Include="Images\Revoke.png" />
+    <Content Include="Images\Right.png" />
+    <Content Include="Images\roundbg_check_black.png" />
+    <Content Include="Images\roundbg_check_indeterminate.png" />
+    <Content Include="Images\roundbg_classic_normal.png" />
+    <Content Include="Images\s-s.png" />
+    <Content Include="Images\sabte psrvaneh%402x.png" />
+    <Content Include="Images\save.png" />
+    <Content Include="Images\Search.png" />
+    <Content Include="Images\searchicon.png" />
+    <Content Include="Images\seft-kari.png" />
+    <Content Include="Images\SelectTick2.png" />
+    <Content Include="Images\shenasaii code nosazi.png" />
+    <Content Include="Images\sortasc.png" />
+    <Content Include="Images\sortascbutton.png" />
+    <Content Include="Images\sortdesc.png" />
+    <Content Include="Images\sortdescbutton.png" />
+    <Content Include="Images\sortremove.png" />
+    <Content Include="Images\space.png" />
+    <Content Include="Images\star.png" />
+    <Content Include="Images\star_disabled.png" />
+    <Content Include="Images\star_empty.png" />
+    <Content Include="Images\star_full.png" />
+    <Content Include="Images\star_highlight.png" />
+    <Content Include="Images\star_hover.png" />
+    <Content Include="Images\StreetView\marker2.png" />
+    <Content Include="Images\stripes.png" />
+    <Content Include="Images\success.png" />
+    <Content Include="Images\tag.ico" />
+    <Content Include="Images\SelectTick.png" />
+    <Content Include="Images\Tick2.png" />
+    <Content Include="Images\tik.png" />
+    <Content Include="Images\time.png" />
+    <Content Include="Images\Up.png" />
+    <Content Include="Images\user-islogin.png" />
+    <Content Include="Images\user-login-icon-50.png" />
+    <Content Include="Images\warning.png" />
+    <Content Include="js\aes.js" />
+    <Content Include="js\Main\Doc.txt" />
+    <Content Include="js\Main\FichFunc.js" />
+    <Content Include="js\Main\Login.min.js">
+      <DependentUpon>Login.js</DependentUpon>
+    </Content>
+    <Content Include="js\Main\Master.min.js">
+      <DependentUpon>Master.js</DependentUpon>
+    </Content>
+    <Content Include="js\Main\safaSecurity.min.js" />
+    <Content Include="js\persianumber.js" />
+    <Content Include="js\SafaSdi.js" />
+    <Content Include="FrmParvaneh.aspx" />
+    <Content Include="Parvaneh\ParvanehGam.js" />
+    <Content Include="Parvaneh\ParvanehGam.min.js">
+      <DependentUpon>ParvanehGam.js</DependentUpon>
+    </Content>
+    <Content Include="Parvaneh\PAvarezDarAmad.htm" />
+    <Content Include="Parvaneh\PBazdid2.htm" />
+    <Content Include="Parvaneh\PCommission100Zanjan.htm" />
+    <Content Include="Parvaneh\PCommissionZanjan.htm" />
+    <Content Include="Parvaneh\PCommission.htm" />
+    <Content Include="Parvaneh\PEngInfo.htm" />
+    <Content Include="Parvaneh\PEngineerDafater.htm" />
+    <Content Include="Parvaneh\PExportShiraz.htm" />
+    <Content Include="Parvaneh\PExportIsfahan.htm" />
+    <Content Include="Parvaneh\PGam1-1.htm" />
+    <Content Include="Parvaneh\PGam10_Avarez.htm" />
+    <Content Include="Parvaneh\PGam1.htm" />
+    <Content Include="Parvaneh\PGam2_Select_Quiz0.htm" />
+    <Content Include="Parvaneh\PGam2_Select_Quiz.htm" />
+    <Content Include="Parvaneh\PGam3_Savabegh.htm" />
+    <Content Include="Parvaneh\PGam4_Avarez.htm" />
+    <Content Include="Parvaneh\PGam8_ShFaniNew.htm" />
+    <Content Include="Parvaneh\PGam8_ShFani.htm" />
+    <Content Include="Parvaneh\PGam8_ShFani0.htm" />
+    <Content Include="Parvaneh\PGam8_EstelamZabete.htm" />
+    <Content Include="Parvaneh\PGam9_ZabeteDastoor.htm" />
+    <Content Include="Parvaneh\PMapControl.htm" />
+    <Content Include="Parvaneh\PMokatebat2.htm" />
+    <Content Include="Parvaneh\PMokatebatNew.htm" />
+    <Content Include="Parvaneh\PMokatebat.htm" />
+    <Content Include="Parvaneh\PGam9_Mokatebat.htm" />
+    <Content Include="Parvaneh\PGam9_Zabete.htm" />
+    <Content Include="Parvaneh\PGam9_ZabeteYazd.htm" />
+    <Content Include="Parvaneh\PGam_PishFactor.htm" />
+    <Content Include="Parvaneh\POwner_Report.htm" />
+    <Content Include="Parvaneh\POwner_Info.htm" />
+    <Content Include="Parvaneh\POwner_EditType.htm" />
+    <Content Include="Parvaneh\POwner2.htm" />
+    <Content Include="Parvaneh\POwner.htm" />
+    <Content Include="Parvaneh\PEngineer.htm" />
+    <Content Include="Parvaneh\NewNosaziCode.htm" />
+    <Content Include="Parvaneh\PSelectOwner.htm" />
+    <Content Include="Parvaneh\PSelectNo.htm" />
+    <Content Include="Parvaneh\PSelect-Violation.htm" />
+    <Content Include="Parvaneh\PSelect2.htm" />
+    <Content Include="Parvaneh\PSelect.htm" />
+    <Content Include="Parvaneh\PExport.htm" />
+    <Content Include="Parvaneh\PShFani.htm" />
+    <Content Include="Parvaneh\PTavafoghat.htm" />
+    <Content Include="Parvaneh\PArchitectMaps.htm" />
+    <Content Include="Parvaneh\PWorkFlowType3-1.htm" />
+    <Content Include="Parvaneh\PWorkFlowType3.htm" />
+    <Content Include="Parvaneh\PWorkFlowType2.htm" />
+    <Content Include="Parvaneh\UConfirmSMS2.htm" />
+    <Content Include="Parvaneh\UConfirmSMS.htm" />
+    <Content Include="Parvaneh\PSaveRequest.htm" />
+    <Content Include="Parvaneh\PBazdid.htm" />
+    <Content Include="Parvaneh\PUpload.htm" />
+    <Content Include="Parvaneh\PAvarez.htm" />
+    <Content Include="Parvaneh\PWorkFlowType.htm" />
+    <Content Include="css\fonts\DejaVuSerif.ttf" />
+    <Content Include="Images\end-active.png-" />
+    <Content Include="Images\homepage – offic – 1%402x.png-" />
+    <Content Include="font\IRANSansWeb%28FaNum%29.ttf" />
+    <Content Include="font\5c53f1a72f61b5b51e2ea79a22ebc38b.eot" />
+    <Content Include="font\5c53f1a72f61b5b51e2ea79a22ebc38b.ttf" />
+    <Content Include="font\5c53f1a72f61b5b51e2ea79a22ebc38b.woff" />
+    <Content Include="font\5c53f1a72f61b5b51e2ea79a22ebc38b.woff2" />
+    <Content Include="libman.json" />
+    <Content Include="DataAccess\DbUGPModel.dbml" />
+    <Content Include="DataAccess\DbUGPModel.dbml.layout" />
+    <None Include="Properties\PublishProfiles\UgpNew_Package.pubxml" />
+    <None Include="Service References\SrvNationalCode\SrvNationalCodeInquiry.disco" />
+    <None Include="Service References\SrvNationalCode\configuration91.svcinfo" />
+    <None Include="Service References\SrvNationalCode\configuration.svcinfo" />
+    <None Include="Service References\SrvNationalCode\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Secure\SafaAuth.svc" />
+    <None Include="Service References\UgpSer\UgpService.disco" />
+    <None Include="Service References\UgpSer\configuration91.svcinfo" />
+    <None Include="Service References\UgpSer\configuration.svcinfo" />
+    <None Include="Service References\UgpSer\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Style\GamStyle.css" />
+    <Content Include="Style\images\1.png" />
+    <Content Include="Style\images\2.png" />
+    <Content Include="Style\images\3.png" />
+    <Content Include="Style\images\4.png" />
+    <Content Include="Style\images\5.png" />
+    <Content Include="Style\images\6.png" />
+    <Content Include="Style\images\accept.png" />
+    <Content Include="Style\images\alert.png" />
+    <Content Include="Style\images\cancel.png" />
+    <Content Include="Style\images\check_black.png" />
+    <Content Include="Style\images\check_disabled.png" />
+    <Content Include="Style\images\check_indeterminate_black.png" />
+    <Content Include="Style\images\check_indeterminate_disabled.png" />
+    <Content Include="Style\images\Close.png" />
+    <Content Include="Style\images\close_black.png" />
+    <Content Include="Style\images\close_white.png" />
+    <Content Include="Style\images\colorpicker\bar-hue.png" />
+    <Content Include="Style\images\colorpicker\bar-saturation.png" />
+    <Content Include="Style\images\colorpicker\map-hue.png" />
+    <Content Include="Style\images\colorpicker\map-saturation-overlay.png" />
+    <Content Include="Style\images\colorpicker\map-saturation.png" />
+    <Content Include="Style\images\colorpicker\ReadMe.txt" />
+    <Content Include="Style\images\crosshair-white.png" />
+    <Content Include="Style\images\crosshair.png" />
+    <Content Include="Style\images\Denid.png" />
+    <Content Include="Style\images\drag.png" />
+    <Content Include="Style\images\dragcancel.png" />
+    <Content Include="Style\images\error.png" />
+    <Content Include="Style\images\filter.png" />
+    <Content Include="Style\images\House.png" />
+    <Content Include="Style\images\html_editor.png" />
+    <Content Include="Style\images\icon-calendar-white.png" />
+    <Content Include="Style\images\icon-calendar.png" />
+    <Content Include="Style\images\icon-cancel.png" />
+    <Content Include="Style\images\icon-delete.png" />
+    <Content Include="Style\images\icon-down-white.png" />
+    <Content Include="Style\images\icon-down.png" />
+    <Content Include="Style\images\icon-edit.png" />
+    <Content Include="Style\images\icon-first.png" />
+    <Content Include="Style\images\icon-last.png" />
+    <Content Include="Style\images\icon-left-white.png" />
+    <Content Include="Style\images\icon-left.png" />
+    <Content Include="Style\images\icon-menu-minimized.png" />
+    <Content Include="Style\images\icon-plus-white.png" />
+    <Content Include="Style\images\icon-plus.png" />
+    <Content Include="Style\images\icon-recurrence-exception-white.png" />
+    <Content Include="Style\images\icon-recurrence-exception.png" />
+    <Content Include="Style\images\icon-recurrence-white.png" />
+    <Content Include="Style\images\icon-recurrence.png" />
+    <Content Include="Style\images\icon-right-white.png" />
+    <Content Include="Style\images\icon-right.png" />
+    <Content Include="Style\images\icon-save.png" />
+    <Content Include="Style\images\icon-showpassword.png" />
+    <Content Include="Style\images\icon-time-white.png" />
+    <Content Include="Style\images\icon-time.png" />
+    <Content Include="Style\images\icon-up-white.png" />
+    <Content Include="Style\images\icon-up.png" />
+    <Content Include="Style\images\info.png" />
+    <Content Include="Style\images\le-frog\ReadMe.txt" />
+    <Content Include="Style\images\LEFT.png" />
+    <Content Include="Style\images\Legal.png" />
+    <Content Include="Style\images\lightness\icon-first.png" />
+    <Content Include="Style\images\lightness\icon-last.png" />
+    <Content Include="Style\images\lightness\ReadMe.txt" />
+    <Content Include="Style\images\loader-small.gif" />
+    <Content Include="Style\images\loader.gif" />
+    <Content Include="Style\images\mail.png" />
+    <Content Include="Style\images\menubutton.png" />
+    <Content Include="Style\images\message.png" />
+    <Content Include="Style\images\multi-arrow.gif" />
+    <Content Include="Style\images\overcast\ReadMe.txt" />
+    <Content Include="Style\images\p.png" />
+    <Content Include="Style\images\pin.png" />
+    <Content Include="Style\images\pinned.png" />
+    <Content Include="Style\images\plus.png" />
+    <Content Include="Style\images\pointer.png" />
+    <Content Include="Style\images\poll.png" />
+    <Content Include="Style\images\Realperson.png" />
+    <Content Include="Style\images\redmond\icon-first.png" />
+    <Content Include="Style\images\redmond\icon-last.png" />
+    <Content Include="Style\images\redmond\ReadMe.txt" />
+    <Content Include="Style\images\red_arrow_down.png" />
+    <Content Include="Style\images\red_arrow_up.png" />
+    <Content Include="Style\images\RIGHT.png" />
+    <Content Include="Style\images\roundbg_check_black.png" />
+    <Content Include="Style\images\roundbg_check_indeterminate.png" />
+    <Content Include="Style\images\roundbg_classic_normal.png" />
+    <Content Include="Style\images\search.png" />
+    <Content Include="Style\images\smoothness\ReadMe.txt" />
+    <Content Include="Style\images\sortasc.png" />
+    <Content Include="Style\images\sortascbutton.png" />
+    <Content Include="Style\images\sortdesc.png" />
+    <Content Include="Style\images\sortdescbutton.png" />
+    <Content Include="Style\images\sortremove.png" />
+    <Content Include="Style\images\star.png" />
+    <Content Include="Style\images\start\ReadMe.txt" />
+    <Content Include="Style\images\star_disabled.png" />
+    <Content Include="Style\images\star_hover.png" />
+    <Content Include="Style\images\stripes.png" />
+    <Content Include="Style\images\success.png" />
+    <Content Include="Style\images\sunny\ReadMe.txt" />
+    <Content Include="Style\images\time.png" />
+    <Content Include="Style\images\warning.png" />
+    <Content Include="Style\w3.css" />
+    <Content Include="FrmArchive.aspx" />
+    <Content Include="UC_Main\searchItemMain.js" />
+    <Content Include="UC_Main\UFooter.ascx" />
+    <Content Include="UShowSMS.aspx" />
+    <Content Include="js\angular.min.js" />
+    <Content Include="js\GeoPortal.min.js">
+      <DependentUpon>GeoPortal.js</DependentUpon>
+    </Content>
+    <Content Include="js\Main\Login.js" />
+    <Content Include="js\Main\Master.js" />
+    <Content Include="js\Main\Menu.js" />
+    <Content Include="js\MapFn.js" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\Busy.js" />
+    <Content Include="js\GeoPortal.js" />
+    <Content Include="js\GeoPortal.min.css" />
+    <Content Include="js\jquery.jqplot.js" />
+    <Content Include="js\jquery.jqplot.min.js" />
+    <Content Include="js\jquery.min.js" />
+    <Content Include="js\jquery.zoom.js" />
+    <Content Include="js\js-persian-cal.js" />
+    <Content Include="js\js-persian-cal.min.js">
+      <DependentUpon>js-persian-cal.js</DependentUpon>
+    </Content>
+    <Content Include="js\JSPdate.js" />
+    <Content Include="js\SafaSDI.min.css" />
+    <Content Include="js\SafaSdi.min.js">
+      <DependentUpon>SafaSdi.js</DependentUpon>
+    </Content>
+    <Content Include="Logout.aspx" />
+    <Content Include="Style\jquery.jqplot.min.css" />
+    <Content Include="Style\jqx.base.css" />
+    <Content Include="Style\mediascreen.css" />
+    <Content Include="UC_Main\UUserInfoAdmin.ascx" />
+    <None Include="bundleconfig.json" />
+    <Content Include="bundleconfig.json.bindings">
+      <DependentUpon>bundleconfig.json</DependentUpon>
+    </Content>
+    <Content Include="font\BNazanin.eot" />
+    <Content Include="font\BNazanin.ttf" />
+    <Content Include="font\BNazanin.woff" />
+    <Content Include="font\BYekan.eot" />
+    <Content Include="font\BYekan.ttf" />
+    <Content Include="font\BYekan.woff" />
+    <Content Include="font\irsans.ttf" />
+    <None Include="Properties\PublishProfiles\Ugp-RR.pubxml" />
+    <Content Include="Style\ax\bonchagh.jpg" />
+    <Content Include="Style\ax\fish2.jpg" />
+    <Content Include="Style\ax\parvaneh.jpg" />
+    <Content Include="Style\ax\payankar.jpg" />
+    <Content Include="Style\ax\sanad.jpg" />
+    <Content Include="Style\ax\Small\bonchagh.jpg" />
+    <Content Include="Style\ax\Small\fish2.jpg" />
+    <Content Include="Style\ax\Small\parvaneh.jpg" />
+    <Content Include="Style\ax\Small\payankar.jpg" />
+    <Content Include="Style\ax\Small\sanad.jpg" />
+    <Content Include="Style\JsRef\build\SafaFaceDetection.css" />
+    <Content Include="Style\JsRef\build\SafaFaceDetection.min.js" />
+    <Content Include="UC_Main\UHeader.ascx" />
+    <Content Include="UC_Main\UHelp.ascx" />
+    <Content Include="UC_Main\UMainText.ascx" />
+    <Content Include="UC_Main\UMenu.ascx" />
+    <Content Include="UC_Main\USlider.ascx" />
+    <Content Include="bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="UVote.aspx" />
+    <Content Include="UShowRequest.aspx" />
+    <Content Include="Style\style.css" />
+    <None Include="Service References\SrvNationalCode\SrvNationalCodeInquiry.wsdl" />
+    <None Include="Service References\SrvNationalCode\SrvNationalCodeInquiry.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SrvNationalCode\SrvNationalCodeInquiry1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SrvNationalCode\SrvNationalCodeInquiry2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Service References\SrvNationalCode\UGP.UI.SrvNationalCode.ClsPersonAuthenticationJson.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="UGPMaster2.Master" />
+    <None Include="Service References\UgpSer\UgpService.wsdl" />
+    <None Include="Service References\UgpSer\UgpService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UgpSer\UgpService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="web.config" />
+    <None Include="web.Debug.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+    <None Include="web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\ClsAccount.cs" />
+    <Compile Include="Common\ClsLog.cs" />
+    <Compile Include="Common\ClsSession.cs" />
+    <Compile Include="Common\ClsCommon.cs" />
+    <Compile Include="Common\ClsSMS.cs" />
+    <Compile Include="Common\Crypto.cs" />
+    <Compile Include="Common\UgpController.cs" />
+    <Compile Include="DataAccess\DbUGPModel.designer.cs" />
+    <Compile Include="DataAccess\Partial.cs" />
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Error\BaseResult.cs" />
+    <Compile Include="Error\ErrorLog.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="FrmParvaneh.aspx.cs">
+      <DependentUpon>FrmParvaneh.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FrmParvaneh.aspx.designer.cs">
+      <DependentUpon>FrmParvaneh.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Secure\ISafaAuth.cs" />
+    <Compile Include="Secure\SafaAuth.svc.cs">
+      <DependentUpon>SafaAuth.svc</DependentUpon>
+    </Compile>
+    <Compile Include="Secure\Secure.cs" />
+    <Compile Include="Service References\SrvNationalCode\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\UgpSer\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="SSO\ClsSSOGovNew.cs" />
+    <Compile Include="SSO\ClsSSOGov.cs" />
+    <Compile Include="SSO\ClsSSO.cs" />
+    <Compile Include="UC_Main\UMainText.ascx.cs">
+      <DependentUpon>UMainText.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UC_Main\UMainText.ascx.designer.cs">
+      <DependentUpon>UMainText.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UShowSMS.aspx.cs">
+      <DependentUpon>UShowSMS.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UShowSMS.aspx.designer.cs">
+      <DependentUpon>UShowSMS.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UC_Main\UHeader.ascx.cs">
+      <DependentUpon>UHeader.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UC_Main\UHeader.ascx.designer.cs">
+      <DependentUpon>UHeader.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UC_Main\UHelp.ascx.cs">
+      <DependentUpon>UHelp.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UC_Main\UHelp.ascx.designer.cs">
+      <DependentUpon>UHelp.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UC_Main\UMenu.ascx.cs">
+      <DependentUpon>UMenu.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UC_Main\UMenu.ascx.designer.cs">
+      <DependentUpon>UMenu.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UC_Main\USlider.ascx.cs">
+      <DependentUpon>USlider.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UC_Main\USlider.ascx.designer.cs">
+      <DependentUpon>USlider.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UC_Main\UUserInfoAdmin.ascx.cs">
+      <DependentUpon>UUserInfoAdmin.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UC_Main\UUserInfoAdmin.ascx.designer.cs">
+      <DependentUpon>UUserInfoAdmin.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UGPMaster.Master.cs">
+      <DependentUpon>UGPMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UGPMaster.Master.designer.cs">
+      <DependentUpon>UGPMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="UShowRequest.aspx.cs">
+      <DependentUpon>UShowRequest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UShowRequest.aspx.designer.cs">
+      <DependentUpon>UShowRequest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UVote.aspx.cs">
+      <DependentUpon>UVote.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UVote.aspx.designer.cs">
+      <DependentUpon>UVote.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="UGPMaster.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\" />
+    <Folder Include="Classes\" />
+    <Folder Include="Images\ax\" />
+    <Folder Include="js\DateNew\src\" />
+    <Folder Include="js\DateNew\style\" />
+    <Folder Include="Steps\" />
+    <Folder Include="Style\images\darkness\" />
+    <Folder Include="UC\Req\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\SrvNationalCode\" />
+    <WCFMetadataStorage Include="Service References\UgpSer\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ExttendedProj\ApiController\ApiController.csproj">
+      <Project>{f0de0fc9-d35c-45d1-a26f-f004234add41}</Project>
+      <Name>ApiController</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExttendedProj\SafaCaptcha\Safa.Modules.Authorization.csproj">
+      <Project>{29fb7f61-3471-44df-ac3c-b5f8e1ca0b8e}</Project>
+      <Name>Safa.Modules.Authorization</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UGPbiz\UGPbiz.csproj">
+      <Project>{17ed635c-fc53-41d2-b855-76dff5856851}</Project>
+      <Name>UGPbiz</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <TypeScriptCompileOnSaveEnabled>False</TypeScriptCompileOnSaveEnabled>
+    <TypeScriptNoImplicitAny>False</TypeScriptNoImplicitAny>
+    <TypeScriptTarget>ES5</TypeScriptTarget>
+    <TypeScriptJSXEmit>None</TypeScriptJSXEmit>
+    <TypeScriptModuleKind>None</TypeScriptModuleKind>
+    <TypeScriptRemoveComments>True</TypeScriptRemoveComments>
+    <TypeScriptOutFile>
+    </TypeScriptOutFile>
+    <TypeScriptOutDir />
+    <TypeScriptGeneratesDeclarations>False</TypeScriptGeneratesDeclarations>
+    <TypeScriptNoEmitOnError>False</TypeScriptNoEmitOnError>
+    <TypeScriptSourceMap>False</TypeScriptSourceMap>
+    <TypeScriptMapRoot />
+    <TypeScriptSourceRoot>
+    </TypeScriptSourceRoot>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>12353</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/UGPData</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

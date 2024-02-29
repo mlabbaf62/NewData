@@ -1,0 +1,422 @@
+﻿@font-face {
+    font-family: 'Shabnam';
+    src: url('../fonts/Shabnam.eot?#') format('eot'), /* IE6–8 */
+    url('../fonts/Shabnam.woff') format('woff'), /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+    url('../fonts/Shabnam.ttf') format('truetype'); /* Saf3—5, Chrome4+, FF3.5, Opera 10+ */
+}
+
+* {
+    font-family: 'Shabnam';
+}
+
+input [type=number] input[type=text], input[type=password], input[type=email], textarea; {
+    border-radius: 5px;
+    font-size: 13px !important;
+    font-family: 'B Yekan';
+}
+
+html body .RadInput_Default .riTextBox, html body .RadInputMgr_Default {
+    font-size: 13px !important;
+}
+
+input[type=button] {
+    font-family: Tahoma;
+    font-size: medium;
+}
+
+#DivRegister span {
+    font-size: small;
+}
+
+.hero-image {
+    border: 0 !important;
+    outline: none;
+    height: 100%;
+    background: linear-gradient(to left, #fbfbfb, #fbfbfb33, transparent), url("../images/home-bg.jpg") no-repeat center;
+    background-size: cover;
+    /*box-shadow: 0px 10px 20px -5px rgba(0,0,0,.8);*/
+}
+
+legend {
+    font-size: 17px !important;
+}
+
+span label select option {
+    font-size: 14px !important;
+}
+
+select {
+    font-size: 14px !important;
+}
+
+.ltr {
+    text-align: left;
+}
+
+#BtnSave2:disabled {
+    opacity: 0.7;
+}
+
+/*.row div {
+    float: right;
+    float: right;
+    padding: 10px;
+    padding-right: 0;
+}*/
+
+.nopadding {
+    padding: 0 !important;
+}
+
+.nav-tabs > li {
+    float: right;
+}
+
+select {
+    padding: 0;
+}
+
+#LMessage {
+    color: red;
+}
+
+.GamBox {
+    padding: 10px;
+    /*margin: 60px;*/
+    margin: 20px 50px;
+    position: relative;
+    width: 91%;
+    background-color: white;
+}
+
+.GamBoxFrame {
+    box-shadow: 0 0 5px #e5e0e0;
+    margin: 20px 0px;
+    padding: 20px;
+}
+
+    .GamBoxFrame > div > span {
+        color: #ab51a8;
+        font-weight:bold;
+    }
+
+    .GamBoxFrame > div > div > div > span {
+        color: #ab51a8;
+        font-weight: bold;
+    }
+
+
+    .GamBoxFrame legend {
+        font-size: 1.6em !important;
+        color: #275071;
+    }
+
+
+
+
+.panel-success {
+    border-color: white;
+}
+
+#MainDIv, #SecDIv #SmsDIv {
+    background-color: white;
+    box-shadow: 0 0 20px #dcd4d4;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.panel-heading h2 {
+    text-align: right;
+    background-color: white;
+    border-color: #ffffff;
+    color: #275071;
+}
+
+body {
+    background-color: #ffffff;
+    background-position: right top;
+    /*background-image: url(../Images/circle-1-4.png);*/
+    background-image: url(../../Images/backgrong-ugp.png);
+    background-repeat: repeat;
+    /*background-size: 300px 300px;*/
+    background-size: 100% 100%;
+    overflow-x: hidden;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
+    color: #060606 !important;
+    background-color: #ECECEC !important;
+}
+
+.nav-tabs > li > a {
+    background-color: white;
+}
+
+.nav-tabs > li > a {
+    border: 1px solid #e1e1e1;
+}
+
+select,
+html body .RadInput_Default .riTextBox, html body .RadInputMgr_Default,
+input[type=number], input[type=text], input[type=password], input[type=email], textarea {
+    border: 1px solid #E8E8E8 !important;
+}
+
+.panel-success {
+    border-color: transparent;
+}
+
+
+    .panel-heading h2, .panel-success > .panel-heading {
+        background: transparent;
+        border: 0;
+    }
+
+legend {
+    margin-bottom: 0;
+}
+
+fieldset {
+    padding-top: 0;
+    padding-top: 0;
+}
+
+h2, .h2 {
+    border: 0;
+}
+
+h1 {
+    font-size: 2em !important;
+    color: #AF88E7;
+    background-color: #f5f0fb;
+    padding: 10px;
+    font-weight: 100;
+    border-right: 6px solid #AF88E7;
+    margin-top: 10px;
+}
+
+.RadTabStrip_BlackMetroTouch .rtsLevel1 .rtsSelected, .RadTabStrip_BlackMetroTouch .rtsLevel1 .rtsSelected:hover {
+    border-color: #af88e7;
+    color: #fff;
+    background-color: #af88e7;
+}
+
+fieldset {
+    margin-top: 10px;
+    border: 1px solid #ececec;
+    padding: 15px;
+    padding-bottom: 40px;
+}
+
+.infoBox {
+    margin-top: 10px;
+    background: #FFDF72;
+    margin-top: 10px;
+    background: #FFDF72;
+    padding: 10px;
+    padding-top: 0px;
+    margin: 10px 0;
+}
+
+    .infoBox table tbody tr td span {
+        font-size: 12px;
+    }
+
+    .infoBox div ul li span, .infoBoxUl li {
+        font-size: 12px;
+    }
+
+.RadUpload_Default .ruButton {
+    background-image: none;
+    color: #fff;
+    background-color: #AF88E7;
+    /* padding: 10px; */
+    width: 150px;
+    /* height: 86px; */
+}
+/*.RadTabStrip_BlackMetroTouch .rtsLevel1 .rtsSelected, .RadTabStrip_BlackMetroTouch .rtsLevel1 .rtsSelected:hover {
+            background-color: white;
+            border-color: #ECECEC;
+            color: #616161;
+        }
+
+        .RadTabStrip_BlackMetroTouch .rtsLevel1 .rtsLink {
+            border: 1px solid #ECECEC;
+            color: #61618a;
+        }
+        .rtsBefore {
+                background-color: #f1f1f1!important;
+        }*/
+
+/*.RadTabStrip_BlackMetroTouch .rtsLevel1 .rtsLink {
+            border: 1px solid #4e4e4e;
+            color: #61618a;
+        }*/
+
+.RadTabStripTop_BlackMetroTouch .rtsLevel1 {
+    border-bottom: 3px solid #f5f5f5;
+}
+
+.GamBoxFrame div input[type=text] {
+    float: right;
+    text-align: right;
+    padding: 0px 10px;
+}
+
+.GamBoxFrame div span {
+    padding-right: 0;
+}
+
+input:disabled, input[type=text]:disabled, select:disabled {
+    cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+    .container {
+        margin: 0;
+        padding: 0;
+        width:100%;
+        background-image:none;
+        background-image:url('');
+    }
+    .GamBox {
+             margin: 0;
+        padding: 0;
+        width:100%;
+    }
+    h2, .h2 {
+    font-size:3.5vh;
+    text-align:justify;
+    }
+    #MainDIv, #SecDIv #SmsDIv {
+           margin: 0;
+        padding: 0;
+    }
+}
+
+span[id^=NewError] {
+margin-right:0;
+}
+
+
+
+.progress {
+    height: 20px;
+   
+    overflow: hidden;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, .1)
+}
+
+.progress-bar {
+    float: left;
+    width: 0;
+    height: 100%;
+    font-size: 12px;
+    line-height: 20px;
+    color: #fff;
+    text-align: center;
+    background-color: #337ab7;
+    -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .15);
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .15);
+    -webkit-transition: width .6s ease;
+    -o-transition: width .6s ease;
+    transition: width .6s ease
+}
+
+.progress-bar-striped,
+.progress-striped .progress-bar {
+    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+    background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+    -webkit-background-size: 40px 40px;
+    background-size: 40px 40px
+}
+
+.progress-bar.active,
+.progress.active .progress-bar {
+    -webkit-animation: progress-bar-stripes 2s linear infinite;
+    -o-animation: progress-bar-stripes 2s linear infinite;
+    animation: progress-bar-stripes 2s linear infinite
+}
+
+.progress-bar-success {
+    background-color: #5cb85c
+}
+
+.progress-striped .progress-bar-success {
+    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+    background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent)
+}
+
+.progress-bar-info {
+    background-color: #5bc0de
+}
+
+.progress-striped .progress-bar-info {
+    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+    background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent)
+}
+
+.progress-bar-warning {
+    background-color: #f0ad4e
+}
+
+.progress-striped .progress-bar-warning {
+    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+    background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent)
+}
+
+.progress-bar-danger {
+    background-color: #d9534f;
+}
+
+.progress-striped .progress-bar-danger {
+    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+    background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent);
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, .15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .15) 50%, rgba(255, 255, 255, .15) 75%, transparent 75%, transparent)
+}
+
+#Register .short {
+    color: #FF0000;
+}
+
+#Register .weak {
+    color: orange;
+}
+
+#Register .good {
+    color: #2D98F3;
+}
+#Register .strong {
+    color: limegreen;
+}
+
+
+#imgShowPass {
+    width: 20px; /* Or however long you'd like your button to be, matches padding-right above */
+    background-image: url(../images/showpassOff.png);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    right: 18px;
+    top: 43px;
+    cursor:pointer;
+}
+
+
+.engtxt {
+text-align:left!important;
+direction:ltr;
+}
+.fatxt {
+    text-align: right !important;
+    direction: rtl;
+}

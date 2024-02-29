@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="02761751-4c69-4b92-95eb-a07f19457a0c" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost/Security8.Web/Service/SecurityWCF.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SecurityWCF1.wsdl" MetadataType="Wsdl" ID="23f96b21-afac-460d-b5f3-b1c3583519cb" SourceId="1" SourceUrl="http://localhost/Security8.Web/Service/SecurityWCF.svc?wsdl" />
+    <MetadataFile FileName="SecurityWCF.xsd" MetadataType="Schema" ID="8e1cc080-4ffa-4dd5-9a15-08fefb6cf405" SourceId="1" SourceUrl="http://localhost/Security8.Web/Service/SecurityWCF.svc?xsd=xsd7" />
+    <MetadataFile FileName="SecurityWCF2.xsd" MetadataType="Schema" ID="efb8f49c-3a19-4d4a-badb-cd006896c9cd" SourceId="1" SourceUrl="http://localhost/Security8.Web/Service/SecurityWCF.svc?xsd=xsd1" />
+    <MetadataFile FileName="SecurityWCF3.xsd" MetadataType="Schema" ID="39dd96c5-6d4b-468d-be81-1d43c1349acf" SourceId="1" SourceUrl="http://localhost/Security8.Web/Service/SecurityWCF.svc?xsd=xsd8" />
+    <MetadataFile FileName="SecurityWCF4.xsd" MetadataType="Schema" ID="f8b8a149-5951-4f62-92f3-9b6f8988148e" SourceId="1" SourceUrl="http://localhost/Security8.Web/Service/SecurityWCF.svc?xsd=xsd11" />
+    <MetadataFile FileName="SecurityWCF5.xsd" MetadataType="Schema" ID="bba7063b-769c-4ea8-aba1-974f0cb3520c" SourceId="1" SourceUrl="http://localhost/Security8.Web/Service/SecurityWCF.svc?xsd=xsd9" />
+    <MetadataFile FileName="SecurityWCF6.xsd" MetadataType="Schema" ID="6b8a2294-8c00-4375-b6ff-0595c6a4cd84" SourceId="1" SourceUrl="http://localhost/Security8.Web/Service/SecurityWCF.svc?xsd=xsd3" />
+    <MetadataFile FileName="SecurityWCF7.xsd" MetadataType="Schema" ID="9614919d-a455-41b7-a036-76e611342ac9" SourceId="1" SourceUrl="http://localhost/Security8.Web/Service/SecurityWCF.svc?xsd=xsd2" />
+    <MetadataFile FileName="SecurityWCF8.xsd" MetadataType="Schema" ID="53e6577d-58f4-44aa-8e02-8ac393879b57" SourceId="1" SourceUrl="http://localhost/Security8.Web/Service/SecurityWCF.svc?xsd=xsd4" />
+    <MetadataFile FileName="SecurityWCF9.xsd" MetadataType="Schema" ID="ce2702e2-77ea-419a-96f7-666b376084b2" SourceId="1" SourceUrl="http://localhost/Security8.Web/Service/SecurityWCF.svc?xsd=xsd10" />
+    <MetadataFile FileName="SecurityWCF10.xsd" MetadataType="Schema" ID="15533756-8d84-4a24-b586-d40c9c746640" SourceId="1" SourceUrl="http://localhost/Security8.Web/Service/SecurityWCF.svc?xsd=xsd6" />
+    <MetadataFile FileName="SecurityWCF11.xsd" MetadataType="Schema" ID="af55c596-bc5e-49d7-9b2a-07df5f07f1e0" SourceId="1" SourceUrl="http://localhost/Security8.Web/Service/SecurityWCF.svc?xsd=xsd0" />
+    <MetadataFile FileName="SecurityWCF12.xsd" MetadataType="Schema" ID="ae6858f9-2ed8-40e7-be78-4c46c32b35f5" SourceId="1" SourceUrl="http://localhost/Security8.Web/Service/SecurityWCF.svc?xsd=xsd12" />
+    <MetadataFile FileName="SecurityWCF1.disco" MetadataType="Disco" ID="bd776405-4301-459b-8999-5d7c65769db0" SourceId="1" SourceUrl="http://localhost/Security8.Web/Service/SecurityWCF.svc?disco" />
+    <MetadataFile FileName="SecurityWCF13.xsd" MetadataType="Schema" ID="82546e66-dc32-4fec-83b0-063ba0563743" SourceId="1" SourceUrl="http://localhost/Security8.Web/Service/SecurityWCF.svc?xsd=xsd5" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

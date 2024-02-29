@@ -1,0 +1,107 @@
+﻿
+<fieldset style="width: 100%; box-shadow: none; ">
+    <div style="padding-left: 0px; float: right" class="col-md-12 col-xs-12 PanelVs">
+
+
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <span ng-bind="Prop.CurrentPageName"></span>
+            </div>
+
+            <div class="panel-body nopadding" style="min-height:300px; direction:rtl">
+                <div class="info" style="margin-bottom: 0px!important;" ng-include="'Config/Parvaneh/infoText/POwner.html'">
+                </div>
+
+                <div class="col-md-12 FloatRightDiv" style="padding-bottom:10px; direction:rtl ;float:right">
+
+                    <!--<div>
+                        <input id="r1" style="margin: 5px" type="radio" value="مالک" ng-model="GamInputData.OwnerType" checked name="gender" /><span style="position: absolute; padding-top: 4px; font-weight: bold">مالک : تصویر کارت ملی ارسال شود</span>
+                        <br />
+                        <input id="r2" style="margin: 5px" type="radio" value="وکیل" name="gender" ng-model="GamInputData.OwnerType" /><span style="vertical-align: top; font-weight: bold">وکیل : تصویر کارت ملی و وکالت نامه ارسال شود</span>
+                        <hr style="margin:0" />
+                    </div>-->
+
+                    <div class="col-md-4 col-xs-12">
+
+                        <input type="checkbox" style="width:20px; text-align:right;float:right" ng-model="GamInputData.HaveSanad" />
+                        <span style="float:right ;padding-top:7px; padding-right:7px">ملک دارای سند می باشد ؟</span>
+                    </div>
+                    <div class="col-md-4 col-xs-12">
+
+                        <input type="checkbox" style="width:20px; text-align:right;float:right" ng-model="GamInputData.HaveBuilding" />
+                        <span style="float:right ;padding-top:7px; padding-right:7px">ملک دارای ساختمان است ؟</span>
+                    </div>
+
+                    <div class="col-md-12 borderForm" ng-show="GamInputData.HaveSanad">
+
+                        <!--ng-options="x.Id as x.Title for x  in GetCI_ListCombo2('CI_DocType')">-->
+
+                    
+                        <select id="cmbCI_DocType" ng-model="GamInputData.CI_DocType"
+                                ng-options="user.Title for user in GetCI_ListCombo2('CI_DocType')">
+                        </select>
+
+                    </div>
+
+                    <div class="col-md-12 borderForm" ng-show="GamInputData.CI_DocType!=undefined">
+
+                        <input type="radio" style="width:20px; text-align:right;float:right" ng-required="GamInputData.HaveSanad" value="شش دانگ" ng-model="GamInputData.DocType" />
+                        <span style="float:right ;padding-top:7px; padding-right:7px">شش دانگ</span>
+                        <input type="radio" style="width:20px; text-align:right;float:right; margin-right:10px" ng-required="GamInputData.HaveSanad" value="مشاعی" ng-model="GamInputData.DocType" />
+                        <span style="float:right ;padding-top:7px; padding-right:7px">مشاعی </span>
+                        <input type="radio" style="width:20px; text-align:right;float:right; margin-right:10px" ng-required="GamInputData.HaveSanad" value="غارثی" ng-model="GamInputData.DocType" />
+                        <span style="float:right ;padding-top:7px; padding-right:7px">غارثی</span>
+
+                    </div>
+
+                    <hr style="border-top-color:black;width:100%" />
+                    <!--<div class="col-md-3 col-xs-6">
+                        <span>پلاک ثبتی</span>
+                        <input id="PelakSabti" tabindex="4" type="text" style="text-align:right" class="form-control" ng-required="GamInputData.HaveSanad" maxlength="15" ng-model="GamInputData.RegisterPelak" />
+                    </div>-->
+                    <div class="col-md-3 col-xs-6">
+                        <span>پلاک ثبتی</span>
+                        <div class="RightFloat">
+                            <input tabindex="4" type="text" placeholder="اصلی" style="width:32%; text-align:right;float:right" class="form-control" ng-required="GamInputData.HaveSanad" maxlength="15" ng-model="GamInputData.RegisterPelakAsli" />
+                            <input tabindex="4" type="text" placeholder="فرعی" style="width: 32%; text-align: right; float: right" class="form-control" ng-required="GamInputData.HaveSanad" maxlength="15" ng-model="GamInputData.RegisterPelakFaree" />
+                            <input tabindex="4" type="text" placeholder="بخش" style="width: 32%; text-align: right; float: right" class="form-control" ng-required="GamInputData.HaveSanad" maxlength="15" ng-model="GamInputData.RegisterPelakBakhsh" />
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-3 col-xs-6">
+                        <span>کدپستی</span>
+                        <input tabindex="4" type="text" style="text-align:right" class="form-control numbers" maxlength="10" ng-model="GamInputData.PostalCode" />
+                    </div>
+                    <div class="col-md-3 col-xs-6 ">
+                        <span>نام و نام خانودگی مالک</span>
+                        <input tabindex="4" type="text" style="text-align:right" class="form-control" ng-model="GamInputData.OwnerName" />
+                    </div>
+
+
+                    <div class="col-md-3 col-xs-6 ">
+                        <span>تلفن ثابت</span>
+                        <input tabindex="4" type="text" style="text-align:right" class="form-control numbers" required maxlength="12" ng-model="GamInputData.OwnerPhone" />
+                    </div>
+
+                    <div class="col-md-3 col-xs-6 ">
+                        <span>تلفن همراه شهروند</span>
+                        <input tabindex="4" type="text" style="text-align:right" class="form-control numbers" required maxlength="11" ng-model="ClsAccount.AccountInfo.OwnerTell" />
+                    </div>
+
+
+                    <div class="col-md-9 col-xs-6 ">
+                        <span>آدرس</span>
+                        <input tabindex="4" type="text" style="text-align:right" class="form-control" required ng-model="GamInputData.Address" />
+                    </div>
+                    <div class="col-md-12 col-xs-12 ">
+                        <span>توضیحات</span>
+                        <input tabindex="4" type="text" style="text-align:right" class="form-control" required ng-model="GamInputData.Comment" />
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</fieldset>

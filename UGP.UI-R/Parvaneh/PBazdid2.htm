@@ -1,0 +1,26 @@
+﻿
+
+
+<fieldset class="GamBox" id="MainBazdid">
+    <div class="GamBoxFrame col-sm-12 col-xs-12  col-md-12 col-lg-12">
+
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <span ng-bind="'[' +(Prop.CurrentPageName) + ']'" class="GamHeader"></span>
+            </div>
+            <div class="panel-body nopadding" style="min-height:300px; direction:rtl">
+                <div class="info" style="margin-bottom: 0px!important;" ng-include="'Config/Parvaneh/infoText/PBazdid.html'"></div>
+
+                <p style="color:red; font-weight:bold">اکنون پرونده شما در مرحله بازدید قرار دارد . بعد از بازدید ملک شما، توسط مامور بازدید . از طریق پیامک به شما اطلاع داده میشود  . </p>
+                <img style="text-align:center; width:300px" src="Images/Bazdid.png" />
+
+
+            </div>
+
+            <input type="button" value="دانلود فایل نقشه تک خطی" ng-click="Functions.DownloadDWG(3)" />
+
+        </div>
+
+    </div>
+</fieldset>
+

@@ -1,0 +1,272 @@
+﻿<fieldset style="width: 100%; box-shadow: none" class="GamBox">
+    <div style="padding-left: 0px; float: right; padding-right:0;" class="col-md-12 col-xs-12 PanelVs GamBoxFrame">
+
+
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <span ng-bind="Prop.CurrentPageName"></span>
+            </div>
+
+            <div class="panel-body nopadding" style="" id="DivTop">
+                <div class="info" style="margin-bottom: 0px!important;" ng-include="'Config/Parvaneh/infoText/PSelect2.html'">
+                </div>
+                <div class="col-md-6">
+
+                </div>
+                <div class="col-md-6">
+                    <div ng-include="'Common/UNosaziCodeJNew.html'"></div>
+                </div>
+            </div>
+
+            <div>
+                <span ng-bind="Prop.ErrorMessageZabeteh"></span>
+            </div>
+           
+            <div class="col-md-12 col-xs-12 nopadding">
+                <div id="GridViewTarakom" class="panel panel-success" >
+                    <div ng-show="Base_PlanMosavab">
+                        <div>
+                            <input type="checkbox" ng-model="GamInputData.IsAccept2"
+                                   style="width: 20px; margin: 12px;" />
+                            <span style="margin-top: 10px;color:black; position: absolute;">کاربری های اعلام شده ملک، مورد تائید می باشد</span>
+                        </div>
+
+                        <div class="panel-heading">
+                            <span>کاربری و تراکم</span>
+                        </div>
+                        <div class="panel-body " style="padding-left: 2px; padding-right: 2px; padding-bottom: 0px;">
+                            <div class="GridView2 LowOpacity">
+                                <div class="col-sm-6 col-md-4 col-lg-6 col-xs-12 form-inline border nopadding" style="float: right;">
+                                    <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6">
+                                        <span ng-bind="Base_PlanMosavab.PlanTypeTitle"></span>
+                                    </div>
+
+                                    <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6 textAlignRight ">
+                                        <span>طرح تفصیلی مصوب:</span>
+                                    </div>
+
+                                </div>
+
+
+
+                                <div class="col-sm-6 col-md-4 col-lg-6 col-xs-12 form-inline border nopadding" style="float: right;">
+                                    <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6 ">
+                                        <span ng-bind="Base_PlanMosavab.OutBase_PlanMosavab.DensityPercent"></span>
+                                    </div>
+
+                                    <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6 textAlignRight">
+                                        <span>تراکم مصوب :</span>
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-6 col-md-4 col-lg-6 col-xs-12 form-inline border nopadding">
+                                    <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6 ">
+                                        <span ng-bind="Base_PlanMosavab.PlanUsingTypeTitle"></span>
+                                    </div>
+
+                                    <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6 textAlignRight">
+                                        <span>کاربری مصوب :</span>
+                                    </div>
+
+                                </div>
+
+
+
+
+                                <div class="col-sm-6 col-md-4 col-lg-6 col-xs-12 form-inline border nopadding">
+                                    <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6 ">
+                                        <span ng-bind="MapInfo.Base_HouseInfo.DocArea" CssClass="LeftFloat"></span>
+                                    </div>
+
+                                    <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6 textAlignRight">
+                                        <span>مساحت طبق سند:</span>
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-6 col-md-4 col-lg-6 col-xs-12 form-inline border nopadding">
+
+                                    <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6 ">
+                                        <span ng-bind="MapInfo.Base_HouseInfo.MapArea"></span>
+                                    </div>
+
+                                    <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6 textAlignRight">
+                                        <span>مساحت طبق نقشه :</span>
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-6 col-md-4 col-lg-6 col-xs-12 form-inline border nopadding">
+                                    <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6 ">
+                                        <span ng-bind="MapInfo.Base_HouseInfo.MapAreaInPath"></span>
+                                    </div>
+
+                                    <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6 textAlignRight">
+                                        <span>مقدار در مسیر طبق نقشه :</span>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-sm-6 col-md-4 col-lg-6 col-xs-12 form-inline border nopadding">
+                                    <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6 ">
+                                        <span ng-bind="Base_PlanMosavab.OutBase_PlanMosavab.BusyArea"></span>
+                                    </div>
+
+                                    <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6 textAlignRight">
+                                        <span>سطح اشغال مصوب :</span>
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-6 col-md-4 col-lg-6 col-xs-12 form-inline border nopadding">
+                                    <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6 ">
+                                        <span ng-bind="Base_PlanMojaz.OutBase_PlanMojaz.BusyArea"></span>
+                                    </div>
+
+                                    <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6 textAlignRight">
+                                        <span>سطح اشغال مجاز :</span>
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-6 col-md-4 col-lg-6 col-xs-12 form-inline border nopadding">
+                                    <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6">
+                                        <span ng-bind="MapInfo.Base_HouseInfo.MapAreaAfterEdit"></span>
+                                    </div>
+
+                                    <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6 textAlignRight">
+                                        <span>میزان باقیمانده طبق نقشه :</span>
+                                    </div>
+
+
+
+                                </div>
+                                <div class="col-sm-6 col-md-4 col-lg-6 col-xs-12 form-inline border nopadding">
+                                    <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6 ">
+                                        <span ng-bind="Base_PlanMojaz.PlanTypeTitle"></span>
+                                    </div>
+
+                                    <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6 textAlignRight">
+                                        <span>طرح تفصیلی مجاز:</span>
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-6 col-md-4 col-lg-6 col-xs-12 form-inline border nopadding">
+                                    <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6 ">
+                                        <span ng-bind="Base_PlanMojaz.OutBase_PlanMojaz.DensityPercent"></span>
+                                    </div>
+
+                                    <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6 textAlignRight">
+                                        <span>تراکم مجاز :</span>
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-6 col-md-4 col-lg-6 col-xs-12 form-inline border nopadding">
+                                    <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6 ">
+                                        <span ng-bind="Base_PlanMojaz.PlanUsingTypeTitle"></span>
+                                    </div>
+
+                                    <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6 textAlignRight">
+                                        <span>کاربری مجاز :</span>
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-6 col-md-4 col-lg-6 col-xs-12 form-inline border nopadding">
+                                    <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6 ">
+                                        <span ng-bind="GamInputData.Base_Owner.OwnerLastName"></span>
+                                    </div>
+
+                                    <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6 textAlignRight">
+                                        <span>نام خانوادگی :</span>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-sm-6 col-md-4 col-lg-6 col-xs-12 form-inline border nopadding">
+                                    <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6 ">
+                                        <span ng-bind="GamInputData.Base_Owner.OwnerName"></span>
+                                    </div>
+
+                                    <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6 textAlignRight">
+                                        <span>نام :</span>
+                                    </div>
+
+                                </div>
+
+
+
+                                <div class="col-sm-6 col-md-4 col-lg-6 col-xs-12 form-inline border nopadding">
+                                    <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6 ">
+                                        <span ng-bind="GamInputData.Base_Owner.CellPhone"></span>
+                                    </div>
+
+                                    <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6 textAlignRight">
+                                        <span>تلفن همراه :</span>
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-6 col-md-4 col-lg-6 col-xs-12 form-inline border nopadding">
+                                    <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6 ">
+                                        <span ng-bind="GamInputData.Base_Owner.NationalCode"></span>
+                                    </div>
+
+                                    <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6 textAlignRight">
+                                        <span>کد ملی :</span>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-sm-6 col-md-4 col-lg-6 col-xs-12 form-inline border nopadding">
+
+                                    <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6 ">
+                                        <span> </span>
+                                    </div>
+
+                                    <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6 textAlignRight">
+                                        <span> </span>
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-6 col-md-4 col-lg-6 col-xs-12 form-inline border nopadding">
+                                    <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6 ">
+                                        <span ng-bind="GamInputData.Base_Owner.Base_RegisterPlack"></span>
+                                    </div>
+
+                                    <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6 textAlignRight">
+                                        <span>پلاک ثبتی :</span>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div id="mapContainer" class="col-md-12" style="padding:0; clear:both;   box-shadow: 0 -1px 1px 0px rgba(115,115,115,0.75);">
+                <div id="m" style="width: 100%;  direction: ltr; position: relative;"></div>
+            </div>
+        </div>
+
+
+
+
+
+   
+
+
+
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            onLoadDivMap();
+            GetScope().GamInputData.IsAccept2 = false;
+        });
+
+        function LoadDefault() {
+           // $('#txtDistrict1').val('12');
+           // $('#txtDistrict1').prop('disabled', true);
+        }
+    </script>
+</fieldset>

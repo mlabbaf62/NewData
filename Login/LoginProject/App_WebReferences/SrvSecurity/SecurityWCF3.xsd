@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/SecurityControler" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SecurityControler" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost/Security8.Web/Service/SecurityWCF.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/" />
+  <xs:import schemaLocation="http://localhost/Security8.Web/Service/SecurityWCF.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/SecurityModel" />
+  <xs:import schemaLocation="http://localhost/Security8.Web/Service/SecurityWCF.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost/Security8.Web/Service/SecurityWCF.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://localhost/Security8.Web/Service/SecurityWCF.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/SecurityModel.Esup" />
+  <xs:complexType name="ClsLDAP">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="ErrorResult" nillable="true" type="q1:ClsErrorResult" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SecurityModel" minOccurs="0" name="LDAPUserList" nillable="true" type="q2:ArrayOfUser" />
+      <xs:element minOccurs="0" name="PageIndex" type="xs:int" />
+      <xs:element minOccurs="0" name="PageSize" type="xs:int" />
+      <xs:element minOccurs="0" name="ToTalCount" type="xs:int" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SecurityModel" minOccurs="0" name="User" nillable="true" type="q3:User" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClsLDAP" nillable="true" type="tns:ClsLDAP" />
+  <xs:complexType name="ManMailReturnData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ErrorCode" type="xs:int" />
+      <xs:element minOccurs="0" name="IsDie" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsMatch" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ManMailReturnData" nillable="true" type="tns:ManMailReturnData" />
+  <xs:complexType name="ClsEnum.ExceptionMessage">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="ClsEnum.ExceptionMessage" nillable="true" type="tns:ClsEnum.ExceptionMessage" />
+  <xs:simpleType name="ClsEnum.ResourcesType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Root" />
+      <xs:enumeration value="Application" />
+      <xs:enumeration value="Form" />
+      <xs:enumeration value="Control" />
+      <xs:enumeration value="Record" />
+      <xs:enumeration value="Service" />
+      <xs:enumeration value="Custom" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ClsEnum.ResourcesType" nillable="true" type="tns:ClsEnum.ResourcesType" />
+  <xs:simpleType name="ClsEnum.EumOnlineExitMode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Online" />
+      <xs:enumeration value="Offline" />
+      <xs:enumeration value="Exit" />
+      <xs:enumeration value="ChangeIP" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ClsEnum.EumOnlineExitMode" nillable="true" type="tns:ClsEnum.EumOnlineExitMode" />
+  <xs:simpleType name="ClsEnum.SSOType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Mellat" />
+      <xs:enumeration value="ManMail" />
+      <xs:enumeration value="Anavigator" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ClsEnum.SSOType" nillable="true" type="tns:ClsEnum.SSOType" />
+  <xs:complexType name="ClsEnum">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:element name="ClsEnum" nillable="true" type="tns:ClsEnum" />
+  <xs:complexType name="MessageExt">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/SecurityModel" base="q4:Message">
+        <xs:sequence>
+          <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="BCC" nillable="true" type="q5:ArrayOfguid" />
+          <xs:element minOccurs="0" name="SendForAllUsers" type="xs:boolean" />
+          <xs:element minOccurs="0" name="SendForGroupGuid" type="ser:guid" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="MessageExt" nillable="true" type="tns:MessageExt" />
+  <xs:simpleType name="ClsEnum.MessageType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Message" />
+      <xs:enumeration value="Alert" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ClsEnum.MessageType" nillable="true" type="tns:ClsEnum.MessageType" />
+  <xs:complexType name="ClsURSInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AddUsersOfGroup" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AdminUserGuid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AdminUserName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="JobLocationGuid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="JobLocationName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NidUrs" type="ser:guid" />
+      <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="NidUrsList" nillable="true" type="q6:ArrayOfguid" />
+      <xs:element minOccurs="0" name="NidUser" type="ser:guid" />
+      <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/SecurityModel.Esup" minOccurs="0" name="URSList" nillable="true" type="q7:ArrayOfURS" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClsURSInfo" nillable="true" type="tns:ClsURSInfo" />
+  <xs:complexType name="ClsEsup">
+    <xs:sequence>
+      <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="ErrorResult" nillable="true" type="q8:ClsErrorResult" />
+      <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/SecurityModel.Esup" minOccurs="0" name="EsupMessage" nillable="true" type="q9:EsupMessage" />
+      <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/SecurityModel.Esup" minOccurs="0" name="EsupMessagesList" nillable="true" type="q10:ArrayOfEsupMessage" />
+      <xs:element minOccurs="0" name="ToTalCount" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClsEsup" nillable="true" type="tns:ClsEsup" />
+  <xs:complexType name="ArrayOfSearchResult">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SearchResult" nillable="true" type="tns:SearchResult" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSearchResult" nillable="true" type="tns:ArrayOfSearchResult" />
+  <xs:complexType name="SearchResult">
+    <xs:sequence>
+      <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Index" nillable="true" type="q11:ArrayOfint" />
+      <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Level" nillable="true" type="q12:ArrayOfint" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SearchResult" nillable="true" type="tns:SearchResult" />
+  <xs:complexType name="PermissionInput">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GetGroupPermission" type="xs:boolean" />
+      <xs:element minOccurs="0" name="GetRolePermission" type="xs:boolean" />
+      <xs:element minOccurs="0" name="GetUserPermission" type="xs:boolean" />
+      <xs:element minOccurs="0" name="NodeLevel" type="xs:int" />
+      <xs:element minOccurs="0" name="ParentResourceGuid" type="ser:guid" />
+      <xs:element minOccurs="0" name="UserGuid" type="ser:guid" />
+      <xs:element minOccurs="0" name="WithResourceInfo" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PermissionInput" nillable="true" type="tns:PermissionInput" />
+  <xs:complexType name="AuthorizationInput">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AllUser" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ApplyChildren" type="xs:boolean" />
+      <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/SecurityModel" minOccurs="0" name="GrantPermission" nillable="true" type="q13:ArrayOfLevelResourcePermission" />
+      <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/SecurityModel" minOccurs="0" name="RevokePermission" nillable="true" type="q14:ArrayOfLevelResourcePermission" />
+      <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/SecurityModel" minOccurs="0" name="Signature" nillable="true" type="q15:Signature" />
+      <xs:element xmlns:q16="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="resourceGUIDs" nillable="true" type="q16:ArrayOfguid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AuthorizationInput" nillable="true" type="tns:AuthorizationInput" />
+  <xs:simpleType name="ClsEnum.Sex">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Man">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Woman">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">0</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ClsEnum.Sex" nillable="true" type="tns:ClsEnum.Sex" />
+  <xs:simpleType name="ClsEnum.UserEnabled">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Disabled" />
+      <xs:enumeration value="Enabled" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ClsEnum.UserEnabled" nillable="true" type="tns:ClsEnum.UserEnabled" />
+  <xs:complexType name="UserRoleGroupList">
+    <xs:sequence>
+      <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/SecurityModel" minOccurs="0" name="RoleList" nillable="true" type="q17:ArrayOfRole" />
+      <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/SecurityModel" minOccurs="0" name="UserGroupList" nillable="true" type="q18:ArrayOfUserGroup" />
+      <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/SecurityModel" minOccurs="0" name="UserList" nillable="true" type="q19:ArrayOfUser" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserRoleGroupList" nillable="true" type="tns:UserRoleGroupList" />
+</xs:schema>

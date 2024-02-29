@@ -1,0 +1,2136 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="UCreateAccount.aspx.cs" Inherits="LoginProject.UCreateAccount" %>
+
+<%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
+
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<link rel="stylesheet" href="css/Style1.css" />
+<link rel="stylesheet" href="css/bootstrap.min.css" />
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/busy.js"></script>
+<script type="text/javascript" src="../Config/Config.js.js?v=5"></script>
+<script type="text/javascript" src="js/PassWordCheck.js"></script>
+<script type="text/javascript" src="../Token/Account.min.js"></script>
+
+<style>
+    input[type=text], input[type=password], input[type=email], textarea {
+        border-radius: 5px;
+        font-size: 13px !important;
+        font-family: 'B Yekan';
+    }
+
+    html body .RadInput_Default .riTextBox, html body .RadInputMgr_Default {
+        font-size: 13px !important;
+    }
+
+    input[type=button] {
+        font-family: Tahoma;
+        font-size: medium;
+    }
+
+    #DivRegister span {
+        font-size: small;
+    }
+
+    .hero-image {
+        border: 0 !important;
+        outline: none;
+        height: 100%;
+        background: linear-gradient(to left, #fbfbfb, #fbfbfb33, transparent), url("../images/home-bg.jpg") no-repeat center;
+        background-size: cover;
+        /*box-shadow: 0px 10px 20px -5px rgba(0,0,0,.8);*/
+    }
+
+    legend {
+        font-size: 17px !important;
+    }
+
+    span label select option {
+        font-size: 14px !important;
+    }
+
+    select {
+        font-size: 14px !important;
+    }
+
+    .ltr {
+        text-align: left;
+    }
+
+    #BtnSave2:disabled {
+        opacity: 0.7;
+    }
+</style>
+
+<div class="panel panel-success" style="font-family: Tahoma; font-size: medium">
+    <div class="panel-heading" style="text-align: center; width: 100%; z-index: 1000; position: fixed; top: 0px; padding: 10px; background-color: #2aabee; color: white">
+        <span style="text-align: center;">عضویت در سامانه شهروند سپاری</span>
+      <a id="btnBazgasht" runat="server" style="float: left; cursor: pointer; color: yellow; font-size: small"></a>
+    </div>
+
+    <div class="nopadding;" style="margin-top: 44px; padding: 0!important">
+
+        <div class="col-lg-5 col-md-5  nopadding hidden-sm hidden-xs" style="z-index: 1000; position: fixed; height: 100%">
+            <img class="hero-image" style="width: 100%; height: 100%; text-align: left; float: left; object-fit: cover; opacity: 0.5" />
+        </div>
+
+        <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 position-fixed" style="float: right; padding-left: 0; padding-bottom: 20px; background-color: #fbfbfb">
+            <form id="form1" runat="server" style="direction: rtl; font-size: 9px;">
+
+                <%--  بعد از ثبت نام ظاهر میشود       --%>
+
+                <div class="" id="DivRegister" runat="server" visible="false" style="text-align: right; direction: rtl">
+                    <fieldset style="text-align: center">
+
+                        <legend>اطلاعات کاربری</legend>
+                        <img src="../Images/User.png" style="width: 150px" /><br />
+                        &nbsp;<br />
+                        <div>
+                            <span style="color: green; font-weight: bold; font-size: 15px">اطلاعات کاربری با موفقیت ثبت شد</span>
+                        </div>
+                        <br />
+
+                        <div style="">
+                            <asp:label id="Label4" runat="server" text="نام کاربری (کد ملی):"></asp:label>
+                            <asp:label style="font-weight: bold" runat="server" id="lblUser"></asp:label>
+                        </div>
+                        <br />
+                        <div style="">
+                            <asp:label id="Label10" runat="server" text="نام:"></asp:label>
+                            <asp:label style="font-weight: bold" runat="server" id="lblName"></asp:label>
+                        </div>
+                        <br />
+                        <div style="">
+                            <asp:label id="Label12" runat="server" text="نام خانوادگی:"></asp:label>
+                            <asp:label style="font-weight: bold" runat="server" id="lblFamily"></asp:label>
+                        </div>
+                        <br />
+                        <div style="">
+                            <asp:label id="Label11" runat="server" text="تلفن همراه:"></asp:label>
+                            <asp:label style="font-weight: bold" runat="server" id="lblMobile"></asp:label>
+                        </div>
+                        <br />
+                        <div>
+                            <asp:button runat="server" id="btnBack2" onclick="btnBack2_Click" cssclass="panel panel-success" text="بازگشت به سایت" />
+
+
+                        </div>
+                    </fieldset>
+                </div>
+
+
+
+
+                <div id="MainDIv" runat="server">
+
+
+
+                    <asp:scriptmanager id="ScriptManager1" runat="server">
+        </asp:scriptmanager>
+
+
+                    <telerik:RadInputManager ID="RadInputManager1" runat="server">
+
+                        <telerik:RegExpTextBoxSetting BehaviorID="txt_CEOEmail" ErrorMessage="لطفا آدرس پست الکترونیکی صحیح وارد نمایید!"
+                            Validation-ValidationGroup="HoghoghiValidationGroup" ValidationExpression="^[\w\.\-]+@[a-zA-Z0-9\-]+(\.[a-zA-Z0-9\-]{1,})*(\.[a-zA-Z]{2,3}){1,2}$">
+                            <TargetControls>
+                                <telerik:TargetInput ControlID="txt_CEOEmail"></telerik:TargetInput>
+                            </TargetControls>
+                        </telerik:RegExpTextBoxSetting>
+
+                        <telerik:RegExpTextBoxSetting BehaviorID="txtEmail" ErrorMessage="لطفا آدرس پست الکترونیکی صحیح وارد نمایید!"
+                            Validation-ValidationGroup="HaghighiValidationGroup" ValidationExpression="^[\w\.\-]+@[a-zA-Z0-9\-]+(\.[a-zA-Z0-9\-]{1,})*(\.[a-zA-Z]{2,3}){1,2}$">
+                            <TargetControls>
+                                <telerik:TargetInput ControlID="txtEmail"></telerik:TargetInput>
+                            </TargetControls>
+                        </telerik:RegExpTextBoxSetting>
+
+
+                    </telerik:RadInputManager>
+
+                    <telerik:RadToolTipManager runat="server" ID="RadToolTip5" ShowEvent="OnFocus"
+                        ShowDelay="100" AutoCloseDelay="3000" Width="300px"
+                        Position="MiddleLeft" RelativeTo="Element">
+
+                        <TargetControls>
+
+                            <telerik:ToolTipTargetControl TargetControlID="txt_OwenrBirthDate" />
+
+                            <telerik:ToolTipTargetControl TargetControlID="txt_OwnerTell" />
+
+                            <telerik:ToolTipTargetControl TargetControlID="txt_CEOPhoneNo" />
+
+                            <telerik:ToolTipTargetControl TargetControlID="txt_CEOCellNo" />
+
+                            <telerik:ToolTipTargetControl TargetControlID="txt_CEOEmail" />
+                            <telerik:ToolTipTargetControl TargetControlID="txt_Fax" />
+                            <telerik:ToolTipTargetControl TargetControlID="txt_Tell" />
+
+                        </TargetControls>
+
+                    </telerik:RadToolTipManager>
+
+                    <%--<telerik:RadAjaxPanel ID="RadAjaxPanel3" runat="server" LoadingPanelID="mainloading">--%>
+
+
+                    <fieldset id="ErrorList_fieldset1" visible="false" runat="server" title="خطا ها" style="margin-top: 10px; background: #fbffa1">
+                        <legend>خطا ها</legend>
+                        <asp:repeater id="Error_List1" runat="server">
+            <ItemTemplate>
+                <table>
+                    <tr>
+                        <td style="border-width: 0px 0px 1px 0px;">
+                            <img runat="server" width="20" src='~/images/Denid.png' />
+                        </td>
+                        <td style="border-width: 0px 0px 1px 0px;">
+                            <asp:Label ID="Label8" Text='<%# Eval("ErrorTitel") %>' runat="server" />
+                        </td>
+                    </tr>
+                </table>
+            </ItemTemplate>
+        </asp:repeater>
+                    </fieldset>
+
+                    <fieldset id="Register">
+
+                        <legend>شناسه کاربری</legend>
+                        <table border="0" cellpadding="5">
+
+                            <colgroup>
+
+                                <col width="170" />
+
+                                <col />
+
+                            </colgroup>
+
+
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td>
+
+                                        <asp:label id="Label1" runat="server" text="نام کاربری (کد ملی):"></asp:label>
+
+                                    </td>
+
+                                    <td>
+
+                                        <table>
+                                            <tr>
+                                                <td style="padding-bottom: 5px">
+                                                    <asp:textbox style="text-align: left" width="170" id="txt_Username" runat="server" maxlength="10">
+                                                </asp:textbox>
+
+                                                    <%--<telerik:RadTextBox Width="170" ID="txt_Username" runat="server" ValidationGroup="CreateAccountValidationGroup" MaxLength="10">
+                                                    <ClientEvents />
+                                                </telerik:RadTextBox>--%>
+
+                                                </td>
+                                                <td>*<asp:requiredfieldvalidator id="TextBoxRequiredFieldValidator" forecolor="Red" controltovalidate="txt_Username" runat="server" display="Dynamic"
+                                                    validationgroup="CreateAccountValidationGroup" errormessage="لطفا نام کاربری را وارد نمایید"
+                                                    cssclass="Validator"></asp:requiredfieldvalidator>
+
+                                                    <asp:customvalidator id="CustomValidator7" controltovalidate="txt_Username" runat="server"
+                                                        clientvalidationfunction="CheckLenghtUserName" validationgroup="CreateAccountValidationGroup" forecolor="Red"
+                                                        cssclass="Validator" display="Dynamic" errormessage="نام کاربری حداقل  باید 5 کاراکتر باشد" />
+                                                </td>
+                                                <td>
+                                                    <label id="txtUserNameError" style="display: none; color: red">نام کاربری باید حروف لاتین باشد</label>
+                                                </td>
+                                            </tr>
+                                        </table>
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+
+                                        <asp:label id="Label2" runat="server" text="رمز عبور:"></asp:label>
+
+                                    </td>
+
+                                    <td>
+                                        <div style="position: relative;">
+                                            <asp:textbox style="text-align: left; direction: ltr" id="txtPassword" width="170" runat="server" textmode="Password" validationgroup="CreateAccountValidationGroup"></asp:textbox>
+                                            <img id="imgShowPass" title="نمایش رمز عبور" src="../images/showpassOff.png" style="width: 20px; cursor: pointer; position: absolute; margin-top: 16px; right: 0; top: 0" onclick="ToggleShowPass()" />
+
+                                            *<asp:requiredfieldvalidator id="TextBoxRequiredFieldValidator0" forecolor="Red" controltovalidate="txtPassword" runat="server" display="Dynamic"
+                                                validationgroup="CreateAccountValidationGroup" errormessage="لطفا رمز عبور را وارد نمایید"
+                                                cssclass="Validator"></asp:requiredfieldvalidator>
+
+                                            <%--                                        <asp:customvalidator id="CustomValidator19" controltovalidate="txt_Pass" runat="server"
+                                            clientvalidationfunction="CheckLenghtPass" validationgroup="CreateAccountValidationGroup" forecolor="Red"
+                                            cssclass="Validator" display="Dynamic" errormessage="رمز عبور باید حداقل 5 کاراکتر باشد" />--%>
+
+                                            <asp:customvalidator id="CustomValidator16" controltovalidate="txtPassword" runat="server"
+                                                clientvalidationfunction="CheckPass" validationgroup="CreateAccountValidationGroup" forecolor="Red"
+                                                cssclass="Validator" display="Dynamic" errormessage="رمز عبور باید حروف لاتین باشد" />
+                                            <span id="result" style="text-align: center;"></span>
+                                            <div class="progress" style="width: 170px; margin-top: 3px; height: 7px">
+                                                <div id="progressBar" class="progress-bar " role="progressbar" style="">
+                                                </div>
+                                            </div>
+
+                                            <%-- <span id="result"></span>
+                                        <div style="height:4px;border:1px inset silver; width:170px;text-align:left; background-color:yellow">
+                                            <hr id="resultHr" style="height:2px;background-color:red;direction:ltr; width:50%" />
+                                        </div>--%>
+                                        </div>
+
+
+                                    </td>
+                                    <%-- <td>
+                      
+                    </td>--%>
+                                </tr>
+
+                                <tr>
+
+                                    <td valign="top">
+
+                                        <asp:label id="Label3" runat="server" text="تکرار رمز عبور:"></asp:label>
+
+                                    </td>
+
+                                    <td>
+
+                                        <asp:textbox id="txtConfirmPassword" style="text-align: left; direction: ltr" width="170" runat="server" textmode="Password" validationgroup="CreateAccountValidationGroup"></asp:textbox>
+
+                                        *<asp:requiredfieldvalidator id="TextBoxRequiredFieldValidator1" forecolor="Red" controltovalidate="txtConfirmPassword" runat="server" display="Dynamic"
+                                            validationgroup="CreateAccountValidationGroup" errormessage="لطفا رمز عبور را وارد نمایید"
+                                            cssclass="Validator"></asp:requiredfieldvalidator>
+
+                                        <asp:customvalidator id="CustomValidator_ConfirmPass" controltovalidate="txtConfirmPassword" runat="server"
+                                            clientvalidationfunction="CheckConflictPassword" validationgroup="CreateAccountValidationGroup" forecolor="Red"
+                                            cssclass="Validator" display="Dynamic" errormessage="رمز عبور وارد شده مغایرت دارد" />
+
+                                        <br />
+
+                                    </td>
+
+                                </tr>
+
+
+                            </tbody>
+
+                        </table>
+
+                    </fieldset>
+
+                    <fieldset id="FieldSet2" style="margin-top: 10px;">
+
+                        <legend>مشخصات متقاضی</legend>
+
+                        <telerik:RadTabStrip runat="server" ID="RadTabStrip1" SelectedIndex="0" MultiPageID="RadMultiPage1" Skin="BlackMetroTouch">
+                            <Tabs>
+                                <telerik:RadTab Text="حقیقی" Selected="True" runat="server" ID="RealPerson" />
+                                <telerik:RadTab Text="حقوقی" runat="server" ID="LegalPerson" />
+
+                            </Tabs>
+                        </telerik:RadTabStrip>
+
+                        <telerik:RadMultiPage runat="server" ID="RadMultiPage1" SelectedIndex="0">
+
+
+
+                            <%--حقیقی--%>
+                            <telerik:RadPageView runat="server" ID="RadPageView1" CssClass="corporatePageView">
+
+                                <fieldset id="FieldSet6" style="margin-top: 10px;">
+                                    <legend>مشخصات فردی</legend>
+
+                                    <table border="0" cellpadding="5" class="recipeImage">
+
+                                        <colgroup>
+
+                                            <col width="150" />
+
+                                            <col />
+
+                                        </colgroup>
+
+                                        <tbody>
+
+
+                                            <tr>
+
+                                                <td>
+
+                                                    <asp:label id="Label5" runat="server" text="جنسیت:"></asp:label>
+
+                                                </td>
+
+                                                <td>
+                                                    <input type="radio" runat="server" id="BtnSexHaghighiMen" name="HaghighiSex" value="مرد" checked/><span style="margin-right: 5px">مرد</span>
+                                                    <span style="margin-right: 10px"></span>
+                                                    <input type="radio" runat="server" id="BtnSexHaghighiFemale" name="HaghighiSex" value="زن" /><span style="margin-right: 5px">زن</span>
+
+                                                    <%--     <telerik:RadButton Width="75" ID="BtnSexHaghighiMen" AutoPostBack="false" Checked="true" runat="server" ToggleType="Radio" ButtonType="StandardButton" GroupName="HaghighiSex" Font-Names="Tahoma">
+                                                        <togglestates>
+                                            <telerik:RadButtonToggleState Text="مرد" PrimaryIconCssClass="rbToggleRadioChecked" />
+                                            <telerik:RadButtonToggleState Text="مرد" PrimaryIconCssClass="rbToggleRadio" />
+                                        </togglestates>
+                                                    </telerik:RadButton>--%>
+
+                                                    <%--    <telerik:RadButton Width="75" ID="BtnSexHaghighiFemale" AutoPostBack="false" runat="server" ToggleType="Radio" ButtonType="StandardButton" GroupName="HaghighiSex" Font-Names="Tahoma">
+                                                        <togglestates>
+                                            <telerik:RadButtonToggleState Text="زن" PrimaryIconCssClass="rbToggleRadioChecked" />
+                                            <telerik:RadButtonToggleState Text="زن" PrimaryIconCssClass="rbToggleRadio" />
+                                        </togglestates>
+                                                    </telerik:RadButton>--%>
+
+                                                </td>
+
+                                            </tr>
+
+                                            <tr>
+
+                                                <td valign="top">
+
+                                                    <asp:label id="Label34" runat="server" text="نام:"></asp:label>
+
+                                                </td>
+
+                                                <td>
+
+                                                    <telerik:RadTextBox ID="txt_owername" runat="server"
+                                                        ValidationGroup="CreateAccountValidationGroup" Font-Names="Tahoma">
+                                                    </telerik:RadTextBox>
+
+
+                                                    *<asp:requiredfieldvalidator id="VAlhaghighi1" forecolor="Red" controltovalidate="txt_owername" runat="server" display="Dynamic"
+                                                        validationgroup="HaghighiValidationGroup" errormessage="این فیلد نباید خالی باشد"
+                                                        cssclass="Validator"></asp:requiredfieldvalidator>
+
+                                                    <asp:customvalidator id="CustomValidator14" controltovalidate="txt_owername" runat="server"
+                                                        clientvalidationfunction="CheckFarsiNameValid" validationgroup="HaghighiValidationGroup" forecolor="Red"
+                                                        cssclass="Validator" display="Dynamic" errormessage="نام وارد شده باید حروف فارسی باشد" />
+
+                                                    <br />
+
+                                                </td>
+
+                                            </tr>
+
+                                            <tr>
+
+                                                <td valign="top">
+
+                                                    <asp:label id="Label35" runat="server" text="نام خانوادگی:"></asp:label>
+
+                                                </td>
+
+                                                <td>
+
+                                                    <telerik:RadTextBox ID="txt_OwnerFamilyName" runat="server"
+                                                        ValidationGroup="HaghighiValidationGroup" Font-Names="Tahoma">
+                                                    </telerik:RadTextBox>
+
+
+                                                    *<asp:requiredfieldvalidator id="VAlhaghighi2" forecolor="Red" controltovalidate="txt_OwnerFamilyName" runat="server" display="Dynamic"
+                                                        validationgroup="HaghighiValidationGroup" errormessage="این فیلد نباید خالی باشد"
+                                                        cssclass="Validator"></asp:requiredfieldvalidator>
+
+                                                    <asp:customvalidator id="CustomValidator15" controltovalidate="txt_OwnerFamilyName" runat="server"
+                                                        clientvalidationfunction="CheckFarsiFamilyValid" validationgroup="HaghighiValidationGroup" forecolor="Red"
+                                                        cssclass="Validator" display="Dynamic" errormessage="نام وارد شده باید حروف فارسی باشد" />
+
+                                                </td>
+
+                                            </tr>
+                                            <tr>
+
+                                                <td valign="top">
+
+                                                    <asp:label id="Label39" runat="server" text="نام پدر:"></asp:label>
+
+                                                </td>
+
+                                                <td>
+
+                                                    <telerik:RadTextBox ID="txt_OwnerFatherName" runat="server"
+                                                        ValidationGroup="HaghighiValidationGroup" Font-Names="Tahoma">
+                                                    </telerik:RadTextBox>
+                                                    *<asp:requiredfieldvalidator id="Requiredfieldvalidator1" forecolor="Red" controltovalidate="txt_OwnerFatherName" runat="server" display="Dynamic"
+                                                        validationgroup="HaghighiValidationGroup" errormessage="این فیلد نباید خالی باشد"
+                                                        cssclass="Validator"></asp:requiredfieldvalidator>
+                                                </td>
+
+                                            </tr>
+                                            <tr>
+
+                                                <td valign="top">
+
+                                                    <asp:label id="Label36" runat="server" text="شماره شناسنامه:"></asp:label>
+
+                                                </td>
+
+                                                <td>
+
+                                                    <telerik:RadTextBox ID="txt_RegIDNoHaghighi" runat="server" style="text-align: left; direction: ltr;"
+                                                        ValidationGroup="HaghighiValidationGroup" Font-Names="Tahoma">
+                                                    </telerik:RadTextBox>
+
+
+                                                    *<asp:requiredfieldvalidator id="VAlhaghighi3" forecolor="Red" controltovalidate="txt_RegIDNoHaghighi" runat="server" display="Dynamic"
+                                                        validationgroup="HaghighiValidationGroup" errormessage="این فیلد نباید خالی باشد"
+                                                        cssclass="Validator"></asp:requiredfieldvalidator>
+
+                                                </td>
+
+                                            </tr>
+                                            <tr id="DivNCode">
+
+
+                                                <td valign="top">
+
+                                                    <asp:label runat="server" text="کد ملی :"></asp:label>
+
+                                                </td>
+
+                                                <td>
+                                                    <input style="width: 160px; direction: ltr; text-align: left" class="RadInput riTextBox RadInputMgr numbers" maxlength="10" type="text" id="txt_NCode" runat="server" />
+
+                                                    *<asp:requiredfieldvalidator id="VAlhaghigh15" forecolor="Red" controltovalidate="txt_NCode" runat="server" display="Dynamic"
+                                                        validationgroup="HaghighiValidationGroup" errormessage="این فیلد نباید خالی باشد"
+                                                        cssclass="Validator"></asp:requiredfieldvalidator>
+														
+                                                    <br />
+
+                                                </td>
+
+                                            </tr>
+
+
+                                            <tr>
+
+                                                <td valign="top">
+
+                                                    <asp:label id="Label40" runat="server" text="تاریخ تولد:"></asp:label>
+
+                                                </td>
+
+                                                <td>
+
+                                                    <telerik:RadMaskedTextBox ID="txt_OwenrBirthDate" runat="server" Mask="####/##/##"
+                                                        ToolTip="مثال :1350/10/25" style="text-align: left; direction: ltr"
+                                                        ValidationGroup="HaghighiValidationGroup" Font-Names="Tahoma">
+                                                    </telerik:RadMaskedTextBox>
+
+                                                    *<asp:requiredfieldvalidator id="Requiredfieldvalidator3" forecolor="Red" controltovalidate="txt_OwenrBirthDate" runat="server" display="Dynamic"
+                                                        validationgroup="HaghighiValidationGroup" errormessage="این فیلد نباید خالی باشد"
+                                                        cssclass="Validator"></asp:requiredfieldvalidator>
+
+                                                    <asp:customvalidator id="CustomValidator2" controltovalidate="txt_OwenrBirthDate" runat="server"
+                                                        clientvalidationfunction="CheckBirthday" validationgroup="HaghighiValidationGroup" forecolor="Red"
+                                                        cssclass="Validator" display="Dynamic" errormessage="تاریخ تولد صحیح نمی باشد" />
+
+                                                    <asp:customvalidator id="CustomValidator11" controltovalidate="txt_OwenrBirthDate" runat="server"
+                                                        clientvalidationfunction="CheckBirthday2" validationgroup="HaghighiValidationGroup" forecolor="Red"
+                                                        cssclass="Validator" display="Dynamic" errormessage="تاریخ تولد باید از سال 1390 کمتر باشد" />
+
+                                                    <br />
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+
+                                                <td valign="top">
+
+                                                    <asp:label id="Label42" runat="server" text="تحصیلات:"></asp:label>
+
+                                                </td>
+
+                                                <td style="padding-top: 0!important;">
+                                                    <asp:dropdownlist id="Combo_OwnerDegree" style="width: 160px; margin-top: 10px"
+                                                        autopostback="false" datatextfield="Title" datavaluefield="ID"
+                                                        runat="server" />
+                                                </td>
+
+                                            </tr>
+
+                                              <tr>
+
+                                                <td valign="top">
+
+                                                    <asp:label id="Label22" runat="server" text="تلفن ثابت :"></asp:label>
+
+                                                </td>
+
+                                                <td>
+
+                                                    <telerik:RadNumericTextBox ID="txt_OwnerPhone" style="text-align: left;direction:ltr"  MaxLength="11"  runat="server" NumberFormat-DecimalDigits="0" NumberFormat-GroupSizes="3" NumberFormat-GroupSeparator=""
+                                                        ToolTip="مثال: 88888888 - 021"
+                                                        ValidationGroup="HoghoghiValidationGroup">
+                                                    </telerik:RadNumericTextBox>
+
+
+                                                </td>
+
+                                            </tr>
+
+
+                                            <tr>
+
+                                                <td valign="top">
+
+                                                    <asp:label id="Label41" runat="server" text="تلفن همراه:"></asp:label>
+
+                                                </td>
+
+                                                <td>
+
+
+                                                    <telerik:RadMaskedTextBox ID="txt_OwnerTell" style="direction: ltr; text-align: left" runat="server" Mask="09#########" PromptChar=""
+                                                        ToolTip="مثال : 0912-2222222"
+                                                        ValidationGroup="HaghighiValidationGroup" Font-Names="Tahoma">
+                                                    </telerik:RadMaskedTextBox>
+
+
+                                                    *<asp:requiredfieldvalidator id="VAlhaghighi7" forecolor="Red" controltovalidate="txt_OwnerTell" runat="server" display="Dynamic"
+                                                        validationgroup="HaghighiValidationGroup" errormessage="این فیلد نباید خالی باشد"
+                                                        cssclass="Validator"></asp:requiredfieldvalidator>
+
+                                                    <asp:customvalidator id="CustomValidator9" controltovalidate="txt_OwnerTell" runat="server"
+                                                        clientvalidationfunction="CheckMobileNo" validationgroup="HaghighiValidationGroup" forecolor="Red"
+                                                        cssclass="Validator" display="Dynamic" errormessage="تلفن همراه نامعتبر می باشد" />
+
+                                                    <br />
+
+                                                </td>
+
+                                            </tr>
+
+                                            <tr>
+
+                                                <td valign="top">
+
+                                                    <asp:label id="Label14" runat="server" text="پست الکترونيک :"></asp:label>
+
+                                                </td>
+
+                                                <td>
+
+                                                    <asp:textbox style="width: 160px; text-align: left" id="txtEmail" tooltip="مثال: example@site.com" runat="server" validationgroup="HaghighiValidationGroup"></asp:textbox>
+
+                                                    <%-- *<asp:requiredfieldvalidator id="Requiredfieldvalidator1" forecolor="Red" controltovalidate="txtEmail" runat="server" display="Dynamic"
+                                                    validationgroup="HaghighiValidationGroup" errormessage="این فیلد نباید خالی باشد"
+                                                    cssclass="Validator"></asp:requiredfieldvalidator>--%>
+
+                                                </td>
+
+                                            </tr>
+
+                                        </tbody>
+
+                                    </table>
+
+                                </fieldset>
+
+                                <fieldset id="Fieldset12" runat="server" title="نکته" style="margin-top: 10px; background: #fbffa1">
+                                    <legend>تصویر شناسنامه یا کارت ملی</legend>
+                                    <table>
+                                        <tr>
+                                            <td style="border-width: 0px 0px 1px 0px;">
+                                                <img runat="server" src='~/images/alert.png' />
+                                            </td>
+                                            <td style="border-width: 0px 0px 1px 0px;">
+                                                <asp:label id="Label13" text="فرمت فایل باید از نوع عکس (png,jpg) باشد" runat="server" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border-width: 0px 0px 1px 0px;">
+                                                <img runat="server" src='~/images/alert.png' />
+                                            </td>
+                                            <td style="border-width: 0px 0px 1px 0px;">
+                                                <asp:label id="Label44" text="حداکثر اندازه فایل 500 کیلوبایت می باشد." runat="server" />
+
+                                                <p>
+                                                    <telerik:radasyncupload runat="server" id="Upload_Shenasnameh" height="28"
+                                                        allowedfileextensions="jpg,jpeg,png,gif,bmp"
+                                                        postbacktriggers="btnsave"
+                                                        multiplefileselection="automatic"
+                                                        maxfilesize="524288" maxfileinputscount="3"
+                                                        uploadedfilesrendering="belowfileinput" localization-remove="حذف" localization-cancel="انصراف"
+                                                        localization-select="انتخاب" font-names="tahoma">
+                                                    </telerik:radasyncupload>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </fieldset>
+
+
+                            </telerik:RadPageView>
+
+                            <%--حقوقی--%>
+                            <telerik:RadPageView runat="server" ID="RadPageView2" CssClass="productsPageView">
+
+                                <telerik:RadAjaxPanel ID="RadAjaxPanel2" runat="server" LoadingPanelID="RadAjaxLoadingPanel1">
+
+                                    <fieldset id="FieldSet10" style="margin-top: 10px;">
+                                        <legend>مشخصات متقاضی</legend>
+                                        <table border="0" cellpadding="5">
+
+                                            <colgroup>
+
+                                                <col width="150" />
+
+                                                <col />
+
+                                            </colgroup>
+
+                                            <tbody>
+
+                                                <tr>
+
+                                                    <td>
+
+                                                        <asp:label id="Label6" runat="server" text=" کد ملی:"></asp:label>
+
+                                                    </td>
+
+                                                    <td>
+
+                                                        <telerik:RadMaskedTextBox ID="txt_RequestNationalCode" runat="server" Mask="###########" PromptChar="" style="text-align: left; direction: ltr"
+                                                            ValidationGroup="HoghoghiValidationGroup" />
+                                                        *
+                                        <asp:requiredfieldvalidator id="ValHoghoghi1" forecolor="Red" controltovalidate="txt_RequestNationalCode" runat="server" display="Dynamic"
+                                            validationgroup="HoghoghiValidationGroup" errormessage="این فیلد نباید خالی باشد"
+                                            cssclass="Validator"></asp:requiredfieldvalidator>
+
+                                                        <%--  <asp:RegularExpressionValidator ID="ValHoghoghi1_1" runat="server" ForeColor="Red"
+                                            ErrorMessage="کد ملی صحیح وارد کنید" ValidationGroup="HoghoghiValidationGroup"
+                                            ControlToValidate="txt_RequestNationalCode" CssClass="Validator"
+                                            ValidationExpression="^[a-zA-Z0-9'@&#.\s]{10,10}$" />--%>
+
+                                                        <%--<asp:CustomValidator ID="CustomValidator1" ControlToValidate="txt_RequestNationalCode" runat="server" 
+                                            ClientValidationFunction="CustomValidate"  ValidationGroup="HoghoghiValidationGroup" ForeColor="Red"
+                                            CssClass="Validator"   Display="Dynamic" /> --%>
+
+                                                    </td>
+
+                                                </tr>
+
+                                                <tr>
+
+                                                    <td valign="top">
+
+                                                        <asp:label id="Label7" runat="server" text="نام شرکت:"></asp:label>
+
+                                                    </td>
+
+                                                    <td>
+
+                                                        <telerik:RadTextBox ID="txt_companyname" runat="server"
+                                                            ValidationGroup="HoghoghiValidationGroup">
+                                                        </telerik:RadTextBox>
+
+                                                        *<asp:requiredfieldvalidator id="ValHoghoghi2" forecolor="Red" controltovalidate="txt_companyname" runat="server" display="Dynamic"
+                                                            validationgroup="HoghoghiValidationGroup" errormessage="این فیلد نباید خالی باشد"
+                                                            cssclass="Validator"></asp:requiredfieldvalidator>
+
+                                                        <br />
+
+                                                    </td>
+
+                                                </tr>
+
+                                                <tr>
+
+                                                    <td valign="top">
+
+                                                        <asp:label id="Label9" runat="server" text="شماره ثبت:"></asp:label>
+
+                                                    </td>
+
+                                                    <td>
+
+                                                        <telerik:RadNumericTextBox ID="txt_RegNo" runat="server" Type="Number" NumberFormat-DecimalDigits="0" NumberFormat-GroupSizes="3" NumberFormat-GroupSeparator=""
+                                                            ValidationGroup="HoghoghiValidationGroup" style="text-align: left">
+                                                        </telerik:RadNumericTextBox>
+
+                                                        *<asp:requiredfieldvalidator id="ValHoghoghi3" forecolor="Red" controltovalidate="txt_RegNo" runat="server" display="Dynamic"
+                                                            validationgroup="HoghoghiValidationGroup" errormessage="این فیلد نباید خالی باشد"
+                                                            cssclass="Validator"></asp:requiredfieldvalidator>
+
+                                                        <br />
+
+                                                    </td>
+
+                                                </tr>
+
+                                                <%--    <tr>
+
+                                        <td valign="top">
+
+                                            <asp:label id="Label10" runat="server" text="استان محل ثبت:"></asp:label>
+
+                                        </td>
+
+                                        <td>
+
+                                            <telerik:RadComboBox ID="Combo_State" AutoPostBack="true" OnSelectedIndexChanged="Combo_State_SelectedIndexChanged" runat="server" DataTextField="Title" DataValueField="ID">
+                                            </telerik:RadComboBox>
+
+
+                                            <br />
+
+                                        </td>
+
+                                    </tr>--%>
+
+
+
+                                                <%--               <tr>
+
+                                        <td valign="top">
+
+                                            <asp:label id="Label12" runat="server" text="نوع شخص حقوقی:"></asp:label>
+
+                                        </td>
+
+                                        <td>
+
+                                            <telerik:RadComboBox ID="Combo_LegalPerson" runat="server" DataTextField="Title" DataValueField="ID">
+                                            </telerik:RadComboBox>
+
+
+                                            <br />
+
+                                        </td>
+
+                                    </tr>--%>
+
+                                                <tr>
+
+                                                    <td valign="top">
+
+                                                        <asp:label id="Label15" runat="server" text="کد اقتصادی:"></asp:label>
+
+                                                    </td>
+
+                                                    <td>
+
+                                                        <telerik:RadNumericTextBox ID="txt_Codes" style="text-align: left" runat="server" NumberFormat-DecimalDigits="0" NumberFormat-GroupSizes="3" NumberFormat-GroupSeparator=""
+                                                            ValidationGroup="HoghoghiValidationGroup">
+                                                        </telerik:RadNumericTextBox>
+
+
+                                                        <%-- *<asp:RequiredFieldValidator ID="ValHoghoghi4" ForeColor="Red" ControlToValidate="txt_Codes" runat="server" Display="Dynamic"
+                                            ValidationGroup="HoghoghiValidationGroup" ErrorMessage="این فیلد نباید خالی باشد"
+                                            CssClass="Validator"></asp:RequiredFieldValidator>--%>
+
+                                                        <br />
+
+                                                    </td>
+
+                                                </tr>
+
+                                            </tbody>
+
+                                        </table>
+
+                                    </fieldset>
+
+                                </telerik:RadAjaxPanel>
+
+                                <fieldset id="FieldSet1" style="margin-top: 10px;">
+
+                                    <legend>مشخصات مدیر عامل</legend>
+
+                                    <table border="0" cellpadding="5">
+
+                                        <colgroup>
+
+                                            <col width="200" />
+
+                                            <col />
+
+                                        </colgroup>
+
+                                        <tbody>
+                                            <tr>
+
+                                                <td valign="top">
+
+                                                    <asp:label id="Label19" runat="server" text="جنسيت:"></asp:label>
+
+                                                </td>
+
+                                                <td>
+
+
+
+                                                    <telerik:RadButton Width="75" ID="btnSex_Men" AutoPostBack="false" Checked="true" runat="server" ToggleType="Radio" ButtonType="StandardButton" GroupName="HaghighiSex" Font-Names="Tahoma">
+                                                        <togglestates>
+                                            <telerik:RadButtonToggleState Text="مرد" PrimaryIconCssClass="rbToggleRadioChecked" />
+                                            <telerik:RadButtonToggleState Text="مرد" PrimaryIconCssClass="rbToggleRadio" />
+                                        </togglestates>
+                                                    </telerik:RadButton>
+
+                                                    <telerik:RadButton Width="75" ID="btnSex_Female" AutoPostBack="false" runat="server" ToggleType="Radio" ButtonType="StandardButton" GroupName="HaghighiSex" Font-Names="Tahoma">
+                                                        <togglestates>
+                                            <telerik:RadButtonToggleState Text="زن" PrimaryIconCssClass="rbToggleRadioChecked" />
+                                            <telerik:RadButtonToggleState Text="زن" PrimaryIconCssClass="rbToggleRadio" />
+                                        </togglestates>
+                                                    </telerik:RadButton>
+
+
+
+
+                                                </td>
+
+                                            </tr>
+                                            <tr>
+
+                                                <td>
+
+                                                    <asp:label id="Label16" runat="server" text="نام  :"></asp:label>
+
+                                                </td>
+
+                                                <td>
+
+                                                    <telerik:RadTextBox ID="txt_CEOName" runat="server" ValidationGroup="HoghoghiValidationGroup">
+                                                    </telerik:RadTextBox>
+
+                                                    *<asp:requiredfieldvalidator id="TextBoxRequiredFieldValidator3" forecolor="Red" controltovalidate="txt_CEOName" runat="server" display="Dynamic"
+                                                        validationgroup="HoghoghiValidationGroup" errormessage="این فیلد نباید خالی باشد"
+                                                        cssclass="Validator"></asp:requiredfieldvalidator>
+
+                                                    <asp:customvalidator id="CustomValidator12" controltovalidate="txt_CEOName" runat="server"
+                                                        clientvalidationfunction="CheckFarsiNameValid" validationgroup="HoghoghiValidationGroup" forecolor="Red"
+                                                        cssclass="Validator" display="Dynamic" errormessage="نام وارد شده باید حروف فارسی باشد" />
+
+                                                </td>
+
+
+                                            </tr>
+
+                                            <tr>
+
+                                                <td>
+
+                                                    <asp:label id="Label17" runat="server" text="نام خانوادگي :"></asp:label>
+
+                                                </td>
+
+                                                <td>
+
+                                                    <telerik:RadTextBox ID="txt_CEOFamily" runat="server"
+                                                        ValidationGroup="HoghoghiValidationGroup">
+                                                    </telerik:RadTextBox>
+
+                                                    *<asp:requiredfieldvalidator id="TextBoxRequiredFieldValidator4" forecolor="Red" controltovalidate="txt_CEOFamily" runat="server" display="Dynamic"
+                                                        validationgroup="HoghoghiValidationGroup" errormessage="این فیلد نباید خالی باشد"
+                                                        cssclass="Validator"></asp:requiredfieldvalidator>
+
+                                                    <asp:customvalidator id="CustomValidator13" controltovalidate="txt_CEOFamily" runat="server"
+                                                        clientvalidationfunction="CheckFarsiFamilyValid" validationgroup="HoghoghiValidationGroup" forecolor="Red"
+                                                        cssclass="Validator" display="Dynamic" errormessage="نام وارد شده باید حروف فارسی باشد" />
+
+                                                    <br />
+
+                                                </td>
+
+                                            </tr>
+
+                                            <tr>
+
+                                                <td valign="top">
+
+                                                    <asp:label id="Label18" runat="server" text="نام پدر :"></asp:label>
+
+                                                </td>
+
+                                                <td>
+
+                                                    <telerik:RadTextBox ID="txt_CEOFatherName" runat="server"
+                                                        ValidationGroup="HoghoghiValidationGroup">
+                                                    </telerik:RadTextBox>
+
+                                                    <br />
+
+                                                </td>
+
+                                            </tr>
+
+                                            <tr>
+
+                                                <td valign="top">
+
+                                                    <asp:label id="Label21" runat="server" text="شماره شناسنامه :"></asp:label>
+
+                                                </td>
+
+                                                <td>
+
+                                                    <telerik:RadNumericTextBox ID="txt_CEOIDNo" style="text-align: left" runat="server" NumberFormat-DecimalDigits="0" NumberFormat-GroupSizes="3" NumberFormat-GroupSeparator=""
+                                                        ValidationGroup="HoghoghiValidationGroup">
+                                                    </telerik:RadNumericTextBox>
+
+                                                    *<asp:requiredfieldvalidator id="TextBoxRequiredFieldValidator007" forecolor="Red" controltovalidate="txt_CEOIDNo" runat="server" display="Dynamic"
+                                                        validationgroup="HoghoghiValidationGroup" errormessage="این فیلد نباید خالی باشد"
+                                                        cssclass="Validator"></asp:requiredfieldvalidator>
+
+                                                    <br />
+
+                                                </td>
+
+                                            </tr>
+
+
+                                            <tr>
+
+                                                <td valign="top">
+
+                                                    <asp:label id="Label23" runat="server" text="کد ملی :"></asp:label>
+
+                                                </td>
+
+                                                <td>
+
+
+                                                    <telerik:RadMaskedTextBox ID="txt_CEONationalCode" style="text-align: left; direction: ltr" runat="server" Mask="##########" PromptChar=""
+                                                        ValidationGroup="HoghoghiValidationGroup" />
+
+
+                                                    *<asp:requiredfieldvalidator id="RequiredFieldValidator2" forecolor="Red" controltovalidate="txt_CEONationalCode" runat="server" display="Dynamic"
+                                                        validationgroup="HoghoghiValidationGroup" errormessage="این فیلد نباید خالی باشد"
+                                                        cssclass="Validator"></asp:requiredfieldvalidator>
+
+                                                    <br />
+
+                                                </td>
+
+                                            </tr>
+
+                                            <tr>
+
+                                                <td valign="top">
+
+                                                    <asp:label id="Label20" runat="server" text="تاريخ تولد:"></asp:label>
+
+                                                </td>
+
+                                                <td>
+
+                                                    <telerik:RadMaskedTextBox ID="txt_CEOBirhDate" style="text-align: left; direction: ltr" runat="server" Mask="####/##/##"
+                                                        ValidationGroup="HoghoghiValidationGroup">
+                                                    </telerik:RadMaskedTextBox>
+
+
+                                                    <asp:customvalidator id="CustomValidator10" controltovalidate="txt_CEOBirhDate" runat="server"
+                                                        clientvalidationfunction="CheckBirthday" validationgroup="HoghoghiValidationGroup" forecolor="Red"
+                                                        cssclass="Validator" display="Dynamic" errormessage="تاریخ تولد صحیح نمی باشد" />
+
+                                                    <asp:customvalidator id="CustomValidator1" controltovalidate="txt_CEOBirhDate" runat="server"
+                                                        clientvalidationfunction="CheckBirthday2" validationgroup="HoghoghiValidationGroup" forecolor="Red"
+                                                        cssclass="Validator" display="Dynamic" errormessage="تاریخ تولد باید از سال 1390 کمتر باشد" />
+
+
+                                                    <br />
+
+                                                </td>
+
+                                            </tr>
+
+                                            <tr>
+
+                                                <td valign="top">
+
+                                                    <asp:label id="Label25" runat="server" text="تحصيلات :"></asp:label>
+
+                                                </td>
+
+                                                <td>
+                                                    <asp:dropdownlist id="Combo_Degree" style="width: 160px;"
+                                                        autopostback="false" datatextfield="Title" datavaluefield="ID"
+                                                        runat="server" />
+
+                                                    <br />
+
+                                                </td>
+
+                                            </tr>
+                                            <tr>
+
+                                                <td valign="top">
+
+                                                    <asp:label id="Label26" runat="server" text="تلفن ثابت :"></asp:label>
+
+                                                </td>
+
+                                                <td>
+
+                                                    <telerik:RadNumericTextBox ID="txt_CEOPhoneNo" style="text-align: left" runat="server" NumberFormat-DecimalDigits="0" NumberFormat-GroupSizes="3" NumberFormat-GroupSeparator=""
+                                                        ToolTip="مثال: 88888888 - 021"
+                                                        ValidationGroup="HoghoghiValidationGroup">
+                                                    </telerik:RadNumericTextBox>
+
+
+                                                </td>
+
+                                            </tr>
+                                            <tr>
+
+                                                <td valign="top">
+
+                                                    <asp:label id="Label24" runat="server" text="تلفن همراه :"></asp:label>
+
+                                                </td>
+
+                                                <td>
+
+                                                    <telerik:RadMaskedTextBox ID="txt_CEOCellNo" style="text-align: left; direction: ltr" runat="server" Mask="09#########" PromptChar=""
+                                                        ToolTip="مثال : 0912-2222222"
+                                                        ValidationGroup="HoghoghiValidationGroup">
+                                                    </telerik:RadMaskedTextBox>
+
+                                                    *<asp:requiredfieldvalidator id="TextBoxRequiredFieldValidator9" forecolor="Red" controltovalidate="txt_CEOCellNo" runat="server" display="Dynamic"
+                                                        validationgroup="HoghoghiValidationGroup" errormessage="این فیلد نباید خالی باشد"
+                                                        cssclass="Validator"></asp:requiredfieldvalidator>
+
+                                                    <asp:customvalidator id="CustomValidator8" controltovalidate="txt_CEOCellNo" runat="server"
+                                                        clientvalidationfunction="CheckMobileNo" validationgroup="HoghoghiValidationGroup" forecolor="Red"
+                                                        cssclass="Validator" display="Dynamic" errormessage="تلفن همراه نامعتبر می باشد" />
+
+                                                    <br />
+
+                                                </td>
+
+                                            </tr>
+
+                                            <tr>
+
+                                                <td valign="top">
+
+                                                    <asp:label id="Label38" runat="server" text="رايانامه (پست الکترونيک) :"></asp:label>
+
+                                                </td>
+
+                                                <td>
+
+                                                    <asp:textbox style="width: 160px; text-align: left" id="txt_CEOEmail" tooltip="مثال: example@site.com" runat="server" validationgroup="HoghoghiValidationGroup"></asp:textbox>
+
+                                                    *<asp:requiredfieldvalidator id="TextBoxRequiredFieldValidator11" forecolor="Red" controltovalidate="txt_CEOEmail" runat="server" display="Dynamic"
+                                                        validationgroup="HoghoghiValidationGroup" errormessage="این فیلد نباید خالی باشد"
+                                                        cssclass="Validator"></asp:requiredfieldvalidator>
+
+                                                </td>
+
+                                            </tr>
+
+
+                                        </tbody>
+
+                                    </table>
+
+                                </fieldset>
+
+                                <fieldset id="Fieldset13" runat="server" title="نکته" style="margin-top: 10px; background: #fbffa1">
+                                    <legend>نکته</legend>
+                                    <table>
+                                        <tr>
+                                            <td style="border-width: 0px 0px 1px 0px;">
+                                                <img runat="server" src='~/images/alert.png' />
+                                            </td>
+                                            <td style="border-width: 0px 0px 1px 0px;">
+                                                <asp:label id="Label45" text="فرمت فایل باید از نوع عکس باشد" runat="server" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border-width: 0px 0px 1px 0px;">
+                                                <img runat="server" src='~/images/alert.png' />
+                                            </td>
+                                            <td style="border-width: 0px 0px 1px 0px;">
+                                                <asp:label id="Label46" text="حداکثر اندازه فایل 500 کیلوبایت می باشد." runat="server" />
+                                                <p>
+                                                    <telerik:radasyncupload runat="server" id="Radasyncupload2"
+                                                        allowedfileextensions="jpg,jpeg,png,gif,bmp"
+                                                        postbacktriggers="btnsave"
+                                                        multiplefileselection="automatic"
+                                                        maxfilesize="524288" maxfileinputscount="3"
+                                                        uploadedfilesrendering="belowfileinput" localization-remove="حذف" localization-cancel="انصراف"
+                                                        localization-select="انتخاب" font-names="tahoma">
+                                                    </telerik:radasyncupload>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </fieldset>
+
+                                <fieldset id="FieldSet3" style="margin-top: 10px;">
+
+                                    <legend>آدرس مکاتباتی/دفتر</legend>
+
+                                    <table border="0" cellpadding="5">
+
+                                        <colgroup>
+
+                                            <col width="150" />
+
+                                            <col>
+                                        </colgroup>
+
+                                        <tbody>
+
+
+                                            <tr>
+
+                                                <td valign="top">
+
+                                                    <asp:label id="Label28" runat="server" text="شهر / روستا :"></asp:label>
+
+                                                </td>
+
+                                                <td>
+
+                                                    <telerik:RadTextBox ID="txt_vilage" runat="server"
+                                                        Font-Names="Tahoma">
+                                                    </telerik:RadTextBox>
+
+                                                    <br />
+
+                                                </td>
+
+                                            </tr>
+
+                                            <tr>
+
+                                                <td valign="top">
+
+                                                    <asp:label id="Label29" runat="server" text="آدرس:"></asp:label>
+
+                                                </td>
+
+                                                <td>
+
+                                                    <telerik:RadTextBox ID="txt_address" runat="server" TextMode="MultiLine"
+                                                        Width="500px" Font-Names="Tahoma">
+                                                    </telerik:RadTextBox>
+
+                                                    <br />
+
+                                                </td>
+
+                                            </tr>
+
+                                            <tr>
+
+                                                <td valign="top">
+
+                                                    <asp:label id="Label30" runat="server" text="کد پستی:"></asp:label>
+
+                                                </td>
+
+                                                <td>
+
+                                                    <telerik:RadMaskedTextBox ID="txt_postcode" runat="server" Mask="##########" PromptChar=""
+                                                        Font-Names="Tahoma" />
+
+                                                    <br />
+
+                                                </td>
+
+                                            </tr>
+
+                                            <tr>
+
+                                                <td valign="top">
+
+                                                    <asp:label id="Label31" runat="server" text="پست الکترونیک:"></asp:label>
+
+                                                </td>
+
+                                                <td>
+
+                                                    <telerik:RadTextBox ID="txt_mailbox" runat="server" style="text-align: left; direction: ltr"
+                                                        Font-Names="Tahoma">
+                                                    </telerik:RadTextBox>
+
+                                                </td>
+
+                                            </tr>
+
+                                            <tr>
+
+                                                <td valign="top">
+
+                                                    <asp:label id="Label32" runat="server" text="تلفن ثابت:"></asp:label>
+
+                                                </td>
+
+                                                <td>
+
+
+                                                    <telerik:RadNumericTextBox ID="txt_Tell" runat="server" style="text-align: left" MaxLength="13" NumberFormat-DecimalDigits="0" NumberFormat-GroupSizes="3" NumberFormat-GroupSeparator=""
+                                                        ToolTip="مثال: 88888888 - 021"
+                                                        Font-Names="Tahoma">
+                                                    </telerik:RadNumericTextBox>
+
+                                                    <br />
+
+                                                </td>
+
+                                            </tr>
+
+                                            <tr>
+
+                                                <td valign="top">
+
+                                                    <asp:label id="Label33" runat="server" text="نمابر:"></asp:label>
+
+                                                </td>
+
+                                                <td>
+
+                                                    <telerik:RadNumericTextBox ID="txt_Fax" style="text-align: left" runat="server" NumberFormat-DecimalDigits="0" NumberFormat-GroupSizes="3" NumberFormat-GroupSeparator=""
+                                                        ToolTip="مثال: 88888888 - 021"
+                                                        Font-Names="Tahoma">
+                                                    </telerik:RadNumericTextBox>
+
+                                                    <br />
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+
+
+                                    </table>
+
+                                </fieldset>
+
+
+
+                            </telerik:RadPageView>
+
+                        </telerik:RadMultiPage>
+
+                    </fieldset>
+
+
+
+
+                    <fieldset runat="server" id="DivCaptcha" visible="false" style="margin-top: 10px;">
+
+                        <legend>کد امنیتی</legend>
+                        <telerik:RadCaptcha ID="RadCaptcha1" runat="server" ValidationGroup="CreateAccountValidationGroup"
+                            ErrorMessage="کد وارد شده صحیح نمی باشد." Display="Dynamic" Font-Size="14"
+                            CaptchaTextBoxLabel="کد امنیتی مورد نظر را وارد نمایید"
+                            ForeColor="Red" CaptchaImage-TextChars="Numbers">
+                        </telerik:RadCaptcha>
+                    </fieldset>
+
+
+                    <fieldset runat="server" id="DivSmsConfirm" visible="false" style="margin-top: 10px;">
+
+                        <legend>تاییدیه صحت شماره همراه</legend>
+                        <span style="font-size: medium; color: blue">ابتدا تلفن همراه خود را وارد نمایید و دکمه دریافت کد تایید را بزنید </span>
+                        <div style="margin-top: 10px">
+                            <input id="btnSend" type="button" onclick="SendConfirmSMS()" class="normalButton" value="دریافت کد تایید" />
+                            <input id="txtConfirmCode" type="text" onkeyup="ConfirmCode_keypress(event)" ng-model="ConfirmCode" style="width: 120px; display: none" />
+                            <img id="imgTick" src="../Images/tik.png" style="width: 20px; display: none" />
+                            <img id="imgError" src="../Images/Error.png" style="width: 20px; display: none" />
+                            <span id="LRecoveryError" style="font-size: small"></span>
+                        </div>
+                    </fieldset>
+
+
+
+                    <fieldset id="FieldSet5" style="margin-top: 10px;">
+
+                        <table>
+                            <tr>
+                                <td colspan="2">
+                                    <input type="checkbox" id="ChAccept" onclick='Accept(this);' />
+                                    صحت اطلاعات وارد شده را تایید می نمایم 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 100%">
+                                    <br />
+                                    <telerik:RadButton Text="ثبت عضویت" OnClick="BtnSave_Click" Width="100px" ID="BtnSave" runat="server" Enabled="false"
+                                        Style="display: none;" ValidationGroup="CreateAccountValidationGroup" Font-Names="Tahoma" />
+
+                                    <input type="button" id="BtnSave2" runat="server" style="width: 120px" value="ثبت عضویت" onclick="OnClientClieck()" />
+
+                                    <asp:label id="LMessage" style="font-weight: bold" forecolor="Green" text='<%# Eval("ErrorTitel") %>' runat="server" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td dir="rtl" width="100%">
+                                    <asp:label id="txt_Wating" style="display: none; color: red;" runat="server">درحال بارگذاری فایل ها ، لطفا منتظر بمانید</asp:label>
+                                </td>
+                            </tr>
+                        </table>
+
+                    </fieldset>
+
+                    <fieldset id="ErrorList_fieldset2" visible="false" runat="server" title="خطا ها" style="margin-top: 10px; background: #fbffa1">
+                        <legend>خطا ها</legend>
+
+
+                        <asp:repeater id="Error_List2" runat="server">
+            <ItemTemplate>
+                <table>
+                    <tr>
+                        <td style="border-width: 0px 0px 1px 0px;">
+                            <img runat="server" width="20" src='~/images/Denid.png' />
+                        </td>
+                        <td style="border-width: 0px 0px 1px 0px;">
+                            <asp:Label ID="Label48" Text='<%# Eval("ErrorTitel") %>' runat="server" />
+                        </td>
+                    </tr>
+                </table>
+            </ItemTemplate>
+        </asp:repeater>
+                    </fieldset>
+
+                    <telerik:RadCodeBlock ID="RadCodeBlock1" runat="server">
+                        <script type="text/javascript">
+
+
+                            function OpenWindow(sender, args) {
+
+                                return false;
+                            }
+
+                            function CheckFarsiNameValid(source, arguments) {
+
+                                var tabcontrol = $find('<%= RadTabStrip1.ClientID %>');
+                                var TmpHoghoghi = tabcontrol.get_selectedTab().get_index() == 1;
+                                var allowed = '123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ:;,.?!£$%^&*()_+-*{}@~<>&"\'';
+
+                                var TmpText;
+                                if (TmpHoghoghi) {
+
+                                    var txt_CEOName = document.getElementById("<%=txt_CEOName.ClientID%>");
+                                    TmpText = txt_CEOName.value;
+
+                                } else {
+
+                                    var txt_owername = document.getElementById("<%=txt_owername.ClientID%>");
+                                    TmpText = txt_owername.value;
+                                }
+
+                                var strlen = TmpText.length;
+                                for (i = 0; i < strlen; i++) {
+                                    if (allowed.indexOf(TmpText.charAt(i)) != -1) {
+                                        arguments.IsValid = false;
+                                        return false;
+                                    }
+                                }
+                            }
+
+                            function CheckFarsiFamilyValid(source, arguments) {
+
+                                var tabcontrol = $find('<%= RadTabStrip1.ClientID %>');
+                                var TmpHoghoghi = tabcontrol.get_selectedTab().get_index() == 1;
+                                var allowed = '123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ:;,.?!£$%^&*()_+-*{}@~<>&"\'';
+                                var TmpText;
+                                if (TmpHoghoghi) {
+
+                                    var txt_CEOFamily = document.getElementById("<%=txt_CEOFamily.ClientID%>");
+                                    TmpText = txt_CEOFamily.value;
+
+                                } else {
+
+                                    var txt_OwnerFamilyName = document.getElementById("<%=txt_OwnerFamilyName.ClientID%>");
+                                    TmpText = txt_OwnerFamilyName.value;
+                                }
+
+
+                                var strlen = TmpText.length;
+                                for (i = 0; i < strlen; i++) {
+                                    if (allowed.indexOf(TmpText.charAt(i)) != -1) {
+                                        arguments.IsValid = false;
+                                        return false;
+                                    }
+                                }
+                            }
+
+
+                            function OnKeyPress(sender, eventArgs) {
+                                var key = eventArgs.get_keyCode();
+                                var allowed = '123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ :;,.?!£$%^&*()_+-*{}@~<>&"\'';
+                                if (allowed.indexOf(String.fromCharCode(key)) == -1) {
+
+                                    //var textbox = $find("<%= txt_Username.ClientID %>");
+                                    //textbox.clear();
+                                    document.getElementById('txtUserNameError').style.display = 'inherit';
+
+                                } else {
+                                    document.getElementById('txtUserNameError').style.display = 'none';
+                                }
+                            }
+
+
+                            function CheckPass(source, arguments) {
+                              
+                                debugger;
+                                var allowed = '1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ:;,.?!£$%^&*()_+-*{}@#~<>&"\'';
+                                var txtPassword = document.getElementById("<%=txtPassword.ClientID%>");
+                                TmpText = txtPassword.value;
+
+                                var strlen = TmpText.length;
+                                for (i = 0; i < strlen; i++) {
+                                    if (allowed.indexOf(TmpText.charAt(i)) == -1) {
+                                        arguments.IsValid = false;
+                                        return false;
+                                    }
+                                }
+
+
+                                //CheckComplex
+
+                                var strength = 1;
+                                var arr = [/.{5,}/, /[a-z]+/, /[0-9]+/, /[A-Z]+/];
+                                jQuery.map(arr, function (regexp) {
+                                    if (TmpText.match(regexp))
+                                        strength++;
+                                });
+                                if (strength == 1) {
+                                    arguments.IsValid = false;
+                                    $('#CustomValidator16')[0].errormessage = '';
+                                    return false;
+                                }
+                            }
+
+
+                            function CheckMobileNo(source, arguments) {
+
+                                var tabcontrol = $find('<%= RadTabStrip1.ClientID %>');
+                                var TmpHoghoghi = tabcontrol.get_selectedTab().get_index() == 1;
+                                if (TmpHoghoghi) {
+                                    var txt_CEOCellNo = document.getElementById("<%=txt_CEOCellNo.ClientID%>");
+                                    arguments.IsValid = txt_CEOCellNo.value.startsWith("09");
+                                } else {
+
+                                    var txt_OwnerTell = document.getElementById("<%=txt_OwnerTell.ClientID%>");
+                                    arguments.IsValid = txt_OwnerTell.value.startsWith("09");
+                                }
+                            }
+
+
+                            function CheckLenghtUserName(source, arguments) {
+                                var txt_Username = document.getElementById("<%=txt_Username.ClientID%>");
+                            arguments.IsValid = txt_Username.value.length >= 5;
+                        }
+                        function CheckLenghtNationalCode(source, arguments) {
+                            var txt_Username = document.getElementById("<%=txt_NCode.ClientID%>");
+                            arguments.IsValid = txt_Username.value.length == 10;
+                        }
+
+
+                        function CheckConflictPassword(source, arguments) {
+
+                            var txtPassword = document.getElementById("<%=txtPassword.ClientID%>");
+                            var txtConfirmPassword = document.getElementById('<%= txtConfirmPassword.ClientID %>');
+                            arguments.IsValid = txtPassword.value == txtConfirmPassword.value;
+                        }
+
+                        function CheckLenghtPass(source, arguments) {
+                            var txtPassword = document.getElementById("<%=txtPassword.ClientID%>");
+                            arguments.IsValid = txtPassword.value.length >= 5;
+                        }
+
+
+                        function CheckBirthday(source, arguments) {
+
+                            var tabcontrol = $find('<%= RadTabStrip1.ClientID %>');
+                            var TmpHoghoghi = tabcontrol.get_selectedTab().get_index() == 1;
+                            if (TmpHoghoghi) {
+                                var txt_CEOBirhDate = document.getElementById("<%=txt_CEOBirhDate.ClientID%>");
+                                var TmpSplit = txt_CEOBirhDate.value.split("/");
+
+                                var TmpCheck = (Number(TmpSplit[1]) > 0 && Number(TmpSplit[1]) < 13)
+                                    && (Number(TmpSplit[2]) > 0 && Number(TmpSplit[2]) < 32);
+
+                                arguments.IsValid = TmpCheck;
+                            } else {
+
+                                var txt_OwenrBirthDate = document.getElementById("<%=txt_OwenrBirthDate.ClientID%>");
+                                var TmpSplit = txt_OwenrBirthDate.value.split("/");
+
+                                var TmpCheck =(Number(TmpSplit[1]) > 0 && Number(TmpSplit[1]) < 13)
+                                    && (Number(TmpSplit[2]) > 0 && Number(TmpSplit[2]) < 32);
+                                arguments.IsValid = TmpCheck;
+                            }
+                        }
+                        function CheckBirthday2(source, arguments) {
+
+                            var tabcontrol = $find('<%= RadTabStrip1.ClientID %>');
+                                   var TmpHoghoghi = tabcontrol.get_selectedTab().get_index() == 1;
+                                   if (TmpHoghoghi) {
+                                       var txt_CEOBirhDate = document.getElementById("<%=txt_CEOBirhDate.ClientID%>");
+                                var TmpSplit = txt_CEOBirhDate.value.split("/");
+
+                                var TmpCheck = (Number(TmpSplit[0]) > 1300 && Number(TmpSplit[0]) < 1390);
+
+                                arguments.IsValid = TmpCheck;
+                            } else {
+
+                                var txt_OwenrBirthDate = document.getElementById("<%=txt_OwenrBirthDate.ClientID%>");
+                                var TmpSplit = txt_OwenrBirthDate.value.split("/");
+
+                                var TmpCheck = (Number(TmpSplit[0]) > 1300 && Number(TmpSplit[0]) < 1390)
+                                   
+                                arguments.IsValid = TmpCheck;
+                            }
+                        }
+
+                        var TmpUploaded = false;
+
+                        function validateRadUpload1(source, arguments) {
+
+                            var TmpMessage = "فایل انتخاب شده معتبر نمی باشد";//"اندازه تصویر باید کمتر از 500 کیلوبایت باشد";
+                            var TmpCountMessage = "فایل مورد نظر را انتخاب نمایید";
+
+                            var tabcontrol = $find('<%= RadTabStrip1.ClientID %>');
+
+                            var TmpHoghoghi = tabcontrol.get_selectedTab().get_index() == 1;
+                        }
+
+                        function Accept(cb) {
+
+                            var btn = $find("<%= BtnSave.ClientID %>");
+                            btn.set_enabled(cb.checked);
+
+                            $('#BtnSave2').prop('disabled', (!cb.checked));
+
+                        }
+
+
+                        function CustomValidate(sender, args) {
+
+                            var intSum = 0, i = 0, intD, intD, intP;
+
+                            var value = args.Value;
+
+                            var textbox;
+
+                            if (sender.ControlToValidate == "txt_RequestNationalCode")
+                                textbox = $find("<%= txt_RequestNationalCode.ClientID %>");
+                        if (value.length == 0) {
+                            sender.textContent = sender.innerText = sender.innerHTML = "کد ملی وارد شده نامعتبر می باشد";
+                            args.IsValid = false;
+                            return;
+                        }
+                        if (!ConfirmCodeIsTrue) {
+                            sender.textContent = sender.innerText = sender.innerHTML = "کد تاییده صحیح نمی باشد";
+                            args.IsValid = false;
+                            return;
+                        }
+
+                    }
+
+
+                    var $ = $telerik.$;
+
+                    function validationFailed(radAsyncUpload, args) {
+
+                        var $row = $(args.get_row());
+                        var erorMessage = getErrorMessage(radAsyncUpload, args);
+                        var span = createError(erorMessage);
+                        $row.addClass("ruError");
+                        $row.append(span);
+                    }
+
+                    function getErrorMessage(sender, args) {
+
+                        var fileExtention = args.get_fileName().substring(args.get_fileName().lastIndexOf('.') + 1, args.get_fileName().length);
+                        if (args.get_fileName().lastIndexOf('.') != -1) {
+
+                            if (sender.get_allowedFileExtensions().toLowerCase().indexOf(fileExtention.toLowerCase()) == -1) {
+                                return ("فایل مورد نظر نامعتبر می باشد");
+                            }
+                            else
+                                return ("حداکثر اندازه فایل 500 کیلوبایت می باشد");
+                        }
+                        else
+                            return ("نوع فایل نامعتبر می باشد");
+                    }
+
+                    function createError(erorMessage) {
+                        var input = '<span class="ruErrorMessage">' + erorMessage + ' </span>';
+                        return input;
+                    }
+                    String.prototype.replaceAll = function (str1, str2, ignore) {
+                        return this.replace(new RegExp(str1.replace(/([\/\,\!\\\^\$\{\}\[\]\(\)\.\*\+\?\|\<\>\-\&])/g, "\\$&"), (ignore ? "gi" : "g")), (typeof (str2) == "string") ? str2.replace(/\$/g, "$$$$") : str2);
+                    }
+                    //validate
+                    function OnClientClieck() {
+
+                        var EditMode = false;
+                        var tmpEditAccount = getParameterByName('EditAccount');
+                        if (tmpEditAccount != '') {
+                            EditMode = true;
+                        }
+                        $("#LMessage").text('');
+                        if (!$("input[id=ChAccept]").prop("checked")) {
+                            $("#LMessage").css('color', 'red');
+                            $("#LMessage").text('کاربر گرامی ، لطفا صحت اطلاعات را تایید نمایید ، تا اعمال تغییرات انجام شود');
+                            return;
+                        }
+
+                        var tmpVal = $("#txt_Username").val();
+                        if (tmpVal == '') {
+                            $("#LMessage").css('color', 'red');
+                            $("#LMessage").text('نام کاربری را وارد نمایید');
+                            return;
+                        }
+                        if (EditMode != true) {
+                            if ($("#txtPassword").val() == '') {
+                                $("#LMessage").css('color', 'red');
+                                $("#LMessage").text('رمز عبور را وارد نمایید');
+                                return;
+                            }
+                            if ($("#txtConfirmPassword").val() == '') {
+                                $("#LMessage").css('color', 'red');
+                                $("#LMessage").text('تکرار رمز عبور را وارد نمایید');
+                                return;
+                            }
+                            if ($("#txtPassword").val().length < 5) {
+                                $("#LMessage").text('رمز عبور باید حداقل ۵ کاراکتر باشد');
+                                return;
+                            }
+                            if ($("#txtConfirmPassword").val() != $("#txtPassword").val()) {
+                                $("#LMessage").css('color', 'red');
+                                $("#LMessage").text('رمز عبور و تکرار آن باید شبیه هم باشند');
+                                return;
+                            }
+
+                            if (Config.PassWordComplex == true) {
+                                if (PasswordComplexValid == false) {
+                                    $("#LMessage").css('color', 'red');
+                                    $("#LMessage").text('رمز عبور باید شامل حروف و اعداد و کلمات پیچیده باشد');
+                                    return;
+                                }
+                            }
+                        }
+                        //---------------------------
+                        var tmpId = $('.rtsSelected').attr('id');
+                        var tmpName = $("#txt_owername").val();
+                        var tmpFamily = $("#txt_OwnerFamilyName").val();
+                        var tmpCellNo = $("#txt_OwnerTell").val();
+                        var tmpEmail = $("#txtEmail").val();
+
+                        if (tmpId == 'LegalPerson') {
+                            tmpName = $("#txt_CEOName").val();
+                            tmpFamily = $("#txt_CEOFamily").val();
+                            tmpCellNo = $("#txt_CEOCellNo").val();
+                            tmpEmail = $("#txt_CEOEmail").val();
+
+                            if ($("#txt_RequestNationalCode").val() == '') {
+                                $("#LMessage").css('color', 'red');
+                                $("#LMessage").text('کد ملی را وارد نمایید');
+                                return;
+                            }
+                            if ($("#txt_companyname").val() == '') {
+                                $("#LMessage").css('color', 'red');
+                                $("#LMessage").text('نام شرکت را وارد نمایید');
+                                return;
+                            }
+
+                        }
+                        if (tmpName == '') {
+                            $("#LMessage").css('color', 'red');
+                            $("#LMessage").text('نام کاربر را وارد نمایید');
+                            return;
+                        }
+                        if (tmpFamily == '') {
+                            $("#LMessage").css('color', 'red');
+                            $("#LMessage").text('نام خانوادگی را وارد نمایید');
+                            return;
+                        }
+                        //if (tmpEmail == '' || tmpEmail.indexOf('صحیح') > -1) {
+                        //    $("#LMessage").css('color', 'red');
+                        //    $("#LMessage").text('ایمیل را وارد نمایید');
+                        //    return;
+                        //}
+
+
+                        var tmpMobileNumber = tmpCellNo;
+                        tmpMobileNumber = tmpMobileNumber.replaceAll('-', '').replaceAll('_', '');;
+
+                        //---------------------------
+                        if (tmpMobileNumber == '') {
+                            $("#LMessage").css('color', 'red');
+                            $("#LMessage").text('شماره همراه را وارد نمایید');
+                            return;
+                        }
+                        if ($('#RadCaptcha1_CaptchaTextBox').val() == '') {
+                            $("#LMessage").css('color', 'red');
+                            $("#LMessage").text('کد امنیتی را وارد نمایید');
+                            return;
+                        }
+                        var tmpVal = true;
+                        if ($("#DivNCode").css('display') != 'none') {
+                            var tmpMeliiCode = $("#txt_NCode").val();
+                            
+                            if (tmpId == 'LegalPerson') 
+                                tmpMeliiCode = $("#txt_CEONationalCode").val();
+
+                            if (tmpMeliiCode.length < 10) {
+                                $("#LMessage").text('کد ملی باید ۱۰ رقمی باشد');
+                                return;
+                            }
+                            if (Config.CheckValidMelliCode) {
+                                tmpVal = checkMelliCode(tmpMeliiCode);
+                                if (!tmpVal)
+                                    return;
+                            }
+                        }
+                        if (Config.CheckUserNameASMelliCode) {
+                            tmpVal = checkMelliCode($("#txt_Username").val());
+                            if (!tmpVal)
+                                return;
+                        }
+
+                        if ($('#txt_postcode').val().length < 10) {
+                            $("#LMessage").text('کد پستی باید ۱۰ رقمی باشد');
+                            return;
+                        }
+
+                        if (!EditMode) {
+                            if ($('#DivSmsConfirm').length > 0 && !ConfirmCodeIsTrue) {
+                                $("#LMessage").text('کد تاییدیه را به صورت صحیح وارد نمایید');
+                                $("#LMessage").css('color', 'red');
+                                return;
+                            }
+                        }
+                        if (Page_IsValid) {
+                            StartBusy('MainDIv', 'در حال ذخیره اطلاعات');
+                            document.getElementById('<%= BtnSave.ClientID %>').click();
+                        }
+                        else {
+                            $("#LMessage").text('ابتدا مواردی که با رنگ قرمز مشخص شده اند را اصلاح نمایید');
+                            $("#LMessage").css('color', 'red');
+                        }
+                    }
+
+                    var TmpFiles = new Array();
+                    function OnClientFileUploading(sender, args) {
+                        TmpFiles.push(args.get_fileName());
+                        var btn = $find("<%= BtnSave.ClientID %>");
+                        btn.set_enabled(false);
+
+                        document.getElementById('<%= txt_Wating.ClientID %>').style.display = 'inherit';
+                    }
+
+                    function OnClientFileUploaded(sender, args) {
+
+                        TmpFiles.pop(args.get_fileName());
+                        if (TmpFiles.length == 0) {
+                            if (Page_IsValid) {
+                                var btn = $find("<%= BtnSave.ClientID %>");
+                                btn.set_enabled(true);
+                            }
+                            document.getElementById('<%= txt_Wating.ClientID %>').style.display = 'none';
+                        }
+                    }
+
+                    function Page_ClientValidateReset(pvalidationGroup) {
+
+                        if (typeof (Page_Validators) != "undefined") {
+                            for (var i = 0; i < Page_Validators.length; i++) {
+                                if (Page_Validators[i].validationGroup == pvalidationGroup) {
+                                    var validator = Page_Validators[i];
+                                    ValidatorValidate(validator, null, null);
+                                    //ValidatorUpdateDisplay(validator);
+                                }
+                            }
+                        }
+                    }
+
+                    function all(pvalidationGroup) {
+                        if (typeof (Page_Validators) != "undefined") {
+                            for (var i = 0; i < Page_Validators.length; i++) {
+                                if (Page_Validators[i].validationGroup == pvalidationGroup) {
+                                    if (!Page_Validators[i].isvalid) {
+                                        return false;
+                                    }
+                                }
+                            }
+                        }
+                        return true;
+                    }
+
+                    function performCheck() {
+
+                        Page_ClientValidateReset();
+                        Page_ClientValidate("CreateAccountValidationGroup");
+
+                        var tabcontrol = $find('<%= RadTabStrip1.ClientID %>');
+                        var TmpHoghoghi = tabcontrol.get_selectedTab().get_index() == 1;
+
+                        if (TmpHoghoghi) {
+                            tabcontrol.ValidationGroup = "HoghoghiValidationGroup";
+                            Page_ClientValidateReset("HoghoghiValidationGroup");
+                            //Page_ClientValidateReset("HoghoghiValidationGroup");
+                        }
+                        else {
+                            tabcontrol.ValidationGroup = "HaghighiValidationGroup";
+                            Page_ClientValidateReset("HaghighiValidationGroup");
+                            //Page_ClientValidateReset("HaghighiValidationGroup");
+                        }
+
+                        if (Page_IsValid) {
+                            Page_IsValid = all(tabcontrol.ValidationGroup);
+                            if (!Page_IsValid) {
+                                Page_ClientValidate(tabcontrol.ValidationGroup);
+                            }
+                            return Page_IsValid;
+                        }
+                        else {
+                            return false;
+                        }
+                    }
+
+                    function rdChangeWithdraw_Click() {
+                        if (!objrdChange) return (false);
+                        if (!objrdWithdraw) return (false);
+                        if (!objtxtWithdrawalDetails) return (false);
+
+                        objtxtWithdrawalDetails.disabled = (objrdChange.checked);
+
+                        return (true);
+                    }
+
+                        </script>
+                    </telerik:RadCodeBlock>
+
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+
+</div>
+
+<script>
+
+
+    function checkMelliJob(p, meli_code) {
+        if (p == false) {
+            if (meli_code.length > 0)
+                alert("کد ملی معتبر نمی باشد");
+        }
+    }
+    function checkMelliCode(varmellicode) {
+        var meli_code;
+        meli_code = varmellicode;
+        if (meli_code.length == 10) {
+            if (meli_code == '1111111111' ||
+            meli_code == '0000000000' ||
+            meli_code == '2222222222' ||
+            meli_code == '3333333333' ||
+            meli_code == '4444444444' ||
+            meli_code == '5555555555' ||
+            meli_code == '6666666666' ||
+            meli_code == '7777777777' ||
+            meli_code == '8888888888' ||
+            meli_code == '9999999999') {
+                checkMelliJob(false, meli_code);
+                return false;
+            }
+            c = parseInt(meli_code.charAt(9));
+            n = parseInt(meli_code.charAt(0)) * 10 +
+            parseInt(meli_code.charAt(1)) * 9 +
+            parseInt(meli_code.charAt(2)) * 8 +
+            parseInt(meli_code.charAt(3)) * 7 +
+            parseInt(meli_code.charAt(4)) * 6 +
+            parseInt(meli_code.charAt(5)) * 5 +
+            parseInt(meli_code.charAt(6)) * 4 +
+            parseInt(meli_code.charAt(7)) * 3 +
+            parseInt(meli_code.charAt(8)) * 2;
+            r = n - parseInt(n / 11) * 11;
+            if ((r == 0 && r == c) || (r == 1 && c == 1) || (r > 1 && c == 11 - r)) {
+                checkMelliJob(true, meli_code);
+                return true;
+            }
+            else {
+                checkMelliJob(false, meli_code);
+                return false;
+            }
+        }
+        else {
+            checkMelliJob(false, meli_code);
+            return false;
+        }
+    }
+    var PersonType = 1;
+    $(document).ready(function () {
+
+        $("input.numbers").keypress(function (event) {
+            return /\d/.test(String.fromCharCode(event.keyCode));
+        });
+
+
+
+        //LegalPerson
+        //RealPerson
+        var tmpR = document.referrer;
+
+        if (tmpR.indexOf('UCreateAccount.aspx') > -1 || tmpR == '')
+            $('#btnReturn').prop('href', 'SafaLoginMain.aspx');
+        else
+            $('#btnReturn').prop('href', tmpR);
+
+        //console.log("ready!");
+        //$('#ChAccept').prop("disabled", true);
+
+        $("#txt_Username").change(function () {
+            if (Config.CheckUserNameASMelliCode) {
+                console.log("Ncode change");
+                checkMelliCode(this.value)
+            }
+        });
+
+        if (Config.CheckUserNameASMelliCode == true) {
+            $('#DivNCode').hide();
+        }
+
+    });
+</script>
+
+<script>
+
+
+    var ConfirmCodeIsTrue = false;
+
+    function SendConfirmSMS() {
+
+        var tmpBizCode = $('#txt_Username').val();
+        var tmpId = $('.rtsSelected').attr('id');
+        var tmpMobileNumber = $("#txt_OwnerTell").val();
+
+        if (tmpId == 'LegalPerson')
+            tmpMobileNumber = $("#txt_CEOCellNo").val();
+
+        tmpMobileNumber = tmpMobileNumber.replaceAll('-', '').replaceAll('_', '').trim();
+
+        if (tmpMobileNumber == '' || tmpMobileNumber.length<11) {
+            $("#LMessage").text('شماره همراه را وارد نمایید');
+            $('#LMessage').css('color', 'red');
+            return;
+        }
+        var d = { pBizCode: tmpBizCode, pNumber: tmpMobileNumber };
+        var c = JSON.stringify(d);
+        StartBusy('btnSend');
+        $request = $.ajax({
+            type: "POST",
+            url: "UCreateAccount.aspx/SendConfirmSMS",
+            data: c,
+            crossDomin: true,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            processdata: true,
+            success: function (msg) {
+                StopBusy('btnSend');
+
+                if (msg.d == '') {
+                    $('#LRecoveryError').text('خطا در ارسال کد');
+                    $('#LRecoveryError').css('color', 'red');
+                }
+                else {
+                    $('#LRecoveryError').text('کد تاییدیه با موفقیت به شماره همراه شما ارسال شد');
+                    $('#LRecoveryError').css('color', 'green');
+                    $('#txtConfirmCode').show();
+                    $("#txt_OwnerTell").prop("disabled", true);
+                    $("#txt_CEOCellNo").prop("disabled", true);
+                }
+            },
+
+            error: function (ex) {
+                $('#LRecoveryError').text('خطا در ارسال کد');
+                $('#LRecoveryError').css('color', 'red');
+                // StopBusy('btnSend');
+
+            }
+        });
+    }
+
+    function ConfirmCode_keypress(e) {
+
+        if ($('#txtConfirmCode').val().length == 5)
+            CheckConfirmCode();
+    };
+
+    function CheckConfirmCode() {
+
+        var tmpConfirmCode = $('#txtConfirmCode').val();
+        var tmpBizCode = $('#txt_Username').val();
+
+        var d = { pBizCode: tmpBizCode, pConfirmCode: tmpConfirmCode };
+        var c = JSON.stringify(d);
+
+        $('#LRecoveryError').text('');
+        $('#imgError').hide();
+
+        //StartBusy('txtConfirmCode');
+        $request = $.ajax({
+            type: "POST",
+            url: "UCreateAccount.aspx/CheckConfirmCode",
+            data: c,
+            crossDomin: true,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            processdata: true,
+            success: function (msg) {
+                // StopBusy('txtConfirmCode');
+
+                if (msg.d == true) {
+                    ConfirmCodeIsTrue = true;
+                    $('#txtConfirm').css('color', 'green');
+                    $('#LRecoveryError').css('color', 'green');
+                    $('#LRecoveryError').text('کد تاییدیه صحیح می باشد');
+                    $('#imgTick').show();
+                }
+                else {
+                    $('#txtConfirm').css('color', 'red');
+                    $('#LRecoveryError').css('color', 'red');
+                    $('#LRecoveryError').text('کد تاییدیه معتبر نمی باشد');
+                    $('#imgError').show();
+                }
+            },
+
+            error: function (c) {
+                // StopBusy('txtConfirmCode');
+            }
+        });
+    }
+
+    function getParameterByName(name) {
+        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+            results = regex.exec(location.search);
+        return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    }
+
+    function ToggleShowPass() {
+        var x = document.getElementById("txtPassword");
+        var x1 = document.getElementById("txt_ConfirmPass");
+
+        if (x.type === "password") {
+            x.type = "text";
+            x1.type = "text";
+            $('#imgShowPass').prop('src', '../images/showpassOff.png');
+        } else {
+            x.type = "password";
+            x1.type = "password";
+            $('#imgShowPass').prop('src', '../images/showpass.png');
+        }
+    }
+
+
+</script>

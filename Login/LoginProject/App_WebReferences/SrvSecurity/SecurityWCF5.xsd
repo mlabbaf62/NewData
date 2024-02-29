@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Security8.Web.Class" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Security8.Web.Class" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost/Security8.Web/Service/SecurityWCF.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/SecurityModel" />
+  <xs:import schemaLocation="http://localhost/Security8.Web/Service/SecurityWCF.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/" />
+  <xs:import schemaLocation="http://localhost/Security8.Web/Service/SecurityWCF.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:simpleType name="ClsAccountCharge.OperationType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Add" />
+      <xs:enumeration value="GetAll" />
+      <xs:enumeration value="Group" />
+      <xs:enumeration value="Delete" />
+      <xs:enumeration value="Search" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ClsAccountCharge.OperationType" nillable="true" type="tns:ClsAccountCharge.OperationType" />
+  <xs:complexType name="ClsAccountCharge">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SecurityModel" minOccurs="0" name="AccountChargeList" nillable="true" type="q1:ArrayOfAccountCharge" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/" minOccurs="0" name="ErrorResult" nillable="true" type="q2:ClsErrorResult" />
+      <xs:element minOccurs="0" name="RemainingCharge" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ToTalCharge" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ToTalCost" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClsAccountCharge" nillable="true" type="tns:ClsAccountCharge" />
+  <xs:complexType name="EntityExt">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EntityGuid" type="ser:guid" />
+      <xs:element minOccurs="0" name="ExtendedProperty" nillable="true">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:any minOccurs="0" processContents="lax" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" name="NidEntity" type="xs:int" />
+      <xs:element minOccurs="0" name="NidTtemplatFile" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EntityExt" nillable="true" type="tns:EntityExt" />
+  <xs:complexType name="ClsEntityInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EntityInfo" nillable="true" type="tns:EntityExt" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClsEntityInfo" nillable="true" type="tns:ClsEntityInfo" />
+  <xs:complexType name="ArrayOfEntityExt">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EntityExt" nillable="true" type="tns:EntityExt" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEntityExt" nillable="true" type="tns:ArrayOfEntityExt" />
+</xs:schema>

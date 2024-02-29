@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 14.5, 19.375" name="DbUGPModel">
+  <DataContextMoniker Name="/DbUGPModelDataContext" />
+  <nestedChildShapes>
+    <classShape Id="cb76b08e-869b-4e5c-aec1-870a47dbbac1" isExpanded="false" absoluteBounds="0.75, 4.5, 2, 0.45">
+      <DataClassMoniker Name="/DbUGPModelDataContext/Account_Info" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1e34f50f-aac6-4f49-a4c0-e0a769727a58" absoluteBounds="0.76500000000000012, 4.9600000000000009, 1.9700000000000002, 11.402872721354166" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1121ff05-7c5d-4b1f-843a-6884ff552ea2" absoluteBounds="3.5, 17.125, 2, 1.9631982421875023">
+      <DataClassMoniker Name="/DbUGPModelDataContext/Account_Message" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3b1b6c73-f886-43b6-a618-7cf6b79f4f90" absoluteBounds="3.515, 17.585, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="28f376c3-9550-4ab4-847f-f55951456c66" absoluteBounds="9.5, 7.75, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/DbUGPModelDataContext/CI_City" />
+      <nestedChildShapes>
+        <elementListCompartment Id="85dfb54f-b544-4f7a-85ca-aa7c5f9ecc66" absoluteBounds="9.515, 8.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9c30ce9d-27ba-4e78-88cd-2170068a6fb6" absoluteBounds="8.75, 1.5, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/DbUGPModelDataContext/CI_Degree" />
+      <nestedChildShapes>
+        <elementListCompartment Id="baf33e16-9e46-475c-be27-dcca7afc2fba" absoluteBounds="8.765, 1.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0b577739-f277-482e-98a1-6e35f083976d" absoluteBounds="8.75, 3.5, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/DbUGPModelDataContext/CI_LegalPerson" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f6053d69-e4c4-4410-983a-460514c15cd8" absoluteBounds="8.765, 3.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="294953b0-ae65-4e4d-bc1b-765245e5944f" absoluteBounds="12.25, 7.75, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/DbUGPModelDataContext/CI_NearCity" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9103105e-a002-4cd6-8af1-d1bdf98eb17d" absoluteBounds="12.265, 8.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e560b2e1-2ab9-476e-ad41-23a0b110781b" absoluteBounds="6.75, 9.125, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/DbUGPModelDataContext/CI_State" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1f14cbe2-1b09-4eb8-992f-1811dfb9be41" absoluteBounds="6.765, 9.585, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bb5d24bd-557e-4fd1-850c-22a2f3304525" absoluteBounds="11.75, 1.5, 2, 1.7708968098958329">
+      <DataClassMoniker Name="/DbUGPModelDataContext/Poll" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fa5749c8-9224-4df1-a543-eba025c7857c" absoluteBounds="11.765, 1.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="aa5e7540-4254-4d96-9843-c1cee0e64800" absoluteBounds="9.5, 9.875, 2, 1.7708968098958344">
+      <DataClassMoniker Name="/DbUGPModelDataContext/Request_InitUser" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fdb7fab2-67b9-46a7-a16c-2c116018906e" absoluteBounds="9.515, 10.335, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2f044e37-8269-4368-9a6e-465b3cc342fe" isExpanded="false" absoluteBounds="6.25, 1.5, 2, 0.45">
+      <DataClassMoniker Name="/DbUGPModelDataContext/Request_ProcLog" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7e068011-8816-4d0e-8ea7-aa0c18bbeafc" absoluteBounds="6.265, 1.96, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="120a6383-77d9-4ee6-909c-efb4c8fa485d" absoluteBounds="11.75, 4.5, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/DbUGPModelDataContext/RequestComment" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f710145e-6755-4012-95fb-530d5673932d" absoluteBounds="11.765, 4.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1bd55af7-778f-4232-b4dc-913faa16379a" isExpanded="false" absoluteBounds="0.75, 3.25, 2, 0.45">
+      <DataClassMoniker Name="/DbUGPModelDataContext/SysCI_ProcState" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bf0d6275-f112-4f38-8f39-c6219ab3a453" absoluteBounds="0.765, 3.71, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e0739117-51a1-4fc3-b5ef-667b9e85a129" absoluteBounds="6.75, 11, 2, 6.0015283203125">
+      <DataClassMoniker Name="/DbUGPModelDataContext/Account_Estate" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8872fbb8-8da7-420b-b9d8-6a37ac4c2e25" absoluteBounds="6.765, 11.46, 1.9700000000000002, 5.4415283203125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="cd62eee1-dc9e-4aec-9fb0-220362685118" absoluteBounds="2.875, 4.125, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/DbUGPModelDataContext/LogVisitor" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9e153c5f-015a-4672-8103-17dfaca31097" absoluteBounds="2.89, 4.585, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e6269a38-4f58-4e44-9340-a42e19f1d893" isExpanded="false" absoluteBounds="3, 0.75, 2, 0.45">
+      <DataClassMoniker Name="/DbUGPModelDataContext/Bazdid" />
+      <nestedChildShapes>
+        <elementListCompartment Id="454e464d-64f5-49a7-ad59-99296e589c21" absoluteBounds="3.015, 1.21, 1.9700000000000002, 3.518513997395833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b070a73d-c768-425e-896f-ac868813b061" absoluteBounds="0.75, 3.875, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/DbUGPModelDataContext/LogState" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ae3848a9-7fb5-4299-b175-f60fa9463e45" absoluteBounds="0.76500000000000012, 4.335, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="af2555e4-8ae1-42e8-a5b3-0d594f5c4b68" isExpanded="false" absoluteBounds="3.125, 3.375, 2, 0.45">
+      <DataClassMoniker Name="/DbUGPModelDataContext/WorkFlowArchive" />
+      <nestedChildShapes>
+        <elementListCompartment Id="41dcd4c0-c1fb-4cf0-a5ff-c22b689fd2db" absoluteBounds="3.1399999999999997, 3.835, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7a28b868-2057-4fff-8291-bc9e848b3ab2" isExpanded="false" absoluteBounds="3.125, 2.5, 2, 0.45">
+      <DataClassMoniker Name="/DbUGPModelDataContext/CI_Entity" />
+      <nestedChildShapes>
+        <elementListCompartment Id="17c2e6c8-52e1-47fd-8cbb-cd1da9e72aa0" absoluteBounds="3.14, 2.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="37084abc-8800-43ce-ad1d-6ae5b4c1f0cf" isExpanded="false" absoluteBounds="5.625, 2.375, 2, 0.45">
+      <DataClassMoniker Name="/DbUGPModelDataContext/PaymentLog" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2e821b89-198d-4dcc-b341-29cef66ebef7" absoluteBounds="5.64, 2.835, 1.9700000000000002, 4.095418294270833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="398dd130-246e-413d-aec3-ec749a478608" isExpanded="false" absoluteBounds="0.5, 0.5, 2, 0.45">
+      <DataClassMoniker Name="/DbUGPModelDataContext/SysCI_Workflow" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c54c3a8b-b663-4d45-8e6e-7a9e5a9f57f4" absoluteBounds="0.51500000000000012, 0.96, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b5a11abe-883c-4f61-aa12-a78499e74fef" isExpanded="false" absoluteBounds="5.625, 3.375, 2, 0.45">
+      <DataClassMoniker Name="/DbUGPModelDataContext/Step" />
+      <nestedChildShapes>
+        <elementListCompartment Id="99855695-fe4a-4162-8269-3c8e39ad6b8b" absoluteBounds="5.64, 3.835, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="312b1d4f-1ef1-4d4c-81ed-dc8a8f813bf1" isExpanded="false" absoluteBounds="0.5, 1.625, 2, 0.45">
+      <DataClassMoniker Name="/DbUGPModelDataContext/Request_Info" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d13caf37-38fd-44a7-91d8-a40ed73fb9d8" absoluteBounds="0.51500000000000012, 2.085, 1.9700000000000002, 6.5953369140625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="403e208c-a2d2-4f6e-a051-8c836093ec5d" absoluteBounds="6.75, 4.875, 2, 2.5401025390625">
+      <DataClassMoniker Name="/DbUGPModelDataContext/EngInfo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0c7bab51-5c43-4031-92c4-00cc755afc4a" absoluteBounds="6.765, 5.335, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="80c3cb81-edb2-4ae7-af5c-f0f5425cca5c" absoluteBounds="3.625, 1.75, 2, 2.5401025390625">
+      <DataClassMoniker Name="/DbUGPModelDataContext/ArchiveFile" />
+      <nestedChildShapes>
+        <elementListCompartment Id="189bf630-55f3-4913-b1a5-5fac4152b99f" absoluteBounds="3.64, 2.21, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d0418ac4-5dca-4324-88a9-9b233f64246f" absoluteBounds="7.125, 0.75, 2, 2.5401025390625">
+      <DataClassMoniker Name="/DbUGPModelDataContext/EngOffice" />
+      <nestedChildShapes>
+        <elementListCompartment Id="05276482-d843-486f-b8d8-5dd60d555e51" absoluteBounds="7.14, 1.21, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

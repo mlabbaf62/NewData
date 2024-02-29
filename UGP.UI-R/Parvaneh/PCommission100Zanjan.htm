@@ -1,0 +1,76 @@
+﻿<fieldset style="width: 100%; box-shadow: none" class="GamBox">
+    <div style="padding-left: 0px; float: right; padding-right:0;" class="col-md-12 col-xs-12 PanelVs GamBoxFrame">
+
+
+        <div id="DivComm" class="col-md-12" style="clear:both" ng-class="{'disabled':GamInputData.EumRequestStatus!=5}">
+
+            <span>بارگذاری نقشه </span>
+            <div ng-show="GamInputData.IsCouncil">
+                <span class="warning2" style="color:red">پرونده سمت شهرساز است . بعد از تایید برای شما پیامک ارسال میشود</span>
+                <hr />
+            </div>
+
+            <div id="DivCommission" >
+                <table class="GridView" style="overflow-x: auto">
+                    <thead>
+                        <tr>
+                            <td class="" style="border-left: 1px solid white;width:auto;width:150px">نام نقشه</td>
+                            <td class="" style="border-left: 1px solid white;width:270px">بارگذاری نقشه</td>
+                            <td class="" style="border-left: 1px solid white;width:150px">شماره درخواست موازی</td>
+
+                            <td class="" style="border-left: 1px solid white;width:120px">نظر شهرساز</td>
+                            <td class="" style="border-left: 1px solid white;width:auto">توضیحات (شهرساز)</td>
+
+                            <td class="" style="border-left: 1px solid white;width:120px">نظر سازمان</td>
+                            <td class="" style="border-left: 1px solid white;width:auto">توضیحات سازمان</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="x in LetterList_Com" style="height:45px">
+                            <td>
+                                <span ng-bind="x.LetterName" />
+                            </td>
+                            <td style="width:270px">
+                                <div style="float:right;width:40px;height:30px">
+                                    <img ng-show="x.Sh_OfficeLetter.ArchiveNidFile!=null && x.Sh_OfficeLetter.ArchiveNidFile!=''" src="{{ArchiveProvide}}Fname={{x.Sh_OfficeLetter.ArchiveNidFile}}&ZoomLevel=0&BizCode={{GamInputData.ArchiveBizCode}}&&DomainName={{GamInputData.District}}" class="zoom" style="width:40px;padding-top:5px" onclick="" />
+                                </div>
+                                <div ng-hide="x.Sh_OfficeLetter.EumConfirm==1" style="float:right" id="DivLetterCom{{$index}}"></div>
+                            </td>
+                            <td>
+                                <span ng-bind="x.Sh_OfficeLetter.NidWorkItem"></span>
+                            </td>
+                            <td style="min-width:80px">
+                                <img src="Images/Tick2.png" ng-show="x.Sh_OfficeLetter.EumConfirm==1" style="width:20px; height:21px" />
+                                <img src="Images/Error.png" ng-show="x.Sh_OfficeLetter.EumConfirm!=1" style="width:20px; height:21px" />
+                            </td>
+                            <td>
+                                <span ng-bind="x.Sh_OfficeLetter.Comments"></span>
+                            </td>
+
+
+                            <td style="min-width:80px">
+                                <img src="Images/Tick2.png" ng-show="x.Sh_OfficeLetter.EumConfirmOrganization==1" style="width:20px; height:21px" />
+                                <img src="Images/Error.png" ng-show="x.Sh_OfficeLetter.EumConfirmOrganization!=1" style="width:20px; height:21px" />
+                            </td>
+                            <td>
+                                <span ng-bind="x.Sh_OfficeLetter.CommentsOrganization"></span>
+                            </td>
+
+                        </tr>
+                        <tr ng-show="LetterList_Com.length==0">
+                            <td colspan="8" style="text-align: center">
+                                <span style="color: red">موردی یافت نشد</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+   
+
+            <hr />
+
+        </div>
+    </div>
+</fieldset>
+

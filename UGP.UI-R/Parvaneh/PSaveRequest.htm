@@ -1,0 +1,41 @@
+﻿<fieldset style=" box-shadow: none; " class="GamBox">
+    <div style="padding-left: 0px; float: right" class="col-md-12 col-xs-12 PanelVs GamBoxFrame">
+
+
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <span ng-bind="Prop.CurrentPageName"></span>
+            </div>
+
+            <div class="panel-body nopadding" style="min-height:300px; direction:rtl">
+                <div class="info" style="margin-bottom: 0px!important;" ng-include="'Config/Parvaneh/infoText/PSaveRequest.html'">
+                </div>
+
+                <div class="col-md-12" style="padding-top:5px" ng-hide="GamInputData.NidWorkItem>0">
+                    <div style="margin-bottom: 0px!important;" ng-include="'Parvaneh/UConfirmSMS.htm'"></div>
+                </div>
+
+                <hr />
+                <input class="btn btn-success" ng-hide="GamInputData.NidWorkItem>0" style="width:150px;float:right"
+                       type="button" value="ثبت درخواست" ng-click="Functions.Gam7Func.SaveRequest()">
+
+                <div class="EndRequest" style="text-align:center; font-size:large" ng-show="GamInputData.NidWorkItem>0">
+                    <img src="Images/Tick2.png" style="width:100px" />
+                    <div style="clear:both">
+                        <span style="color: green; font-weight: bold ;margin-right:30px">درخواست با موفقیت ثبت شد</span>
+                        <p>
+                            <span style="color: green; font-weight: bold;margin-left:5px">شماره پیگیری</span>
+                            <span style="color: green; font-weight: bold; text-align: center;letter-spacing:1px;" class="Error" ng-bind="GamInputData.NidWorkItem"></span>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+</fieldset>

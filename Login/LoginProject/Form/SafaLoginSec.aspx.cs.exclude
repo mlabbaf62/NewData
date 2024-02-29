@@ -1,0 +1,152 @@
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Web;
+using System.Web.Services;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace LoginProject
+{
+    public partial class SafaLoginSec : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            string url = HttpContext.Current.Request.Url.AbsoluteUri;
+            if (url.ToLower().Contains("domain"))
+            {
+                ClsCommon.Domain = Request["Domain"].ToString();
+            }
+            if (!string.IsNullOrEmpty(hfImg.Value))
+            {
+                imgFace.Src = "data:image/png;base64," + hfImg.Value;
+            }
+        }
+
+        protected void btnLogin_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtUserName.Text != "" && txtPassword.Text != "")
+                {
+                    var tmpSession = Request["S"];
+                    var tmpApplicationName = Request["ApplicationName"];
+
+                    //if (string.IsNullOrEmpty(tmpSession))
+                    //{
+                    //    LMessage.Text = "خطا در Login";
+                    //}
+
+                    var SrvSec = ClsCommon.getServiceAuth();
+
+                    string tmpKey = Guid.NewGuid().ToString();
+                    string tmpEncryptPass = RSAClient.Encrypt(txtPassword.Text, tmpKey.Substring(0, 6), tmpKey);
+                    string tmpEncryptUserName = ClsCommon.GetEncryptedUserName(txtUserName.Text, tmpKey);
+
+                    hfToken.Value = hfToken.Value.Replace(',', '$');
+
+                    string tmpUserCameraPicStr = "";
+                    if (!string.IsNullOrEmpty(hfImg.Value))
+                    {
+                        tmpUserCameraPicStr = "#" + "True";
+                    }
+
+                    tmpKey = string.Format("{0}#{1}{2}", tmpKey, hfToken.Value, tmpUserCameraPicStr);
+
+                    var tmpTrueLogin = SrvSec.Login(tmpEncryptUserName, tmpEncryptPass, tmpKey, false);
+                    if (tmpTrueLogin)
+                    {
+                        SrvSec.Close();
+                        LMessage.Text = "با موفقیت وارد سیستم شدید";
+                        LMessage.ForeColor = System.Drawing.Color.Green;
+
+                        var SrvSec1 = ClsCommon.getServiceSecurity();
+                        MemoryStream ms = new MemoryStream();
+
+                        var tmpImageByte = (byte[])Convert.FromBase64String(hfImg.Value);
+
+                        var tmpUser = SrvSec1.CheckOtherUserLogin(txtUserName.Text, null, tmpImageByte);
+
+                        SrvSec1.Close();
+                        var FullName = string.Format("({0}) {1} {2}", tmpUser.User.UserName, tmpUser.User.FirstName, tmpUser.User.LastName);
+                        GotoAddress(tmpUser.User.GUID.ToString(), FullName);
+                    }
+                    else
+                    {
+                        LMessage.Text = "نام کاربری یا کلمه عبور اشتباه می باشد";
+                        LMessage.ForeColor = System.Drawing.Color.Red;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                LMessage.Text = ex.Message;
+                LMessage.ForeColor = System.Drawing.Color.Red;
+            }
+        }
+
+        private void GotoAddress(string pSessionID, string pFullName)
+        {
+            var tmpUrlDeffered = ClsCommon.GetDeferedUrl();
+
+            if (string.IsNullOrEmpty(tmpUrlDeffered))
+            {
+                LMessage.Text = "آدرس دامنه مورد نظر یافت نشد";
+            }
+            else
+            {
+
+
+
+                var tmpAddress = string.Format("{0}?UserID={1}&FullName={2}&LoginMode=Sec", tmpUrlDeffered, pSessionID, pFullName);
+
+                if (ClsCommon.GetAppConfig<bool>("DebugMode") == true)
+                    ErrorLog.WriteLog(tmpAddress);
+
+                Response.Redirect(tmpAddress);
+            }
+        }
+
+        private static string GotoAddress2(string pSessionID, string pFullName)
+        {
+            var tmpUrlDeffered = ClsCommon.GetDeferedUrl();
+
+            if (string.IsNullOrEmpty(tmpUrlDeffered))
+            {
+                return "";
+            }
+            else
+            {
+                var tmpAddress = string.Format("{0}?UserID={1}&FullName={2}&LoginMode=Sec", tmpUrlDeffered, pSessionID, pFullName);
+
+                if (ClsCommon.GetAppConfig<bool>("DebugMode") == true)
+                    ErrorLog.WriteLog(tmpAddress);
+                return (tmpAddress);
+            }
+        }
+
+        [WebMethod(EnableSession = true)]
+        public static string RecognizeFace(string pFaceStr)
+        {
+            var SrvSec = ClsCommon.getServiceSecurity();
+            return SrvSec.RecognizeFace(pFaceStr);
+        }
+
+        [WebMethod]
+        public static string DoLogin(string pFaceStr, string UserName)
+        {
+            var SrvSec1 = ClsCommon.getServiceSecurity();
+            MemoryStream ms = new MemoryStream();
+
+            var tmpImageByte = (byte[])Convert.FromBase64String(pFaceStr);
+
+            var tmpUser = SrvSec1.CheckOtherUserLogin(UserName, null, tmpImageByte);
+
+            SrvSec1.Close();
+            var FullName = string.Format("({0}) {1} {2}", tmpUser.User.UserName, tmpUser.User.FirstName, tmpUser.User.LastName);
+            var res = GotoAddress2(tmpUser.User.GUID.ToString(), FullName);
+            return res;
+        }
+    }
+}

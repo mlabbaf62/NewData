@@ -1,0 +1,88 @@
+﻿<style>
+    .radioQuiz * {
+        color: black;
+    }
+
+    .radioQuiz > div {
+        clear: both;
+    }
+
+
+
+        .radioQuiz > div > input[type=radio] {
+            width: 20px;
+            float: right;
+            margin-left: 10px;
+        }
+
+        .radioQuiz > div > label {
+            font-size: 16px;
+            float: right;
+            margin-top: 5px;
+        }
+</style>
+<div id="DivQ1" class="radioQuiz">
+
+    <p>لطفا با دقت به سوالات زیر پاسخ دهید</p>
+    <hr />
+    <div>
+        <input type="radio" id="s1" name="s1" value="s1-0">
+        <label for="s1">1-زمین فاقد ساختمان(اعیانی) می باشد (ملک )</label><br>
+    </div>
+    <div>
+        <input type="radio" id="s1" name="s1" value="s1-1">
+        <label for="s1">2- زمین دارای ساختمان می باشد</label><br>
+    </div>
+
+    
+    <div>
+        <input type="button" class="btn btn-success" value="مرحله بعد" ng-click="Quize.NextQuiz(1)" style="width:80px" />
+    </div>
+</div>
+
+
+<div id="DivQ2" style="display:none" class="radioQuiz">
+    <hr />
+    <div ng-repeat="n in Questionnaire">
+        <input type="radio" id="s2" name="s2" value="s2-{{$index}}">
+        <label for="s2">{{n.SystemDiagnosis}}</label><br>
+    </div>
+
+    <div>
+
+        <input type="button" class="btn" value="مرحله قبل" style="width:80px;color:black" ng-click="Quize.PreQuiz(2)" />
+        <input type="button" class="btn btn-success" value="مرحله بعد" ng-click="Quize.NextQuiz(2)" style="width:80px" />
+    </div>
+</div>
+
+<div id="DivQ3" style="display:none" class="radioQuiz">
+
+    <p>سوال اول</p>
+    <hr />
+    <div ng-repeat="n in QuestionnaireDetail">
+        <input type="radio" id="s3" name="s3" value="s3-{{$index}}">
+        <label for="s3">{{n.Question}}</label>
+
+    </div>
+
+    <div>
+
+        <input type="button" class="btn" value="مرحله قبل" style="width:80px;color:black" ng-click="Quize.PreQuiz(3)" />
+        <input type="button" class="btn btn-success" value="مرحله بعد" ng-click="Quize.NextQuiz(3)" style="width:80px" />
+    </div>
+</div>
+
+
+<div id="DivQ4" style="display:none" class="radioQuiz">
+
+    <p>گزینه انتخابی نهایی</p>
+
+    [ <span style="font-size:larger; color:green" ng-bind="GamInputData.QuestionnaireDetailFinal.Answer"></span> ]
+
+    <div>
+
+        <input type="button" class="btn" value="مرحله قبل" style="width:80px;color:black" ng-click="Quize.PreQuiz(4)" />
+        <!--  <input type="button" class="btn btn-success" value="مرحله بعد" ng-click="NextQuiz(3)" style="width:80px" />-->
+    </div>
+</div>
+<span id="LMessageQ" style="color:red;"></span>

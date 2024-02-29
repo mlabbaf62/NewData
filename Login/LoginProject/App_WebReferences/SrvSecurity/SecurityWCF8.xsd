@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/SecurityModel.Esup" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SecurityModel.Esup" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost/Security8.Web/Service/SecurityWCF.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://localhost/Security8.Web/Service/SecurityWCF.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/SecurityModel" />
+  <xs:complexType name="ArrayOfLayer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Layer" nillable="true" type="tns:Layer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLayer" nillable="true" type="tns:ArrayOfLayer" />
+  <xs:complexType name="Layer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Coverage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Domain" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EnglishName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FarsiName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GeomColName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GeomType" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="LayerGuid" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="LayerName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LayerSetting" nillable="true" type="tns:LayerSetting" />
+      <xs:element minOccurs="0" name="LayerSettingGUID" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="LayerTitle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MainLayerId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="MapName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MapName1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MapServiceUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MapShareName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ServerUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShowLayer" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SortId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="StrGeomType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="layerType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="sys_ver" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Layer" nillable="true" type="tns:Layer" />
+  <xs:complexType name="LayerSetting">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Color" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CroquisFontName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CroquisFontSize" nillable="true" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="EnableCroquisLabels" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EnableLabels" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EnablePrintLabels" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="FontName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FontSize" nillable="true" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="GUID" type="ser:guid" />
+      <xs:element minOccurs="0" name="ImageUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsPublic" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsUpdateSetting" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IsVectorable" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LineColor" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MaxTileZoom" nillable="true" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="MaxZoomLevel" nillable="true" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="MinTileZoom" nillable="true" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="Opacity" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="PrintFontName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PrintFontSize" nillable="true" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="Thickness" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="ZoomLevel" type="xs:unsignedByte" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LayerSetting" nillable="true" type="tns:LayerSetting" />
+  <xs:complexType name="ArrayOfLayersChart">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LayersChart" nillable="true" type="tns:LayersChart" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLayersChart" nillable="true" type="tns:ArrayOfLayersChart" />
+  <xs:complexType name="LayersChart">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ChartIconUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ChartTitel" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ChartTitle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MapName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NidChart" type="xs:int" />
+      <xs:element minOccurs="0" name="NidParent" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="NidSort" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LayersChart" nillable="true" type="tns:LayersChart" />
+  <xs:complexType name="MapShare">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CNMapServiceUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CNName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CNTitel" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NidCn" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MapShare" nillable="true" type="tns:MapShare" />
+  <xs:complexType name="ArrayOfMapShare_Layer">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MapShare_Layer" nillable="true" type="tns:MapShare_Layer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMapShare_Layer" nillable="true" type="tns:ArrayOfMapShare_Layer" />
+  <xs:complexType name="MapShare_Layer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CNMapServiceUrl" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CNName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CNTitel" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LayerEnglishName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LayerFarsiName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NidCn" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="NidItem" type="ser:guid" />
+      <xs:element minOccurs="0" name="NidLayer" nillable="true" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MapShare_Layer" nillable="true" type="tns:MapShare_Layer" />
+  <xs:complexType name="ArrayOfMapShare">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MapShare" nillable="true" type="tns:MapShare" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMapShare" nillable="true" type="tns:ArrayOfMapShare" />
+  <xs:complexType name="ArrayOfSearchApplicationData_Category">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SearchApplicationData_Category" nillable="true" type="tns:SearchApplicationData_Category" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSearchApplicationData_Category" nillable="true" type="tns:ArrayOfSearchApplicationData_Category" />
+  <xs:complexType name="SearchApplicationData_Category">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApplicationTitle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EumApplication" type="xs:int" />
+      <xs:element minOccurs="0" name="NIdCategory" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SearchApplicationData_Category" nillable="true" type="tns:SearchApplicationData_Category" />
+  <xs:complexType name="ArrayOfSearchApplication_Permissions">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SearchApplication_Permissions" nillable="true" type="tns:SearchApplication_Permissions" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSearchApplication_Permissions" nillable="true" type="tns:ArrayOfSearchApplication_Permissions" />
+  <xs:complexType name="SearchApplication_Permissions">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccountName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ApplicationTitle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EumApplication" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="NidAccount" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="OwnerFirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OwnerLastName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="id" type="ser:guid" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SearchApplication_Permissions" nillable="true" type="tns:SearchApplication_Permissions" />
+  <xs:complexType name="ArrayOfUserLayerPermission">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserLayerPermission" nillable="true" type="tns:UserLayerPermission" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserLayerPermission" nillable="true" type="tns:ArrayOfUserLayerPermission" />
+  <xs:complexType name="UserLayerPermission">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AllowCSW" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AllowDelete" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AllowEdit" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AllowEditCartography" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AllowExport" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AllowSearch" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AllowSelect" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AllowTransform" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AllowView" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AllowWFS" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AllowWKT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AllowWMS" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AllowWPS" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Confirm1" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Confirm2" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Confirm3" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Confirm4" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ConfirmCount" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Count" type="xs:int" />
+      <xs:element minOccurs="0" name="LayerFarsiName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LayerGuid" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="LayerID" type="xs:int" />
+      <xs:element minOccurs="0" name="LayerName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NidLayer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NidPerimission" type="xs:long" />
+      <xs:element minOccurs="0" name="NidPermission" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="NidUserGroup" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="SqlCondition" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserGroupType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WKT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="createdAt" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="updatedAt" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="userCreator" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserLayerPermission" nillable="true" type="tns:UserLayerPermission" />
+  <xs:complexType name="ArrayOfUserLayerPermissions_WKT">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserLayerPermissions_WKT" nillable="true" type="tns:UserLayerPermissions_WKT" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserLayerPermissions_WKT" nillable="true" type="tns:ArrayOfUserLayerPermissions_WKT" />
+  <xs:complexType name="UserLayerPermissions_WKT">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ConditionType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NidPerimission" type="xs:long" />
+      <xs:element minOccurs="0" name="NidSecurityTemplate" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="NidWkt" type="ser:guid" />
+      <xs:element minOccurs="0" name="SqlCondition" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StrAutoUpdate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Titel" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Wkt" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserLayerPermissions_WKT" nillable="true" type="tns:UserLayerPermissions_WKT" />
+  <xs:complexType name="ArrayOfURS">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="URS" nillable="true" type="tns:URS" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfURS" nillable="true" type="tns:ArrayOfURS" />
+  <xs:complexType name="URS">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SecurityModel" minOccurs="0" name="AdminUsers" nillable="true" type="q1:ArrayOfUser" />
+      <xs:element minOccurs="0" name="AllowAssignToUser" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AllowForms" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AllowReports" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AllowSend" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AllowSendToback" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DomainName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="JobLocationGuid" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="JobLocationName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NidURS" type="ser:guid" />
+      <xs:element minOccurs="0" name="NidUser" type="ser:guid" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserOrRole" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="UserOrRoleName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserOrRoleType" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="URS" nillable="true" type="tns:URS" />
+  <xs:complexType name="EsupMessage">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CI_MessageType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsClosed" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MessageBody" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MessageCounter" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="MessageSummary" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MessageTitel" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NidMessage" type="xs:long" />
+      <xs:element minOccurs="0" name="PicSummary" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StrDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StrTime" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EsupMessage" nillable="true" type="tns:EsupMessage" />
+  <xs:complexType name="ArrayOfEsupMessage">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EsupMessage" nillable="true" type="tns:EsupMessage" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEsupMessage" nillable="true" type="tns:ArrayOfEsupMessage" />
+</xs:schema>

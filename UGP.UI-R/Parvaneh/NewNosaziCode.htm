@@ -1,0 +1,21 @@
+﻿<fieldset style=" box-shadow: none; " class="GamBox">
+    <div style="padding-left: 0px; float: right" class="col-md-12 col-xs-12 PanelVs GamBoxFrame">
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <span ng-bind="Prop.CurrentPageName"></span>
+            </div>
+            <div class="panel-body nopadding" style="min-height:300px; direction:rtl">
+                <input type="button" value="گزارش" ng-click="ShowReport('NewNosaziCode')" />
+                <div class="EndRequest" style="text-align:center; font-size:large" ng-show="GamInputData.NidWorkItem>0">
+                    <img src="Images/Tick2.png" style="width:100px" />
+                    <div style="clear:both">
+                        <span style="color: green; font-weight: bold ;margin-right:30px">کد نوسازی شما عبارت است از</span>
+                        <p>
+                            <span style="color: green; font-weight: bold; text-align: center;letter-spacing:1px;" class="Error" ng-bind="GamInputData.CurrentNosaziCode"></span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</fieldset>

@@ -1,0 +1,47 @@
+﻿{
+  "formData": {
+    "controls": [
+      {
+        "label": "Personal Info",
+        "controls": [
+          {
+            "label": "Name",
+            "type": "text",
+            "value": "John Doe"
+          },
+          {
+            "label": "Description",
+            "type": "textarea",
+            "value": "Lorem ipsum"
+          },
+          {
+            "label": "Country",
+            "type": "select",
+            "options": [ "USA", "Canada", "UK" ],
+            "value": "USA"
+          }
+        ]
+      },
+      {
+        "label": "Subscription",
+        "controls": [
+          {
+            "label": "Subscribe to Newsletter",
+            "type": "checkbox",
+            "value": true
+          }
+        ]
+      },
+      {
+        "label": "Gender",
+        "controls": [
+          {
+            "label": "Gender",
+            "type": "radio",
+            "value": "male"
+          }
+        ]
+      }
+    ]
+  }
+}

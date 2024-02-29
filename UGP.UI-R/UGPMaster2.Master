@@ -1,0 +1,191 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="UGPMaster.Master.cs" Inherits="UGP.UI.UGPMaster" %>
+
+<%--<%@ Register Src="~/UC_Main/UPoll.ascx" TagPrefix="uc1" TagName="UPoll" %>--%>
+<%@ Register Src="~/UC_Main/UHeader.ascx" TagPrefix="uc1" TagName="UHeader" %>
+<%@ Register Assembly="UGP.UI" Namespace="UGP.UI.Common" TagPrefix="cc1" %>
+<%@ Register Src="UC_Main/UMenu.ascx" TagName="UMenu" TagPrefix="uc4" %>
+<%@ Register Src="~/UC_Main/UFooter.ascx" TagPrefix="uc1" TagName="UFooter" %>
+
+<%@ Register Src="UC_Main/UUserInfoAdmin.ascx" TagName="UUserInfoAdmin" TagPrefix="uc1" %>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fa" lang="fa" dir="rtl">
+
+<head id="Head1" runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <%-- <meta http-equiv="Content-Language" content="fa" />--%>
+    <%--  <meta http-equiv="Content-Security-Policy" content="Content-Security-Policy: default-src *" />--%>
+
+    <title>سامانه خدمات اینترنتی
+شهرداری </title>
+    <script src="js/jquery.min.js" type="text/javascript"></script>
+      <script src="Config/Config.js?v=23"></script>
+
+
+     <script type="text/javascript">
+         var Config = null;
+         
+         function GetConfig(xml) {
+             $.ajax({
+                 type: "POST",
+                 url: "USHowFishj.aspx/GetConfig",
+
+                 crossDomin: true,
+                 contentType: "application/json; charset=utf-8",
+                 dataType: "json",
+                 processdata: true,
+
+                 success: function (msg) {
+                     
+                     var tmpRes = msg.d;
+                     Config = tmpRes;
+   
+                 },
+                 error: function (c) {
+
+                 }
+             });
+         }
+
+         GetConfig();
+
+     </script>
+
+
+      <script src="js/Main/Menu.js?v=23"></script>
+
+  
+
+    <link href="js/SafaSDI.min.css?v=23" rel="stylesheet" />
+    <link href="js/GeoPortal.min.css" rel="stylesheet" />
+    <script src="js/Busy.js?v=23"></script>
+    <link async href="Style/jquery.jqplot.min.css" rel="stylesheet" />
+    <script src="js/SafaSdi.js?v=23"></script>
+    <script src="js/GeoPortal.min.js?v=23"></script>
+    <script src="Config/BaselayerProviders.js?v=23"></script>
+    <script src="js/MapFn.js?v=23"></script>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="Archive/AppConfig.js?v=23"></script>
+    <script type="text/javascript" src="Archive/SafaArchive.min.js?v=23"></script>
+    <link rel="stylesheet" href="Archive/SafaArchiveCss.min.css" />
+    <link href="css/js-persian-cal.css?v=23" rel="stylesheet" />
+    <script src="js/js-persian-cal.js?v=23"></script>
+    <script src="css/Date/js-persian-cal.min.js?v=23"></script>
+    <link href="Style/style.css?v=23" rel="stylesheet" type="text/css" media="screen" />
+    <link href="Style/GamStyle.css?v=23" rel="stylesheet" type="text/css" media="screen" />
+    <link href="Style/mediascreen.css?v=23" rel="stylesheet" type="text/css" media="screen" />
+    <script src="js/Main/safaSecurity.min.js" type="text/javascript"></script>
+    <script src="js/aes.js"></script>
+
+    <script src="js/Main/Login.js?v=23"></script>
+    <script src="js/Main/Crypto.min.js"></script>
+
+    <script src="js/Main/Master.js?v=23"></script>
+
+        <script type="text/javascript" src="js/Main/FichFunc.min.js?v=23"></script>
+  
+  
+
+    
+    <style>
+        .GL, .GR {
+            display: none;
+        }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <script src="Config/ChatConfig.js?v=23" type="text/javascript"></script>
+
+</head>
+<asp:ContentPlaceHolder ID="head" runat="server">
+</asp:ContentPlaceHolder>
+
+<body id="mybody" ng-app="App">
+
+    <form id="form1" runat="server" onsubmit="return false">
+
+
+        <div id="page" style="z-index: 10;">
+
+            <div id="MainHeader">
+
+                <%--   <div>
+                    <uc1:UHeader runat="server" ID="UHeader1" />
+                </div>--%>
+
+
+                <div style="clear: both; height: 35px">
+                    <uc4:UMenu ID="UMenu2" runat="server" />
+
+                    <%--    <uc1:UUserInfoAdmin ID="UUserInfoAdmin1" runat="server" />--%>
+                </div>
+
+
+            </div>
+
+            <div id="DivTitle" style="padding-right: 10px">
+                <p style="font-weight: bold;" class="h4" id="MainH3"></p>
+            </div>
+
+            <div id="MainBody">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <div id="DivFooter" style="text-align: center; clear: both; bottom: 5px" ng-include="'Config/UFooter.html'">
+            </div>
+        </div>
+
+
+
+    </form>
+
+    <div id="footerUper" class="hidden-xs ">
+        <uc1:UFooter runat="server" ID="UFooter" />
+        <asp:Label runat="server" ID="lblVersion"></asp:Label>
+    </div>
+
+    <script>
+
+        try {
+
+            var OldH3 = $("h3:not(#MainH3)");
+
+            if (OldH3.length > 0) {
+                $("#MainH3").append(OldH3[0].innerHTML);
+                OldH3.remove();
+                $($('#MainHeader').children(0)).height(70);
+                //if (OldH3[0].innerHTML != '"↵   ↵   "') {
+                //  $('#login').height(43);
+                // }
+            }
+        }
+        catch (ex) { }
+
+        $(document).ready(function () {
+
+            var fCont = $("#footerUper").html();
+            $("#footerUper").html(" ");
+            $("#mybody").append(fCont);
+            $('#GoUpBt').click(function () {
+                $('html, body').animate({ scrollTop: $('#page').offset().top - 100 }, 'slow');
+            });
+        });
+
+    </script>
+
+
+    <script type="text/javascript">
+
+        AccountInfo =<%=ClsCommon.GetAccountInfo2()%>
+
+    </script>
+
+
+    <link href="css/newStyle.css?v=a8" rel="stylesheet" type="text/css" media="screen" />
+    <%--  <link href="Style/font-awesome.min.css?v=a8" rel="stylesheet" type="text/css" media="screen" />--%>
+</body>
+
+
+</html>

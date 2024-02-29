@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="122133b1-0283-451b-bfb6-9f29e1c76d79" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://labbaf/security8.web/Service/Authentication.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Authentication.xsd" MetadataType="Schema" ID="00068aab-4159-4578-bac3-0fd25f458f67" SourceId="1" SourceUrl="http://labbaf/Security8.Web/Service/Authentication.svc?xsd=xsd1" />
+    <MetadataFile FileName="Authentication.wsdl" MetadataType="Wsdl" ID="e0c5161c-fd66-4e2d-8960-b1b6b29cb561" SourceId="1" SourceUrl="http://labbaf/Security8.Web/Service/Authentication.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="Authentication.disco" MetadataType="Disco" ID="c7b753ed-04fb-4c8e-af96-43dd1d1041ca" SourceId="1" SourceUrl="http://labbaf/Security8.Web/Service/Authentication.svc?disco" />
+    <MetadataFile FileName="Authentication1.xsd" MetadataType="Schema" ID="aa308000-9f3b-486e-9ea0-51dd5d55124c" SourceId="1" SourceUrl="http://labbaf/Security8.Web/Service/Authentication.svc?xsd=xsd0" />
+    <MetadataFile FileName="AuthenticationService.wsdl" MetadataType="Wsdl" ID="909540c9-7e58-47b8-9f85-445f708e4082" SourceId="1" SourceUrl="http://labbaf/Security8.Web/Service/Authentication.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

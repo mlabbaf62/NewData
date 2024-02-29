@@ -1,0 +1,485 @@
+﻿<style>
+    /* Style the tab */
+    .tab {
+        overflow: hidden;
+        border: 1px solid #ccc;
+        background-color: #f1f1f1;
+        height: 42px;
+    }
+
+        /* Style the buttons that are used to open the tab content */
+        .tab input[type=button] {
+            background-color: inherit;
+            float: right !important;
+            border: none !important;
+            outline: none !important;
+            cursor: pointer !important;
+            padding: 9px 14px 14px 14px !important;
+            transition: 0.3s !important;
+            border-radius: 0 !important;
+            margin: 0 !important;
+            height: 42px !important;
+        }
+
+            /* Change background color of buttons on hover */
+            .tab input[type=button]:hover {
+                background-color: #ddd;
+            }
+
+            /* Create an active/current tablink class */
+            .tab input[type=button].active {
+                background-color: #ccc;
+            }
+
+    /* Style the tab content */
+    .tabcontent {
+        display: none;
+        padding: 6px 12px;
+        border: 1px solid #ccc;
+        border-top: none;
+        /*height: 100%;*/
+    }
+    input[type=text]{
+    text-align:center!important;
+    }
+</style>
+
+<div id="divZabeteMain"></div>
+<fieldset id="divZabete" class="GamBox">
+
+    <div style="padding-left: 0px; float: right" class="col-md-12 col-xs-12 PanelVs GamBoxFrame">
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <span ng-bind="Prop.CurrentPageName"></span>
+            </div>
+            <div class="info" ng-include="'Config/ParvanehSh/infoText/PGam9_Zabete.html'">
+            </div>
+            <hr />
+
+            <div id="Zabete" class="" style="display:block">
+
+                <div style="clear:both">
+
+                    <div class="col-md-12 col-xs-12 info">
+                        <img style="padding: 10px; float: right;" src="Images/info-icon.png" />
+                        نکته : کلیه مقادیر فوق بر اساس نقشه های هوایی 1/2000 محاسبه شده و مقادیر دقیق ، صرفا پس از نقشه برداری دقیق پلاک قابل استناد است . ضمنا ضابطه بر اساس مساحت باقیمانده عرصه پس از بر اصلاحی اعلام گردیده و امتیاز عرصه در مسیر پس از تنظیم صلحنامه با ضابطه عرصه اولیه در زمان پروانه اعمال خواهد شد . این مقادیر صرفا به منظور اطلاع رسانی از کلیات ضوابط پلاک بوده و از نظر حقوقی مقادیر ، فاقد اعتبار میباشد
+                    </div>
+                    <div id="CtlZabtehId">
+                        <div id="DivTop">
+
+                            <div class="col-md-12 col-xs-12">
+                                <div class="col-md-12 col-xs-12"></div>
+                                <div class="col-md-10 col-xs-12">
+                                    <asp:Label ID="lbl_address" runat="server" ng-bind="MainAddress"></asp:Label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 col-xs-12 nopadding">
+                                <div id="GridViewTarakom" class="panel panel-success" ng-show="Base_PlanMosavab">
+                                    <div class="panel-heading">
+                                        <span>کاربری و تراکم</span>
+                                    </div>
+                                    <div class="panel-body " style="padding-left: 2px; padding-right: 2px; padding-bottom: 0px;">
+                                        <div class="GridView2 LowOpacity">
+                                            <div class="col-sm-6 col-md-6 col-lg-6 col-xs-12 form-inline border nopadding" style="float: right;">
+                                                <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6">
+                                                    <span ng-bind="Base_PlanMosavab.PlanTypeTitle"></span>
+                                                </div>
+
+                                                <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6 textAlignRight ">
+                                                    <span>طرح تفصیلی مصوب:</span>
+                                                </div>
+
+                                            </div>
+
+
+
+                                            <div class="col-sm-6 col-md-6 col-lg-6 col-xs-12 form-inline border nopadding" style="float: right;">
+                                                <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6 ">
+                                                    <span ng-bind="Base_PlanMosavab.DensityPercent"></span>
+                                                </div>
+
+                                                <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6 textAlignRight">
+                                                    <span>تراکم مصوب :</span>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-sm-6 col-md-6 col-lg-6 col-xs-12 form-inline border nopadding">
+                                                <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6 ">
+                                                    <span ng-bind="Base_PlanMosavab.PlanUsingTypeTitle"></span>
+                                                </div>
+
+                                                <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6 textAlignRight">
+                                                    <span>کاربری مصوب :</span>
+                                                </div>
+
+                                            </div>
+
+
+
+
+                                            <div class="col-sm-6 col-md-6 col-lg-6 col-xs-12 form-inline border nopadding">
+                                                <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6 ">
+                                                    <span ng-bind="MapInfo.Base_HouseInfo.DocArea" CssClass="LeftFloat"></span>
+                                                </div>
+
+                                                <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6 textAlignRight">
+                                                    <span>مساحت طبق سند:</span>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-sm-6 col-md-6 col-lg-6 col-xs-12 form-inline border nopadding">
+
+                                                <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6 ">
+                                                    <span ng-bind="MapInfo.Base_HouseInfo.MapArea"></span>
+                                                </div>
+
+                                                <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6 textAlignRight">
+                                                    <span>مساحت طبق نقشه :</span>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-sm-6 col-md-6 col-lg-6 col-xs-12 form-inline border nopadding">
+                                                <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6 ">
+                                                    <span ng-bind="MapInfo.Base_HouseInfo.MapAreaInPath"></span>
+                                                </div>
+
+                                                <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6 textAlignRight">
+                                                    <span>مقدار در مسیر طبق نقشه :</span>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="col-sm-6 col-md-6 col-lg-6 col-xs-12 form-inline border nopadding">
+                                                <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6 ">
+                                                    <span ng-bind="Base_PlanMosavab.BusyArea"></span>
+                                                </div>
+
+                                                <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6 textAlignRight">
+                                                    <span>سطح اشغال مصوب :</span>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-sm-6 col-md-6 col-lg-6 col-xs-12 form-inline border nopadding">
+                                                <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6 ">
+                                                    <span ng-bind="Base_PlanMojaz.BusyArea"></span>
+                                                </div>
+
+                                                <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6 textAlignRight">
+                                                    <span>سطح اشغال مجاز :</span>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-sm-6 col-md-6 col-lg-6 col-xs-12 form-inline border nopadding">
+                                                <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6">
+                                                    <span ng-bind="MapInfo.Base_HouseInfo.MapAreaAfterEdit"></span>
+                                                </div>
+
+                                                <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6 textAlignRight">
+                                                    <span>میزان باقیمانده طبق نقشه :</span>
+                                                </div>
+
+
+
+                                            </div>
+                                            <div class="col-sm-6 col-md-6 col-lg-6 col-xs-12 form-inline border nopadding">
+                                                <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6 ">
+                                                    <span ng-bind="Base_PlanMojaz.PlanTypeTitle"></span>
+                                                </div>
+
+                                                <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6 textAlignRight">
+                                                    <span>طرح تفصیلی مجاز:</span>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-sm-6 col-md-6 col-lg-6 col-xs-12 form-inline border nopadding">
+                                                <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6 ">
+                                                    <span ng-bind="Base_PlanMojaz.DensityPercent"></span>
+                                                </div>
+
+                                                <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6 textAlignRight">
+                                                    <span>تراکم مجاز :</span>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-sm-6 col-md-6 col-lg-6 col-xs-12 form-inline border nopadding">
+                                                <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6 ">
+                                                    <span ng-bind="Base_PlanMojaz.PlanUsingTypeTitle"></span>
+                                                </div>
+
+                                                <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6 textAlignRight">
+                                                    <span>کاربری مجاز :</span>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr />
+                            <div class="col-md-12" id="divZavabeh">
+                                <br />
+
+                                <div class="panel panel-success">
+                                    <div class="panel-heading">
+                                        <span>زیربنای قابل ساخت در طبقات</span>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="GridView">
+                                            <table class="GridView ">
+                                                <thead>
+                                                    <tr>
+                                                        <td class="" style="width: 180px">شماره ساختمان</td>
+                                                        <td class="" style="width: 100px">طبقه</td>
+                                                        <td class="" style="width: 30%">کاربری</td>
+                                                        <td class="" style="width: 35%; text-align: right">مورد استفاده</td>
+                                                        <td class="" style="width: 120px">مساحت</td>
+                                                        <td class="" style="width: 120px">تعداد واحد</td>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr ng-repeat="x in Base_UsingList">
+                                                        <td class="" ng-bind="x.BuildingNo"></td>
+                                                        <td class="" ng-bind="x.FloorNo"></td>
+                                                        <td class="" >{{GetCI('CI_UsingGroup' , x.CI_UsingGroup)}}</td>
+                                                        <td class="" style="text-align: right">{{GetCI('CI_UsingType' , x.CI_UsingType)}}</td>
+                                                        <td class="" ng-bind="x.UsingArea"></td>
+                                                        <td class="" ng-bind="x.UnitCount"></td>
+                                                    </tr>
+
+                                                </tbody>
+
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="panel panel-success">
+                                    <div class="panel-heading">
+                                        <span>پیش آمدگی ها</span>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="GridView LowOpacity">
+                                            <table class="GridView ">
+                                                <thead>
+                                                    <tr>
+                                                        <td class="" style="width: 180px">شماره ساختمان</td>
+                                                        <td class="" style="width: 100px">طبقه</td>
+                                                        <td class="" style="width: 25%">کاربری</td>
+                                                        <td class="" style="width: 30%; text-align: right">مورد استفاده</td>
+                                                        <td class="" style="width: 120px">مساحت</td>
+                                                       
+                                                        <td class="" style="width: 100px">طول</td>
+                                                        <td class="" style="width: 100px">عرض</td>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr ng-repeat="x in Base_FrontList">
+                                                        <td class="" ng-bind="x.BuildingNo"></td>
+                                                        <td class="" ng-bind="x.FloorNo"></td>
+                                                        <td class="" >{{GetCI('CI_UsingGroup' , x.CI_UsingGroup)}}</td>
+                                                        <td class="" style="text-align: right">{{GetCI('CI_UsingType' , x.CI_UsingType)}}</td>
+                                                        <td class="" ng-bind="x.FrontArea"></td>
+                                                        
+                                                        <td class="" ng-bind="x.FrontLength"></td>
+                                                        <td class="" ng-bind="x.FrontWidth"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="5" style="color: red" ng-bind="Base_FrontListMessage"></td>
+                                                    </tr>
+                                                </tbody>
+
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-12 panel panel-success" ng-show="GamInputData.rw==2">
+                                <div class="panel-heading">
+                                    <span>توافقات</span>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="GridView LowOpacity">
+                                        <table class="GridView" style="overflow-x: auto">
+                                            <thead>
+                                                <tr>
+                                                    <td class="" style="border-left: 1px solid white">کاربر</td>
+                                                    <td class="" style="border-left: 1px solid white">تاریخ</td>
+                                                    <td class="" style="border-left: 1px solid white">ساعت</td>
+                                                    <td class="" style="border-left: 1px solid white">توضیحات</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr ng-repeat="x in Sh_Agreement_List">
+                                                    <td>
+                                                        <span ng-bind="x.UserName" />
+                                                    </td>
+                                                    <td>
+                                                        <span ng-bind="x.AgreementDate" />
+                                                    </td>
+                                                    <td>
+                                                        <span ng-bind="x.AgreementTime" />
+                                                    </td>
+                                                    <td>
+                                                        <span ng-bind="x.Comments" />
+                                                    </td>
+
+                                                </tr>
+                                                <tr ng-show="Sh_Agreement_List.length==0">
+                                                    <td colspan="8" style="text-align: center">
+                                                        <span style="color: red">موردی یافت نشد</span>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div ng-show="myVar" class="col-md-12 col-xs-12 nopadding">
+                                <div class="col-md-12 col-xs-12 info " ng-hide="Comment=='' || Comment==null" style="">
+                                    <span style="float: right; color: red" ng-bind="Comment"></span>
+                                </div>
+
+                                <br />
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+              
+                <div id="divSelect" class="col-md-12 GamBoxFrame radioQuiz" style="border:2px solid #05a2b7">
+                    <div id="rw1">
+                        <input type="radio" name="rw" style="width:15px;height:20px" onclick="rwClick(0)" onload="rwClick(0)" value="0" ng-model="GamInputData.rw" /> <span>تقاضای صدور پروانه دقیقاً طبق جدول فوق را دارم</span>
+                    </div>
+                    <div id="rw2">
+                        <input type="radio" name="rw" style="width:15px;height:20px" onclick="rwClick(1)" onload="rwClick(1)" value="1" ng-model="GamInputData.rw" /> <span>(طبقات، زیربنا، واحد) مورد نیاز من، کمتر از جدول فوق است</span>
+
+                    </div>
+                    <div id="rw3">
+                        <input type="radio" name="rw" style="width:15px;height:20px" onclick="rwClick(2)" onload="rwClick(2)" value="2" ng-model="GamInputData.rw" /> <span>تقاضای صدور پروانه بیش از مقادیر جدول را دارم</span>
+                    </div>
+                    <div>
+                        <hr />
+                        <input id="btnFinalApproval" style="display:none;padding:0 15px" type="button" class="btn btn-success" ng-click="ZabeteCommit()" value="تایید نهایی" />
+                        <span ng-bind="ErrorMessageCommit" style="color:green"></span>
+                        <span id="rw2Div" class="warning2" style="font-size:medium; padding-right:30px;color:green; display:none">
+                            لطفاً طبقه، زیربنا یا واحدی که قصد کاهش آن را دارید در جدول ذیل وارد نمائید
+                        </span>
+
+                        <div class="warning2" id="rw3Div" style="display:none;color:green;padding-right:30px;font-size:medium;">
+                            <p class="warning2" style="color:green;font-size:medium;">
+                                درخواست افزایش (طبقه،زیربنا،واحد) باید پس از بررسی توسط شهرداری و در صورت تائید، به کمیسیون ماده پنج جهت تصویب ارسال گردد،
+                            </p>
+                            <p style="color:green;font-size:medium;">
+                                این فرآیند ممکن است زمان بر و دارای هرینه باشد. در صورتی که همچنان مایل به افزایش مقادیر جدول فوق هستید، مقادیر درخواستی را در جدول ذیل وارد نمائید
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+               
+                <div id="divSendDatap" ng-show="GamInputData.rw>-1" class="col-md-12" style="clear:both ;float:right;">
+                   
+                    <div style="clear:both ;float:right" class="col-md-12" ng-class="{'disabled':GamInputData.SendToShahrsazOk2==true}">
+                        <span>توضیحات عدم تایید ضابطه ساختمانی</span>
+                        <table ng-class="{'disabled':GamInputData.rw==0}" class="GridView" style="overflow-x: auto ;float:right ;width:100%">
+                            <thead>
+                                <tr>
+                                    <td ng-show="GamInputData.rw> 0" style="width:50px"></td>
+                                    <td ng-show="GamInputData.rw> 0" style="width:90px"  class="">نوع درخواست</td>
+                                    <td class="" style="width:110px">شماره ساختمان</td>
+                                    <td class=""  style="width:80px">طبقه</td>
+                                    <td class=""  style="width:80px">کاربری</td>
+                                    <td class=""  style="width:80px">مورد استفاده</td>
+                                    <td class=""  style="width:80px">مساحت</td>
+                                    <td class=""  style="width:80px">تعداد واحد</td>
+                                    <td class=""  style="">توضیحات شهروند</td>
+
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="x in UGP_FormsConfirmationListZabete">
+                                        <td ng-show="GamInputData.rw> 0" style="width:50px">
+                                            <input ng-show="$index==0 && GamInputData.rw==2" type="button" title="اضافه کردن درخواست" style="background-image:url('Images/addButton.png');width: 30px;background-size: cover;height: 30px!important;" ng-click="AddRequestType()">
+                                            <input type="button" title="حذف درخواست" style="background-image:url('Images/close.png');width: 30px;background-size: cover;height: 30px!important;" ng-click="RemoveRequestType(x)">
+                                        </td>
+                                        <td ng-show="GamInputData.rw> 0" style="width:100px">
+                                            <select id="cmbWorkFlowDeff" style="min-width:100px" ng-model="x.UGP_FormsConfirmation.CI_RequirmentForZabeteh"
+                                                    ng-options="x.id as x.Name for x  in RequestType2"></select>
+                                        </td>
+
+                                        <td style="width:auto">
+                                            <input type="text" style="width:110px" ng-model="x.UGP_FormsConfirmation.BuildingNo" class="numbers " maxlength="3" />
+                                        </td>
+
+
+                                        <td style="width:auto">
+                                            <input type="text" style="width:80px" ng-model="x.UGP_FormsConfirmation.FloorNoForZabeteh" class="numbers" maxlength="3" />
+                                        </td>
+
+                                        <td style="width:auto">
+                                           
+
+                                            <select id="cmbWorkFlowDeff" style="width:150px" ng-model="x.UGP_FormsConfirmation.CI_UsingGroup"
+                                                    ng-options="x.Id as x.Title for x  in GetCI_ListCombo('CI_UsingGroup')"
+                                                    ng-change="myFunction(x.UGP_FormsConfirmation.CI_UsingGroup,$index)"></select>
+                                        </td>
+
+                                 
+                                        <td style="width:auto">
+                                          
+                                            <select id="cmbCI_UsingType{{$index}}" style="width:150px" ng-model="x.UGP_FormsConfirmation.CI_UsingType"
+                                                    ng-options="obj.Id as obj.Title for obj in CI_UsingType"
+                                                    >
+
+                                              
+
+                                            </select>
+
+
+                                        </td>
+
+                                        <td style="width:auto">
+                                            <input type="text" style="width:80px" ng-model="x.UGP_FormsConfirmation.InfrastructureArea" class="numbers" maxlength="7" />
+                                        </td>
+                                        <td style="width:auto">
+                                            <input type="text" style="width:80px" ng-model="x.UGP_FormsConfirmation.UnitCount" class="numbers" maxlength="4" />
+                                        </td>
+
+                                        <td style="width:auto">
+                                            <input type="text" style="width:100%" ng-model="x.UGP_FormsConfirmation.CitizenComments" />
+                                        </td>
+                                    </tr>
+                                    <tr ng-show="UGP_FormsConfirmationListZabete.length==0">
+                                        <td colspan="8" style="text-align: center">
+                                            <span style="color: red">موردی یافت نشد</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+
+                            </table>
+
+                            <div class="FloatRightDiv">
+                                <input id="btnZabeteComment" type="button" class="btn btn-success" style="padding-right:30px; padding-left:30px" ng-click="SaveZabeteComment()" value="ذخیره" />
+                                <input type="button" id="btnSendToKartable2" class="btn btn-success" ng-show="UGP_FormsConfirmationListZabete.length>0 && GamInputData.SendToShahrsazOk2!=true" style="padding-right:30px; padding-left:30px" ng-click="SendToShahrsaz(2)" value="ارسال پرونده به شهرداری" />
+                                <span id="lblError" ng-bind="Prop.ErrorMessageComment" ng-style="{ 'color': ErrorColor }" style="color: red"></span>
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </fieldset>
+

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/System" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/System" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost/Security8.Web/Service/SecurityWCF.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/SecurityModel" />
+  <xs:complexType name="ArrayOfTupleOfUserModelUserModelSearch.SearchOperationArrayOfNullableOfintjROcu98Y">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TupleOfUserModelUserModelSearch.SearchOperationArrayOfNullableOfintjROcu98Y" nillable="true" type="tns:TupleOfUserModelUserModelSearch.SearchOperationArrayOfNullableOfintjROcu98Y" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTupleOfUserModelUserModelSearch.SearchOperationArrayOfNullableOfintjROcu98Y" nillable="true" type="tns:ArrayOfTupleOfUserModelUserModelSearch.SearchOperationArrayOfNullableOfintjROcu98Y" />
+  <xs:complexType name="TupleOfUserModelUserModelSearch.SearchOperationArrayOfNullableOfintjROcu98Y">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="TupleOf{0}{1}{2}{#}" Namespace="http://schemas.datacontract.org/2004/07/System" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="UserModel" Namespace="http://schemas.datacontract.org/2004/07/SecurityModel" />
+          <GenericParameter Name="UserModelSearch.SearchOperation" Namespace="http://schemas.datacontract.org/2004/07/SecurityModel" />
+          <GenericParameter Name="ArrayOfNullableOf{0}{#}" Namespace="http://schemas.datacontract.org/2004/07/System">
+            <GenericParameter Name="int" Namespace="http://www.w3.org/2001/XMLSchema" />
+          </GenericParameter>
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SecurityModel" name="m_Item1" nillable="true" type="q1:UserModel" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SecurityModel" name="m_Item2" type="q2:UserModelSearch.SearchOperation" />
+      <xs:element name="m_Item3" nillable="true" type="tns:ArrayOfNullableOfint" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TupleOfUserModelUserModelSearch.SearchOperationArrayOfNullableOfintjROcu98Y" nillable="true" type="tns:TupleOfUserModelUserModelSearch.SearchOperationArrayOfNullableOfintjROcu98Y" />
+  <xs:complexType name="ArrayOfNullableOfint">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="int" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfNullableOfint" nillable="true" type="tns:ArrayOfNullableOfint" />
+  <xs:complexType name="ArrayOfTupleOfstringstringstring">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TupleOfstringstringstring" nillable="true" type="tns:TupleOfstringstringstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTupleOfstringstringstring" nillable="true" type="tns:ArrayOfTupleOfstringstringstring" />
+  <xs:complexType name="TupleOfstringstringstring">
+    <xs:annotation>
+      <xs:appinfo>
+        <GenericType Name="TupleOf{0}{1}{2}{#}" Namespace="http://schemas.datacontract.org/2004/07/System" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+          <GenericParameter Name="string" Namespace="http://www.w3.org/2001/XMLSchema" />
+          <GenericParameter Name="string" Namespace="http://www.w3.org/2001/XMLSchema" />
+          <GenericParameter Name="string" Namespace="http://www.w3.org/2001/XMLSchema" />
+        </GenericType>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="m_Item1" nillable="true" type="xs:string" />
+      <xs:element name="m_Item2" nillable="true" type="xs:string" />
+      <xs:element name="m_Item3" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TupleOfstringstringstring" nillable="true" type="tns:TupleOfstringstringstring" />
+</xs:schema>

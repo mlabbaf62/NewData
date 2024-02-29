@@ -1,0 +1,76 @@
+﻿
+.divDeskShap-span {
+    padding: 0px;
+    direction: rtl;
+    font-size: 12px;
+    padding-top: 5px;
+    white-space: nowrap;
+    text-align: right;
+}
+
+.step-div-normEnd {
+    background-image: url("../images/end-norm.png"); /*active.png*/
+    background-repeat: no-repeat;
+}
+
+.step-div-activeEnd {
+    background-image: url("../images/end-active.png"); /*active.png*/
+    background-repeat: no-repeat;
+}
+
+.step-div-norm {
+    background-image: url("../images/norm.png"); /*active.png*/
+    background-repeat: no-repeat;
+}
+
+.step-div-active {
+    background-image: url("../images/active.png"); /*active.png*/
+    background-repeat: no-repeat;
+}
+.mob-step-div {
+    padding: 0px;
+    padding-bottom: 5px;
+}
+
+.mob-step-divTab-span, .mob-step-divMob-span, .mob-step-divDesk-span {
+    padding: 0px;
+    /*media screen*/
+    /*font-weight: bold;*/
+    direction: rtl;
+    /*text-shadow: 1px 1px 6px #343434;*/
+    font-size: 12px;
+    padding-top: 5px;
+    /*padding-right: 6px;*/
+    white-space: nowrap;
+    text-align: right;
+}
+
+
+.mob-step-divMobShap, .mob-step-divTabShap, .mob-step-divDeskShap {
+    /*background-image: url("../images/norm.png");  
+    background-repeat: no-repeat;*/
+    background-position: left top;
+    height: 40px;
+    /*text-shadow: 1px 1px 1px black;*/
+    float: right;
+    text-align: right;
+    padding: 0;
+    /*padding-top: 13px;*/
+    /*background-size: 43px 40px;*/
+    /*border-radius: 30px; height: 43px; color: white; padding-top: 3px; padding-left: 15px; background-color: gray;
+    
+    
+     border: 7px solid #dcdcdc;*/
+}
+
+.divDeskShap {
+    background-position: left top;
+    height: 40px;
+    float: right;
+    text-align: right;
+    padding: 0;
+}
+
+.step-div.active span {
+    text-shadow:1px 1px 2px #09ce09;
+}

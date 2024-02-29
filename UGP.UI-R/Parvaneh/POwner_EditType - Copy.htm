@@ -1,0 +1,136 @@
+﻿
+<style>
+    hr.shadow {
+        border: none;
+        height: 20px;
+        width: 90%;
+        height: 50px;
+        margin-top: 0;
+        border-bottom: 1px solid #1f1209;
+        box-shadow: 0 20px 20px -20px #333;
+        margin: -50px auto 10px;
+    }
+</style>
+<fieldset style="width: 100%; box-shadow: none; ">
+    <div style="padding-left: 0px; float: right" class="col-md-12 col-xs-12 PanelVs">
+
+
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <span ng-bind="Prop.CurrentPageName"></span>
+            </div>
+
+            <div class="panel-body nopadding" style="direction:rtl">
+                <div class="info" style="margin-bottom: 0px!important;" ng-include="'Config/Parvaneh/infoText/POwner.html'">
+                </div>
+
+                <div class="col-md-12 FloatRightDiv" style="padding-bottom:10px; direction:rtl ;float:right">
+
+
+                    <div class="col-md-4 col-xs-12">
+                   
+                        <input type="checkbox" style="width:20px; text-align:right;float:right" ng-model="GamInputData.EditName" />
+                        <span style="float:right ;padding-top:7px; padding-right:7px">تغییر نام و شماره همراه مالک </span>
+                    </div>
+                    <!--<div class="col-md-4 col-xs-12">
+
+                        <input type="checkbox" style="width:20px; text-align:right;float:right" ng-model="GamInputData.EditTell" />
+                        <span style="float:right ;padding-top:7px; padding-right:7px">تغییر شماره تماس</span>
+                    </div>-->
+
+                    <div class="col-md-4 col-xs-12">
+
+                        <input type="checkbox" style="width:20px; text-align:right;float:right" ng-model="GamInputData.EditFich" />
+                        <span style="float:right ;padding-top:7px; padding-right:7px">تغییر اطلاعات فیش نوسازی</span>
+                    </div>
+
+                    <hr class="shadow" style="border-top-color:black;width:100%" />
+
+                    <div class="col-md-6 col-xs-12" ng-show="GamInputData.EditFich">
+                        <div id="divUploaderEditOwner" class="col-md-12 col-xs-12" />
+                    </div>
+
+                </div>
+            </div>
+
+
+            <fieldset style="width: 100%; box-shadow: none; ">
+                <div style="padding-left: 0px; float: right" class="col-md-12 col-xs-12 PanelVs">
+
+
+                    <div class="panel panel-success">
+
+                        <div class="col-md-12 FloatRightDiv" style="padding-bottom:10px; direction:rtl ;float:right">
+
+
+
+                            <div class="col-md-3 col-xs-6 " ng-show="GamInputData.EditName==true">
+                                <span style="color:red;font-weight:bold">نام  مالک قدیم</span>
+                                <span style="color:red">*</span>
+
+                                <input tabindex="4" type="text" style="text-align:right;border:solid 1px green" class="form-control" ng-model="GamInputData.OwnerNameOld" />
+                            </div>
+
+                            <div class="col-md-3 col-xs-6 " ng-show="GamInputData.EditName==true">
+                                <span style="color:red;font-weight:bold">نام  مالک جدید</span>
+                                <span style="color:red">*</span>
+
+                                <input tabindex="4" type="text" style="text-align:right;border:solid 1px green" class="form-control" ng-model="GamInputData.OwnerName" />
+                            </div>
+
+
+                            <div class="col-md-3 col-xs-6 " ng-show="GamInputData.EditName==true">
+                                <span style="color: red; font-weight: bold">نام خانوادگی مالک جدید</span>
+                                <span style="color:red">*</span>
+                                <input tabindex="4" type="text" style="text-align: right;border: solid 1px green" class="form-control" ng-model="GamInputData.OwnerLastName" />
+                            </div>
+
+                            <div class="col-md-3 col-xs-6 " ng-show="GamInputData.EditName==true">
+                                <span style="color: red; font-weight: bold">کد ملی مالک جدید</span>
+                                <span style="color:red">*</span>
+                                <input tabindex="4" type="text" style="text-align: right;border: solid 1px green" class="form-control" ng-model="GamInputData.OwnerNationalCode" />
+                            </div>
+
+
+                            <div class="col-md-3 col-xs-6 ">
+                                <span style="color:red;font-weight: bold">تلفن همراه شهروند</span>
+                                <span style="color:red">*</span>
+                                <!--<input tabindex="4" type="text" style="text-align: right;border: solid 1px green" class="form-control numbers" required maxlength="11" ng-model="ClsAccount.AccountInfo.OwnerTell" />-->
+                                <input tabindex="4" type="text" style="text-align: right;border: solid 1px green" class="form-control numbers" required maxlength="11" ng-model="GamInputData.CellPhone" />
+
+                            </div>
+
+
+                            <div class="col-md-3 col-xs-6 ">
+                                <span style="color:black;font-weight: bold">تلفن ثابت</span>
+                                <input tabindex="4" type="text" style="text-align:right" class="form-control numbers" required maxlength="12" ng-model="GamInputData.OwnerPhone" />
+                            </div>
+
+
+                            <div class="col-md-3 col-xs-6">
+                                <span style="color:black;font-weight: bold">کدپستی</span>
+                                <input tabindex="4" type="text" style="text-align:right" class="form-control numbers" maxlength="10" ng-model="GamInputData.PostalCode" />
+                            </div>
+
+
+
+                            <div class="col-md-9 col-xs-6 ">
+                                <span style="color:black;font-weight: bold">آدرس</span>
+                                <input tabindex="4" type="text" style="text-align:right" class="form-control" required ng-model="GamInputData.Address" />
+                            </div>
+                            <div class="col-md-12 col-xs-12 ">
+                                <span style="color:red;font-weight: bold">توضیحات</span>
+                                <span style="color:red">*</span>
+                                <input tabindex="4" type="text" style="text-align:right" class="form-control" required ng-model="GamInputData.Comment" />
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </fieldset>
+
+        </div>
+
+    </div>
+</fieldset>

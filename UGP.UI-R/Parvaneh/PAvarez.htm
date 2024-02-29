@@ -1,0 +1,32 @@
+﻿<style>
+    .disable input {
+        pointer-events: none;
+        background-color: silver;
+    }
+</style>
+<fieldset id="GridView1" class="GamBox">
+    <p id="p1" class="info h4 " ng-include="'Config/Parvaneh/infoText/PAvarez.html'">
+    </p>
+
+    <div class=" col-sm-12 col-xs-12  col-md-12 col-lg-12 GamBoxFrame" style="background-color:#f7f7f7">
+        <div ng-include="'HouseGam/AllFiche.html?v=23'"></div>
+    </div>
+
+</fieldset>
+
+<script>
+    var formatMoney2 = function(n) {
+
+        n = n.replace(",", "").replace(",", "").replace(",", "").replace(",", "");
+
+        var c = 0;
+        var d = ".";
+        var t = ",";
+        var s = n < 0 ? "-" : "";
+        var i = parseInt(n = Math.abs(+n || 0).toFixed(c)) + "";
+        var j = (j = i.length) > 3 ? j % 3 : 0;
+        var res = s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d +
+            Math.abs(n - i).toFixed(c).slice(2) : "");
+        $('#txtTaghsitPrice').val(res);
+    };
+</script>

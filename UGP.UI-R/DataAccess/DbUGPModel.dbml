@@ -1,0 +1,501 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DbUGP" EntityNamespace="dtoDBUGP" ContextNamespace="srvDBUGP" Class="DbUGPModelDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=DbUGP;User ID=sa" SettingsObjectName="UGPbiz.Properties.Settings" SettingsPropertyName="DbUGPConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Account_Info" Member="Account_Infos">
+    <Type Name="Account_Info">
+      <Column Name="NidAccount" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="AccountName" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="AccountPassword" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="EumAccountType" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="OwnerLastName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="OwnerFirstName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="OwnerFatherName" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="OwnerBirthDate" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="OwnerNationality" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="OwnerDegree" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CellPhone" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="IDCardNo" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Telephone" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="Fax" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="IdCardEmissionPlace" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="CEOName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="CEOFamily" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="CEOFatherName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="CEOSex" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CEOBirthDate" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CEOIDNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CEONationality" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CEONationalCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CEOCellNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CEOCI_Degree" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CEOPhoneNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CEOEmail" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="EumAccessType" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="CI_LegalPerson" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CI_City" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CI_NearCity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Codes" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompanyName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="RegNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Vilage" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="PostCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MailBox" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="OwnerTell" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RequestNationalCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RequesterRegState" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CorrespondenceState" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RequesterRegCity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OwnerCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OwnerIDNO" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="RecongnizeState" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OwnerSex" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="OwnerNationalCode" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="IP" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="StrDate" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="StrTime" Type="System.String" DbType="NVarChar(8)" CanBeNull="true" />
+      <Column Name="AccountNo" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Comments" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ConfirmNidUser" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="ConfirmUserName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="ConfirmDate" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="ConfirmTime" Type="System.String" DbType="NVarChar(8)" CanBeNull="true" />
+      <Column Name="RevokeComments" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Account_Message" Member="Account_Messages">
+    <Type Name="Account_Message">
+      <Column Name="NidMessage" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NidAccount" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="Subject" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Column Name="StrDate" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="StrTime" Type="System.String" DbType="NVarChar(8)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CI_City" Member="CI_Cities">
+    <Type Name="CI_City">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CI_State" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CI_Degree" Member="CI_Degrees">
+    <Type Name="CI_Degree">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CI_LegalPerson" Member="CI_LegalPersons">
+    <Type Name="CI_LegalPerson">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CI_NearCity" Member="CI_NearCities">
+    <Type Name="CI_NearCity">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="CI_City" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CI_State" Member="CI_States">
+    <Type Name="CI_State">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Poll" Member="Polls">
+    <Type Name="Poll">
+      <Column Name="Nidpoll" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CreateDate" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="CreateTime" Type="System.String" DbType="NVarChar(8)" CanBeNull="true" />
+      <Column Name="EumSelection" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="Ip" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Request_InitUsers" Member="Request_InitUsers">
+    <Type Name="Request_InitUser">
+      <Column Name="NidAssign" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NidWorkflowDeff" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="ProcInitiator" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="ProcInitiatorUserName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="CI_State" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Request_ProcLog" Member="Request_ProcLogs">
+    <Type Name="Request_ProcLog">
+      <Column Name="NidProcLog" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NidProc" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="SysCI_ProcState" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StateName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="StateTitle" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="NidAccount" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="NidBase" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="ActionDate" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="ActionTime" Type="System.String" DbType="NVarChar(8)" CanBeNull="true" />
+      <Column Name="ActionDateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Comments" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="NidUserChange" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="UserNameChange" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RequestComment" Member="RequestComments">
+    <Type Name="RequestComment">
+      <Column Name="NidComment" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NidProc" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="Comment" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="DateStr" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="Time" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SysCI_ProcState" Member="SysCI_ProcStates">
+    <Type Name="SysCI_ProcState">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="StateName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Account_Estate" Member="Account_Estates">
+    <Type Name="Account_Estate">
+      <Column Name="NidBase" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="NidAccount" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="District" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Region" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Block" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="House" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Building" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Apartment" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Shop" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EumNosaziCodeObjType" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="NosaziCodeStr" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="MainAddress" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="PostCode" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="NidAccountEstate" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ToftImpart" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="MapCenterX" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="MapCenterY" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="MapWKT" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="EumAccountEstateStatus" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="AccountEstateStatusTitle" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="EstateArea" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="EstateOwner" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="NosaziCodeObjTypeTitle" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ConfirmUserName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NidNosaziCode" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="CI_City" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Comment" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LogVisitor" Member="LogVisitors">
+    <Type Name="LogVisitor" Id="ID1">
+      <Column Name="VisitDate" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="VisitTime" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="IP" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="OSName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="WebBrowserName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="NidVisit" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SessionId" Type="System.String" DbType="varchar(50)" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Bazdid" Member="Bazdids">
+    <Type Name="Bazdid">
+      <Column Name="NidBazdid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NosaziCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NidWorkItem" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="AvarezPrice" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="OwnerType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BazdidDate" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="BazdidTime" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="ResourceId" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="PriceBA" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="NidFiche" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="IsPay" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="NidProc" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="DateFa" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="TimeFa" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="VisitOfficerFullName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="VisitOfficerUserName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="VisitOfficerTel" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LogState" Member="LogStates">
+    <Type Name="LogState">
+      <Column Name="Nid" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NidAccount" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="AccountName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="EumState" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="StateName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="LogDate" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="LogTime" Type="System.String" DbType="VarChar(8) NOT NULL" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="NosaziCode" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SessionId" Type="System.String" DbType="varchar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.WorkFlowArchive" Member="WorkFlowArchives">
+    <Type Name="WorkFlowArchive">
+      <Column Name="WorkFlowArchive" Member="WorkFlowArchive1" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NidWorkflowDeff" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="ArchiveTitle" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="ArchiveCount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Comment" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Priority" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CI_Entity" Member="CI_Entities">
+    <Type Name="CI_Entity">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PaymentLog" Member="PaymentLogs">
+    <Type Name="PaymentLog">
+      <Column Name="NidPayment" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PaymentType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PaymentTitle" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="NidAccount" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="AccountName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="NidUser" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="FullUserName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="NidVisitor" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="VisitorName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Date" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Time" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="NidWorkItem" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="TrackingCode" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="IsTruePayment" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="NosaziCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BillID" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="PaymentID" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="BankName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SysCI_Workflow" Member="SysCI_Workflows">
+    <Type Name="SysCI_Workflow">
+      <Column Name="NidWorkflowDeff" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="WorkflowTitel" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="EumWorkflowGroup" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="Comments" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="AssignUser" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="PageName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ArchiveEntity" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OtherConfig" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Steps" Member="Steps">
+    <Type Name="Step">
+      <Column Name="NidWorkflowDeff" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="NidGam" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Priority" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GamName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="GamTitle" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CheckConfirmManager" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CI_Manager" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PageName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Request_Info" Member="Request_Infos">
+    <Type Name="Request_Info">
+      <Column Name="NidProc" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="District" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NidWorkItem" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="SysCI_ProcState" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProcState" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="NidAccount" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="NidBase" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="RequestDate" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="RequestTime" Type="System.String" DbType="NVarChar(8)" CanBeNull="true" />
+      <Column Name="RequestDateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EumRequestStatus" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="NidWorkflowDeff" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="WorkflowTitel" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="RequesterName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="RequesterAddress" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="RequesterNationalCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RequesterPhone" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RequesterCellphone" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RequesterPostCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RequesterType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RequesterIP" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NidAccount_To_ForTransfer" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="Comments" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="LetterNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LetterDate" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NosaziCode" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NidUser" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ArchiveBizCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IsRequireBazdid" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="GamInputData" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="City" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="MenuID" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EngInfo" Member="EngInfos">
+    <Type Name="EngInfo">
+      <Column Name="NidWorkItem" Type="System.String" DbType="NVarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NosaziCode" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="NidEng" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="EngNo" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Competence" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Tell" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ArchiveFiles" Member="ArchiveFiles">
+    <Type Name="ArchiveFile">
+      <Column Name="NidAccount" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="BizCode" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NidFile" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Domain" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Comment" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="NidEntity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NidWorkFlowArchive" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EngOffice" Member="EngOffices">
+    <Type Name="EngOffice">
+      <Column Name="NidWorkItem" Type="System.String" DbType="NVarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="daf_id" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="daf_name" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="dafhttp" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="bg_sanati" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="ozv_name" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="dsa_remain" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="daf_type" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="IsConfirm" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Function Name="dbo.SrvGetAccountList" Method="SrvGetAccountList">
+    <Parameter Name="PWhere" Parameter="pWhere" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="PFromRow" Parameter="pFromRow" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PToRow" Parameter="pToRow" Type="System.Int32" DbType="Int" />
+    <ElementType Name="SrvGetAccountListResult">
+      <Column Name="NidAccount" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="AccountName" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="EumAccountType" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="OwnerLastName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="OwnerFirstName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="OwnerFatherName" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="OwnerBirthDate" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="OwnerNationality" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="OwnerDegree" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CellPhone" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="IDCardNo" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Telephone" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="Fax" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="IdCardEmissionPlace" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="CEOName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="CEOFamily" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="CEOFatherName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="CEOSex" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CEOBirthDate" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CEOIDNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CEONationality" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CEONationalCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CEOCellNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CEOCI_Degree" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CEOPhoneNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CEOEmail" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="EumAccessType" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="CI_LegalPerson" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CI_City" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CI_NearCity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Codes" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CompanyName" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="RegNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Vilage" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="PostCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MailBox" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="OwnerTell" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RequestNationalCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RequesterRegState" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CorrespondenceState" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RequesterRegCity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OwnerCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="OwnerIDNO" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="RecongnizeState" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OwnerSex" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="OwnerNationalCode" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="IP" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="StrDate" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="StrTime" Type="System.String" DbType="NVarChar(8)" CanBeNull="true" />
+      <Column Name="AccountNo" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Comments" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ConfirmNidUser" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="ConfirmUserName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="ConfirmDate" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="ConfirmTime" Type="System.String" DbType="NVarChar(8)" CanBeNull="true" />
+      <Column Name="RevokeComments" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SrvGetRequestList_InAccount" Method="SrvGetRequestList_InAccount">
+    <Parameter Name="NidAccount" Parameter="nidAccount" Type="System.Guid" DbType="UniqueIdentifier" />
+    <ElementType Name="SrvGetRequestList_InAccountResult">
+      <Column Name="NidProc" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="District" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NidWorkItem" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="SysCI_ProcState" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProcState" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="NidAccount" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="NidBase" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="RequestDate" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="RequestTime" Type="System.String" DbType="NVarChar(8)" CanBeNull="true" />
+      <Column Name="EumRequestStatus" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
+      <Column Name="NidWorkflowDeff" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="WorkflowTitel" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ProcStateTitle" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="NosaziCodeStr" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="MainAddress" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="MapCenterX" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="MapCenterY" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="MapWKT" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Comments" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="LetterNo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LetterDate" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SrvGetLogVisitor" Method="SrvGetLogVisitor">
+    <Parameter Name="field" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="FromDate" Parameter="fromDate" Type="System.String" DbType="NVarChar(10)" />
+    <Parameter Name="ToDate" Parameter="toDate" Type="System.String" DbType="NVarChar(10)" />
+    <ElementType Name="SrvGetLogVisitorResult">
+      <Column Name="NidVisit" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="VisitDate" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="VisitTime" Type="System.String" DbType="Char(10)" CanBeNull="true" />
+      <Column Name="IP" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="OSName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="WebBrowserName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="MonthNum" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Month" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="TimeRange" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Time" Type="System.String" DbType="VarChar(4) NOT NULL" CanBeNull="false" />
+      <Column Name="Year" Type="System.String" DbType="VarChar(4) NOT NULL" CanBeNull="false" />
+      <Column Name="Count" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MinDate" Type="System.String" DbType="VarChar(7) NOT NULL" CanBeNull="false" />
+      <Column Name="MaxDate" Type="System.String" DbType="VarChar(7) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SrvGetLogVisitorDetail" Method="SrvGetLogVisitorDetail">
+    <Parameter Name="FromDate" Parameter="fromDate" Type="System.String" DbType="NVarChar(10)" />
+    <Parameter Name="ToDate" Parameter="toDate" Type="System.String" DbType="NVarChar(10)" />
+    <Parameter Name="PageIndex" Parameter="pageIndex" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PageSize" Parameter="pageSize" Type="System.Int32" DbType="Int" />
+    <ElementType IdRef="ID1" />
+  </Function>
+  <Function Name="dbo.SrvGetLogVisitorDetailCount" Method="SrvGetLogVisitorDetailCount">
+    <Parameter Name="FromDate" Parameter="fromDate" Type="System.String" DbType="NVarChar(10)" />
+    <Parameter Name="ToDate" Parameter="toDate" Type="System.String" DbType="NVarChar(10)" />
+    <ElementType Name="SrvGetLogVisitorDetailCountResult">
+      <Column Name="Count" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

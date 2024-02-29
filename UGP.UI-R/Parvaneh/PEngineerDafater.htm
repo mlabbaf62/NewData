@@ -1,0 +1,84 @@
+﻿<fieldset style="width: 100%; box-shadow: none" class="GamBox">
+    <div style="padding-left: 0px; float: right; padding-right:0;" class="col-md-12 col-xs-12 PanelVs GamBoxFrame">
+
+       
+        <div id="DivDafater" class="col-md-12" style="clear:both">
+            <div>
+                <input type="button" class="btn btn-success" value="تایید و ارسال اطلاعات دفتر انتخاب شده" ng-show="GamInputData.SelectDaftar!=null && GamInputData.SelectDaftar.IsConfirm!=true" ng-click="EngFunc.OfficeSelection()" />
+                <span class="" style="color:green; font-weight:bold" ng-show="GamInputData.SelectDaftar.IsConfirm">دفتر مورد نظر تایید شد . میتوانید به گام بعدی بروید</span>
+                <hr />
+            </div>
+            <div class="">
+                <span>دفتر انتخاب شده :</span>
+                <span style="color:black" ng-bind="GamInputData.SelectDaftar.daf_name"></span>
+
+                <div ng-show="GamInputData.SelectDaftar.IsConfirm" class="">
+                    <div class="">
+                        <span>کد دفتر :</span>
+                        <span style="color:black" ng-bind="GamInputData.SelectDaftar.daf_id"></span>
+                    </div>
+                    <div class="">
+                        <span>نام مسئول دفتر :</span>
+                        <span style="color:black" ng-bind="GamInputData.SelectDaftar.ozv_name"></span>
+                    </div>
+
+                    <div style="padding-top:5px">
+                        <span></span>
+                        <a href="{{GamInputData.SelectDaftar.dafhttp}}" style="text-decoration:underline" target="_blank">نمایش اطلاعات دفتر</a>
+                    </div>
+                </div>
+            </div>
+
+            <div ng-hide="GamInputData.SelectDaftar.IsConfirm">
+                <div style="text-align:center">
+                    <span>جستجوی دفتر</span>
+                    <input type="text" id="txtSearchDaftar" style="width:200px" placeholder="بر اساس نام دفتر یا مسئول دفتر" onkeydown="EnterDaftar(event)" />
+                    <input type="button" value="جستجو" ng-click="SearchDaftar()" />
+                </div>
+
+
+                <table id="GridView1" class="GridView col-md-12 Selectable" style="margin-top:2px;">
+                    <thead>
+                        <tr>
+                            <td class="" style="border-left: 1px solid white;width:10%">انتخاب دفتر</td>
+                            <td onclick="sortTable(1)" class="" style="border-left: 1px solid white;width:10%">کد دفتر</td>
+                            <td onclick="sortTable(2)" class="" style="border-left: 1px solid white;width:20%">نام دفتر</td>
+                            <td onclick="sortTable(3)" class="" style="border-left: 1px solid white;width:30%">نام مسئول دفتر</td>
+
+                            <td class="" style="border-left: 1px solid white;width:30%">اطلاعات دفتر</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="x in EngDafaterList" ng-class="{'active':GamInputData.SelectDaftar.daf_id==x.daf_id}">
+                            <td><input type="button" value="انتخاب" ng-click="EngFunc.SelectDaftar(x,this)" /></td>
+                            <td class="" ng-bind="x.daf_id"></td>
+                            <td class="" ng-bind="x.daf_name"></td>
+                            <td class="" ng-bind="x.ozv_name"></td>
+                            <td>
+                                <a href="{{x.dafhttp}}" target="_blank">نمایش اطلاعات</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr clas ng-show="EngDafaterList==null || (EngDafaterList!=null && EngDafaterList.length==0)">
+                            <td colspan="8" style="text-align: center">
+                                <span style="color: red">اطلاعاتی یافت نشد</span>
+                            </td>
+                        </tr>
+                        <tr style="height:10px; background-color:silver!important"></tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</fieldset>
+
+<script>
+    $(".Selectable table tr").click(function () {
+        $(this).addClass('selected').siblings().removeClass('selected');
+        var value = $(this).find('td:first').html();
+        alert(value);
+    });
+
+
+</script>
