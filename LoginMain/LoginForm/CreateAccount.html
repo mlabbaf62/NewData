@@ -8,7 +8,6 @@
     <link href="../css/CAccount.css" rel="stylesheet" />
     <link rel="stylesheet" href="../css/kamadatepicker.min.css" />
 
-
     <script src="../js/jquery.min.js"></script>
     <script src="../js/angular.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
@@ -16,25 +15,62 @@
     <script type="text/javascript" src="../js/busy.js"></script>
     <script type="text/javascript" src="../Config/Config.js"></script>
     <script type="text/javascript" src="../js/PassWordCheck.js"></script>
-    <script type="text/javascript" src="../Token/Account.min.js"></script>
+    <script type="text/javascript" src="../js/Main/Account.min.js"></script>
     <script src="../js/bootstrap-filestyle.min.js"></script>
     <!--===============================================================================================-->
     <!--===============================================================================================-->
     <script src="../js/Busy.js"></script>
-    <script type="text/javascript" src="../js/Main.js"></script>
-
 
     <script src="../js/kamadatepicker.min.js"></script>
     <script src="../js/persian-date.js"></script>
 
-
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  
+    <style>
+        .border-with-header {
+            position: relative;
+          
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5); /* سایه‌دهی */
+            margin: 15px 0;
+           
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            padding: 20px;
+
+            padding-top:45px;
+        }
+
+            .border-with-header::before {
+                content: attr(data-header); /* استفاده از مقدار ویژگی data-header برای نمایش محتوای هدر */
+                display: block;
+                background-color: #99c19b; /* رنگ متفاوت برای عنوان */
+                padding: 5px 10px;
+                border-radius: 10px 10px 0 0; /* تنظیم شکل گوشه‌های بالا */
+                position: absolute;
+                top: 0; /* اندازه مارجین بالایی برای عنوان */
+                left: 0;
+                right: 0;
+                text-align: center; /* تراز کردن متن در وسط */
+                font-size: 21px;
+                font-weight:bold;
+                text-align:right
+            }
+
+            .border-with-header p {
+                margin-top: 20px; /* مارجین بالایی برای متن */
+               
+
+            }
+    </style>
 
 </head>
+
 <body class="" dir="rtl" ng-app="myApp" ng-controller="myCtrl" id="myCtrlID">
     <div class="container">
 
+
+        <span ng-bind-html="Account_Info"></span>
         <img id="lblVersion" class="" src="../Images/Header/logo.png" style="/* width: 65px; */padding: 5px;left: 0;float:left ;top:10px">
 
         <div class="container" id="SecDIv" style="background-color: white; margin-top: 20px; display:none">
@@ -51,6 +87,9 @@
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12   nopadding  " ng-hide="LegalPerson">
                         <div class="col-md-4">
                             <span class="col-lg-12 col-md-12 col-sm-12 col-xs-12 "> نام کاربری / کدملی  </span>
+
+
+
                             <input disabled type="text" class="col-lg-12 col-md-12 col-sm-12 col-xs-12  engtxt" value="" ng-model="Account_Info.AccountName" />
                         </div>
                         <div class="col-md-4">
@@ -58,7 +97,7 @@
                                 نام:
                             </span>
                             <input disabled type="text" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 fatxt" value="" ng-model="Account_Info.OwnerFirstName" />
-                          
+
                         </div>
                         <div class="col-md-4">
                             <span class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
@@ -109,28 +148,29 @@
 
                 </div>
                 <div>
-                    <input class="btn btn-default" style="background-color:green; color:white" type="button" value="بازگشت به صفحه ورود به سیستم" onclick="window.open('SafaLogin.aspx','_self')" />
+                    <input class="btn btn-default" style="background-color:green; color:white" type="button" value="بازگشت به صفحه ورود به سیستم" onclick="window.open('Login.aspx','_self')" />
 
                 </div>
             </div>
 
         </div>
+
+
         <div class="container" id="MainDIv">
 
             <div id="Register" class="col-lg-12 col-md-12 col-sm-12 col-xs-12  GamBox">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12  GamBoxFrame" style="/*text-align: center; width: 100%; z-index: 1000; position: fixed; top: 0px; padding: 10px; background-color: #2aabee; color: white */">
                     <h2 id="headertxt">
-                        عضویت در سامانه 
+                        عضویت در سامانه
                     </h2>
 
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 GamBoxFrame">
-                        <h1>
-                            شناسه کاربری
-                        </h1>
+
+                    <div class="border-with-header col-md-12 col-xs-12" data-header="شناسه کاربری">
+
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12  row">
                             <div class="col-md-4 col-xs-12">
                                 <span class="col-lg-12 col-md-12 col-sm-12 col-xs-12 required">نام کاربری / کد ملی</span>
-                                <!--<input type="button" value="..." style="width:30px;float:right;margin-top:5px" class="btn btn-default" />-->
+
                                 <input type="text" tabindex="1" class="col-lg-12 col-xs-12" style="float:right" id="txt_Username" title="نام کاربری فقط حرف انگلیسی و اعداد" ng-disabled="EditDisable" ng-model="Account_Info.AccountName" />
 
                             </div>
@@ -139,7 +179,7 @@
                                     رمز عبور:
                                 </span>
                                 <div>
-                                    <input tabindex="2" type="password" id="txtPassword" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 engtxt" title="کلمه عبور . فقط حرف انگلیسی" value="" />
+                                    <input ng-model="Account_Info.Password" tabindex="2" type="password" id="txtPassword" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 engtxt" title="کلمه عبور . فقط حرف انگلیسی" value="" />
                                     <img id="imgShowPass" alt="نمایش رمز عبور" src="../images/showpassOff.png" onclick="ToggleShowPass()" title="نمایش رمز عبور">
                                 </div>
                                 <div class="progress" id="Progress1" style="width: 100%; margin-top: 3px; height: 7px">
@@ -176,6 +216,7 @@
                                         </div>
                                         <div class="modal-body">
                                             <ng-include src="'InquiryNationalCode.html'"></ng-include>
+                                            <ng-include src="'LoginForm/InquiryNationalCode.html'"></ng-include>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-danger" data-dismiss="modal">انصراف</button>
@@ -188,14 +229,11 @@
                             </div>
 
                         </div>
+
                     </div>
 
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12   ">
-                        <h1>
-                            مشخصات متقاضی
-                        </h1>
 
-
+                    <div class="border-with-header col-md-12 col-xs-12" data-header="مشخصات متقاضی">
                         <ul class="nav nav-tabs">
                             <li class="active"><a data-toggle="tab" href="#personTab" onclick="SetLeganPersion(0)">حقیقی</a></li>
                             <li id="legalTab1"><a data-toggle="tab" href="#legalTab" onclick="SetLeganPersion(1)">حقوقی</a></li>
@@ -210,14 +248,13 @@
                                         .required:after {
                                             content: " *";
                                             color: red;
-                                            
                                         }
                                     </style>
                                     <div class="col-md-4 ">
                                         <span class="col-md-4 required">
                                             نام:
                                         </span>
-                                       
+
                                         <input type="text" tabindex="5" class=" col-lg-12 col-md-12 col-sm-12 col-xs-12  persiantxt" id="txt_owername" value="" ng-model="Account_Info.OwnerFirstName" />
 
 
@@ -265,12 +302,12 @@
                                             تحصیلات:
                                         </span>
                                         <!--<select class="col-lg-12 col-md-12 col-sm-12 col-xs-12 " tabindex="27" id="OwnerDegree" ng-model="Account_Info.OwnerDegree" ng-options="item for item in Degree">
-                                                                             <option value="0" selected="selected">دیپلم</option>
-                                        <option value="1">فوق دیپلم</option>
-                                        <option value="2">کارشناسی</option>
-                                        <option value="3">کارشناسی ارشد</option>
-                                        <option value="4">دکترا</option>
-                                                                        </select>-->
+                                                         <option value="0" selected="selected">دیپلم</option>
+                    <option value="1">فوق دیپلم</option>
+                    <option value="2">کارشناسی</option>
+                    <option value="3">کارشناسی ارشد</option>
+                    <option value="4">دکترا</option>
+                                                    </select>-->
                                         <select class="col-lg-12 col-md-12 col-sm-12 col-xs-12 " tabindex="27" id="OwnerDegree"
                                                 ng-options="i.Id as (i.Title ) for i in Degree"
                                                 ng-model="Account_Info.OwnerDegree"></select>
@@ -285,7 +322,7 @@
                                         <span class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
                                             پست الکترونیک:
                                         </span>
-                                        <input type="text" tabindex="13" style="text-align:left;direction:ltr" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 email" title="09121234567" id="txtEmail" value="" ng-model="Account_Info.CEOEmail" />
+                                        <input type="text" tabindex="13" style="text-align:left;direction:ltr" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 email" title="09121234567" id="txtEmail" value="" ng-model="Account_Info.OwnerEmail" />
                                     </div>
                                     <div class="col-md-4">
                                         <span class="col-lg-12 col-md-12 col-sm-12 col-xs-12 required">
@@ -409,11 +446,11 @@
                                     </div>
 
                                     <!--<div class="col-md-4">
-                                        <span class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-                                            تاریخ تولد:
-                                        </span>
-                                        <input id="idateBirth" type="text" class="col-lg-12 col-md-12 col-sm-12 col-xs-12  pdatePiker" maxlength="10" value="" ng-model="Account_Info.CEOBirthDate" tabindex="26" />
-                                    </div>-->
+                    <span class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                        تاریخ تولد:
+                    </span>
+                    <input id="idateBirth" type="text" class="col-lg-12 col-md-12 col-sm-12 col-xs-12  pdatePiker" maxlength="10" value="" ng-model="Account_Info.CEOBirthDate" tabindex="26" />
+                </div>-->
 
 
 
@@ -447,14 +484,16 @@
 
                                     </div>
                                     <div class="col-md-4">
-                                        <!--{{Account_Info.CEOSex}}-->
+                                      
                                         <span class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">جنسیت</span>
+
                                         <input type="radio" name="ipsex" id="isexUserMan" tabindex="18" onclick="ipsex = true" value="true" ng-model="Account_Info.CEOSex" />
                                         <label for="isexUserMan">مرد</label>
                                         <input type="radio" name="ipsex" id="isexUserWoman" tabindex="19" style="margin-right:10px" value="false" ng-model="Account_Info.CEOSex" />
                                         <label for="isexUserMan">زن</label>
 
                                     </div>
+                         
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 GamBoxFrame" ng-show="ShowUploadButton">
                                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12  infoBox">
                                             <h2>توجه</h2>
@@ -522,25 +561,7 @@
 
 
                             </div>
-                            <h1 class="col-lg-12 col-md-12 col-sm-12 col-xs-12 smsValidate" id="DivSmsConfirm">
-                                تاییدیه صحت شماره همراه
-                                <div id="DivSmsConfirm" class="col-lg-12 col-md-12 col-sm-12 col-xs-12  nopadding">
-                                    <h3 style="padding: 0;font-size:14px; margin-top:10px;margin-bottom:0">
-                                        ابتدا تلفن همراه خود را وارد نمایید و دکمه دریافت کد تایید را بزنید
-                                    </h3>
-                                    <span style="float:right; font-size:small; margin-top:-10px;" ng-bind="Account_Info.OwnerTell"></span>
-                                    <div style="direction:rtl; float:right;clear:both">
-
-                                        <input id="btnSend" type="button" onclick="SendConfirmSMS()" disabled="disabled" class="normalButton btn btn-default" value="دریافت کد تایید" style="float:right" />
-                                        <input id="txtConfirmCode" type="text" onkeyup="ConfirmCode_keypress(event)" ng-model="ConfirmCode" style="display:none; font-size:small; width: 130px;float:right; margin: 0;" placeholder="کد تایید را وارد نمایید" />
-
-                                        <img id="imgTick" src="../Images/tik.png" style="width: 20px; display: none" />
-                                        <img id="imgError" src="../Images/Error.png" style="width: 20px; display: none" />
-                                        <span id="LRecoveryError" style="font-size: small"></span>
-                                    </div>
-                                </div>
-
-                            </h1>
+                           
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12  GamBoxFrame" title="درصورت تایید موارد فوق صحت اطلاعات را تایید نمایید">
 
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12  nopadding">
@@ -555,23 +576,27 @@
 
                                 <hr class="col-lg-12 col-md-12 col-sm-12 col-xs-12" />
 
-                                <button disabled id="BtnSave" class="btn btn-default" onclick="OnClientClick()" title="درصورت تایید موارد فوق صحت اطلاعات را تایید نمایید">
+                                <button disabled id="BtnSave" class="btn btn-default" ng-click="CheckData()" title="درصورت تایید موارد فوق صحت اطلاعات را تایید نمایید">
                                     ثبت عضویت
                                 </button>
 
 
                             </div>
                         </div>
-
                     </div>
-                </div>
 
-                <p style="text-align:center" class="footer" id="lblfooterText" ng-bind="FooterText"></p>
-            </div>
+                      
+                    </div>
+
+                    <p style="text-align:center" class="footer" id="lblfooterText" ng-bind="FooterText"></p>
+                </div>
 
 
         </div>
-        <script src="js/CAccount.min.js"></script>
+
+        <script src="../app.js"></script>
+
+        <script src="../js/Main/CAccount.js"></script>
     </div>
 
   

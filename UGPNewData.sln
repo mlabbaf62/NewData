@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UGP.UI-R", "UGP.UI-R\UGP.UI
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginMain", "LoginMain\LoginMain.csproj", "{0D4BD9C9-1EE1-46D9-92C7-589D4D66E616}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{E7E205A2-DFF2-4912-BCA7-E7B8ACAC2ACE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,14 @@ Global
 		{0D4BD9C9-1EE1-46D9-92C7-589D4D66E616}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0D4BD9C9-1EE1-46D9-92C7-589D4D66E616}.Release|x64.ActiveCfg = Release|Any CPU
 		{0D4BD9C9-1EE1-46D9-92C7-589D4D66E616}.Release|x64.Build.0 = Release|Any CPU
+		{E7E205A2-DFF2-4912-BCA7-E7B8ACAC2ACE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7E205A2-DFF2-4912-BCA7-E7B8ACAC2ACE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7E205A2-DFF2-4912-BCA7-E7B8ACAC2ACE}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{E7E205A2-DFF2-4912-BCA7-E7B8ACAC2ACE}.Debug|x64.Build.0 = Debug|Any CPU
+		{E7E205A2-DFF2-4912-BCA7-E7B8ACAC2ACE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7E205A2-DFF2-4912-BCA7-E7B8ACAC2ACE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7E205A2-DFF2-4912-BCA7-E7B8ACAC2ACE}.Release|x64.ActiveCfg = Release|Any CPU
+		{E7E205A2-DFF2-4912-BCA7-E7B8ACAC2ACE}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,286 @@
+﻿<div class="col-md-12">
+
+
+    <span>کد ملی</span>
+    <div>
+        <input type="text" id="txt_UsernameInquery" maxlength="10" style="direction:ltr; text-align:left" />
+    </div>
+</div>
+
+
+<div class="col-md-12">
+    <span>موبایل</span>
+    <div>
+        <input type="text" id="txt_Mobile" maxlength="11" style="direction:ltr; text-align:left" />
+    </div>
+</div>
+
+<div style="clear:both">
+
+
+    <span>تاریخ تولد</span>
+    <div>
+        <input id="txtDay" maxlength="2" max="31" type="text" placeholder="روز" />
+        <input id="txtMonth" maxlength="2" max="12" type="text" placeholder="ماه" />
+        <input id="txtYear" maxlength="4" type="text" placeholder="سال" />
+    </div>
+
+    <br />
+</div>
+
+<script>
+    
+    function Inquiry() {
+
+        CheckShahkar();
+
+        if (typeof (Config.YazdInqueryUrl) != "undefined")
+            EstelamCodeMelliYazd();
+
+        else
+            EstelamCodeMelli();
+
+    }
+
+    function EstelamCodeMelli() {
+
+        debugger
+        $('#LMessageInquery').text('');
+        var tmpMelliCode = $('#txt_UsernameInquery').val();
+        var txtYear = $('#txtYear').val();
+        var txtMonth = $('#txtMonth').val();
+        var txtDay = $('#txtDay').val();
+
+        if (tmpMelliCode == '')
+            $('#LMessageInquery').text('کد ملی را وارد نمایید ');
+        else if (tmpMelliCode.length < 10)
+            $('#LMessageInquery').text('کد ملی باید 10 رقم باشد ');
+
+        else if (txtYear == '')
+            $('#LMessageInquery').text('سال را وارد نمایید ');
+        else if (txtMonth == '')
+            $('#LMessageInquery').text('ماه را وارد نمایید ');
+        else if (txtDay == '')
+            $('#LMessageInquery').text('روز را وارد نمایید ');
+        else {
+            var d = { pNationalCode: tmpMelliCode, Year: txtYear, Month: txtMonth, Day: txtDay };
+            var c = JSON.stringify(d);
+
+            StartBusy('exampleModal', 'در حال استعلام کد ملی');
+            $request = $.ajax({
+                type: "POST",
+                url: "Method.aspx/CheckInqueryMelliCode",
+                data: c,
+                crossDomin: true,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                processdata: true,
+                success: function (msg) {
+                    StopBusy('exampleModal');
+
+                    if (msg.d != null) {
+
+                        $('#LMessageInquery').css('color', 'green');
+                        $('#LMessageInquery').text('اطلاعات صحیح می باشد');
+                        $("#FieldSetInfo").removeClass("disabled");
+                        $("#FieldSetSave").removeClass("disabled");
+                        $("#DivSmsConfirm").removeClass("disabled");
+
+                        if (GetScope().LegalPerson == false) {
+
+                            GetScope().Account_Info.OwnerFirstName = msg.d.name; $('#txt_owername').prop('disabled', true);
+                            // $('#txt_owername').val(msg.d.name);
+                            GetScope().Account_Info.OwnerLastName = (msg.d.family); $('#txt_OwnerFamilyName').prop('disabled', true);
+                            $('#txt_RegIDNoHaghighi').val(msg.d.shenasnameNo); $('#txt_RegIDNoHaghighi').prop('disabled', true);
+                            $('#txt_OwnerFatherName').val(msg.d.fatherName); $('#txt_OwnerFatherName').prop('disabled', true);
+
+                            var tmpBirth = txtYear + '/' + txtMonth + '/' + txtDay
+                            $('#txt_OwenrBirthDate').val(tmpBirth); $('#txt_OwenrBirthDate').prop('disabled', true);
+
+                            $('#txt_NCode').val(tmpMelliCode); $('#txt_NCode').prop('disabled', true);
+                            $('#txt_Username').val(tmpMelliCode); $('#txt_Username').prop('disabled', true);
+
+                            if (msg.d.gender == 1) { $('#sexUserMan').prop("checked", true); $('#sexUserMan').prop('disabled', true); }
+                            else
+                                $('#sexUserWoman').prop("checked", true); $('#sexUserWoman').prop('disabled', true);
+                        }
+                        else {
+                            GetScope().Account_Info.CEOName = (msg.d.name); $('#txt_CEOName').prop('disabled', true);
+                            GetScope().Account_Info.CEOFamily = (msg.d.family); $('#txt_CEOFamily').prop('disabled', true);
+                            $('#txt_CEOIDNo').val(msg.d.shenasnameNo); $('#txt_CEOIDNo').prop('disabled', true);
+                            $('#txt_CEOFatherName').val(msg.d.fatherName); $('#txt_CEOFatherName').prop('disabled', true);
+
+                            var tmpBirth = txtYear + '/' + txtMonth + '/' + txtDay
+                            $('#txt_CEOBirhDate').val(tmpBirth); $('#txt_CEOBirhDate').prop('disabled', true);
+
+                            $('#txt_CEONationalCode').val(tmpMelliCode); $('#txt_CEONationalCode').prop('disabled', true);
+                            $('#txt_RequestNationalCode').val(tmpMelliCode); $('#txt_RequestNationalCode').prop('disabled', true);
+
+                            if (msg.d.gender == 1) { $('#isexUserMan').prop("checked", true); $('#isexUserMan').prop('disabled', true); }
+                            else { $('#isexUserWoman').prop("checked", true); $('#isexUserWoman').prop('disabled', true); }
+                        }
+                        GetScope().$apply();
+                        $('#exampleModal').modal('hide');
+                    }
+                    else {
+                        $('#LMessageInquery').css('color', 'red');
+                        $('#LMessageInquery').text('اطلاعات نادرست می باشد');
+                    }
+                },
+
+                error: function (c) {
+                    // StopBusy('txtConfirmCode');
+                }
+            });
+        }
+    }
+
+    function EstelamCodeMelliYazd() {
+        $('#LMessageInquery').text('');
+        var tmpMelliCode = $('#txt_UsernameInquery').val();
+        var txtYear = $('#txtYear').val();
+        var txtMonth = $('#txtMonth').val();
+        var txtDay = $('#txtDay').val();
+
+        if (tmpMelliCode == '')
+            $('#LMessageInquery').text('کد ملی را وارد نمایید ');
+        else if (tmpMelliCode.length < 10)
+            $('#LMessageInquery').text('کد ملی باید 10 رقم باشد ');
+
+        else if (txtYear == '')
+            $('#LMessageInquery').text('سال را وارد نمایید ');
+        else if (txtMonth == '')
+            $('#LMessageInquery').text('ماه را وارد نمایید ');
+        else if (txtDay == '')
+            $('#LMessageInquery').text('روز را وارد نمایید ');
+        else {
+            var d = {
+                birthDate: txtYear + txtMonth + txtDay, nin: 4432747683, username: 'fava_sabte_ahval', password: 'bs81ccm7'
+            };
+            var c = JSON.stringify(d);
+
+            StartBusy('exampleModal', 'در حال استعلام کد ملی');
+            $request = $.ajax({
+                type: "POST",
+                url: Config.YazdInqueryUrl,
+                data: c,
+                crossDomin: true,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                processdata: true,
+                success: function (msg) {
+                    StopBusy('exampleModal');
+
+                    if (msg.name != null) {
+
+                        $('#LMessageInquery').css('color', 'green');
+                        $('#LMessageInquery').text('اطلاعات صحیح می باشد');
+                        $("#FieldSetInfo").removeClass("disabled");
+                        $("#FieldSetSave").removeClass("disabled");
+                        $("#DivSmsConfirm").removeClass("disabled");
+
+                        if (GetScope().LegalPerson == false) {
+
+                            GetScope().Account_Info.OwnerFirstName = msg.name; $('#txt_owername').prop('disabled', true);
+                            GetScope().Account_Info.OwnerLastName = (msg.family); $('#txt_OwnerFamilyName').prop('disabled', true);
+                            $('#txt_RegIDNoHaghighi').val(msg.shenasnameNo); $('#txt_RegIDNoHaghighi').prop('disabled', true);
+                            $('#txt_OwnerFatherName').val(msg.fatherName); $('#txt_OwnerFatherName').prop('disabled', true);
+
+                            var tmpBirth = txtYear + '/' + txtMonth + '/' + txtDay
+                            $('#txt_OwenrBirthDate').val(tmpBirth); $('#txt_OwenrBirthDate').prop('disabled', true);
+
+                            $('#txt_NCode').val(tmpMelliCode); $('#txt_NCode').prop('disabled', true);
+                            $('#txt_Username').val(tmpMelliCode); $('#txt_Username').prop('disabled', true);
+
+                            if (msg.gender == 1) { $('#sexUserMan').prop("checked", true); $('#sexUserMan').prop('disabled', true); }
+                            else
+                                $('#sexUserWoman').prop("checked", true); $('#sexUserWoman').prop('disabled', true);
+                        }
+                        else {
+                            GetScope().Account_Info.CEOName = (msg.name); $('#txt_CEOName').prop('disabled', true);
+                            GetScope().Account_Info.CEOFamily = (msg.family); $('#txt_CEOFamily').prop('disabled', true);
+                            $('#txt_CEOIDNo').val(msg.shenasnameNo); $('#txt_CEOIDNo').prop('disabled', true);
+                            $('#txt_CEOFatherName').val(msg.fatherName); $('#txt_CEOFatherName').prop('disabled', true);
+
+                            var tmpBirth = txtYear + '/' + txtMonth + '/' + txtDay
+                            $('#txt_CEOBirhDate').val(tmpBirth); $('#txt_CEOBirhDate').prop('disabled', true);
+
+                            $('#txt_CEONationalCode').val(tmpMelliCode); $('#txt_CEONationalCode').prop('disabled', true);
+                            $('#txt_RequestNationalCode').val(tmpMelliCode); $('#txt_RequestNationalCode').prop('disabled', true);
+
+                            if (msg.gender == 1) { $('#isexUserMan').prop("checked", true); $('#isexUserMan').prop('disabled', true); }
+                            else { $('#isexUserWoman').prop("checked", true); $('#isexUserWoman').prop('disabled', true); }
+                        }
+                        GetScope().$apply();
+                        $('#exampleModal').modal('hide');
+                    }
+                    else {
+                        $('#LMessageInquery').css('color', 'red');
+                        $('#LMessageInquery').text('اطلاعات نادرست می باشد');
+                    }
+                },
+
+                error: function (c) {
+                    StopBusy('exampleModal');
+                    alert('خطا در اتصال به سرویس ثبت احوال');
+                }
+            });
+        }
+    }
+
+    function CheckShahkar() {
+
+        debugger
+        $('#LMessageInquery').text('');
+        var tmpMelliCode = $('#txt_UsernameInquery').val();
+        var tmpMobile = $('#txt_Mobile').val();
+
+        if (tmpMelliCode == '')
+            $('#LMessageInquery').text('کد ملی را وارد نمایید ');
+        else if (tmpMelliCode.length < 10)
+            $('#LMessageInquery').text('کد ملی باید 10 رقم باشد ');
+
+        else if (tmpMobile == '')
+            $('#LMessageInquery').text('موبایل وارد نمایید ');
+
+        else {
+            var d = { pNationalCode: tmpMelliCode, pMobile: tmpMobile };
+            var c = JSON.stringify(d);
+
+            StartBusy('exampleModal', 'در حال استعلام کد ملی');
+            $request = $.ajax({
+                type: "POST",
+                url: "Method.aspx/CheckShahkar",
+                data: c,
+                crossDomin: true,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                processdata: true,
+                success: function (msg) {
+                    StopBusy('exampleModal');
+
+                    if (msg.d == true) {
+
+                        $('#LMessageInquery').css('color', 'green');
+                        $('#LMessageInquery').text('اطلاعات صحیح می باشد');
+                        $("#FieldSetInfo").removeClass("disabled");
+                        $("#FieldSetSave").removeClass("disabled");
+                        $("#DivSmsConfirm").removeClass("disabled");
+
+                        GetScope().$apply();
+                        $('#exampleModal').modal('hide');
+                    }
+                    else {
+                        $('#LMessageInquery').css('color', 'red');
+                        $('#LMessageInquery').text('اطلاعات نادرست می باشد');
+                    }
+                },
+
+                error: function (c) {
+                    // StopBusy('txtConfirmCode');
+                }
+            });
+        }
+    }
+</script>
+

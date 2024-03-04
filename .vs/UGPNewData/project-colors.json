@@ -1,0 +1,31 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "764b4a09-9ef0-4e15-b288-e9478d504f92": {
+      "ProjectGuid": "764b4a09-9ef0-4e15-b288-e9478d504f92",
+      "DisplayName": "http://localhost/LoginProject/",
+      "ColorIndex": 0
+    },
+    "0d4bd9c9-1ee1-46d9-92c7-589d4d66e616": {
+      "ProjectGuid": "0d4bd9c9-1ee1-46d9-92c7-589d4d66e616",
+      "DisplayName": "LoginMain",
+      "ColorIndex": 1
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    },
+    "ecb6e6b8-f223-4140-8f2d-cc15fb418088": {
+      "ProjectGuid": "ecb6e6b8-f223-4140-8f2d-cc15fb418088",
+      "DisplayName": "UGP.UI-R",
+      "ColorIndex": 2
+    },
+    "e7e205a2-dff2-4912-bca7-e7b8acac2ace": {
+      "ProjectGuid": "e7e205a2-dff2-4912-bca7-e7b8acac2ace",
+      "DisplayName": "DataAccess",
+      "ColorIndex": 3
+    }
+  },
+  "NextColorIndex": 4
+}

@@ -1,3 +1,5 @@
+D:\Projects\UGPNewData\LoginMain\obj\Debug\LoginMain.csproj.AssemblyReference.cache
+D:\Projects\UGPNewData\LoginMain\obj\Debug\LoginMain.csproj.CoreCompileInputs.cache
 D:\Projects\UGPNewData\LoginMain\bin\LoginMain.dll.config
 D:\Projects\UGPNewData\LoginMain\bin\LoginMain.dll
 D:\Projects\UGPNewData\LoginMain\bin\LoginMain.pdb
@@ -50,10 +52,12 @@ D:\Projects\UGPNewData\LoginMain\bin\roslyn\vbc.exe.config
 D:\Projects\UGPNewData\LoginMain\bin\roslyn\vbc.rsp
 D:\Projects\UGPNewData\LoginMain\bin\roslyn\VBCSCompiler.exe
 D:\Projects\UGPNewData\LoginMain\bin\roslyn\VBCSCompiler.exe.config
-D:\Projects\UGPNewData\LoginMain\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-D:\Projects\UGPNewData\LoginMain\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\Projects\UGPNewData\LoginMain\obj\Debug\LoginMain.csproj.AssemblyReference.cache
-D:\Projects\UGPNewData\LoginMain\obj\Debug\LoginMain.csproj.CoreCompileInputs.cache
+D:\Projects\UGPNewData\LoginMain\bin\CNManagment.dll
+D:\Projects\UGPNewData\LoginMain\bin\DataAccess.dll
+D:\Projects\UGPNewData\LoginMain\bin\Newtonsoft.Json.dll
+D:\Projects\UGPNewData\LoginMain\bin\DataAccess.pdb
+D:\Projects\UGPNewData\LoginMain\bin\DataAccess.dll.config
+D:\Projects\UGPNewData\LoginMain\bin\Newtonsoft.Json.xml
 D:\Projects\UGPNewData\LoginMain\obj\Debug\LoginMain.csproj.CopyComplete
 D:\Projects\UGPNewData\LoginMain\obj\Debug\LoginMain.dll
 D:\Projects\UGPNewData\LoginMain\obj\Debug\LoginMain.pdb

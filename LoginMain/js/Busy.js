@@ -9,7 +9,7 @@ function StartBusy(PDivName, Ptext) {
     var c = PDivName + 'Busy';
     var ShC = '#' + c;
     if (jQuery(tmpDiv).find(ShC).attr('id') != c) {
-        jQuery(tmpDiv).append('<div class="MainDivBusy " id="' + c + '" style="display:none"><div><img class="busyImgPos" height="40" src="image/ajax-loader.gif"><div class="TextBusy ">' + Ptext + '</div></div><div class="bg"></div></div>');
+        jQuery(tmpDiv).append('<div class="MainDivBusy " id="' + c + '" style="display:none"><div><img class="busyImgPos" height="40" src="/LoginMain/images/ajax-loader.gif"><div class="TextBusy ">' + Ptext + '</div></div><div class="bg"></div></div>');
     }
 
     jQuery(ShC).css({
@@ -75,9 +75,8 @@ function StartBusyCheckMark(PDivName, Ptext) {
     var ShC = '#' + c;
     if (jQuery(tmpDiv).find(ShC).attr('id') != c) {
         //sh
-        //jQuery(tmpDiv).append('<div class="MainDivBusy" id="' + c + '" style="display:none"><div><img class="busyImgPos" src="Images/ajax-loader.gif"><div class="TextBusy "><p id="BusyCheckMarkStep"> ' + Ptext.length + '  / 1 </p><p id="BusyCheckMarktxt" class="blink_me">' + Ptext[0] + '</p></div></div><div class="bg"></div></div>');
         //labaf
-        jQuery(tmpDiv).append('<div class="MainDivBusy" id="' + c + '" style="display:none"><div><img class="busyImgPos" src="Images/ajax-loader.gif"><div class="TextBusy "><p class="blink_me">' + Ptext + '</p></div></div><div class="bg"></div></div>');
+        jQuery(tmpDiv).append('<div class="MainDivBusy" id="' + c + '" style="display:none"><div><img class="busyImgPos" src="/LoginMain/Images/ajax-loader.gif"><div class="TextBusy "><p class="blink_me">' + Ptext + '</p></div></div><div class="bg"></div></div>');
 
     }
     //sh
@@ -234,7 +233,7 @@ function StartBusyTimer(PDivName, Ptext) {
     var c = PDivName + 'Busy';
     var ShC = '#' + c;
     if (jQuery(tmpDiv).find(ShC).attr('id') != c) {
-        jQuery(tmpDiv).append('<div id="' + c + '" style="display:none"><div><img src="Images/ajax-loader.gif"><div>' + Ptext + '</div></div><div class="bg"></div></div>');
+        jQuery(tmpDiv).append('<div id="' + c + '" style="display:none"><div><img src="/LoginMain/Images/ajax-loader.gif"><div>' + Ptext + '</div></div><div class="bg"></div></div>');
     }
 
     jQuery(ShC).css({

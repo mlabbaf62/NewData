@@ -51,11 +51,4 @@ namespace dtoDBUGP
         
     }
 }
-namespace SrvSecurity
-{
-    public partial class Account_Info
-    {
-        public string NidAccountEnc { get; set; }
-        public string FullName { get; set; }
-    }
-}
+

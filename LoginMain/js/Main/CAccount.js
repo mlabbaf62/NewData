@@ -215,7 +215,7 @@ $(document).ready(function () {
     }
     function MobileCheck(e, a, b, c) {
 
-        var d = { pAccountName: a, pNationalCode: b, pMobileNo: c, NidAccount:  GetScope().Account_Info.NidAccount != undefined? GetScope().Account_Info.NidAccount:null };
+        var d = { pAccountName: a, pNationalCode: b, pMobileNo: c, NidAccount: GetScope().Account_Info.NidAccount != undefined ? GetScope().Account_Info.NidAccount : null };
         var c1 = JSON.stringify(d);
 
         $('#LMessage').text('');
@@ -316,9 +316,7 @@ $(document).ready(function () {
         });
     }
 
-    AppConfig.LoadObj(function (e) {
-      
-    });
+
 
 })
 
@@ -510,7 +508,7 @@ function OnClientClick() {
     var tmpEditAccount = getParameterByName('EditAccount');
     if (tmpEditAccount != '') {
         EditMode = true;
-       // tmpEditAccount = tmpEditAccount.split("").reverse().join("");
+        // tmpEditAccount = tmpEditAccount.split("").reverse().join("");
     }
     $("#LMessage").text('');
     if (!$("input[id=ChAccept]").prop("checked")) {
@@ -618,7 +616,7 @@ function OnClientClick() {
         //        return;
         //    }
         //}
-        
+
         if ($("#txt_companyname").val() == '') {
             $("#LMessage").css('color', 'red');
             $("#LMessage").text('نام شرکت را وارد نمایید');
@@ -651,11 +649,13 @@ function OnClientClick() {
         $("#LMessage").text('شماره شناسنامه را وارد نمایید');
         return;
     }
-    if (!MelliCodeIsValid && !EditMode) {
-        $("#LMessage").text('کد ملی صحیح نیست');
-        $('#LMessage').css('color', 'red');
-        return;
-    }
+
+
+    //if (!MelliCodeIsValid && !EditMode) {
+    //    $("#LMessage").text('کد ملی صحیح نیست');
+    //    $('#LMessage').css('color', 'red');
+    //    return;
+    //}
 
     if (txt_OwenrBirthDate.match(/\//g) == null || txt_OwenrBirthDate.match(/\//g).length != 2 || txt_OwenrBirthDate.length != 10) {
         $("#LMessage").text('تاریخ تولد را کامل وارد نمایید');
@@ -701,11 +701,11 @@ function OnClientClick() {
 
 
 
-    if (!Mobile_IsValid && !EditMode) {
-        $("#LMessage").text('اعتبار سنجی شماره همراه انجام نشده است');
-        $('#LMessage').css('color', 'red');
-        return;
-    }
+    //if (!Mobile_IsValid && !EditMode) {
+    //    $("#LMessage").text('اعتبار سنجی شماره همراه انجام نشده است');
+    //    $('#LMessage').css('color', 'red');
+    //    return;
+    //}
 
     //tmpMobileNumber = tmpMobileNumber.replaceAll('-', '').replaceAll('_', '');;
 
@@ -716,18 +716,6 @@ function OnClientClick() {
         $("#LMessage").text('کد امنیتی را وارد نمایید');
         return;
     }
-    //Number.isNaN(NaN)
-    //if (!GetScope().LegalPerson) {
-    //    if (Number.isInteger(Number(GetScope().Account_Info.OwnerDegree)) == false) {//$('#OwnerDegree').val()
-    //        $("#LMessage").css('color', 'red');
-    //        $("#LMessage").text('تحصیلات را انتخاب کنید');
-    //        return;
-    //    }
-    //} else if (Number.isInteger(Number(GetScope().Account_Info.CEOCI_Degree)) == false) {//$('#OwnerDegree').val()
-    //    $("#LMessage").css('color', 'red');
-    //    $("#LMessage").text('تحصیلات را انتخاب کنید');
-    //    return;
-    //}
 
 
     if (!EditMode) {
@@ -746,7 +734,11 @@ function OnClientClick() {
 
     StartBusy('MainDIv', 'در حال ذخیره اطلاعات');
 
-    Savefn()
+    debugger
+
+    GetScope().SaveAccountInfo();
+
+    //Savefn()
 }
 
 //function LoadForm() {
@@ -878,7 +870,7 @@ function Savefn(user) {
                 OwnerLastName: $("#txt_OwnerFamilyName").val(),
                 OwnerFirstName: $("#txt_owername").val(),
                 OwnerTell: $("#txt_OwnerTell").val(),
-                OwnerSex: psex ,//? 1 : 0/* BtnSexHaghighiMen.Checked*/,
+                OwnerSex: psex,//? 1 : 0/* BtnSexHaghighiMen.Checked*/,
                 //OwnerNationalCode : txt_Username.Text, // txt_RequestNationalCode.Text,
                 OwnerNationalCode: (Config.CheckUserNameASMelliCode ? $("#txt_Username").val() : $("#txt_NCode").val()),
                 ImageUrlVirtualPath: imageDataBase64,
@@ -893,14 +885,14 @@ function Savefn(user) {
         };
     if (EditMode)
         TmpAccountInfo.pAccount.Image = null;
- 
+
 
     var c = JSON.stringify(TmpAccountInfo);
 
     $request = $.ajax({
         type: "POST",
 
-        url:  "CreateAccount.aspx/CreateNewAccount",
+        url: "CreateAccount.aspx/CreateNewAccount",
         data: c,
         crossDomin: true,
         contentType: "application/json; charset=utf-8",
@@ -937,12 +929,12 @@ function Savefn(user) {
                     $("#SecDIv").slideToggle();
                 }
             }
-         
 
-           
+
+
         },
         error: function (c) {
-          
+
             RequestToken();
             StopBusy('MainDIv');
             $("#LMessage").html('خطای دسترسی . لطفا دوباره صفحه را بازآوری نمایید')
@@ -1048,11 +1040,11 @@ function SendConfirmSMS() {
         return;
     }
 
-    if (!Mobile_IsValid) {
-        $("#LMessage").text('اعتبار سنجی شماره همراه انجام نشده است');
-        $('#LMessage').css('color', 'red');
-        return;
-    }
+    //if (!Mobile_IsValid) {
+    //    $("#LMessage").text('اعتبار سنجی شماره همراه انجام نشده است');
+    //    $('#LMessage').css('color', 'red');
+    //    return;
+    //}
     var d = { pBizCode: tmpBizCode, pNumber: tmpMobileNumber };
     var c = JSON.stringify(d);
     $('#btnSend').prop('disabled', true);
@@ -1252,84 +1244,86 @@ function SetLeganPersion(pIsLegalPerson) {
     GetScope().LegalPerson = pIsLegalPerson;
 }
 
+
+
 function GetScope() {//GetScope().Account_Info
     return angular.element(document.getElementById('myCtrlID')).scope();
 }
 var EditAccount
-var app = angular.module('myApp', []);
-//app.controller('myCtrl', function ($scope) {
+//var app = angular.module('myApp', []);
+////app.controller('myCtrl', function ($scope) {
 
-app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
-   
+//app.controller('myCtrl', ['$scope', '$http', function ($scope, $http) {
 
 
-        $scope.name = "";
-        $scope.Account_Info = {
-            CEOCI_Degree: 0,
-            OwnerSex: 'true',
-        };
-        $scope.LegalPerson = false;
 
-        $scope.ShowInquiryButton = Config.ShowInquiryButton;
+//    $scope.name = "";
+//    $scope.Account_Info = {
+//        CEOCI_Degree: 0,
+//        OwnerSex: 'true',
+//    };
+//    $scope.LegalPerson = false;
 
-        $scope.Degree = [
-            { Id: 0, Title: "متوسطه " },
-            { Id: 0, Title: "دیپلم" },
-            { Id: 2, Title: "کاردانی" },
-            { Id: 3, Title: "کارشناسی" },
-            { Id: 3, Title: "کارشناسی ارشد" },
-            { Id: 4, Title: "دکترا" },
-        ]
-        $scope.ShowUploadButton = Config.ShowUploadButton;
+//    $scope.ShowInquiryButton = Config.ShowInquiryButton;
 
-        EditAccount = getParameterByName("EditAccount");
+//    $scope.Degree = [
+//        { Id: 0, Title: "متوسطه " },
+//        { Id: 0, Title: "دیپلم" },
+//        { Id: 2, Title: "کاردانی" },
+//        { Id: 3, Title: "کارشناسی" },
+//        { Id: 3, Title: "کارشناسی ارشد" },
+//        { Id: 4, Title: "دکترا" },
+//    ]
+//    $scope.ShowUploadButton = Config.ShowUploadButton;
 
-        if (EditAccount) {
-            $scope.FormTitle = "ثبت عضویت کاربر جدید";
-            $("#headertxt").html("ویرایش عضویت در سامانه شهروند سپاری");
-            StartBusy("myCtrlID", "دریافت اطلاعات");
-            Config.ValidateBySms = false;
-            $(document).ready(function () {
-                $('#lblfooterText').text(Config.FooterText);
-            });
+//    EditAccount = getParameterByName("EditAccount");
 
-            setTimeout(function () {
-                SafaSecurity.GetAccountInfo(function (res) {
-                    StopBusy("myCtrlID", "دریافت اطلاعات");
-                    $scope.Account_Info = res.d;
+//    if (EditAccount) {
+//        $scope.FormTitle = "ثبت عضویت کاربر جدید";
+//        $("#headertxt").html("ویرایش عضویت در سامانه شهروند سپاری");
+//        StartBusy("myCtrlID", "دریافت اطلاعات");
+//        Config.ValidateBySms = false;
+//        $(document).ready(function () {
+//            $('#lblfooterText').text(Config.FooterText);
+//        });
 
-                    if ($scope.Account_Info == null) {
-                        alert('اطلاعات کاربر یافت نشد');
-                    }
-                    else {
+//        setTimeout(function () {
+//            SafaSecurity.GetAccountInfo(function (res) {
+//                StopBusy("myCtrlID", "دریافت اطلاعات");
+//                $scope.Account_Info = res.d;
 
-                        $scope.EditDisable = true;
-                        $("#BtnSave").html("اعمال تغییرات");
+//                if ($scope.Account_Info == null) {
+//                    alert('اطلاعات کاربر یافت نشد');
+//                }
+//                else {
 
-                        if ($scope.Account_Info.EumAccountType == 2) {
-                            //     $("#legalTab").click();
-                            $('.nav-tabs > li.active').removeClass('active');
-                            $('#personTab').removeClass('active in');
+//                    $scope.EditDisable = true;
+//                    $("#BtnSave").html("اعمال تغییرات");
 
-                            $("#legalTab1").addClass('active');
-                            $("#legalTab").addClass('active in');
-                            $scope.LegalPerson = true;
-                        }
-                        if ($scope.Account_Info) {
-                            $scope.Account_Info.OwnerSex = $scope.Account_Info.OwnerSex == false ? "false" : "true";
-                            $scope.Account_Info.CEOSex = $scope.Account_Info.CEOSex == false ? "false" : "true";
-                            $scope.$apply();
-                        }
-                        if ($scope.Account_Info.Image != null)
-                            $("#ownerImage").attr("src", 'data:image/jpg;base64,' + btoa($scope.Account_Info.Image));
-                        else { $("#ownerImage").hide(); }
-                    }
-                })
-            }, 1000)
+//                    if ($scope.Account_Info.EumAccountType == 2) {
+//                        //     $("#legalTab").click();
+//                        $('.nav-tabs > li.active').removeClass('active');
+//                        $('#personTab').removeClass('active in');
 
-        }
+//                        $("#legalTab1").addClass('active');
+//                        $("#legalTab").addClass('active in');
+//                        $scope.LegalPerson = true;
+//                    }
+//                    if ($scope.Account_Info) {
+//                        $scope.Account_Info.OwnerSex = $scope.Account_Info.OwnerSex == false ? "false" : "true";
+//                        $scope.Account_Info.CEOSex = $scope.Account_Info.CEOSex == false ? "false" : "true";
+//                        $scope.$apply();
+//                    }
+//                    if ($scope.Account_Info.Image != null)
+//                        $("#ownerImage").attr("src", 'data:image/jpg;base64,' + btoa($scope.Account_Info.Image));
+//                    else { $("#ownerImage").hide(); }
+//                }
+//            })
+//        }, 1000)
 
-}]);
+//    }
+
+//}]);
 
 function checkShenaseMelli(code) {
 
@@ -1360,7 +1354,7 @@ function checkShenaseMelli(code) {
 
     // EditAccount = EditAccount.split("").reverse().join("");
 
-    
+
 
 
 

@@ -965,6 +965,10 @@
     <WCFMetadataStorage Include="Service References\UgpSer\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
+      <Project>{E7E205A2-DFF2-4912-BCA7-E7B8ACAC2ACE}</Project>
+      <Name>DataAccess</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ExttendedProj\ApiController\ApiController.csproj">
       <Project>{f0de0fc9-d35c-45d1-a26f-f004234add41}</Project>
       <Name>ApiController</Name>

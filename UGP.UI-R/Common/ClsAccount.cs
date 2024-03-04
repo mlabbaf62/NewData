@@ -1,9 +1,11 @@
-﻿using System;
+﻿using DataAccess;
+using System;
 using System.Collections.Generic;
 using System.Net;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.Web;
+using System.Xml.Linq;
 
 namespace UGP
 {
@@ -11,23 +13,24 @@ namespace UGP
     {
         public static bool IsUserLogined()
         {
+            
             if (Account_Info == null)
                 return false;
             else
                 return true;
         }
-        public static List<SrvSecurity.Account_Info> AccountList
+        public static List<Dto.Account> AccountList
         {
             get; set;
         }
-        public static List<SrvSecurity.Account_Info> GetAccounts()
+        public static List<Dto.Account> GetAccounts()
         {
             try
             {
 
-                var srvSec = UGPbiz.ClsProxyHelper.GetSecurityService();
-                AccountList = srvSec.GetAllAccount(0, 1000, null).AccountList;
-                srvSec.Close();
+                Dto.Entities srv = new Dto.Entities();
+                AccountList =  srv.Accounts.ToList();
+                
                 return AccountList;
             }
             catch (Exception ex)
@@ -89,26 +92,7 @@ namespace UGP
 
 
         }
-        public static void SetAccount_Info(SrvSecurity.Account_Info pAccount_Info)
-        {
-            HttpContext.Current.Application[pAccount_Info.NidAccount.ToString()] = pAccount_Info;
-            if (pAccount_Info != null)
-                NidAccount = pAccount_Info.NidAccount;
-            else NidAccount = null;
-        }
-        public static SrvSecurity.User UserInfo
-        {
-            get
-            {
-                if (HttpContext.Current.Session["UserInfo"] != null)
-                    return (SrvSecurity.User)HttpContext.Current.Session["UserInfo"];
-                else return null;
-            }
-            set
-            {
-                HttpContext.Current.Session["UserInfo"] = value;
-            }
-        }
+       
         public static SrvSecurity.Account_Info Account_Info
         {
             get

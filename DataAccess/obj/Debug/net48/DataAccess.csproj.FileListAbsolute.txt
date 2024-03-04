@@ -1,0 +1,9 @@
+D:\Projects\UGPNewData\DataAccess\bin\Debug\net48\DataAccess.dll.config
+D:\Projects\UGPNewData\DataAccess\bin\Debug\net48\DataAccess.dll
+D:\Projects\UGPNewData\DataAccess\bin\Debug\net48\DataAccess.pdb
+D:\Projects\UGPNewData\DataAccess\obj\Debug\net48\DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\UGPNewData\DataAccess\obj\Debug\net48\DataAccess.AssemblyInfoInputs.cache
+D:\Projects\UGPNewData\DataAccess\obj\Debug\net48\DataAccess.AssemblyInfo.cs
+D:\Projects\UGPNewData\DataAccess\obj\Debug\net48\DataAccess.csproj.CoreCompileInputs.cache
+D:\Projects\UGPNewData\DataAccess\obj\Debug\net48\DataAccess.dll
+D:\Projects\UGPNewData\DataAccess\obj\Debug\net48\DataAccess.pdb

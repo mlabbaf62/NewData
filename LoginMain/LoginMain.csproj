@@ -23,6 +23,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <LangVersion>10.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -43,7 +44,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CNManagment">
+      <HintPath>..\..\UGPNew\Login\LoginProject\Bin\CNManagment.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Security\SecurityGit\packages\Newtonsoft.Json.13.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -62,12 +75,37 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
-      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
+    <Content Include="Connected Services\SrvInquiry\LoginMain.SrvInquiry.ClsPersonAuthenticationJson.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="bundleconfig.json" />
+    <None Include="Connected Services\SrvInquiry\SrvNationalCodeInquiry.wsdl" />
+    <None Include="Connected Services\SrvInquiry\SrvNationalCodeInquiry.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SrvInquiry\SrvNationalCodeInquiry1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SrvInquiry\SrvNationalCodeInquiry2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="formData.json" />
+    <Content Include="Config\Config.js" />
+    <None Include="Connected Services\SrvInquiry\SrvNationalCodeInquiry.disco" />
+    <None Include="Connected Services\SrvInquiry\configuration91.svcinfo" />
+    <None Include="Connected Services\SrvInquiry\configuration.svcinfo" />
+    <None Include="Connected Services\SrvInquiry\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="js\Main\Account.js" />
+    <Content Include="js\Main\Account.min.js" />
+    <Content Include="js\Main\CAccount.js" />
+    <Content Include="js\Main\CAccount.min.js">
+      <DependentUpon>CAccount.js</DependentUpon>
+    </Content>
+    <Content Include="LoginForm\InquiryNationalCode.html" />
+    <Content Include="LoginForm\Method.aspx" />
     <Content Include="styles.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\bootstrap.rtl.min.css" />
@@ -108,7 +146,6 @@
     <Content Include="Images\userLoginIcon.png" />
     <Content Include="Images\userPassIcon.png" />
     <Content Include="Images\webcam.png" />
-    <Content Include="Input - Copy %282%29.html" />
     <Content Include="Input2.html" />
     <Content Include="Input.html" />
     <Content Include="app.js" />
@@ -117,8 +154,6 @@
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\Busy.js" />
-    <Content Include="js\CAccount.js" />
-    <Content Include="js\CAccount.min.js" />
     <Content Include="js\jalali-moment.browser.js" />
     <Content Include="js\jquery.min.js" />
     <Content Include="js\kamadatepicker.min.js" />
@@ -129,6 +164,22 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Class\ClsCommon.cs" />
+    <Content Include="Class\BaseResult.cs" />
+    <Compile Include="Class\ClsShahkar.cs" />
+    <Compile Include="Class\ErrorLog.cs" />
+    <Compile Include="Connected Services\SrvInquiry\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm\Method.aspx.cs">
+      <DependentUpon>Method.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoginForm\Method.aspx.designer.cs">
+      <DependentUpon>Method.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -142,6 +193,21 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\SrvInquiry\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
+      <Project>{e7e205a2-dff2-4912-bca7-e7b8acac2ace}</Project>
+      <Name>DataAccess</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Code\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

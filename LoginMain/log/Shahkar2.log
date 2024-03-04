@@ -1,0 +1,14 @@
+pMobileNumber=093600006
+pNationalCode=0076026302
+https://login.mashhad.ir/ManmailOperation.svc/api/user/MatchingMobileNationalCode
+Method=Post
+ContentType=application/json
+time=1709482321
+SecretKey=7906b457Fkdp38ghjHJkiQ6lkDPACVBN
+hash=e63095e54af6c1b5ba0a23c3d26531609d21ab8d0dfbba4d438041dd894fac2c
+apiName=safacomp
+requestTime=1709482321
+apiSecret=e63095e54af6c1b5ba0a23c3d26531609d21ab8d0dfbba4d438041dd894fac2c
+ClientId=7906b457Fkdp38ghjHJkiQ6lkDPACVBN
+Value=false
+ErrorCode=-2
