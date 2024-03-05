@@ -1,124 +1,76 @@
 ﻿<!DOCTYPE html>
-<html ng-app="myApp">
-
+<html lang="en" ng-app="myApp">
 <head>
-    <title>Dynamic Form Example</title>
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular-animate.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular-aria.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular-messages.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.js"></script>
-    <script src="js/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editable Grid with AngularJS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-
-        .form-container {
-            width: 70%;
+        .table-container {
+            max-width: 800px;
             margin: 0 auto;
-            border: 1px solid #ccc;
-            padding: 20px;
-            background-color: #f9f9f9;
-            border-radius: 10px;
         }
 
-        .tab-content {
-            display: none;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            background-color: #fff;
-            margin-bottom: 20px;
-        }
-
-            .tab-content.active-tab {
-                display: block;
-                animation: fadeIn 0.5s ease-in-out;
+            .table-container .add-btn {
+                margin-bottom: 10px;
             }
 
-        .form-control {
-            margin-bottom: 15px;
-        }
-
-        .button-container {
-            margin-top: 20px;
-            text-align: right;
-        }
-
-        .header {
-            background-color: #333;
-            color: #fff;
-            padding: 10px;
-            border-radius: 5px 5px 0 0;
-            margin-bottom: 10px;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
+            .table-container table th {
+                background-color: #f8f8f8;
             }
 
-            to {
-                opacity: 1;
+            .table-container table th, .table-container table td {
+                vertical-align: middle;
             }
-        }
+
+            .table-container table .actions-column {
+                width: 100px;
+            }
     </style>
 </head>
+<body ng-controller="MainController" ng-init="loadData()">
+    <div class="container">
+        <h2>Editable Grid</h2>
+        <div class="table-container">
+            <button class="btn btn-primary add-btn" ng-click="addRow()">
+                <i class="fas fa-plus"></i> Add Row
+            </button>
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th ng-repeat="header in headers">{{header}}</th>
+                        <th style="width:150px" class="actions-column">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="row in rows">
+                        <td ng-repeat="header in headers">
 
-<body ng-cloak>
+                            <span ng-hide="row.editing">{{ row[header] }}</span>
+                            <input type="text" ng-show="row.editing" ng-model="row[header]" />
 
-    <div class="form-container" ng-controller="FormController">
-        <div ng-repeat="tab in formData.controls" class="tab-content" ng-class="{ 'active-tab': $index === activeTabIndex }">
-            <div class="header">{{ tab.label }}</div>
-            <div ng-repeat="control in tab.controls" class="form-control">
-                <label>{{ control.label }}:</label>
-                <div ng-switch="control.type">
-                    <input ng-switch-when="text" type="text" ng-model="control.value">
-                    <textarea ng-switch-when="textarea" ng-model="control.value"></textarea>
-                    <select ng-switch-when="select" ng-model="control.value" ng-options="option for option in control.options"></select>
-                    <input ng-switch-when="checkbox" type="checkbox" ng-model="control.value">
-                    <input ng-switch-when="radio" type="radio" ng-model="control.value" value="{{ control.value }}">
-                </div>
-            </div>
+                            <!--<input type="text" class="form-control" ng-model="row[header]">-->
+                        </td>
+                        <td>
+                            <button class="btn btn-xs btn-success" ng-show="!row.editing" ng-click="editCell(row)">Edit</button>
+                            <button class="btn btn-xs btn" style="background-color: #b0b0f3" ng-show="row.editing" ng-click="updateCell(row)">Update</button>
+
+                            <button class="btn btn-xs btn-danger" ng-click="deleteRow($index)">
+                                <i class="fas fa-trash-alt"></i> Delete
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn btn-success" ng-click="saveData()">
+                <i class="fas fa-save"></i> Save
+            </button>
         </div>
-
-        <div class="button-container">
-            <md-button ng-click="prevTab()" ng-disabled="activeTabIndex === 0" class="md-raised md-primary">Previous</md-button>
-            <md-button ng-click="nextTab()" ng-disabled="activeTabIndex === formData.controls.length - 1" class="md-raised md-primary">Next</md-button>
-            <md-button ng-click="generateJson()" class="md-raised md-accent">Generate JSON</md-button>
-        </div>
+        <p ng-bind="tmpResult"></p>
     </div>
-
-    <script>
-        var app = angular.module('myApp', ['ngMaterial']);
-
-        app.controller('FormController', function ($scope, $http) {
-
-            $http.get('formData.json').then(function (response) {
-                $scope.formData = response.data;
-                $scope.$apply();
-            });
-
-            $scope.activeTabIndex = 0;
-
-            $scope.nextTab = function () {
-                $scope.activeTabIndex = Math.min($scope.activeTabIndex + 1, $scope.formData.controls.length - 1);
-            };
-
-            $scope.prevTab = function () {
-                $scope.activeTabIndex = Math.max($scope.activeTabIndex - 1, 0);
-            };
-
-            $scope.generateJson = function () {
-                var jsonOutput = JSON.stringify($scope.formData, null, 2);
-                alert(jsonOutput);
-            };
-        });
-    </script>
-
+   
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="app1.js"></script>
 </body>
-
 </html>

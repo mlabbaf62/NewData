@@ -75,6 +75,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app1.js" />
     <Content Include="Connected Services\SrvInquiry\LoginMain.SrvInquiry.ClsPersonAuthenticationJson.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -89,6 +90,7 @@
     <None Include="Connected Services\SrvInquiry\SrvNationalCodeInquiry2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="GridData.json" />
     <None Include="formData.json" />
     <Content Include="Config\Config.js" />
     <None Include="Connected Services\SrvInquiry\SrvNationalCodeInquiry.disco" />
