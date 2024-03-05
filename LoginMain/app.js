@@ -1,6 +1,24 @@
 ﻿
-angular.module('myApp', [])
+var app = angular.module('myApp', [])
     .controller('myCtrl', function ($scope, $http) {
+
+        this.handleFileSelect = function () {
+            const file = document.querySelector('input[type=file]').files[0];
+            const reader = new FileReader();
+
+            reader.onloadend = function () {
+                $scope.$apply(function () {
+                    this.displayFirst = reader.result;
+                });
+            }
+
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        }
+
+
+
         $scope.currentStep = 0;
 
         // Fetch JSON data from file
@@ -354,7 +372,7 @@ angular.module('myApp', [])
 
             StartBusy('MainDIv', 'در حال ذخیره اطلاعات');
 
-            debugger
+            
 
             $scope.SaveAccountInfo();
 
@@ -387,5 +405,37 @@ angular.module('myApp', [])
             
             $scope.GetAccountInfo(EditAccount);
         }
-
+    
     });
+
+
+
+app.directive('childComponent', function () {
+    return {
+        restrict: 'E',
+        scope: {
+            displayFirst: '=',
+            title: '@'
+        },
+        templateUrl: 'Img.html',
+        link: function (scope, element, attrs) {
+            scope.onFileSelected = function (event) {
+                const file = event.target.files[0];
+                const reader = new FileReader();
+                reader.onload = function (event) {
+                    const base64Image = event.target.result;
+                    scope.displayFirst = base64Image;
+                    scope.$apply();
+                };
+                reader.readAsDataURL(file);
+            };
+        }
+    };
+});
+
+
+
+
+function GetScope() {//GetScope().Account_Info
+    return angular.element(document.getElementById('myCtrlID')).scope();
+}

@@ -259,6 +259,11 @@
 
 
                                     </div>
+
+
+
+
+
                                     <div class="col-md-4 ">
                                         <span class="col-lg-12 col-md-12 col-sm-12 col-xs-12 required">
                                             نام خانوادگی:
@@ -302,12 +307,12 @@
                                             تحصیلات:
                                         </span>
                                         <!--<select class="col-lg-12 col-md-12 col-sm-12 col-xs-12 " tabindex="27" id="OwnerDegree" ng-model="Account_Info.OwnerDegree" ng-options="item for item in Degree">
-                                                         <option value="0" selected="selected">دیپلم</option>
-                    <option value="1">فوق دیپلم</option>
-                    <option value="2">کارشناسی</option>
-                    <option value="3">کارشناسی ارشد</option>
-                    <option value="4">دکترا</option>
-                                                    </select>-->
+                                                 <option value="0" selected="selected">دیپلم</option>
+            <option value="1">فوق دیپلم</option>
+            <option value="2">کارشناسی</option>
+            <option value="3">کارشناسی ارشد</option>
+            <option value="4">دکترا</option>
+                                            </select>-->
                                         <select class="col-lg-12 col-md-12 col-sm-12 col-xs-12 " tabindex="27" id="OwnerDegree"
                                                 ng-options="i.Id as (i.Title ) for i in Degree"
                                                 ng-model="Account_Info.OwnerDegree"></select>
@@ -349,25 +354,11 @@
                                 </div>
 
 
-                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 GamBoxFrame" ng-show="ShowUploadButton">
-
-                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12  infoBox">
-                                        <h2>توجه</h2>
-                                        <ul class="infoBoxUl">
-                                            <li>فرمت فایل باید از نوع عکس (png,jpg) باشد</li>
-                                            <li>تصویر کارت ملی را بارگذاری نمایید.</li>
-                                        </ul>
-
-                                    </div>
-                                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
-                                        <input type="file" onchange="encodeImageFileAsURL(this)" />
-                                    </div>
-
-                                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 ">
-                                        <img id="ownerImage" width="70" style="float: left;" />
-                                    </div>
-                                </div>
-
+    
+                                <child-component class="col-md-6" display-first="Account_Info.Img" title="مدرک را وارد نمایید">
+                                </child-component>
+                                <child-component class="col-md-6" display-first="Account_Info.Img2" title="مدرک شغلی">
+                                </child-component>
 
                             </div>
                             <div id="legalTab" class="tab-pane fade">
@@ -446,11 +437,11 @@
                                     </div>
 
                                     <!--<div class="col-md-4">
-                    <span class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-                        تاریخ تولد:
-                    </span>
-                    <input id="idateBirth" type="text" class="col-lg-12 col-md-12 col-sm-12 col-xs-12  pdatePiker" maxlength="10" value="" ng-model="Account_Info.CEOBirthDate" tabindex="26" />
-                </div>-->
+                                <span class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                                    تاریخ تولد:
+                                </span>
+                                <input id="idateBirth" type="text" class="col-lg-12 col-md-12 col-sm-12 col-xs-12  pdatePiker" maxlength="10" value="" ng-model="Account_Info.CEOBirthDate" tabindex="26" />
+                            </div>-->
 
 
 
@@ -484,7 +475,7 @@
 
                                     </div>
                                     <div class="col-md-4">
-                                      
+
                                         <span class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">جنسیت</span>
 
                                         <input type="radio" name="ipsex" id="isexUserMan" tabindex="18" onclick="ipsex = true" value="true" ng-model="Account_Info.CEOSex" />
@@ -493,7 +484,7 @@
                                         <label for="isexUserMan">زن</label>
 
                                     </div>
-                         
+
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 GamBoxFrame" ng-show="ShowUploadButton">
                                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12  infoBox">
                                             <h2>توجه</h2>
@@ -556,12 +547,15 @@
                                             <input type="text" tabindex="36" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 number" maxlength="10" title="02112345678" value="" ng-model="Account_Info.Fax" id="txt_Fax" />
                                         </div>
 
+                                     
+
+
                                     </div>
                                 </div>
 
 
                             </div>
-                           
+
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12  GamBoxFrame" title="درصورت تایید موارد فوق صحت اطلاعات را تایید نمایید">
 
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12  nopadding">
@@ -585,13 +579,16 @@
                         </div>
                     </div>
 
-                      
-                    </div>
 
-                    <p style="text-align:center" class="footer" id="lblfooterText" ng-bind="FooterText"></p>
                 </div>
 
+                <p style="text-align:center" class="footer" id="lblfooterText" ng-bind="FooterText"></p>
 
+
+            </div>
+
+
+          
         </div>
 
         <script src="../app.js"></script>
@@ -599,10 +596,14 @@
         <script src="../js/Main/CAccount.js"></script>
     </div>
 
-  
-    <script>
-        RequestToken();
-    </script>
-    
+
+
+    <!--<input type="file" accept="image/*" onchange="handleFileSelect(event)">
+    <div>
+        <img id="imagePreview" ng-src="{{Account_Info.Img}}" ng-if="Account_Info.Img" alt="Uploaded Image" style="max-width: 300px; max-height: 300px;">
+        <pre id="output"  ng-bind="Account_Info.Img"></pre>
+    </div>-->
+
+
 </body>
 </html>

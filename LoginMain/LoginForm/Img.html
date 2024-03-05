@@ -1,0 +1,22 @@
+﻿
+
+
+<div class="child-component">
+    <p style="margin:0">  {{title}}</p>
+    <hr class="shadow-hr" />
+    <button onclick="openFilePicker(event)">انتخاب فایل</button>
+
+    <input type="file"style="display:none"   onchange="angular.element(this).scope().onFileSelected(event)" accept="image/*" value="انتخاب فایل">
+    
+    <img ng-src="{{displayFirst}}" style="height:80px" />
+</div>
+<script>
+    function openFilePicker(event) {
+        debugger
+        $(event.currentTarget).next().click();
+       // document.querySelector('input[type=file]').click();
+
+    
+    }
+</script>
+

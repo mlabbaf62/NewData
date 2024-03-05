@@ -104,6 +104,7 @@
     <Content Include="js\Main\CAccount.min.js">
       <DependentUpon>CAccount.js</DependentUpon>
     </Content>
+    <Content Include="LoginForm\Img.html" />
     <Content Include="LoginForm\InquiryNationalCode.html" />
     <Content Include="LoginForm\Method.aspx" />
     <Content Include="styles.css" />
